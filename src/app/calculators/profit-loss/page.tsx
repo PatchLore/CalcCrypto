@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { calculateProfitLoss, formatCurrency, formatPercentage } from '@/lib/formulas';
+import { trackCalculatorCalculation, trackButtonClick } from '@/lib/analytics';
 import type { ProfitLossInput } from '@/types';
 
 export default function ProfitLossCalculator() {
@@ -36,6 +37,14 @@ export default function ProfitLossCalculator() {
         fees,
       });
       setResult(calculation);
+      
+      // Track calculator usage
+      trackCalculatorCalculation('profit-loss', {
+        buyPrice,
+        sellPrice,
+        quantity,
+        fees,
+      });
     }
   };
 
@@ -129,7 +138,10 @@ export default function ProfitLossCalculator() {
                 />
 
                 <Button 
-                  onClick={handleCalculate}
+                  onClick={() => {
+                    trackButtonClick('calculate', 'profit-loss-calculator');
+                    handleCalculate();
+                  }}
                   className="w-full"
                   disabled={!inputs.buyPrice || !inputs.sellPrice || !inputs.quantity}
                 >

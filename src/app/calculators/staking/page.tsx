@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { calculateStaking, formatCurrency, formatPercentage } from '@/lib/formulas';
+import { trackCalculatorCalculation, trackButtonClick } from '@/lib/analytics';
 import type { StakingInput } from '@/types';
 
 export default function StakingCalculator() {
@@ -36,6 +37,14 @@ export default function StakingCalculator() {
         compoundFrequency,
       });
       setResult(calculation);
+      
+      // Track calculator usage
+      trackCalculatorCalculation('staking', {
+        amount,
+        stakingRate,
+        duration,
+        compoundFrequency,
+      });
     }
   };
 
@@ -138,7 +147,10 @@ export default function StakingCalculator() {
                 </div>
 
                 <Button 
-                  onClick={handleCalculate}
+                  onClick={() => {
+                    trackButtonClick('calculate', 'staking-calculator');
+                    handleCalculate();
+                  }}
                   className="w-full"
                   disabled={!inputs.amount || !inputs.stakingRate || !inputs.duration}
                 >

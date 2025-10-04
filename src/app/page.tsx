@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { CALCULATORS, APP_CONFIG } from '@/lib/constants';
+import { trackButtonClick, trackNavigation } from '@/lib/analytics';
 
 export default function Home() {
   const featuredCalculators = CALCULATORS.filter(calc => calc.featured);
@@ -54,6 +55,10 @@ export default function Home() {
                     background: '#ffffff', 
                     color: '#667eea' 
                   }}
+                  onClick={() => {
+                    trackButtonClick('get-started', 'landing-page');
+                    trackNavigation('/calculators');
+                  }}
                 >
                   Get Started
                 </button>
@@ -72,6 +77,10 @@ export default function Home() {
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = 'transparent';
                   }}
+                  onClick={() => {
+                    trackButtonClick('view-all-calculators', 'landing-page');
+                    trackNavigation('/calculators');
+                  }}
                 >
                   View All Calculators
                 </button>
@@ -82,7 +91,15 @@ export default function Home() {
           {/* Calculator Cards Section */}
           <div className="calculator-grid">
             {featuredCalculators.slice(0, 3).map((calculator) => (
-              <Link key={calculator.id} href={calculator.path} className="block">
+              <Link 
+                key={calculator.id} 
+                href={calculator.path} 
+                className="block"
+                onClick={() => {
+                  trackButtonClick(`calculator-${calculator.id}`, 'landing-page');
+                  trackNavigation(calculator.path);
+                }}
+              >
                 <div 
                   className="rounded-2xl border transition-all duration-300 cursor-pointer group h-full flex flex-col items-center justify-center"
                   style={{

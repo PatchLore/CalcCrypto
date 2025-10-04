@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { calculateDCA, formatCurrency, formatPercentage } from '@/lib/formulas';
+import { trackCalculatorCalculation, trackButtonClick } from '@/lib/analytics';
 import type { DCAInput } from '@/types';
 
 export default function DCACalculator() {
@@ -40,6 +41,15 @@ export default function DCACalculator() {
         fees,
       });
       setResult(calculation);
+      
+      // Track calculator usage
+      trackCalculatorCalculation('dca', {
+        amount,
+        timeframe,
+        averagePrice,
+        price,
+        fees,
+      });
     }
   };
   
@@ -142,7 +152,10 @@ export default function DCACalculator() {
                 />
 
                 <Button 
-                  onClick={handleCalculate}
+                  onClick={() => {
+                    trackButtonClick('calculate', 'dca-calculator');
+                    handleCalculate();
+                  }}
                   className="w-full"
                   disabled={!amount || !timeframe || !averagePrice || !price}
                 >

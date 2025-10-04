@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { calculateMining, formatCurrency, formatLargeNumber } from '@/lib/formulas';
+import { trackCalculatorCalculation, trackButtonClick } from '@/lib/analytics';
 import type { MiningInput } from '@/types';
 
 export default function MiningCalculator() {
@@ -42,6 +43,16 @@ export default function MiningCalculator() {
         price,
       });
       setResult(calculation);
+      
+      // Track calculator usage
+      trackCalculatorCalculation('mining', {
+        hashrate,
+        powerConsumption,
+        electricityCost,
+        poolFee,
+        difficulty,
+        price,
+      });
     }
   };
 
@@ -145,7 +156,10 @@ export default function MiningCalculator() {
                 />
 
                 <Button 
-                  onClick={handleCalculate}
+                  onClick={() => {
+                    trackButtonClick('calculate', 'mining-calculator');
+                    handleCalculate();
+                  }}
                   className="w-full"
                   disabled={!inputs.hashrate || !inputs.powerConsumption || !inputs.electricityCost || !inputs.price}
                 >
