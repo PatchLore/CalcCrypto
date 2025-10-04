@@ -1,7 +1,8 @@
 // Google Analytics 4 setup for CrypCal
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
+    gtag: (...args: unknown[]) => void;
+    dataLayer: unknown[];
   }
 }
 
@@ -18,9 +19,9 @@ export const initGA = () => {
     document.head.appendChild(script);
 
     // Initialize gtag
-    window.gtag = function gtag(...args: any[]) {
-      (window as any).dataLayer = (window as any).dataLayer || [];
-      (window as any).dataLayer.push(args);
+    window.gtag = function gtag(...args: unknown[]) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(args);
     };
 
     window.gtag('js', new Date());
@@ -58,18 +59,18 @@ export const trackCalculatorUsage = (calculatorType: string, action: string) => 
 };
 
 // Track specific calculator events
-export const trackCalculatorCalculation = (calculatorType: string, inputs: Record<string, any>) => {
+export const trackCalculatorCalculation = (calculatorType: string, inputs: Record<string, unknown>) => {
   trackEvent('calculation', 'Calculator', calculatorType);
   
   // Track specific calculator metrics
   if (calculatorType === 'profit-loss') {
-    trackEvent('profit_loss_calculation', 'Calculator', 'profit_loss', inputs.quantity);
+    trackEvent('profit_loss_calculation', 'Calculator', 'profit_loss', inputs.quantity as number);
   } else if (calculatorType === 'dca') {
-    trackEvent('dca_calculation', 'Calculator', 'dca', inputs.amount);
+    trackEvent('dca_calculation', 'Calculator', 'dca', inputs.amount as number);
   } else if (calculatorType === 'staking') {
-    trackEvent('staking_calculation', 'Calculator', 'staking', inputs.amount);
+    trackEvent('staking_calculation', 'Calculator', 'staking', inputs.amount as number);
   } else if (calculatorType === 'mining') {
-    trackEvent('mining_calculation', 'Calculator', 'mining', inputs.hashrate);
+    trackEvent('mining_calculation', 'Calculator', 'mining', inputs.hashrate as number);
   }
 };
 
