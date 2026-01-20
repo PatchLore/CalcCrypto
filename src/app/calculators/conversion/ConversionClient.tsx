@@ -277,12 +277,24 @@ export function ConversionClient() {
                     >
                       <optgroup label="Crypto">
                         {CRYPTOS.map((c) => (
-                          <option key={optionKey(c)} value={optionKey(c)}>{optionLabel(c)}</option>
+                          <option
+                            key={optionKey(c)}
+                            value={optionKey(c)}
+                            style={{ color: '#111827', backgroundColor: '#ffffff' }}
+                          >
+                            {optionLabel(c)}
+                          </option>
                         ))}
                       </optgroup>
                       <optgroup label="Fiat">
                         {FIATS.map((f) => (
-                          <option key={optionKey(f)} value={optionKey(f)}>{optionLabel(f)}</option>
+                          <option
+                            key={optionKey(f)}
+                            value={optionKey(f)}
+                            style={{ color: '#111827', backgroundColor: '#ffffff' }}
+                          >
+                            {optionLabel(f)}
+                          </option>
                         ))}
                       </optgroup>
                     </select>
@@ -299,12 +311,24 @@ export function ConversionClient() {
                     >
                       <optgroup label="Crypto">
                         {CRYPTOS.map((c) => (
-                          <option key={optionKey(c)} value={optionKey(c)}>{optionLabel(c)}</option>
+                          <option
+                            key={optionKey(c)}
+                            value={optionKey(c)}
+                            style={{ color: '#111827', backgroundColor: '#ffffff' }}
+                          >
+                            {optionLabel(c)}
+                          </option>
                         ))}
                       </optgroup>
                       <optgroup label="Fiat">
                         {FIATS.map((f) => (
-                          <option key={optionKey(f)} value={optionKey(f)}>{optionLabel(f)}</option>
+                          <option
+                            key={optionKey(f)}
+                            value={optionKey(f)}
+                            style={{ color: '#111827', backgroundColor: '#ffffff' }}
+                          >
+                            {optionLabel(f)}
+                          </option>
                         ))}
                       </optgroup>
                     </select>
