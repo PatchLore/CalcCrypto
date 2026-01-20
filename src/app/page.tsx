@@ -5,21 +5,9 @@ import { CALCULATORS, APP_CONFIG } from '@/lib/constants';
 import { trackButtonClick, trackNavigation } from '@/lib/analytics';
 
 export default function Home() {
-  const calculatorsByCategory = CALCULATORS.reduce((acc, calculator) => {
-    if (!acc[calculator.category]) acc[calculator.category] = [];
-    acc[calculator.category].push(calculator);
-    return acc;
-  }, {} as Record<string, typeof CALCULATORS>);
-
-  const categoryLabels: Record<string, string> = {
-    'profit-loss': 'Trading',
-    'dca': 'Planning',
-    'staking': 'Earning',
-    'mining': 'Mining',
-    'tax': 'Tax',
-    'portfolio': 'Portfolio',
-    'conversion': 'Tools',
-  };
+  const homeCalculators = CALCULATORS.filter((c) =>
+    c.id === 'profit-loss' || c.id === 'dca' || c.id === 'staking'
+  );
 
   return (
     <div className="min-h-screen flex items-center justify-center p-5 overflow-x-hidden" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
@@ -51,13 +39,13 @@ export default function Home() {
             </div>
             
             {/* Main Title */}
-            <h1 className="text-4xl md:text-6xl font-black mb-10 leading-tight" style={{ color: '#ffffff' }}>
-              Your Complete Crypto Calculator Suite
+            <h1 className="text-4xl md:text-6xl font-black mb-10 leading-tight break-words" style={{ color: '#ffffff' }}>
+              Professional Crypto Calculators
             </h1>
             
             {/* Subtitle */}
             <p className="text-lg mb-10 max-w-3xl mx-auto leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-              Track profits, plan DCA strategies, calculate staking rewards, and more.
+              Track profits, plan strategies, and calculate rewards.
             </p>
 
             {/* CTA Buttons */}
@@ -103,58 +91,48 @@ export default function Home() {
           </div>
 
           {/* Calculator Cards Section */}
-          <div className="mt-6 max-w-6xl mx-auto">
-            {Object.entries(calculatorsByCategory).map(([category, calculators]) => (
-              <div key={category} className="mb-10">
-                <div className="mb-4 text-left">
-                  <h3 className="text-xl font-bold" style={{ color: '#ffffff' }}>
-                    {categoryLabels[category] || category}
-                  </h3>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-                  {calculators.map((calculator) => (
-                    <Link
-                      key={calculator.id}
-                      href={calculator.path}
-                      className="block w-full max-w-sm"
-                      onClick={() => {
-                        trackButtonClick(`calculator-${calculator.id}`, 'landing-page');
-                        trackNavigation(calculator.path);
-                      }}
-                    >
-                      <div
-                        className="rounded-2xl border transition-all duration-300 cursor-pointer group h-full w-full flex flex-col items-center justify-center"
-                        style={{
-                          background: 'rgba(255, 255, 255, 0.15)',
-                          borderColor: 'rgba(255, 255, 255, 0.2)',
-                          padding: '30px',
-                          minHeight: '200px'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)';
-                          e.currentTarget.style.transform = 'translateY(-8px)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
-                          e.currentTarget.style.transform = 'translateY(0)';
-                        }}
-                      >
-                        <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                          {calculator.icon}
-                        </div>
-                        <h4 className="font-bold text-lg mb-3 text-center" style={{ color: '#ffffff' }}>
-                          {calculator.name}
-                        </h4>
-                        <p className="text-sm leading-relaxed text-center" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-                          {calculator.description}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className="mt-6 mx-auto w-full" style={{ maxWidth: '1200px' }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+              {homeCalculators.map((calculator) => (
+                <Link
+                  key={calculator.id}
+                  href={calculator.path}
+                  className="block w-full max-w-sm"
+                  onClick={() => {
+                    trackButtonClick(`calculator-${calculator.id}`, 'landing-page');
+                    trackNavigation(calculator.path);
+                  }}
+                >
+                  <div
+                    className="rounded-2xl border transition-all duration-300 cursor-pointer group h-full w-full flex flex-col items-center justify-center"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.15)',
+                      borderColor: 'rgba(255, 255, 255, 0.2)',
+                      padding: '30px',
+                      minHeight: '200px'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)';
+                      e.currentTarget.style.transform = 'translateY(-8px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                    }}
+                  >
+                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {calculator.icon}
+                    </div>
+                    <h4 className="font-bold text-lg mb-3 text-center" style={{ color: '#ffffff' }}>
+                      {calculator.name}
+                    </h4>
+                    <p className="text-sm leading-relaxed text-center" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                      {calculator.description}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
