@@ -10,9 +10,7 @@ export function RiskContextPanel(props: { riskContext: RiskContext | null }) {
         <div className="flex items-start justify-between gap-3">
           <div>
             <div className="text-sm font-semibold text-crypto-foreground">Risk Context</div>
-            <div className="text-xs text-crypto-muted-foreground">Context, not advice</div>
           </div>
-          <div className="text-xs text-crypto-muted-foreground">Phase 2</div>
         </div>
         <div className="mt-3 rounded-md border border-crypto-border bg-crypto-muted/40 p-3 text-sm text-crypto-muted-foreground">
           Load a token snapshot to generate risk context.
@@ -28,7 +26,6 @@ export function RiskContextPanel(props: { riskContext: RiskContext | null }) {
       <div className="flex items-start justify-between gap-3">
         <div>
           <div className="text-sm font-semibold text-crypto-foreground">Risk Context</div>
-          <div className="text-xs text-crypto-muted-foreground">Context, not advice</div>
         </div>
         <div className="flex items-center gap-2">
           <RiskBadge level={riskLevel} />
@@ -41,14 +38,24 @@ export function RiskContextPanel(props: { riskContext: RiskContext | null }) {
       </div>
 
       {warnings.length > 0 && (
-        <ul className="mt-3 list-disc pl-5 text-sm text-crypto-muted-foreground space-y-1">
+        <ul className="mt-3 list-disc pl-5 text-sm text-crypto-muted-foreground space-y-1 break-words whitespace-normal">
           {warnings.map((w) => (
-            <li key={w}>{w}</li>
+            <li key={w} className="break-words whitespace-normal">
+              {presentWarning(w)}
+            </li>
           ))}
         </ul>
       )}
     </section>
   );
+}
+
+function presentWarning(warning: string): string {
+  // Presentation-only copy mapping. Risk scoring and thresholds remain unchanged.
+  if (warning === 'Very low liquidity relative to FDV (liq/FDV < 0.002).') {
+    return 'Liquidity is low relative to overall valuation (FDV) (liq/FDV < 0.002).';
+  }
+  return warning;
 }
 
 function RiskBadge(props: { level: RiskContext['riskLevel'] }) {

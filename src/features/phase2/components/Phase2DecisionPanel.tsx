@@ -40,7 +40,7 @@ export function Phase2DecisionPanel(props: { calculator: 'token-price' }) {
     <section className="mt-8 rounded-xl border border-crypto-border bg-crypto-background/80 p-4">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
-          <div className="text-sm font-semibold text-crypto-foreground">Phase 2 — Decision Context</div>
+          <div className="text-sm font-semibold text-crypto-foreground">Decision Context</div>
           <div className="text-xs text-crypto-muted-foreground">Read-only • Deterministic rules • Context, not advice</div>
         </div>
         <button

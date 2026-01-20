@@ -84,9 +84,8 @@ export function TokenSnapshotPanel(props: {
       <div className="flex items-start justify-between gap-3">
         <div>
           <div className="text-sm font-semibold text-crypto-foreground">Token Snapshot</div>
-          <div className="text-xs text-crypto-muted-foreground">Ethereum • Read-only</div>
+          <div className="text-xs text-crypto-muted-foreground">Ethereum</div>
         </div>
-        <div className="text-xs text-crypto-muted-foreground">Phase 2</div>
       </div>
 
       {!isValidOrEmpty && (
