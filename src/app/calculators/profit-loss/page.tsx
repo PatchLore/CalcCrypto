@@ -265,6 +265,21 @@ export default function ProfitLossCalculator() {
               </div>
             </CardContent>
           </Card>
+
+          {/* Phase 2 explanation (informational only) */}
+          <section className="mt-8 border-t border-crypto-border pt-6">
+            <h3 className="text-lg font-semibold text-crypto-foreground">What is Risk Context?</h3>
+            <p className="mt-2 text-sm text-crypto-muted-foreground">
+              Risk Context helps explain what the numbers mean using live market data like liquidity, trading volume, and fully diluted value.
+            </p>
+            <p className="mt-2 text-sm text-crypto-muted-foreground">
+              It does not predict prices or tell you what to do.
+              It adds context — clearly and deterministically — so you can interpret results more confidently.
+            </p>
+            <div className="mt-3 text-xs text-crypto-muted-foreground">
+              Context only. Not financial advice.
+            </div>
+          </section>
         </div>
       </div>
     </div>
