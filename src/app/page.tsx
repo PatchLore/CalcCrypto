@@ -5,7 +5,21 @@ import { CALCULATORS, APP_CONFIG } from '@/lib/constants';
 import { trackButtonClick, trackNavigation } from '@/lib/analytics';
 
 export default function Home() {
-  const featuredCalculators = CALCULATORS.filter(calc => calc.featured);
+  const calculatorsByCategory = CALCULATORS.reduce((acc, calculator) => {
+    if (!acc[calculator.category]) acc[calculator.category] = [];
+    acc[calculator.category].push(calculator);
+    return acc;
+  }, {} as Record<string, typeof CALCULATORS>);
+
+  const categoryLabels: Record<string, string> = {
+    'profit-loss': 'Trading',
+    'dca': 'Planning',
+    'staking': 'Earning',
+    'mining': 'Mining',
+    'tax': 'Tax',
+    'portfolio': 'Portfolio',
+    'conversion': 'Tools',
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center p-5 overflow-x-hidden" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
@@ -38,12 +52,12 @@ export default function Home() {
             
             {/* Main Title */}
             <h1 className="text-4xl md:text-6xl font-black mb-10 leading-tight" style={{ color: '#ffffff' }}>
-              Professional Crypto Calculators
+              Crypto calculators with decision context — read-only, no advice
             </h1>
             
             {/* Subtitle */}
             <p className="text-xl mb-10 max-w-3xl mx-auto leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-              Calculate profits, losses, DCA strategies, staking rewards, and more with our comprehensive suite of cryptocurrency calculators.
+              Deterministic calculations plus market-structure context like liquidity and volume. No wallets, no accounts, no transactions — just clear numbers and clear boundaries.
             </p>
 
             {/* CTA Buttons */}
@@ -90,49 +104,56 @@ export default function Home() {
 
           {/* Calculator Cards Section */}
           <div className="calculator-grid">
-            {featuredCalculators.slice(0, 3).map((calculator) => (
-              <Link 
-                key={calculator.id} 
-                href={calculator.path} 
-                className="block"
-                onClick={() => {
-                  trackButtonClick(`calculator-${calculator.id}`, 'landing-page');
-                  trackNavigation(calculator.path);
-                }}
-              >
-                <div 
-                  className="rounded-2xl border transition-all duration-300 cursor-pointer group h-full flex flex-col items-center justify-center"
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.15)',
-                    borderColor: 'rgba(255, 255, 255, 0.2)',
-                    padding: '30px',
-                    minHeight: '200px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)';
-                    e.currentTarget.style.transform = 'translateY(-8px)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                  }}
-                >
-                  {/* Emoji Icon */}
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {calculator.icon}
-                  </div>
-                  
-                  {/* Card Title */}
-                  <h3 className="font-bold text-lg mb-3 text-center" style={{ color: '#ffffff' }}>
-                    {calculator.name}
+            {Object.entries(calculatorsByCategory).map(([category, calculators]) => (
+              <div key={category} className="col-span-full">
+                <div className="mb-4 text-left">
+                  <h3 className="text-xl font-bold" style={{ color: '#ffffff' }}>
+                    {categoryLabels[category] || category}
                   </h3>
-                  
-                  {/* Description */}
-                  <p className="text-sm leading-relaxed text-center" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-                    {calculator.description}
-                  </p>
                 </div>
-              </Link>
+
+                <div className="calculator-grid">
+                  {calculators.map((calculator) => (
+                    <Link
+                      key={calculator.id}
+                      href={calculator.path}
+                      className="block"
+                      onClick={() => {
+                        trackButtonClick(`calculator-${calculator.id}`, 'landing-page');
+                        trackNavigation(calculator.path);
+                      }}
+                    >
+                      <div
+                        className="rounded-2xl border transition-all duration-300 cursor-pointer group h-full flex flex-col items-center justify-center"
+                        style={{
+                          background: 'rgba(255, 255, 255, 0.15)',
+                          borderColor: 'rgba(255, 255, 255, 0.2)',
+                          padding: '30px',
+                          minHeight: '200px'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)';
+                          e.currentTarget.style.transform = 'translateY(-8px)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+                          e.currentTarget.style.transform = 'translateY(0)';
+                        }}
+                      >
+                        <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                          {calculator.icon}
+                        </div>
+                        <h4 className="font-bold text-lg mb-3 text-center" style={{ color: '#ffffff' }}>
+                          {calculator.name}
+                        </h4>
+                        <p className="text-sm leading-relaxed text-center" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                          {calculator.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -177,6 +198,78 @@ export default function Home() {
           </div>
         </div>
 
+        {/* FAQ */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-black" style={{ color: '#ffffff' }}>FAQ</h3>
+            <p className="mt-2 text-sm" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+              Quick answers to common questions.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div
+              className="rounded-2xl border p-5"
+              style={{ background: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.2)' }}
+            >
+              <div className="font-bold" style={{ color: '#ffffff' }}>Is CrypCal free?</div>
+              <div className="mt-1 text-sm" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                Yes. CrypCal is free to use.
+              </div>
+            </div>
+
+            <div
+              className="rounded-2xl border p-5"
+              style={{ background: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.2)' }}
+            >
+              <div className="font-bold" style={{ color: '#ffffff' }}>Does CrypCal give financial advice?</div>
+              <div className="mt-1 text-sm" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                No. It provides calculations and read-only context only.
+              </div>
+            </div>
+
+            <div
+              className="rounded-2xl border p-5"
+              style={{ background: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.2)' }}
+            >
+              <div className="font-bold" style={{ color: '#ffffff' }}>Do you connect wallets?</div>
+              <div className="mt-1 text-sm" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                No. CrypCal does not connect wallets or perform transactions.
+              </div>
+            </div>
+
+            <div
+              className="rounded-2xl border p-5"
+              style={{ background: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.2)' }}
+            >
+              <div className="font-bold" style={{ color: '#ffffff' }}>Where does the market data come from?</div>
+              <div className="mt-1 text-sm" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                When shown, it comes from public third-party sources (for example, DexScreener) and is read-only.
+              </div>
+            </div>
+
+            <div
+              className="rounded-2xl border p-5"
+              style={{ background: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.2)' }}
+            >
+              <div className="font-bold" style={{ color: '#ffffff' }}>Is my data stored?</div>
+              <div className="mt-1 text-sm" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                CrypCal does not require accounts and does not store your calculator inputs.
+              </div>
+            </div>
+
+            <div
+              className="rounded-2xl border p-5"
+              style={{ background: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.2)' }}
+            >
+              <div className="font-bold" style={{ color: '#ffffff' }}>Are the results guaranteed to be accurate?</div>
+              <div className="mt-1 text-sm" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                Results depend on your inputs and assumptions. Market data may be delayed or incomplete.
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Footer */}
         <footer className="mt-16 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
@@ -184,7 +277,7 @@ export default function Home() {
             <span className="font-bold text-xl" style={{ color: '#ffffff' }}>{APP_CONFIG.name}</span>
           </div>
           <p className="text-sm" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
-            © 2024 {APP_CONFIG.name}. Professional crypto calculators for traders and investors.
+            © 2025 CrypCal. Professional crypto calculators for traders and investors.
           </p>
         </footer>
       </div>

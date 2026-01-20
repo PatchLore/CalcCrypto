@@ -36,38 +36,106 @@ export default function AboutPage() {
             <div className="text-6xl mb-4">ℹ️</div>
             <h2 className="text-4xl font-bold text-crypto-foreground mb-3">About CrypCal</h2>
             <p className="text-lg text-crypto-muted-foreground">
-              Simple, fast crypto calculators designed to help you understand numbers clearly.
+              A practical, read-only set of crypto calculators and context tools.
             </p>
           </div>
 
           <Card>
             <CardHeader>
-              <CardTitle>What this site is</CardTitle>
-              <CardDescription>Crypto calculators and tools for quick estimation.</CardDescription>
+              <CardTitle>What is CrypCal?</CardTitle>
+              <CardDescription>A simple web app for deterministic crypto calculations.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4 text-crypto-muted-foreground">
               <p>
-                CrypCal provides browser-based calculators for common crypto scenarios like profit/loss, DCA, staking,
-                and mining. The focus is on clarity and speed: enter inputs, see outputs immediately.
+                CrypCal is an independent tool for exploring common crypto scenarios (profit/loss, DCA, staking, mining)
+                using straightforward inputs and deterministic calculations.
               </p>
               <p>
-                Results are informational and should be validated before making financial decisions.
+                It is designed to be easy to understand: you enter numbers, it shows the result and a transparent
+                breakdown where applicable.
               </p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle>Privacy</CardTitle>
-              <CardDescription>Designed to keep your inputs on your device.</CardDescription>
+              <CardTitle>Why it was built</CardTitle>
+              <CardDescription>To make common crypto math faster to check and easier to interpret.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4 text-crypto-muted-foreground">
               <p>
-                Calculator inputs are processed locally in the browser. We do not ask you to connect a wallet.
+                Many crypto tools either hide assumptions, require sign-ups, or mix analysis with promotional messaging.
+                CrypCal exists to provide a clean baseline: deterministic calculations plus optional, read-only context.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>How it’s different from other crypto tools</CardTitle>
+              <CardDescription>Focused on clarity, determinism, and minimal data collection.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4 text-crypto-muted-foreground">
+              <ul className="list-disc list-inside space-y-2">
+                <li>
+                  <strong>Independent and read-only:</strong> no wallets, no transactions, no account required.
+                </li>
+                <li>
+                  <strong>Deterministic calculations:</strong> same inputs produce the same outputs.
+                </li>
+                <li>
+                  <strong>Optional context:</strong> some features may fetch public market structure data (for example,
+                  liquidity and volume) to help explain what the numbers mean.
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>What it does NOT do</CardTitle>
+              <CardDescription>Important boundaries to keep the tool safe and understandable.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4 text-crypto-muted-foreground">
+              <ul className="list-disc list-inside space-y-2">
+                <li>No financial, investment, tax, or legal advice</li>
+                <li>No predictions or forecasts</li>
+                <li>No trading signals or recommendations</li>
+                <li>No wallet connections or asset management</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Transparency & limitations</CardTitle>
+              <CardDescription>How to interpret results responsibly.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4 text-crypto-muted-foreground">
+              <p>
+                Results depend on the inputs you provide and the assumptions each calculator uses. When market data is
+                displayed, it comes from public third-party sources and may be delayed, incomplete, or temporarily
+                unavailable.
               </p>
               <p>
-                Basic analytics may be used to understand usage patterns and improve the product.
+                Use CrypCal as a reference for understanding numbers — and validate important decisions with multiple
+                sources.
               </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Privacy & data handling</CardTitle>
+              <CardDescription>Designed to minimize data collection.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4 text-crypto-muted-foreground">
+              <ul className="list-disc list-inside space-y-2">
+                <li>No accounts</li>
+                <li>No wallets</li>
+                <li>No storing of your calculator inputs</li>
+                <li>No tracking designed to identify you as an individual</li>
+              </ul>
             </CardContent>
           </Card>
 
