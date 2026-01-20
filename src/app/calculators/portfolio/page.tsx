@@ -1,7 +1,25 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
+
+const title = 'Portfolio Tracker | Free Crypto Calculator – CrypCal';
+const description = 'Track and review a crypto portfolio using a simple, read-only interface designed for clarity. Outputs are deterministic based on your inputs.';
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: {
+    canonical: '/calculators/portfolio',
+  },
+  openGraph: {
+    title,
+    description,
+  },
+  twitter: {
+    title,
+    description,
+  },
+};
 
 export default function PortfolioTracker() {
   return (
@@ -12,9 +30,9 @@ export default function PortfolioTracker() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <div className="text-2xl">₿</div>
-              <h1 className="text-2xl font-bold text-crypto-primary-600 dark:text-crypto-primary-400">
+              <div className="text-2xl font-bold text-crypto-primary-600 dark:text-crypto-primary-400">
                 CrypCal
-              </h1>
+              </div>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
               <Link href="/" className="text-crypto-foreground hover:text-crypto-primary-600 transition-colors">
@@ -34,9 +52,9 @@ export default function PortfolioTracker() {
           {/* Page Header */}
           <div className="text-center mb-12">
             <div className="text-6xl mb-4">📊</div>
-            <h2 className="text-4xl font-bold text-crypto-foreground mb-4">
+            <h1 className="text-4xl font-bold text-crypto-foreground mb-4">
               Portfolio Tracker
-            </h2>
+            </h1>
             <p className="text-xl text-crypto-muted-foreground">
               Track and analyze your cryptocurrency portfolio performance.
             </p>

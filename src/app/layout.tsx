@@ -16,8 +16,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CrypCal - Professional Crypto Calculators",
-  description: "Professional cryptocurrency calculators for traders and investors. Calculate profits, DCA strategies, staking rewards, and more.",
+  title: "CrypCal | Free crypto calculators • No signup • Privacy-first",
+  description: "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
   keywords: ["cryptocurrency", "calculator", "trading", "bitcoin", "ethereum", "profit", "loss", "DCA", "staking"],
   authors: [{ name: "CrypCal Team" }],
   creator: "CrypCal",
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL('https://crypcal.com'),
   openGraph: {
-    title: "CrypCal - Professional Crypto Calculators",
-    description: "Professional cryptocurrency calculators for traders and investors",
+    title: "CrypCal | Free crypto calculators • No signup • Privacy-first",
+    description: "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
     url: "https://crypcal.com",
     siteName: "CrypCal",
     locale: "en_US",
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CrypCal - Professional Crypto Calculators",
-    description: "Professional cryptocurrency calculators for traders and investors",
+    title: "CrypCal | Free crypto calculators • No signup • Privacy-first",
+    description: "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
     creator: "@crypcal",
   },
   robots: {

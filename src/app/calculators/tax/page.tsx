@@ -1,7 +1,25 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
+
+const title = 'Tax Calculator | Free Crypto Calculator – CrypCal';
+const description = 'Estimate crypto tax and capital gains implications using clear inputs and deterministic calculations. This tool is read-only and does not provide advice.';
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: {
+    canonical: '/calculators/tax',
+  },
+  openGraph: {
+    title,
+    description,
+  },
+  twitter: {
+    title,
+    description,
+  },
+};
 
 export default function TaxCalculator() {
   return (
@@ -12,9 +30,9 @@ export default function TaxCalculator() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <div className="text-2xl">₿</div>
-              <h1 className="text-2xl font-bold text-crypto-primary-600 dark:text-crypto-primary-400">
+              <div className="text-2xl font-bold text-crypto-primary-600 dark:text-crypto-primary-400">
                 CrypCal
-              </h1>
+              </div>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
               <Link href="/" className="text-crypto-foreground hover:text-crypto-primary-600 transition-colors">
@@ -34,9 +52,9 @@ export default function TaxCalculator() {
           {/* Page Header */}
           <div className="text-center mb-12">
             <div className="text-6xl mb-4">🧾</div>
-            <h2 className="text-4xl font-bold text-crypto-foreground mb-4">
+            <h1 className="text-4xl font-bold text-crypto-foreground mb-4">
               Tax Calculator
-            </h2>
+            </h1>
             <p className="text-xl text-crypto-muted-foreground">
               Calculate crypto tax implications and capital gains.
             </p>
