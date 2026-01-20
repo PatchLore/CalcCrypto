@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -62,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased min-h-screen bg-crypto-background text-crypto-foreground`}
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased min-h-screen bg-crypto-background text-crypto-foreground flex flex-col`}
       >
         {/* Google Analytics */}
         <Script
@@ -78,7 +79,22 @@ export default function RootLayout({
           `}
         </Script>
         <GoogleAnalytics />
-        {children}
+        <main className="flex-1">{children}</main>
+        <footer className="border-t border-crypto-border bg-crypto-background/80 backdrop-blur-sm">
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-crypto-muted-foreground">
+              <div>© {new Date().getFullYear()} CrypCal</div>
+              <div className="flex items-center gap-4">
+                <Link href="/privacy" className="hover:text-crypto-foreground transition-colors">
+                  Privacy Policy
+                </Link>
+                <Link href="/terms" className="hover:text-crypto-foreground transition-colors">
+                  Terms of Service
+                </Link>
+              </div>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
