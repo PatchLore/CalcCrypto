@@ -28,7 +28,9 @@ export default function CalculatorsPage() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <div className="text-2xl gold-accent rounded-lg p-2">₿</div>
+              <div className="text-sm font-bold text-primary rounded-lg px-3 py-2 border border-crypto-border/60 bg-crypto-background/60">
+                CC
+              </div>
               <h1 className="text-2xl font-bold text-primary">
                 CrypCal
               </h1>
@@ -55,14 +57,14 @@ export default function CalculatorsPage() {
             All Calculators
           </h2>
           <p className="text-xl text-secondary max-w-2xl mx-auto">
-            Choose from our comprehensive suite of cryptocurrency calculators designed for traders, investors, and enthusiasts.
+            Simple, accurate crypto calculators — no accounts, no advice.
           </p>
         </div>
 
         {/* Calculators by Category */}
         {Object.entries(calculatorsByCategory).map(([category, calculators]) => (
           <div key={category} className="mb-12">
-            <h3 className="text-2xl font-semibold text-primary mb-6">
+            <h3 className="text-sm font-semibold tracking-wide uppercase text-secondary/80 mb-4">
               {categoryLabels[category as keyof typeof categoryLabels] || category}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -74,23 +76,11 @@ export default function CalculatorsPage() {
                       <CardTitle className="group-hover:text-yellow-300 transition-colors">
                         {calculator.name}
                       </CardTitle>
-                      <CardDescription>
+                      <CardDescription className="truncate" title={calculator.description}>
                         {calculator.description}
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <div className="space-y-2 mb-4">
-                        <div className="text-sm font-medium text-primary">Inputs:</div>
-                        <div className="text-sm text-tertiary">
-                          {calculator.inputs.join(', ')}
-                        </div>
-                      </div>
-                      <div className="space-y-2 mb-6">
-                        <div className="text-sm font-medium text-primary">Outputs:</div>
-                        <div className="text-sm text-tertiary">
-                          {calculator.outputs.join(', ')}
-                        </div>
-                      </div>
                       <div className="btn-primary w-full text-center">
                         Use Calculator
                       </div>
