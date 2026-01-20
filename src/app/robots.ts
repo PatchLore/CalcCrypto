@@ -8,8 +8,8 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://crypcal.com/sitemap.xml',
-    host: 'https://crypcal.com',
+    sitemap: 'https://www.calccrypto.com/sitemap.xml',
+    host: 'https://www.calccrypto.com',
   };
 }
 

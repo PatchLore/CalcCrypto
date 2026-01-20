@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { CALCULATORS } from '@/lib/constants';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://crypcal.com';
+  const baseUrl = 'https://www.calccrypto.com';
   const now = new Date();
 
   const staticRoutes = [
