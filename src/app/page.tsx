@@ -262,9 +262,9 @@ export default function Home() {
               className="rounded-2xl border p-5"
               style={{ background: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.2)' }}
             >
-              <div className="font-bold" style={{ color: '#ffffff' }}>Are the results guaranteed to be accurate?</div>
+              <div className="font-bold" style={{ color: '#ffffff' }}>Who is CrypCal for?</div>
               <div className="mt-1 text-sm" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-                Results depend on your inputs and assumptions. Market data may be delayed or incomplete.
+                Anyone who wants quick, clear calculations and read-only context—without wallets, accounts, or advice.
               </div>
             </div>
           </div>
