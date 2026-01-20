@@ -52,12 +52,12 @@ export default function Home() {
             
             {/* Main Title */}
             <h1 className="text-4xl md:text-6xl font-black mb-10 leading-tight" style={{ color: '#ffffff' }}>
-              Crypto calculators with decision context — read-only, no advice
+              Your Complete Crypto Calculator Suite
             </h1>
             
             {/* Subtitle */}
-            <p className="text-xl mb-10 max-w-3xl mx-auto leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-              Deterministic calculations plus market-structure context like liquidity and volume. No wallets, no accounts, no transactions — just clear numbers and clear boundaries.
+            <p className="text-lg mb-10 max-w-3xl mx-auto leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+              Track profits, plan DCA strategies, calculate staking rewards, and more.
             </p>
 
             {/* CTA Buttons */}
@@ -77,7 +77,7 @@ export default function Home() {
                   Get Started
                 </button>
               </Link>
-              <Link href="/calculators">
+              <Link href="/about">
                 <button 
                   className="px-10 py-4 font-bold text-lg rounded-xl border-2 hover:-translate-y-1 transition-all duration-300"
                   style={{ 
@@ -92,39 +92,39 @@ export default function Home() {
                     e.currentTarget.style.background = 'transparent';
                   }}
                   onClick={() => {
-                    trackButtonClick('view-all-calculators', 'landing-page');
-                    trackNavigation('/calculators');
+                    trackButtonClick('learn-more', 'landing-page');
+                    trackNavigation('/about');
                   }}
                 >
-                  View All Calculators
+                  Learn More
                 </button>
               </Link>
             </div>
           </div>
 
           {/* Calculator Cards Section */}
-          <div className="calculator-grid">
+          <div className="mt-6 max-w-6xl mx-auto">
             {Object.entries(calculatorsByCategory).map(([category, calculators]) => (
-              <div key={category} className="col-span-full">
+              <div key={category} className="mb-10">
                 <div className="mb-4 text-left">
                   <h3 className="text-xl font-bold" style={{ color: '#ffffff' }}>
                     {categoryLabels[category] || category}
                   </h3>
                 </div>
 
-                <div className="calculator-grid">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
                   {calculators.map((calculator) => (
                     <Link
                       key={calculator.id}
                       href={calculator.path}
-                      className="block"
+                      className="block w-full max-w-sm"
                       onClick={() => {
                         trackButtonClick(`calculator-${calculator.id}`, 'landing-page');
                         trackNavigation(calculator.path);
                       }}
                     >
                       <div
-                        className="rounded-2xl border transition-all duration-300 cursor-pointer group h-full flex flex-col items-center justify-center"
+                        className="rounded-2xl border transition-all duration-300 cursor-pointer group h-full w-full flex flex-col items-center justify-center"
                         style={{
                           background: 'rgba(255, 255, 255, 0.15)',
                           borderColor: 'rgba(255, 255, 255, 0.2)',
@@ -273,11 +273,10 @@ export default function Home() {
         {/* Footer */}
         <footer className="mt-16 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="text-2xl">₿</div>
-            <span className="font-bold text-xl" style={{ color: '#ffffff' }}>{APP_CONFIG.name}</span>
+            <span className="font-bold text-xl" style={{ color: '#ffffff' }}>CrypCal</span>
           </div>
           <p className="text-sm" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
-            © 2025 CrypCal. Professional crypto calculators for traders and investors.
+            © 2025 CrypCal. All rights reserved.
           </p>
         </footer>
       </div>
