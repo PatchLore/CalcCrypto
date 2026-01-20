@@ -16,6 +16,17 @@ export const CALCULATORS: CalculatorConfig[] = [
     featured: true,
   },
   {
+    id: 'position-size',
+    name: 'Position Size Calculator',
+    description: 'Calculate how much to buy based on risk tolerance and stop-loss.',
+    category: 'profit-loss',
+    icon: '🎯',
+    path: '/calculators/position-size',
+    inputs: ['Account Size (USD)', 'Risk Per Trade (%)', 'Entry Price (USD)', 'Stop-Loss Price (USD)'],
+    outputs: ['Position Size (units)', 'Dollar Amount to Invest', 'Maximum Loss (stop-loss hit)'],
+    featured: true,
+  },
+  {
     id: 'dca',
     name: 'DCA Calculator',
     description: 'Dollar Cost Averaging strategy calculator',
