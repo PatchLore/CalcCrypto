@@ -1,13 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { calculateProfitLoss, formatCurrency, formatPercentage } from '@/lib/formulas';
 import { trackCalculatorCalculation, trackButtonClick } from '@/lib/analytics';
+import { FEATURE_FLAGS } from '@/features/phase2/config';
 import type { ProfitLossInput } from '@/types';
+
+const LazyPhase2DecisionPanel = React.lazy(async () => {
+  const mod = await import('@/features/phase2/components/Phase2DecisionPanel');
+  return { default: mod.Phase2DecisionPanel };
+});
 
 export default function ProfitLossCalculator() {
   const [inputs, setInputs] = useState<Record<keyof ProfitLossInput, string>>({
@@ -266,6 +272,18 @@ export default function ProfitLossCalculator() {
             </CardContent>
           </Card>
 
+          {/* Phase 2 (optional, non-blocking) */}
+          {FEATURE_FLAGS.PHASE_2_ENABLED && (
+            <Suspense
+              fallback={
+                <div className="mt-8 rounded-xl border border-crypto-border bg-crypto-background/80 p-4 text-sm text-crypto-muted-foreground">
+                  Loading Phase 2 panels…
+                </div>
+              }
+            >
+              <LazyPhase2DecisionPanel calculator="token-price" />
+            </Suspense>
+          )}
           {/* Phase 2 explanation (informational only) */}
           <section className="mt-8 border-t border-crypto-border pt-6">
             <h3 className="text-lg font-semibold text-crypto-foreground">What is Risk Context?</h3>
