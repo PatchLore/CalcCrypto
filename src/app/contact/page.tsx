@@ -46,10 +46,10 @@ export default function ContactPage() {
             </CardHeader>
             <CardContent className="text-crypto-muted-foreground">
               <a
-                href="mailto:contact@calccrypto.com"
+                href="mailto:crypcal@mail.com"
                 className="text-crypto-foreground underline underline-offset-4 hover:text-crypto-primary-600 transition-colors"
               >
-                contact@calccrypto.com
+                crypcal@mail.com
               </a>
             </CardContent>
           </Card>

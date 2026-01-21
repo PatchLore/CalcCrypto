@@ -6,7 +6,7 @@
 
 import React, { FormEvent, useState } from 'react';
 
-const SUPPORT_EMAIL = 'support@crypcal.com';
+const SUPPORT_EMAIL = 'crypcal@mail.com';
 
 function FeedbackForm() {
   const [message, setMessage] = useState('');

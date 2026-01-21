@@ -212,7 +212,7 @@ export const APP_CONFIG = {
   version: '1.0.0',
   author: 'CrypCal Team',
   website: 'https://crypcal.com',
-  supportEmail: 'support@crypcal.com',
+  supportEmail: 'crypcal@mail.com',
   social: {
     twitter: '@crypcal',
     github: 'crypcal',

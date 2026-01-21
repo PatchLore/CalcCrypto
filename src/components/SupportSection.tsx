@@ -49,7 +49,7 @@ function SupportSection() {
             Interested in sponsoring development, suggesting new calculators, or
             exploring enterprise use?
             <br />
-            Contact: support@crypcal.com
+            Contact: crypcal@mail.com
           </p>
           <p className="text-[11px] text-crypto-muted-foreground">
             CrypCal will remain free, privacy-first, and independent.
