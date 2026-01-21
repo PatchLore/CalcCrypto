@@ -1,20 +1,19 @@
 /* Feedback form for user suggestions and calculator ideas.
- * Privacy-first: no accounts, no tracking, no server-side storage.
- * Submissions are sent via the user's email client using a mailto: link.
+ * Privacy-first: no accounts, no tracking. Submissions are sent via
+ * a server-side email handler (Resend) to avoid exposing the inbox.
  */
 'use client';
 
 import React, { FormEvent, useState } from 'react';
-
-const SUPPORT_EMAIL = 'crypcal@mail.com';
 
 function FeedbackForm() {
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError(null);
     setSubmitted(false);
@@ -25,24 +24,36 @@ function FeedbackForm() {
       return;
     }
 
-    const subject = 'CrypCal feedback / calculator idea';
-    const bodyLines = [
-      trimmedMessage,
-      '',
-      email.trim() ? `Reply email (optional): ${email.trim()}` : '',
-    ].filter(Boolean);
+    try {
+      setIsSubmitting(true);
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: trimmedMessage,
+          email: email.trim() || undefined,
+        }),
+      });
 
-    const body = bodyLines.join('\n');
-    const mailtoUrl = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || 'Unable to send feedback.');
+      }
 
-    // Trigger the user's email client without storing data on our side.
-    if (typeof window !== 'undefined') {
-      window.location.href = mailtoUrl;
+      setSubmitted(true);
+      setMessage('');
+      setEmail('');
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'Something went wrong. Please try again later.',
+      );
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setSubmitted(true);
   };
 
   return (
@@ -112,9 +123,10 @@ function FeedbackForm() {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="inline-flex items-center rounded-md bg-crypto-accent px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-colors hover:bg-crypto-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crypto-accent focus-visible:ring-offset-2 focus-visible:ring-offset-crypto-background"
+            disabled={isSubmitting}
+            className="inline-flex items-center rounded-md bg-crypto-accent px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-colors hover:bg-crypto-accent/90 disabled:opacity-70 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crypto-accent focus-visible:ring-offset-2 focus-visible:ring-offset-crypto-background"
           >
-            Send feedback
+            {isSubmitting ? 'Sending…' : 'Send feedback'}
           </button>
         </div>
       </form>
