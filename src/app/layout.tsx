@@ -4,6 +4,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import FeedbackForm from "@/components/FeedbackForm";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,8 +18,19 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "CrypCal | Free crypto calculators • No signup • Privacy-first",
-  description: "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
-  keywords: ["cryptocurrency", "calculator", "trading", "bitcoin", "ethereum", "profit", "loss", "DCA", "staking"],
+  description:
+    "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
+  keywords: [
+    "cryptocurrency",
+    "calculator",
+    "trading",
+    "bitcoin",
+    "ethereum",
+    "profit",
+    "loss",
+    "DCA",
+    "staking",
+  ],
   authors: [{ name: "CrypCal Team" }],
   creator: "CrypCal",
   publisher: "CrypCal",
@@ -27,10 +39,11 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://www.calccrypto.com'),
+  metadataBase: new URL("https://www.calccrypto.com"),
   openGraph: {
     title: "CrypCal | Free crypto calculators • No signup • Privacy-first",
-    description: "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
+    description:
+      "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
     url: "https://www.calccrypto.com",
     siteName: "CrypCal",
     locale: "en_US",
@@ -39,7 +52,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "CrypCal | Free crypto calculators • No signup • Privacy-first",
-    description: "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
+    description:
+      "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
     creator: "@crypcal",
   },
   robots: {
@@ -82,15 +96,24 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <footer className="border-t border-crypto-border bg-crypto-background/80 backdrop-blur-sm">
           <div className="container mx-auto px-4 py-6">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-crypto-muted-foreground">
-              <div>© 2025 CrypCal. All rights reserved.</div>
-              <div className="flex items-center gap-4">
-                <Link href="/privacy" className="hover:text-crypto-foreground transition-colors">
-                  Privacy Policy
-                </Link>
-                <Link href="/terms" className="hover:text-crypto-foreground transition-colors">
-                  Terms of Service
-                </Link>
+            <div className="flex flex-col gap-4 text-sm text-crypto-muted-foreground">
+              <FeedbackForm />
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div>© 2025 CrypCal. All rights reserved.</div>
+                <div className="flex items-center gap-4">
+                  <Link
+                    href="/privacy"
+                    className="hover:text-crypto-foreground transition-colors"
+                  >
+                    Privacy Policy
+                  </Link>
+                  <Link
+                    href="/terms"
+                    className="hover:text-crypto-foreground transition-colors"
+                  >
+                    Terms of Service
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
