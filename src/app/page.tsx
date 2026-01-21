@@ -62,7 +62,7 @@ export default function Home() {
                     trackNavigation('/calculators');
                   }}
                 >
-                  Get Started
+                  All Calculators
                 </button>
               </Link>
               <Link href="/about">

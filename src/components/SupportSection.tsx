@@ -3,11 +3,14 @@
 import React, { useState } from "react";
 
 const BASE_ENS = "calcrypto.base.eth";
+const BASE_ADDRESS = "0xe3fEa701474D04AC566bfE59C768fa265C313150";
 const SOL_ADDRESS = "HeBkqewaL7dFtcHGhjBFxXz8ZPJCcEf1PRfBRQRX9vnX";
 
 function SupportSection() {
   const [baseCopied, setBaseCopied] = useState(false);
   const [solCopied, setSolCopied] = useState(false);
+  const [showBaseQr, setShowBaseQr] = useState(false);
+  const [showSolQr, setShowSolQr] = useState(false);
 
   const handleCopy = async (value: string, type: "base" | "sol") => {
     try {
@@ -72,17 +75,16 @@ function SupportSection() {
         <div className="grid grid-cols-1 gap-4 pt-1 sm:grid-cols-2">
           <div className="space-y-2 rounded-md border border-crypto-border bg-crypto-background/60 p-3">
             <p className="text-xs font-semibold text-crypto-foreground">
-              ETH / USDC on Base
+              Base (ETH L2)
             </p>
-            <div className="flex items-center justify-center min-h-[8rem]">
-              <img
-                src="/qr/base.png"
-                alt="Support CrypCal via ETH / USDC on Base"
-                className="block h-32 w-32 shrink-0 rounded-md border border-crypto-border bg-white object-contain"
-              />
-            </div>
+            <p className="break-all text-[11px] text-crypto-muted-foreground">
+              <span className="font-medium">Address:</span>{" "}
+              <span>{BASE_ADDRESS}</span>
+            </p>
             <p className="flex flex-wrap items-center gap-2 break-all text-[11px] text-crypto-muted-foreground">
-              <span>ENS: {BASE_ENS}</span>
+              <span>
+                <span className="font-medium">ENS:</span> {BASE_ENS}
+              </span>
               <button
                 type="button"
                 onClick={() => handleCopy(BASE_ENS, "base")}
@@ -96,19 +98,30 @@ function SupportSection() {
                 </span>
               )}
             </p>
+            <button
+              type="button"
+              onClick={() => setShowBaseQr((prev) => !prev)}
+              className="mt-1 text-[11px] text-crypto-foreground underline-offset-2 hover:underline"
+            >
+              {showBaseQr ? "Hide QR ▴" : "Show QR ▾"}
+            </button>
+            <div
+              className={`mt-2 flex items-center justify-center overflow-hidden transition-all duration-300 ${
+                showBaseQr ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <img
+                src="/qr/base.png"
+                alt="Support CrypCal via ETH / USDC on Base"
+                className="block h-32 w-32 shrink-0 rounded-md border border-crypto-border bg-white object-contain"
+              />
+            </div>
           </div>
 
           <div className="space-y-2 rounded-md border border-crypto-border bg-crypto-background/60 p-3">
             <p className="text-xs font-semibold text-crypto-foreground">
               Solana
             </p>
-            <div className="flex items-center justify-center min-h-[8rem]">
-              <img
-                src="/qr/sol.png"
-                alt="Support CrypCal via Solana"
-                className="block h-32 w-32 shrink-0 rounded-md border border-crypto-border bg-white object-contain"
-              />
-            </div>
             <p className="flex flex-wrap items-center gap-2 break-all text-[11px] text-crypto-muted-foreground">
               <span>{SOL_ADDRESS}</span>
               <button
@@ -124,6 +137,24 @@ function SupportSection() {
                 </span>
               )}
             </p>
+            <button
+              type="button"
+              onClick={() => setShowSolQr((prev) => !prev)}
+              className="mt-1 text-[11px] text-crypto-foreground underline-offset-2 hover:underline"
+            >
+              {showSolQr ? "Hide QR ▴" : "Show QR ▾"}
+            </button>
+            <div
+              className={`mt-2 flex items-center justify-center overflow-hidden transition-all duration-300 ${
+                showSolQr ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <img
+                src="/qr/sol.png"
+                alt="Support CrypCal via Solana"
+                className="block h-32 w-32 shrink-0 rounded-md border border-crypto-border bg-white object-contain"
+              />
+            </div>
           </div>
         </div>
 
