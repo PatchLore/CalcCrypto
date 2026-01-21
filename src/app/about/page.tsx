@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import SupportSection from '@/components/SupportSection';
 
 export default function AboutPage() {
   return (
@@ -170,6 +171,10 @@ export default function AboutPage() {
             >
               Back to home
             </Link>
+          </div>
+
+          <div className="pt-8">
+            <SupportSection />
           </div>
 
           <div className="pt-4 text-center text-sm text-crypto-muted-foreground">

@@ -5,6 +5,7 @@ import Script from "next/script";
 import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import FeedbackForm from "@/components/FeedbackForm";
+import SupportSection from "@/components/SupportSection";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -97,6 +98,7 @@ export default function RootLayout({
         <footer className="border-t border-crypto-border bg-crypto-background/80 backdrop-blur-sm">
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col gap-4 text-sm text-crypto-muted-foreground">
+              <SupportSection />
               <FeedbackForm />
               <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div>© 2025 CrypCal. All rights reserved.</div>
