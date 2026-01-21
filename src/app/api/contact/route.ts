@@ -5,7 +5,7 @@ const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 const TO_EMAIL = "crypcal@mail.com";
-const FROM_EMAIL = "CrypCal Contact <no-reply@calccrypto.com>";
+const FROM_EMAIL = "CrypCal <onboarding@resend.dev>";
 
 export async function POST(request: NextRequest) {
   try {
