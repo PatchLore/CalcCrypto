@@ -1,6 +1,31 @@
-import React from "react";
+'use client';
+
+import React, { useState } from "react";
+
+const BASE_ENS = "calcrypto.base.eth";
+const SOL_ADDRESS = "HeBkqewaL7dFtcHGhjBFxXz8ZPJCcEf1PRfBRQRX9vnX";
 
 function SupportSection() {
+  const [baseCopied, setBaseCopied] = useState(false);
+  const [solCopied, setSolCopied] = useState(false);
+
+  const handleCopy = async (value: string, type: "base" | "sol") => {
+    try {
+      if (navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(value);
+      }
+      if (type === "base") {
+        setBaseCopied(true);
+        setTimeout(() => setBaseCopied(false), 1500);
+      } else {
+        setSolCopied(true);
+        setTimeout(() => setSolCopied(false), 1500);
+      }
+    } catch {
+      // Silently fail to avoid disrupting the UI.
+    }
+  };
+
   return (
     <section
       aria-labelledby="support-crypcal-heading"
@@ -42,6 +67,64 @@ function SupportSection() {
           >
             Support via crypto
           </button>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 pt-1 sm:grid-cols-2">
+          <div className="space-y-2 rounded-md border border-crypto-border bg-crypto-background/60 p-3">
+            <p className="text-xs font-semibold text-crypto-foreground">
+              ETH / USDC on Base
+            </p>
+            <div className="flex items-center justify-center min-h-[8rem]">
+              <img
+                src="/qr/base.png"
+                alt="Support CrypCal via ETH / USDC on Base"
+                className="block h-32 w-32 shrink-0 rounded-md border border-crypto-border bg-white object-contain"
+              />
+            </div>
+            <p className="flex flex-wrap items-center gap-2 break-all text-[11px] text-crypto-muted-foreground">
+              <span>ENS: {BASE_ENS}</span>
+              <button
+                type="button"
+                onClick={() => handleCopy(BASE_ENS, "base")}
+                className="rounded border border-crypto-border px-2 py-0.5 text-[10px] text-crypto-foreground hover:bg-white/5"
+              >
+                Copy
+              </button>
+              {baseCopied && (
+                <span className="text-[10px] text-crypto-foreground/80">
+                  Copied
+                </span>
+              )}
+            </p>
+          </div>
+
+          <div className="space-y-2 rounded-md border border-crypto-border bg-crypto-background/60 p-3">
+            <p className="text-xs font-semibold text-crypto-foreground">
+              Solana
+            </p>
+            <div className="flex items-center justify-center min-h-[8rem]">
+              <img
+                src="/qr/sol.png"
+                alt="Support CrypCal via Solana"
+                className="block h-32 w-32 shrink-0 rounded-md border border-crypto-border bg-white object-contain"
+              />
+            </div>
+            <p className="flex flex-wrap items-center gap-2 break-all text-[11px] text-crypto-muted-foreground">
+              <span>{SOL_ADDRESS}</span>
+              <button
+                type="button"
+                onClick={() => handleCopy(SOL_ADDRESS, "sol")}
+                className="rounded border border-crypto-border px-2 py-0.5 text-[10px] text-crypto-foreground hover:bg-white/5"
+              >
+                Copy
+              </button>
+              {solCopied && (
+                <span className="text-[10px] text-crypto-foreground/80">
+                  Copied
+                </span>
+              )}
+            </p>
+          </div>
         </div>
 
         <div className="space-y-2">
