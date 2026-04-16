@@ -87,6 +87,9 @@ export function CalculatorsClient() {
               <Link href="/calculators" className="text-primary font-medium">
                 Calculators
               </Link>
+              <Link href="/blog" className="text-secondary hover:text-primary transition-colors">
+                Blog
+              </Link>
               <Link href="/about" className="text-secondary hover:text-primary transition-colors">
                 About
               </Link>
