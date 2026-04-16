@@ -1,3 +1,5 @@
+'use client';
+
 import React, { Suspense } from 'react';
 import { Phase2DecisionPanel } from '@/features/phase2/components/Phase2DecisionPanel';
 

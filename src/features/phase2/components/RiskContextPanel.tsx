@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { fetchTokenData } from '@/features/phase2/services/dexscreener';
 import { TokenRiskData, RiskScore, RiskLevel } from '@/features/phase2/types';
