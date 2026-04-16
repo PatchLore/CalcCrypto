@@ -16,17 +16,6 @@ export const CALCULATORS: CalculatorConfig[] = [
     featured: true,
   },
   {
-    id: 'position-size',
-    name: 'Position Size Calculator',
-    description: 'Calculate how much to buy based on risk tolerance and stop-loss.',
-    category: 'profit-loss',
-    icon: '🎯',
-    path: '/calculators/position-size',
-    inputs: ['Account Size (USD)', 'Risk Per Trade (%)', 'Entry Price (USD)', 'Stop-Loss Price (USD)'],
-    outputs: ['Position Size (units)', 'Dollar Amount to Invest', 'Maximum Loss (stop-loss hit)'],
-    featured: true,
-  },
-  {
     id: 'dca',
     name: 'DCA Calculator',
     description: 'Dollar Cost Averaging strategy calculator',
@@ -42,7 +31,7 @@ export const CALCULATORS: CalculatorConfig[] = [
     name: 'Staking Calculator',
     description: 'Calculate staking rewards with compound interest',
     category: 'staking',
-    icon: '🏦',
+    icon: '🌾',
     path: '/calculators/staking',
     inputs: ['Amount', 'APY', 'Duration', 'Compound Frequency'],
     outputs: ['Final Amount', 'Total Rewards', 'Effective APY'],
@@ -64,7 +53,7 @@ export const CALCULATORS: CalculatorConfig[] = [
     name: 'Tax Calculator',
     description: 'Calculate crypto tax implications',
     category: 'tax',
-    icon: '🧾',
+    icon: '🧵',
     path: '/calculators/tax',
     inputs: ['Buy Price', 'Sell Price', 'Quantity', 'Tax Rate'],
     outputs: ['Taxable Gain', 'Tax Amount', 'Net Profit'],
@@ -90,6 +79,17 @@ export const CALCULATORS: CalculatorConfig[] = [
     path: '/calculators/conversion',
     inputs: ['Amount', 'From Currency', 'To Currency'],
     outputs: ['Converted Amount', 'Exchange Rate'],
+    featured: false,
+  },
+  {
+    id: 'token-price',
+    name: 'Token Price Calculator',
+    description: 'Get current price and risk assessment for any token',
+    category: 'token-price',
+    icon: '✉️',
+    path: '/calculators/token-price',
+    inputs: ['Token Address'],
+    outputs: ['Price', 'Liquidity', 'Volume', 'Risk Score'],
     featured: false,
   },
 ];
@@ -128,7 +128,7 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
     name: 'Staking',
     href: '/calculators/staking',
-    icon: '🏦',
+    icon: '🌾',
     description: 'Staking rewards calculator',
     category: 'basic',
   },
@@ -142,7 +142,7 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
     name: 'Tax',
     href: '/calculators/tax',
-    icon: '🧾',
+    icon: '🧵',
     description: 'Crypto tax calculator',
     category: 'tools',
   },
@@ -151,6 +151,13 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     href: '/calculators/portfolio',
     icon: '📊',
     description: 'Portfolio tracking and analysis',
+    category: 'tools',
+  },
+  {
+    name: 'Token Price',
+    href: '/calculators/token-price',
+    icon: '✉️',
+    description: 'Get current price and risk assessment for any token',
     category: 'tools',
   },
 ];
@@ -200,6 +207,9 @@ export const DEFAULT_INPUTS = {
     poolFee: 1, // 1%
     difficulty: 1,
     price: 0,
+  },
+  tokenPrice: {
+    tokenAddress: '',
   },
 };
 
@@ -253,6 +263,3 @@ export const VALIDATION_RULES = {
   minDuration: 1,
   maxDuration: 3650, // 10 years
 };
-
-
-

@@ -129,7 +129,8 @@ export type CalculatorCategory =
   | 'mining'
   | 'tax'
   | 'portfolio'
-  | 'conversion';
+  | 'conversion'
+  | 'token-price';
 
 export interface CalculatorConfig {
   id: string;

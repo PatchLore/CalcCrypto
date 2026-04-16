@@ -5,15 +5,9 @@ import { computeRiskContext } from '../logic/riskContext';
 import { trackPhase2RiskContextViewed } from '../services/analytics';
 import type { RiskContext, TokenSnapshot } from '../types/phase2';
 
-const LazyTokenSnapshotPanel = React.lazy(async () => {
-  const mod = await import('./TokenSnapshotPanel');
-  return { default: mod.TokenSnapshotPanel };
-});
+const LazyTokenSnapshotPanel = React.lazy(() => import('./TokenSnapshotPanel'));
 
-const LazyRiskContextPanel = React.lazy(async () => {
-  const mod = await import('./RiskContextPanel');
-  return { default: mod.RiskContextPanel };
-});
+const LazyRiskContextPanel = React.lazy(() => import('./RiskContextPanel'));
 
 export function Phase2DecisionPanel(props: { calculator: 'token-price' }) {
   const [isOpen, setIsOpen] = useState<boolean>(true);
