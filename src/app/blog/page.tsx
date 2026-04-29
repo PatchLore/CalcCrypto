@@ -11,7 +11,7 @@ export default function BlogPage() {
       slug: "token-price-calculator-launch",
       excerpt: "CalCrypto just added a new read-only tool: the Token Price Calculator. It fetches live market data and runs a deterministic risk scoring model to help you understand liquidity, valuation, and volume signals.",
       date: "2026-04-29",
-      image: "/blog-images/token-price-calculator.png",
+      image: "/blog-images/token.png",
     },
     {
       title: "Top 5 Crypto Calculators Every Trader Should Use",
@@ -105,13 +105,17 @@ export default function BlogPage() {
                 >
                   {/* Featured Image (if available) */}
                   {post.image && (
-                    <div className="relative w-full h-48 bg-crypto-muted/20">
+                    <div className="relative w-full h-48 md:h-64 bg-crypto-muted/20">
                       <Image
                         src={post.image}
                         alt={post.title}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        onError={(e) => {
+                          console.log('IMAGE_LOAD_ERROR:', post.image);
+                          e.currentTarget.style.display = 'none';
+                        }}
                       />
                     </div>
                   )}
