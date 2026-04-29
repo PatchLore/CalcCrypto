@@ -6,30 +6,34 @@ import type {
   CalculatorResult 
 } from '@/types';
 
+import {
+  calculateTrade,
+  calculateDCA as engineCalculateDCA,
+  calculateMining as engineCalculateMining,
+  calculateStaking as engineCalculateStaking
+} from './calcEngine';
+
 /**
  * Calculate profit/loss for crypto trading
+ * Uses shared calculation engine
  */
 export function calculateProfitLoss(input: ProfitLossInput): CalculatorResult {
   const { buyPrice, sellPrice, quantity, fees = 0 } = input;
   
-  const buyTotal = buyPrice * quantity;
-  const sellTotal = sellPrice * quantity;
-  
-  const feeRate = fees / 100;
-  const buyFee = buyTotal * feeRate;
-  const sellFee = sellTotal * feeRate;
-  const totalFees = buyFee + sellFee;
-  
-  const grossProfit = sellTotal - buyTotal;
-  const netProfit = grossProfit - totalFees;
+  const trade = calculateTrade({
+    buyPrice,
+    sellPrice,
+    quantity,
+    feePercent: fees
+  });
   
   return {
-    result: netProfit,
+    result: trade.netProfit,
     breakdown: {
-      principal: buyTotal,
-      gains: grossProfit,
-      fees: totalFees,
-      net: netProfit,
+      principal: trade.buyValue,
+      gains: trade.grossProfit,
+      fees: trade.totalFees,
+      net: trade.netProfit,
     },
     metadata: {
       calculationType: 'profit-loss',
@@ -41,24 +45,26 @@ export function calculateProfitLoss(input: ProfitLossInput): CalculatorResult {
 
 /**
  * Calculate Dollar Cost Averaging (DCA) results
+ * Uses shared calculation engine
  */
 export function calculateDCA(input: DCAInput): CalculatorResult {
-  const { amount, timeframe = 0, averagePrice, fees = 0 } = input;
+  const { amount, timeframe = 0, averagePrice, price, fees = 0 } = input;
   
-  const totalInvested = amount * timeframe;
-  const totalFees = fees * timeframe;
-  const totalCoins = (totalInvested - totalFees) / averagePrice;
-  const currentValue = totalCoins * input.price; // Current market price
-  
-  const profit = currentValue - totalInvested;
+  const dca = engineCalculateDCA({
+    monthlyInvestment: amount,
+    months: timeframe,
+    avgBuyPrice: averagePrice,
+    currentPrice: price,
+    feePercent: fees
+  });
   
   return {
-    result: currentValue,
+    result: dca.currentValue,
     breakdown: {
-      principal: totalInvested,
-      gains: profit,
-      fees: totalFees,
-      net: currentValue,
+      principal: dca.totalInvestment,
+      gains: dca.profit,
+      fees: dca.totalFees,
+      net: dca.currentValue,
     },
     metadata: {
       calculationType: 'dca',
@@ -70,24 +76,25 @@ export function calculateDCA(input: DCAInput): CalculatorResult {
 
 /**
  * Calculate staking rewards with compound interest
+ * Uses shared calculation engine
  */
 export function calculateStaking(input: StakingInput): CalculatorResult {
   const { amount, stakingRate, duration, compoundFrequency } = input;
   
-  const periodsPerYear = getCompoundPeriods(compoundFrequency);
-  const totalPeriods = (duration / 365) * periodsPerYear;
-  const ratePerPeriod = stakingRate / periodsPerYear / 100;
-  
-  const finalAmount = amount * Math.pow(1 + ratePerPeriod, totalPeriods);
-  const totalRewards = finalAmount - amount;
+  const staking = engineCalculateStaking({
+    amount,
+    stakingRatePercent: stakingRate,
+    durationDays: duration,
+    compoundFrequency
+  });
   
   return {
-    result: finalAmount,
+    result: staking.finalAmount,
     breakdown: {
       principal: amount,
-      gains: totalRewards,
+      gains: staking.totalRewards,
       fees: 0,
-      net: finalAmount,
+      net: staking.finalAmount,
     },
     metadata: {
       calculationType: 'staking',
@@ -99,6 +106,7 @@ export function calculateStaking(input: StakingInput): CalculatorResult {
 
 /**
  * Calculate mining profitability
+ * Uses shared calculation engine
  */
 export function calculateMining(input: MiningInput): CalculatorResult {
   const { 
@@ -110,23 +118,22 @@ export function calculateMining(input: MiningInput): CalculatorResult {
     price 
   } = input;
   
-  // Simplified mining calculation
-  const dailyHashrate = hashrate * 24 * 3600; // TH/day
-  const dailyReward = (dailyHashrate / difficulty) * 6.25; // Assuming Bitcoin block reward
-  const dailyRevenue = dailyReward * price;
-  const dailyPoolFee = dailyRevenue * (poolFee / 100);
-  const dailyElectricityCost = (powerConsumption / 1000) * 24 * electricityCost;
-  
-  const dailyProfit = dailyRevenue - dailyPoolFee - dailyElectricityCost;
-  const monthlyProfit = dailyProfit * 30;
+  const mining = engineCalculateMining({
+    hashrate,
+    powerConsumption,
+    electricityCost,
+    poolFeePercent: poolFee,
+    difficulty,
+    price
+  });
   
   return {
-    result: monthlyProfit,
+    result: mining.monthlyProfit,
     breakdown: {
       principal: 0,
-      gains: dailyRevenue,
-      fees: dailyPoolFee + dailyElectricityCost,
-      net: dailyProfit,
+      gains: mining.dailyRevenue,
+      fees: mining.dailyPoolFee + mining.dailyElectricityCost,
+      net: mining.dailyProfit,
     },
     metadata: {
       calculationType: 'mining',
@@ -134,19 +141,6 @@ export function calculateMining(input: MiningInput): CalculatorResult {
       inputs: input as unknown as Record<string, unknown>,
     },
   };
-}
-
-/**
- * Helper function to get compound periods per year
- */
-function getCompoundPeriods(frequency: 'daily' | 'weekly' | 'monthly' | 'yearly'): number {
-  switch (frequency) {
-    case 'daily': return 365;
-    case 'weekly': return 52;
-    case 'monthly': return 12;
-    case 'yearly': return 1;
-    default: return 1;
-  }
 }
 
 /**
