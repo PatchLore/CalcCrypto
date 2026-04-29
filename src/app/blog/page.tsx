@@ -25,7 +25,7 @@ export default function BlogPage() {
       slug: "2026-04-16-bitcoin-reserves-analysis",
       excerpt: "Exchange reserves just hit 2.683 million BTC. Low supply sounds bullish, but retail demand is weak. Here's how to trade both scenarios.",
       date: "2026-04-16",
-      image: "/blog-images/bitcoin.jpg",
+      image: "/blog-images/Bitcoinnew.jpg",
     },
     {
       title: "Understanding Our Deterministic Risk Scoring System",
@@ -39,7 +39,7 @@ export default function BlogPage() {
       slug: "2026-04-16-welcome-to-calcrypto",
       excerpt: "Why we're building risk intelligence for crypto traders. Privacy-first, deterministic results, no signup required.",
       date: "2026-04-16",
-      image: "/blog-images/welcome.jpg",
+      image: "/blog-images/crypcallogo.png",
     },
   ];
 
