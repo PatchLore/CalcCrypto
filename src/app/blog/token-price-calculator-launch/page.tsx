@@ -62,17 +62,19 @@ export default function TokenPriceCalculatorLaunch() {
           </h1>
 
           {/* Featured Image (if exists) */}
-          <div className="mb-8 rounded-xl overflow-hidden bg-crypto-muted/20 flex items-center justify-center min-h-[300px]">
-            {/* Replace with actual Image component once token-price-calculator.png is added to public/blog-images/ */}
-            <div className="text-center p-8">
-              <div className="text-6xl mb-4">📊</div>
-              <p className="text-sm text-crypto-muted-foreground">
-                Token Price Calculator interface showing deterministic risk assessment
-              </p>
-              <p className="text-xs text-crypto-muted-foreground mt-2">
-                (Add token-price-calculator.png to public/blog-images/ to display the featured image)
-              </p>
-            </div>
+          <div className="mb-8 rounded-xl overflow-hidden bg-crypto-muted/20 relative h-64 md:h-96">
+            <Image
+              src="/blog-images/token.png"
+              alt="Token Price Calculator - Deterministic Risk Context for Crypto"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              onError={(e) => {
+                console.log('TOKEN_POST_IMAGE_LOAD_ERROR: /blog-images/token.png');
+                e.currentTarget.style.display = 'none';
+              }}
+            />
           </div>
 
           {/* Content */}

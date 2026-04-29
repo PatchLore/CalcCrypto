@@ -98,19 +98,24 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Article */}
             <div className="lg:col-span-2">
-               <article className="glass-card overflow-hidden">
-                 {post.image && (
-                   <div className="relative w-full aspect-video">
-                     <Image
-                       src={post.image}
-                       alt={post.title}
-                       fill
-                       className="object-cover"
-                       priority
-                     />
-                   </div>
-                 )}
-                 <div className="p-8">
+                <article className="glass-card overflow-hidden">
+                  {post.image && (
+                    <div className="relative w-full h-64 md:h-96 bg-crypto-muted/20">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover"
+                        priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        onError={(e) => {
+                          console.log('POST_IMAGE_LOAD_ERROR:', post.image);
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  )}
+                  <div className="p-8">
                    <header className="mb-8">
                      <time className="text-secondary text-sm mb-4 block">
                     {new Date(post.date).toLocaleDateString('en-US', {
