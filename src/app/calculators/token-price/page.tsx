@@ -47,8 +47,17 @@ class Phase2ErrorBoundary extends React.Component<
 }
 
 export default function TokenPriceCalculator() {
-  const phase2Enabled =
-    process.env.NEXT_PUBLIC_PHASE_2_ENABLED === 'true';
+  // Debug log - will show exact value client receives
+  console.log('PHASE_2_FLAG_VALUE:', process.env.NEXT_PUBLIC_PHASE_2_ENABLED);
+  
+  // Evaluate flag ONLY client-side at runtime, never at build time
+  // This prevents Next.js from baking the flag value into static HTML
+  const [phase2Enabled, setPhase2Enabled] = React.useState<boolean | null>(null);
+  
+  React.useEffect(() => {
+    // Strict string comparison - always check for literal 'true' string
+    setPhase2Enabled(process.env.NEXT_PUBLIC_PHASE_2_ENABLED === 'true');
+  }, []);
 
   return (
     <div className="min-h-screen bg-crypto-background">
@@ -95,7 +104,12 @@ export default function TokenPriceCalculator() {
           </div>
 
           {/* Phase 2 Components (conditionally rendered) */}
-          {phase2Enabled ? (
+          {/* Show loading state until client hydration completes to avoid hydration mismatch */}
+          {phase2Enabled === null ? (
+            <div className="text-center py-12">
+              <div className="p-6 text-center">Loading features...</div>
+            </div>
+          ) : phase2Enabled ? (
             <Phase2ErrorBoundary>
               <Suspense fallback={<div className="p-6 text-center">Loading Phase 2 features...</div>}>
                 <div className="space-y-8">
