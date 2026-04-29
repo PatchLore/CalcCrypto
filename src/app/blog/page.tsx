@@ -39,7 +39,7 @@ export default function BlogPage() {
       slug: "2026-04-16-welcome-to-calcrypto",
       excerpt: "Why we're building risk intelligence for crypto traders. Privacy-first, deterministic results, no signup required.",
       date: "2026-04-16",
-      image: "/blog-images/welcome.jpg",
+      image: "/blog-images/crypcallogo.png",
     },
   ];
 
