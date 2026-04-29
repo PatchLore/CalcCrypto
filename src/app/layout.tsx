@@ -6,6 +6,7 @@ import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import FeedbackForm from "@/components/FeedbackForm";
 import SupportSection from "@/components/SupportSection";
+import LaunchBanner from "@/components/LaunchBanner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -94,12 +95,24 @@ export default function RootLayout({
           `}
         </Script>
         <GoogleAnalytics />
+        {/* Launch Banner - shows at top of all pages */}
+        <LaunchBanner />
         <main className="flex-1">{children}</main>
         <footer className="border-t border-crypto-border bg-crypto-background/80 backdrop-blur-sm">
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col gap-4 text-sm text-crypto-muted-foreground">
               <SupportSection />
               <FeedbackForm />
+              
+              {/* Legal Disclaimer - Required on all pages */}
+              <div className="text-xs text-crypto-muted-foreground border-t border-crypto-border pt-4">
+                <p>
+                  CalCrypto provides educational calculators only. All outputs are estimates based on public data. 
+                  This is not financial, tax, or legal advice. Cryptoassets are volatile and unregulated in many jurisdictions. 
+                  Consult a licensed professional before making decisions. We do not store user data or connect to wallets.
+                </p>
+              </div>
+              
               <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div>© 2025 CrypCal. All rights reserved.</div>
                 <div className="flex items-center gap-4">
