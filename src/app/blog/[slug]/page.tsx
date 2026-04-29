@@ -108,10 +108,6 @@ export default async function BlogPostPage({ params }: PageProps) {
                         className="object-cover"
                         priority
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        onError={(e) => {
-                          console.log('POST_IMAGE_LOAD_ERROR:', post.image);
-                          e.currentTarget.style.display = 'none';
-                        }}
                       />
                     </div>
                   )}
