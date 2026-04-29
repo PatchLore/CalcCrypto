@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { trackNavigation } from '@/lib/analytics';
-import Image from 'next/image';
 import { getAllPosts } from '@/lib/posts';
 
 export default function BlogPage() {
@@ -66,12 +65,10 @@ export default function BlogPage() {
                   {/* Featured Image (if available) */}
                   {post.image && (
                     <div className="relative w-full aspect-video">
-                      <Image
+                      <img
                         src={post.image}
                         alt={post.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 600px"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                   )}

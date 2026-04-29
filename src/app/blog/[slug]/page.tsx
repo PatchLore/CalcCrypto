@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -100,14 +99,12 @@ export default async function BlogPostPage({ params }: PageProps) {
                 {/* Featured Image */}
                 {post.image && (
                   <div className="relative w-full aspect-video overflow-hidden">
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      fill
-                      className="object-cover"
-                      priority
-                      sizes="(max-width: 768px) 100vw, 900px"
-                    />
+                     <img
+                       src={post.image}
+                       alt={post.title}
+                       className="w-full h-full object-cover"
+                       loading="eager"
+                     />
                   </div>
                 )}
                 

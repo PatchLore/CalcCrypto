@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { trackNavigation } from '@/lib/analytics';
 
 export default function TokenPriceCalculatorLaunch() {
@@ -62,14 +61,11 @@ export default function TokenPriceCalculatorLaunch() {
           </h1>
 
           {/* Featured Image (if exists) */}
-          <div className="mb-8 rounded-xl overflow-hidden relative w-full aspect-video">
-            <Image
+          <div className="mb-8 rounded-xl overflow-hidden w-full aspect-video">
+            <img
               src="/blog-images/token.png"
               alt="Token Price Calculator - Deterministic Risk Context for Crypto"
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 768px) 100vw, 900px"
+              className="w-full h-full object-cover"
             />
           </div>
 
