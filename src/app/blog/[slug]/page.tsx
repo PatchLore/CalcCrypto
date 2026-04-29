@@ -34,10 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: post.title,
       description: post.excerpt,
-    },
-    twitter: {
-      title: post.title,
-      description: post.excerpt,
+      images: post.image ? [post.image] : [],
     },
   };
 }
@@ -50,6 +47,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
+  
   return (
     <div className="min-h-screen">
       {/* Header */}
@@ -98,39 +96,41 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Article */}
             <div className="lg:col-span-2">
-                <article className="glass-card overflow-hidden">
-                  {post.image && (
-                    <div className="relative w-full h-64 md:h-96 bg-crypto-muted/20">
-                      <Image
-                        src={post.image}
-                        alt={post.title}
-                        fill
-                        className="object-cover"
-                        priority
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    </div>
-                  )}
-                  <div className="p-8">
-                   <header className="mb-8">
-                     <time className="text-secondary text-sm mb-4 block">
-                    {new Date(post.date).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </time>
-                  <h1 className="text-4xl font-bold text-primary mb-4">{post.title}</h1>
-                  <p className="text-xl text-secondary">{post.excerpt}</p>
-                </header>
+              <article className="glass-card overflow-hidden">
+                {/* Featured Image */}
+                {post.image && (
+                  <div className="relative w-full h-64 md:h-96 overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                      priority
+                      sizes="(max-width: 768px) 100vw, 800px"
+                    />
+                  </div>
+                )}
+                
+                <div className="p-8">
+                  <header className="mb-8">
+                    <time className="text-secondary text-sm mb-4 block">
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </time>
+                    <h1 className="text-4xl font-bold text-primary mb-4">{post.title}</h1>
+                    <p className="text-xl text-secondary">{post.excerpt}</p>
+                  </header>
 
-                <div className="prose prose-invert prose-green max-w-none">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {post.content}
-                  </ReactMarkdown>
+                  <div className="prose prose-invert prose-green max-w-none">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {post.content}
+                    </ReactMarkdown>
+                  </div>
                 </div>
-                 </div>
-               </article>
+              </article>
             </div>
 
             {/* Sidebar */}
