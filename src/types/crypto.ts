@@ -26,6 +26,8 @@ export interface CalculatorResult {
     gains: number;
     fees: number;
     net: number;
+    poolFee?: number;
+    electricityCost?: number;
   };
   metadata?: {
     calculationType: string;

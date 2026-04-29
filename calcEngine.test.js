@@ -157,13 +157,13 @@ console.log('\n📌 MINING CALCULATOR');
 console.log('----------------------------------------');
 
 test('Standard mining calculation',
-  () => calculateMining({ hashrate: 100, powerConsumption: 3000, electricityCost: 0.15, poolFeePercent: 1, difficulty: 28000000000, price: 50000 }),
-  { dailyHashrate: 8640000, dailyReward: 0.0019285714285714285, dailyRevenue: 96.42857142857143, dailyPoolFee: 0.9642857142857143, dailyElectricityCost: 10.8, dailyProfit: 84.66428571428571, monthlyProfit: 2539.9285714285716 }
+  () => calculateMining({ hashrate: 100, powerConsumption: 3000, electricityCost: 0.15, poolFeePercent: 1, difficulty: 28000000000000, price: 50000 }),
+  { dailyHashrate: 100, dailyReward: 0.00022451526352337435, dailyRevenue: 11.11350554440703, dailyPoolFee: 0.11225763176168718, dailyElectricityCost: 10.799999999999999, dailyTotalCosts: 10.799999999999999, dailyProfit: 0.3135055444070307, monthlyProfit: 9.405166332210921 }
 );
 
 test('Zero difficulty input handled safely',
   () => calculateMining({ hashrate: 100, powerConsumption: 3000, electricityCost: 0.15, poolFeePercent: 1, difficulty: 0, price: 50000 }),
-  { dailyHashrate: 8640000, dailyReward: 0, dailyRevenue: 0, dailyPoolFee: 0, dailyElectricityCost: 10.8, dailyProfit: -10.8, monthlyProfit: -324 }
+  { dailyHashrate: 100, dailyReward: 0, dailyRevenue: 0, dailyPoolFee: 0, dailyElectricityCost: 10.799999999999999, dailyTotalCosts: 10.799999999999999, dailyProfit: -10.799999999999999, monthlyProfit: -323.99999999999994 }
 );
 
 // -----------------------------------------------------------------------------

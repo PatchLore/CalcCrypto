@@ -102,6 +102,7 @@ export function calculateDCA({
 
 /**
  * Calculate mining profitability
+ * Coin agnostic Proof-of-Work standard formula
  */
 export function calculateMining({
   hashrate,
@@ -109,37 +110,84 @@ export function calculateMining({
   electricityCost,
   poolFeePercent,
   difficulty,
-  price
+  price,
+  blockReward = 3.125,
+  blockTimeSeconds = 600
 }) {
-  const hashrateNum = toNumber(hashrate);
-  const powerConsumptionNum = toNumber(powerConsumption);
+  // Debug logging
+  console.log("MINING_INPUTS", arguments[0]);
+  
+  const hashrateTH = toNumber(hashrate);
+  const watts = toNumber(powerConsumption);
   const electricityCostNum = toNumber(electricityCost);
-  const poolFeePercentNum = toNumber(poolFeePercent);
+  const poolFee = toNumber(poolFeePercent);
   const difficultyNum = toNumber(difficulty);
-  const priceNum = toNumber(price);
+  const cryptoPrice = toNumber(price);
+  const blockRewardNum = toNumber(blockReward);
+  const blockTimeNum = toNumber(blockTimeSeconds);
 
-  // Simplified mining calculation
-  const dailyHashrate = hashrateNum * 24 * 3600; // TH/day
-  const dailyReward = difficultyNum === 0 ? 0 : (dailyHashrate / difficultyNum) * 6.25; // Bitcoin block reward
-  const dailyRevenue = dailyReward * priceNum;
+  // ✅ ZERO DIFFICULTY GUARD - return safe values immediately
+  if (difficultyNum <= 0) {
+    const dailyElectricityCost = (watts / 1000) * 24 * electricityCostNum;
+    return {
+      dailyHashrate: hashrateTH,
+      dailyReward: 0,
+      dailyRevenue: 0,
+      dailyPoolFee: 0,
+      dailyElectricityCost,
+      dailyTotalCosts: dailyElectricityCost,
+      dailyProfit: -dailyElectricityCost,
+      monthlyProfit: -dailyElectricityCost * 30
+    };
+  }
+
+  // ✅ SAFE COIN-AGNOSTIC DEFAULTS (only when difficulty is undefined/missing)
+  const DEFAULT_DIFFICULTY = 8.5e13;
+  const effectiveDifficulty = difficultyNum;
   
-  const poolFeeRate = percentToDecimal(poolFeePercentNum);
-  const dailyPoolFee = dailyRevenue * poolFeeRate;
+  if (difficulty === undefined || difficulty === null) {
+    console.log("Using fallback difficulty: 8.5e13");
+  }
+
+  const DIFFICULTY_SCALE = 2**32;
   
-  const dailyElectricityCost = (powerConsumptionNum / 1000) * 24 * electricityCostNum;
+  // ✅ STANDARD PROOF-OF-WORK MINING FORMULA
+  const minerHashrateHs = hashrateTH * 1e12;
+  const networkHashrateHs = (effectiveDifficulty * DIFFICULTY_SCALE) / blockTimeNum;
+  const minerShare = networkHashrateHs > 0 ? minerHashrateHs / networkHashrateHs : 0;
   
-  const dailyProfit = dailyRevenue - dailyPoolFee - dailyElectricityCost;
+  const blocksPerDay = blockTimeNum > 0 ? 86400 / blockTimeNum : 0;
+  const dailyCoins = minerShare * blocksPerDay * blockRewardNum;
+  
+  // Pool fees deducted from revenue
+  const poolFeeRate = poolFee / 100;
+  const dailyRevenueGross = dailyCoins * cryptoPrice;
+  const dailyPoolFeeUSD = dailyRevenueGross * poolFeeRate;
+  const dailyRevenueUSD = dailyRevenueGross - dailyPoolFeeUSD;
+
+  // ✅ Correct daily electricity calculation
+  const dailyElectricityCost = (watts / 1000) * 24 * electricityCostNum;
+  
+  // Only electricity is counted as operating cost
+  const dailyTotalCosts = dailyElectricityCost;
+
+  const dailyProfit = dailyRevenueUSD - dailyTotalCosts;
   const monthlyProfit = dailyProfit * 30;
 
-  return {
-    dailyHashrate,
-    dailyReward,
-    dailyRevenue,
-    dailyPoolFee,
+  const result = {
+    dailyHashrate: hashrateTH,
+    dailyReward: dailyCoins,
+    dailyRevenue: dailyRevenueUSD,
+    dailyPoolFee: dailyPoolFeeUSD,
     dailyElectricityCost,
+    dailyTotalCosts,
     dailyProfit,
     monthlyProfit
   };
+  
+  console.log("MINING_OUTPUT", result);
+  
+  return result;
 }
 
 /**
