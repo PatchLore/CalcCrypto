@@ -112,10 +112,6 @@ export default function BlogPage() {
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        onError={(e) => {
-                          console.log('IMAGE_LOAD_ERROR:', post.image);
-                          e.currentTarget.style.display = 'none';
-                        }}
                       />
                     </div>
                   )}

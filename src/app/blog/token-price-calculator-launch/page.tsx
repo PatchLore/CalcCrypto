@@ -70,10 +70,6 @@ export default function TokenPriceCalculatorLaunch() {
               className="object-cover"
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              onError={(e) => {
-                console.log('TOKEN_POST_IMAGE_LOAD_ERROR: /blog-images/token.png');
-                e.currentTarget.style.display = 'none';
-              }}
             />
           </div>
 
