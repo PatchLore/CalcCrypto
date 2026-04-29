@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { trackNavigation } from '@/lib/analytics';
+import Image from 'next/image';
 
 export default function BlogPage() {
   const blogPosts = [
@@ -10,10 +11,40 @@ export default function BlogPage() {
       slug: "token-price-calculator-launch",
       excerpt: "CalCrypto just added a new read-only tool: the Token Price Calculator. It fetches live market data and runs a deterministic risk scoring model to help you understand liquidity, valuation, and volume signals.",
       date: "2026-04-29",
-    }
+      image: "/blog-images/token-price-calculator.png",
+    },
+    {
+      title: "Top 5 Crypto Calculators Every Trader Should Use",
+      slug: "2026-04-16-top-5-calculators",
+      excerpt: "Essential tools for professional crypto trading and investment. From profit/loss tracking to tax calculations - build better trading habits.",
+      date: "2026-04-16",
+      image: "/blog-images/calculators.webp",
+    },
+    {
+      title: "Bitcoin Reserves Are Shrinking – Why Traders Should Watch, Not Panic",
+      slug: "2026-04-16-bitcoin-reserves-analysis",
+      excerpt: "Exchange reserves just hit 2.683 million BTC. Low supply sounds bullish, but retail demand is weak. Here's how to trade both scenarios.",
+      date: "2026-04-16",
+      image: "/blog-images/bitcoin.jpg",
+    },
+    {
+      title: "Understanding Our Deterministic Risk Scoring System",
+      slug: "2026-04-16-risk-scoring-explained",
+      excerpt: "No black boxes, no AI guesswork - just transparent math that you can verify. Learn how our risk detection system works.",
+      date: "2026-04-16",
+      image: "/blog-images/risk.jpg",
+    },
+    {
+      title: "Welcome to CalCrypto: Beyond Basic Calculators",
+      slug: "2026-04-16-welcome-to-calcrypto",
+      excerpt: "Why we're building risk intelligence for crypto traders. Privacy-first, deterministic results, no signup required.",
+      date: "2026-04-16",
+      image: "/blog-images/welcome.jpg",
+    },
   ];
 
-  console.log('BLOG_POSTS:', blogPosts);
+  console.log('TOTAL_BLOG_POSTS:', blogPosts.length);
+  console.log('BLOG_POSTS:', blogPosts.map(p => ({ title: p.title, slug: p.slug })));
 
   return (
     <div className="min-h-screen bg-crypto-background">
@@ -66,24 +97,39 @@ export default function BlogPage() {
           {/* Blog Posts List */}
           <div className="space-y-8">
             {blogPosts.map((post) => (
-              <article key={post.slug} className="border border-crypto-border rounded-xl p-6 hover:bg-crypto-muted/10 transition-colors">
+              <article key={post.slug} className="border border-crypto-border rounded-xl overflow-hidden hover:bg-crypto-muted/10 transition-colors">
                 <Link
                   href={`/blog/${post.slug}`}
                   className="block"
                   onClick={() => trackNavigation(`/blog/${post.slug}`)}
                 >
-                  <h2 className="text-2xl font-bold text-crypto-foreground mb-2 hover:text-crypto-primary-600 transition-colors">
-                    {post.title}
-                  </h2>
-                  <p className="text-sm text-crypto-muted-foreground mb-3">
-                    {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </p>
-                  <p className="text-crypto-foreground">
-                    {post.excerpt}
-                  </p>
-                  <span className="inline-block mt-4 text-crypto-primary-600 font-medium hover:underline">
-                    Read more →
-                  </span>
+                  {/* Featured Image (if available) */}
+                  {post.image && (
+                    <div className="relative w-full h-48 bg-crypto-muted/20">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
+                  )}
+                  
+                  <div className="p-6">
+                    <h2 className="text-2xl font-bold text-crypto-foreground mb-2 hover:text-crypto-primary-600 transition-colors">
+                      {post.title}
+                    </h2>
+                    <p className="text-sm text-crypto-muted-foreground mb-3">
+                      {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    </p>
+                    <p className="text-crypto-foreground">
+                      {post.excerpt}
+                    </p>
+                    <span className="inline-block mt-4 text-crypto-primary-600 font-medium hover:underline">
+                      Read more →
+                    </span>
+                  </div>
                 </Link>
               </article>
             ))}
