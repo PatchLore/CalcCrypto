@@ -49,6 +49,11 @@ class Phase2ErrorBoundary extends React.Component<
 export default function TokenPriceCalculator() {
   // Debug log - will show exact value client receives
   console.log('PHASE_2_FLAG_VALUE:', process.env.NEXT_PUBLIC_PHASE_2_ENABLED);
+  console.log('PHASE_2_ENV_CHECK:', { 
+    NEXT_PUBLIC_PHASE_2_ENABLED: process.env.NEXT_PUBLIC_PHASE_2_ENABLED,
+    isTrue: process.env.NEXT_PUBLIC_PHASE_2_ENABLED === 'true',
+    type: typeof process.env.NEXT_PUBLIC_PHASE_2_ENABLED
+  });
   
   // Evaluate flag ONLY client-side at runtime, never at build time
   // This prevents Next.js from baking the flag value into static HTML
@@ -56,7 +61,9 @@ export default function TokenPriceCalculator() {
   
   React.useEffect(() => {
     // Strict string comparison - always check for literal 'true' string
-    setPhase2Enabled(process.env.NEXT_PUBLIC_PHASE_2_ENABLED === 'true');
+    const enabled = process.env.NEXT_PUBLIC_PHASE_2_ENABLED === 'true';
+    console.log('PHASE_2_USEFFECT_CHECK:', { enabled, value: process.env.NEXT_PUBLIC_PHASE_2_ENABLED });
+    setPhase2Enabled(enabled);
   }, []);
 
   return (

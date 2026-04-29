@@ -4,6 +4,17 @@ import Link from 'next/link';
 import { trackNavigation } from '@/lib/analytics';
 
 export default function BlogPage() {
+  const blogPosts = [
+    {
+      title: "Introducing the Token Price Calculator: Deterministic Risk Context for Crypto",
+      slug: "token-price-calculator-launch",
+      excerpt: "CalCrypto just added a new read-only tool: the Token Price Calculator. It fetches live market data and runs a deterministic risk scoring model to help you understand liquidity, valuation, and volume signals.",
+      date: "2026-04-29",
+    }
+  ];
+
+  console.log('BLOG_POSTS:', blogPosts);
+
   return (
     <div className="min-h-screen bg-crypto-background">
       {/* Header */}
@@ -38,26 +49,57 @@ export default function BlogPage() {
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-16">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="text-6xl mb-6">📝</div>
-          <h1 className="text-4xl font-bold text-crypto-foreground mb-4">
-            Blog & Insights
-          </h1>
-          <p className="text-xl text-crypto-muted-foreground mb-8">
-            Crypto insights and tool guides coming soon.
-          </p>
-          <p className="text-sm text-crypto-muted-foreground mb-8">
-            All content will be educational and low-liability.
-          </p>
-          
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center px-6 py-3 font-bold text-lg rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-            style={{ background: '#667eea', color: '#ffffff' }}
-            onClick={() => trackNavigation('/')}
-          >
-            ← Back to Home
-          </Link>
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-6xl mb-6">📝</div>
+            <h1 className="text-4xl font-bold text-crypto-foreground mb-4">
+              Blog & Insights
+            </h1>
+            <p className="text-xl text-crypto-muted-foreground">
+              Crypto insights and tool guides.
+            </p>
+            <p className="text-sm text-crypto-muted-foreground mt-2">
+              All content is educational and low-liability.
+            </p>
+          </div>
+
+          {/* Blog Posts List */}
+          <div className="space-y-8">
+            {blogPosts.map((post) => (
+              <article key={post.slug} className="border border-crypto-border rounded-xl p-6 hover:bg-crypto-muted/10 transition-colors">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="block"
+                  onClick={() => trackNavigation(`/blog/${post.slug}`)}
+                >
+                  <h2 className="text-2xl font-bold text-crypto-foreground mb-2 hover:text-crypto-primary-600 transition-colors">
+                    {post.title}
+                  </h2>
+                  <p className="text-sm text-crypto-muted-foreground mb-3">
+                    {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </p>
+                  <p className="text-crypto-foreground">
+                    {post.excerpt}
+                  </p>
+                  <span className="inline-block mt-4 text-crypto-primary-600 font-medium hover:underline">
+                    Read more →
+                  </span>
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          {/* Back to Home */}
+          <div className="mt-12 text-center">
+            <Link
+              href="/"
+              className="inline-flex items-center justify-center px-6 py-3 font-bold text-lg rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              style={{ background: '#667eea', color: '#ffffff' }}
+              onClick={() => trackNavigation('/')}
+            >
+              ← Back to Home
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -65,6 +107,13 @@ export default function BlogPage() {
       <footer className="border-t border-crypto-border bg-crypto-background/80 backdrop-blur-sm mt-auto">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col gap-4 text-sm text-crypto-muted-foreground">
+            <div className="text-xs text-crypto-muted-foreground border-t border-crypto-border pt-4">
+              <p>
+                CalCrypto provides educational calculators only. All outputs are estimates based on public data. 
+                This is not financial, tax, or legal advice. Cryptoassets are volatile and unregulated in many jurisdictions. 
+                Consult a licensed professional before making decisions. We do not store user data or connect to wallets.
+              </p>
+            </div>
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
               <div>© 2025 CrypCal. All rights reserved.</div>
               <div className="flex items-center gap-4">
