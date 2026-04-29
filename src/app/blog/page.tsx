@@ -1,47 +1,10 @@
-'use client';
-
 import Link from 'next/link';
 import { trackNavigation } from '@/lib/analytics';
 import Image from 'next/image';
+import { getAllPosts } from '@/lib/posts';
 
 export default function BlogPage() {
-  const blogPosts = [
-    {
-      title: "Introducing the Token Price Calculator: Deterministic Risk Context for Crypto",
-      slug: "token-price-calculator-launch",
-      excerpt: "CalCrypto just added a new read-only tool: the Token Price Calculator. It fetches live market data and runs a deterministic risk scoring model to help you understand liquidity, valuation, and volume signals.",
-      date: "2026-04-29",
-      image: "/blog-images/token.png",
-    },
-    {
-      title: "Top 5 Crypto Calculators Every Trader Should Use",
-      slug: "2026-04-16-top-5-calculators",
-      excerpt: "Essential tools for professional crypto trading and investment. From profit/loss tracking to tax calculations - build better trading habits.",
-      date: "2026-04-16",
-      image: "/blog-images/calculators.webp",
-    },
-    {
-      title: "Bitcoin Reserves Are Shrinking – Why Traders Should Watch, Not Panic",
-      slug: "2026-04-16-bitcoin-reserves-analysis",
-      excerpt: "Exchange reserves just hit 2.683 million BTC. Low supply sounds bullish, but retail demand is weak. Here's how to trade both scenarios.",
-      date: "2026-04-16",
-      image: "/blog-images/Bitcoinnew.jpg",
-    },
-    {
-      title: "Understanding Our Deterministic Risk Scoring System",
-      slug: "2026-04-16-risk-scoring-explained",
-      excerpt: "No black boxes, no AI guesswork - just transparent math that you can verify. Learn how our risk detection system works.",
-      date: "2026-04-16",
-      image: "/blog-images/risk.jpg",
-    },
-    {
-      title: "Welcome to CalCrypto: Beyond Basic Calculators",
-      slug: "2026-04-16-welcome-to-calcrypto",
-      excerpt: "Why we're building risk intelligence for crypto traders. Privacy-first, deterministic results, no signup required.",
-      date: "2026-04-16",
-      image: "/blog-images/crypcallogo.png",
-    },
-  ];
+  const blogPosts = getAllPosts();
 
   console.log('TOTAL_BLOG_POSTS:', blogPosts.length);
   console.log('BLOG_POSTS:', blogPosts.map(p => ({ title: p.title, slug: p.slug })));
@@ -62,14 +25,12 @@ export default function BlogPage() {
               <Link
                 href="/"
                 className="text-crypto-foreground hover:text-crypto-primary-600 transition-colors"
-                onClick={() => trackNavigation('/')}
               >
                 Home
               </Link>
               <Link
                 href="/calculators"
                 className="text-crypto-foreground hover:text-crypto-primary-600 transition-colors"
-                onClick={() => trackNavigation('/calculators')}
               >
                 Calculators
               </Link>
@@ -98,11 +59,10 @@ export default function BlogPage() {
           <div className="space-y-8">
             {blogPosts.map((post) => (
               <article key={post.slug} className="border border-crypto-border rounded-xl overflow-hidden hover:bg-crypto-muted/10 transition-colors">
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="block"
-                  onClick={() => trackNavigation(`/blog/${post.slug}`)}
-                >
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="block"
+                  >
                   {/* Featured Image (if available) */}
                   {post.image && (
                     <div className="relative w-full aspect-video">
@@ -141,7 +101,6 @@ export default function BlogPage() {
               href="/"
               className="inline-flex items-center justify-center px-6 py-3 font-bold text-lg rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               style={{ background: '#667eea', color: '#ffffff' }}
-              onClick={() => trackNavigation('/')}
             >
               ← Back to Home
             </Link>
