@@ -1,84 +1,74 @@
 'use client';
 
-import { useState } from 'react';
-import { fetchTokenData } from '@/features/phase2/services/dexscreener';
-import { TokenRiskData } from '@/features/phase2/types';
 import type { TokenSnapshot } from '@/features/phase2/types/phase2';
 
-export default function TokenSnapshotPanel(props: { contractAddress: string; onSnapshotChange: (s: TokenSnapshot | null) => void }) {
-  const [tokenAddress, setTokenAddress] = useState('');
-  const [tokenData, setTokenData] = useState<TokenRiskData | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+type TokenSnapshotPanelProps = {
+  data: TokenSnapshot | null;
+  loading: boolean;
+  error: string | null;
+};
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!tokenAddress.trim()) return;
+export default function TokenSnapshotPanel({ data, loading, error }: TokenSnapshotPanelProps) {
+  // Loading state
+  if (loading) {
+    return (
+      <div className="rounded-lg border border-crypto-border bg-crypto-background p-4" role="status" aria-label="Loading token snapshot">
+        <div className="text-sm font-semibold text-crypto-foreground mb-3">Token Snapshot</div>
+        <div className="mt-3 h-4 w-2/3 rounded bg-crypto-muted/40 animate-pulse" />
+        <div className="mt-2 h-4 w-1/2 rounded bg-crypto-muted/40 animate-pulse" />
+        <div className="mt-2 h-4 w-3/4 rounded bg-crypto-muted/40 animate-pulse" />
+        <div className="mt-2 h-4 w-1/3 rounded bg-crypto-muted/40 animate-pulse" />
+      </div>
+    );
+  }
 
-    setLoading(true);
-    setError(null);
-    try {
-      const data = await fetchTokenData(tokenAddress);
-      setTokenData(data);
-    } catch (err) {
-      setError('Failed to fetch token data');
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Error state
+  if (error) {
+    return (
+      <div className="rounded-lg border border-red-200 bg-red-50 p-4">
+        <div className="text-sm font-semibold text-red-800 mb-3">Token Snapshot</div>
+        <p className="text-sm text-red-600">{error}</p>
+      </div>
+    );
+  }
 
+  // Empty state
+  if (!data) {
+    return (
+      <div className="rounded-lg border border-crypto-border bg-crypto-background p-4">
+        <div className="text-sm font-semibold text-crypto-foreground mb-3">Token Snapshot</div>
+        <p className="text-sm text-crypto-muted-foreground">
+          Enter a valid 0x... address above to view token price, liquidity, FDV, and volume data.
+        </p>
+      </div>
+    );
+  }
+
+  // Success state - use TokenSnapshot fields
   return (
-    <div className="glass-card p-6">
-      <h2 className="text-xl font-bold mb-4">Token Snapshot</h2>
-      <form onSubmit={handleSubmit} className="mb-4 flex gap-2">
-        <input
-          type="text"
-          value={tokenAddress}
-          onChange={(e) => setTokenAddress(e.target.value)}
-          placeholder="Enter token address (e.g., 0x...)"
-          className="flex-1 px-3 py-2 border rounded"
-          disabled={loading}
-        />
-        <button 
-          type="submit"
-          disabled={loading || !tokenAddress.trim()}
-          className="px-4 py-2 bg-primary rounded hover:bg-primary/80 transition-colors"
-        >
-          {loading ? 'Fetching...' : 'Get Data'}
-        </button>
-      </form>
-
-      {error && (
-        <div className="mb-4 p-3 bg-red-50 rounded text-red-600">
-          {error}
-        </div>
-      )}
-
-      {!loading && tokenData && (
-        <div className="space-y-3">
-          <div className="grid grid-cols-2 gap-4 text-sm">
-            <div>
-              <span className="font-medium">Price:</span>
-              <span className="text-secondary">${tokenData.priceUsd?.toFixed(6) ?? 'N/A'}</span>
-            </div>
-            <div>
-              <span className="font-medium">Liquidity:</span>
-              <span className="text-secondary">${tokenData.liquidity.toLocaleString()} USD</span>
-            </div>
-            <div>
-              <span className="font-medium">24h Volume:</span>
-              <span className="text-secondary">${tokenData.volume24h.toLocaleString()} USD</span>
-            </div>
-            <div>
-              <span className="font-medium">24h Change:</span>
-              <span className="text-secondary">
-                {tokenData.priceChange24h >= 0 ? '+' : ''}{tokenData.priceChange24h.toFixed(2)}%
-              </span>
-            </div>
+    <div className="rounded-lg border border-crypto-border bg-crypto-background p-4">
+      <div className="text-sm font-semibold text-crypto-foreground mb-3">Token Snapshot</div>
+      
+      <div className="space-y-3">
+        <div className="grid grid-cols-2 gap-4 text-sm">
+          <div>
+            <span className="font-medium text-crypto-foreground">Price:</span>
+            <span className="ml-2 text-crypto-muted-foreground">${data.priceUsd?.toFixed(6) ?? 'N/A'}</span>
+          </div>
+          <div>
+            <span className="font-medium text-crypto-foreground">Liquidity:</span>
+            <span className="ml-2 text-crypto-muted-foreground">${data.liquidityUsd?.toLocaleString() ?? 'N/A'} USD</span>
+          </div>
+          <div>
+            <span className="font-medium text-crypto-foreground">FDV:</span>
+            <span className="ml-2 text-crypto-muted-foreground">${data.fdvUsd?.toLocaleString() ?? 'N/A'} USD</span>
+          </div>
+          <div>
+            <span className="font-medium text-crypto-foreground">24h Volume:</span>
+            <span className="ml-2 text-crypto-muted-foreground">${data.volume24hUsd?.toLocaleString() ?? 'N/A'} USD</span>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

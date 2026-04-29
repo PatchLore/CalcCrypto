@@ -118,12 +118,15 @@ export function calculateMining(input: MiningInput): CalculatorResult {
     price 
   } = input;
   
+  // Convert default difficulty 1 → actual Bitcoin difficulty (user never sets this field)
+  const effectiveDifficulty = difficulty <= 1 ? 8.5e13 : difficulty;
+  
   const mining = engineCalculateMining({
     hashrate,
     powerConsumption,
     electricityCost,
     poolFeePercent: poolFee,
-    difficulty,
+    difficulty: effectiveDifficulty,
     price
   });
   
@@ -131,9 +134,11 @@ export function calculateMining(input: MiningInput): CalculatorResult {
     result: mining.monthlyProfit,
     breakdown: {
       principal: 0,
-      gains: mining.dailyRevenue,
-      fees: mining.dailyPoolFee + mining.dailyElectricityCost,
-      net: mining.dailyProfit,
+      gains: mining.dailyRevenue * 30,
+      fees: mining.dailyTotalCosts * 30,
+      net: mining.monthlyProfit,
+      poolFee: mining.dailyPoolFee,
+      electricityCost: mining.dailyElectricityCost
     },
     metadata: {
       calculationType: 'mining',
