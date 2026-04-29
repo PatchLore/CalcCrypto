@@ -2,7 +2,7 @@
 title: "Bitcoin Reserves Are Shrinking – Why Traders Should Watch, Not Panic"
 date: "2026-04-16"
 excerpt: "Exchange reserves just hit 2.683 million BTC. Low supply sounds bullish, but retail demand is weak. Here's how to trade both scenarios."
-image: /blog-images/bitcoin.jpg
+image: /blog-images/Bitcoinnew.jpg
 category: "Market Analysis"
 tags: ["bitcoin", "trading", "market-analysis", "supply-demand"]
 author: "CalCrypto Team"

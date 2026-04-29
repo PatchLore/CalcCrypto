@@ -2,7 +2,7 @@
 title: "Welcome to CalCrypto: Beyond Basic Calculators"
 date: "2026-04-16"
 excerpt: "Why we're building risk intelligence for crypto traders"
-image: "/blog-images/welcome.jpg"
+image: "/blog-images/crypcallogo.png"
 ---
 
 # Welcome to CalCrypto: Beyond Basic Calculators
