@@ -106,7 +106,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                       fill
                       className="object-cover"
                       priority
-                      sizes="(max-width: 768px) 100vw, 800px"
+                      sizes="(max-width: 768px) 100vw, 900px"
                     />
                   </div>
                 )}

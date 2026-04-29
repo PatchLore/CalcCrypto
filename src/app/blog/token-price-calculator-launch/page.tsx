@@ -69,7 +69,7 @@ export default function TokenPriceCalculatorLaunch() {
               fill
               className="object-cover"
               priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 768px) 100vw, 900px"
             />
           </div>
 
@@ -152,7 +152,7 @@ export default function TokenPriceCalculatorLaunch() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-              <div>© 2025 CrypCal. All rights reserved.</div>
+              <div>© 2026 CrypCal. All rights reserved.</div>
               <div className="flex items-center gap-4">
                 <Link
                   href="/privacy"
