@@ -121,7 +121,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <p className="text-xl text-secondary">{post.excerpt}</p>
                   </header>
 
-                  <div className="prose prose-invert prose-green max-w-none">
+                  <div className="prose prose-invert prose-lg max-w-none prose-headings:text-primary prose-headings:font-bold prose-p:text-secondary prose-p:leading-relaxed prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-hr:border-crypto-border/40 prose-hr:my-8 prose-strong:text-primary prose-code:text-crypto-accent prose-code:bg-crypto-muted/30 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded">
                     <ReactMarkdown remarkPlugins={[remarkGfm]}>
                       {post.content}
                     </ReactMarkdown>
