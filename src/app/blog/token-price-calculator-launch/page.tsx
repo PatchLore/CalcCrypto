@@ -62,7 +62,7 @@ export default function TokenPriceCalculatorLaunch() {
           </h1>
 
           {/* Featured Image (if exists) */}
-          <div className="mb-8 rounded-xl overflow-hidden bg-crypto-muted/20 relative h-64 md:h-96">
+          <div className="mb-8 rounded-xl overflow-hidden relative w-full aspect-video">
             <Image
               src="/blog-images/token.png"
               alt="Token Price Calculator - Deterministic Risk Context for Crypto"

@@ -105,13 +105,13 @@ export default function BlogPage() {
                 >
                   {/* Featured Image (if available) */}
                   {post.image && (
-                    <div className="relative w-full h-48 md:h-64 bg-crypto-muted/20">
+                    <div className="relative w-full aspect-video">
                       <Image
                         src={post.image}
                         alt={post.title}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                        sizes="(max-width: 768px) 100vw, 600px"
                       />
                     </div>
                   )}

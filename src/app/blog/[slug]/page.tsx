@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               <article className="glass-card overflow-hidden">
                 {/* Featured Image */}
                 {post.image && (
-                  <div className="relative w-full h-64 md:h-96 overflow-hidden">
+                  <div className="relative w-full aspect-video overflow-hidden">
                     <Image
                       src={post.image}
                       alt={post.title}
