@@ -14,7 +14,11 @@ export function calculateProfitLoss(input: ProfitLossInput): CalculatorResult {
   
   const buyTotal = buyPrice * quantity;
   const sellTotal = sellPrice * quantity;
-  const totalFees = fees * 2; // Buy and sell fees
+  
+  const feeRate = fees / 100;
+  const buyFee = buyTotal * feeRate;
+  const sellFee = sellTotal * feeRate;
+  const totalFees = buyFee + sellFee;
   
   const grossProfit = sellTotal - buyTotal;
   const netProfit = grossProfit - totalFees;
