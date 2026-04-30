@@ -4,6 +4,19 @@
  * Eliminates duplicate logic, inconsistent percentage conversions, and early rounding
  */
 
+// FIX: Added input validation guard function
+function validateInput(value, name, { min = 0, max = 1e15 } = {}) {
+  const num = Number(value);
+  if (isNaN(num)) throw new Error(`${name} must be a valid number`);
+  if (!isFinite(num)) throw new Error(`${name} must be finite`);
+  if (num < min) throw new Error(`${name} must be ≥ ${min}`);
+  if (num > max) throw new Error(`${name} exceeds maximum allowed value`);
+  return num;
+}
+
+// FIX: Added safe division function to prevent division by zero
+const safeDivide = (a, b) => b === 0 ? 0 : a / b;
+
 /**
  * Safely convert any value to a number, defaulting to 0 on failure
  */
@@ -24,10 +37,10 @@ export function percentToDecimal(percent) {
  * Calculate trade profit/loss including fees
  */
 export function calculateTrade({ buyPrice, sellPrice, quantity, feePercent }) {
-  const buyPriceNum = toNumber(buyPrice);
-  const sellPriceNum = toNumber(sellPrice);
-  const quantityNum = toNumber(quantity);
-  const feePercentNum = toNumber(feePercent);
+  const buyPriceNum = validateInput(buyPrice, 'Buy Price');
+  const sellPriceNum = validateInput(sellPrice, 'Sell Price');
+  const quantityNum = validateInput(quantity, 'Quantity');
+  const feePercentNum = validateInput(feePercent, 'Fee Percent', { max: 100 });
 
   const buyValue = buyPriceNum * quantityNum;
   const sellValue = sellPriceNum * quantityNum;
@@ -42,8 +55,8 @@ export function calculateTrade({ buyPrice, sellPrice, quantity, feePercent }) {
   const grossProfit = sellValue - buyValue;
   const netProfit = grossProfit - totalFees;
 
-  // Guard against division by zero
-  const roi = buyValue === 0 ? 0 : (netProfit / buyValue) * 100;
+  // FIX: Use safeDivide for division operations
+  const roi = safeDivide(netProfit, buyValue) * 100;
 
   return {
     buyValue,
@@ -67,11 +80,11 @@ export function calculateDCA({
   currentPrice,
   feePercent
 }) {
-  const monthlyInvestmentNum = toNumber(monthlyInvestment);
-  const monthsNum = toNumber(months);
-  const avgBuyPriceNum = toNumber(avgBuyPrice);
-  const currentPriceNum = toNumber(currentPrice);
-  const feePercentNum = toNumber(feePercent);
+  const monthlyInvestmentNum = validateInput(monthlyInvestment, 'Monthly Investment');
+  const monthsNum = validateInput(months, 'Months');
+  const avgBuyPriceNum = validateInput(avgBuyPrice, 'Average Buy Price');
+  const currentPriceNum = validateInput(currentPrice, 'Current Price');
+  const feePercentNum = validateInput(feePercent, 'Fee Percent', { max: 100 });
 
   const totalInvestment = monthlyInvestmentNum * monthsNum;
 
@@ -80,14 +93,14 @@ export function calculateDCA({
 
   const netInvestment = totalInvestment - totalFees;
 
-  // Guard against division by zero
-  const coins = avgBuyPriceNum === 0 ? 0 : netInvestment / avgBuyPriceNum;
+  // FIX: Use safeDivide for division operations
+  const coins = safeDivide(netInvestment, avgBuyPriceNum);
   const currentValue = coins * currentPriceNum;
 
   const profit = currentValue - totalInvestment;
 
-  // Guard against division by zero
-  const roi = totalInvestment === 0 ? 0 : (profit / totalInvestment) * 100;
+  // FIX: Use safeDivide for division operations
+  const roi = safeDivide(profit, totalInvestment) * 100;
 
   return {
     totalInvestment,
@@ -114,17 +127,20 @@ export function calculateMining({
   blockReward = 3.125,
   blockTimeSeconds = 600
 }) {
-  // Debug logging
-  console.log("MINING_INPUTS", arguments[0]);
-  
-  const hashrateTH = toNumber(hashrate);
-  const watts = toNumber(powerConsumption);
-  const electricityCostNum = toNumber(electricityCost);
-  const poolFee = toNumber(poolFeePercent);
-  const difficultyNum = toNumber(difficulty);
-  const cryptoPrice = toNumber(price);
-  const blockRewardNum = toNumber(blockReward);
-  const blockTimeNum = toNumber(blockTimeSeconds);
+  // FIX: Removed production console logging
+  if (process.env.NODE_ENV === 'development') {
+    console.log("MINING_INPUTS", arguments[0]);
+  }
+
+  // FIX: Added input validation for all mining parameters
+  const hashrateTH = validateInput(hashrate, 'Hashrate');
+  const watts = validateInput(powerConsumption, 'Power Consumption');
+  const electricityCostNum = validateInput(electricityCost, 'Electricity Cost');
+  const poolFee = validateInput(poolFeePercent, 'Pool Fee', { max: 100 });
+  const difficultyNum = validateInput(difficulty, 'Difficulty');
+  const cryptoPrice = validateInput(price, 'Price');
+  const blockRewardNum = validateInput(blockReward, 'Block Reward');
+  const blockTimeNum = validateInput(blockTimeSeconds, 'Block Time');
 
   // ✅ ZERO DIFFICULTY GUARD - return safe values immediately
   if (difficultyNum <= 0) {
@@ -146,17 +162,19 @@ export function calculateMining({
   const effectiveDifficulty = difficultyNum;
   
   if (difficulty === undefined || difficulty === null) {
-    console.log("Using fallback difficulty: 8.5e13");
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Using fallback difficulty: 8.5e13");
+    }
   }
 
   const DIFFICULTY_SCALE = 2**32;
   
   // ✅ STANDARD PROOF-OF-WORK MINING FORMULA
   const minerHashrateHs = hashrateTH * 1e12;
-  const networkHashrateHs = (effectiveDifficulty * DIFFICULTY_SCALE) / blockTimeNum;
-  const minerShare = networkHashrateHs > 0 ? minerHashrateHs / networkHashrateHs : 0;
+  const networkHashrateHs = safeDivide((effectiveDifficulty * DIFFICULTY_SCALE), blockTimeNum);
+  const minerShare = safeDivide(minerHashrateHs, networkHashrateHs);
   
-  const blocksPerDay = blockTimeNum > 0 ? 86400 / blockTimeNum : 0;
+  const blocksPerDay = safeDivide(86400, blockTimeNum);
   const dailyCoins = minerShare * blocksPerDay * blockRewardNum;
   
   // Pool fees deducted from revenue
@@ -185,7 +203,9 @@ export function calculateMining({
     monthlyProfit
   };
   
-  console.log("MINING_OUTPUT", result);
+  if (process.env.NODE_ENV === 'development') {
+    console.log("MINING_OUTPUT", result);
+  }
   
   return result;
 }
@@ -199,14 +219,14 @@ export function calculateStaking({
   durationDays,
   compoundFrequency
 }) {
-  const amountNum = toNumber(amount);
-  const stakingRatePercentNum = toNumber(stakingRatePercent);
-  const durationDaysNum = toNumber(durationDays);
+  const amountNum = validateInput(amount, 'Amount');
+  const stakingRatePercentNum = validateInput(stakingRatePercent, 'Staking Rate Percent', { max: 1000 });
+  const durationDaysNum = validateInput(durationDays, 'Duration Days');
 
   const periodsPerYear = getCompoundPeriods(compoundFrequency);
-  const totalPeriods = periodsPerYear === 0 ? 0 : (durationDaysNum / 365) * periodsPerYear;
+  const totalPeriods = periodsPerYear === 0 ? 0 : safeDivide((durationDaysNum / 365) * periodsPerYear, 1);
   
-  const ratePerPeriod = percentToDecimal(stakingRatePercentNum) / periodsPerYear;
+  const ratePerPeriod = safeDivide(percentToDecimal(stakingRatePercentNum), periodsPerYear);
 
   const finalAmount = amountNum * Math.pow(1 + ratePerPeriod, totalPeriods);
   const totalRewards = finalAmount - amountNum;
@@ -234,9 +254,8 @@ function getCompoundPeriods(frequency) {
  * Calculate percentage change between two values
  */
 export function calculatePercentageChange(oldValue, newValue) {
-  const oldNum = toNumber(oldValue);
-  const newNum = toNumber(newValue);
+  const oldNum = validateInput(oldValue, 'Old Value');
+  const newNum = validateInput(newValue, 'New Value');
   
-  if (oldNum === 0) return 0;
-  return ((newNum - oldNum) / oldNum) * 100;
+  return safeDivide((newNum - oldNum), oldNum) * 100;
 }

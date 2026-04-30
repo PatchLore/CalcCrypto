@@ -1,0 +1,78 @@
+
+> crypcal@0.1.0 build
+> next build --turbopack
+
+▲ Next.js 16.1.4 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.8s
+  Running TypeScript ...
+  Collecting page data using 19 workers ...
+  Generating static pages using 19 workers (0/29) ...
+PHASE_2_FLAG_VALUE: true
+PHASE_2_ENV_CHECK: { NEXT_PUBLIC_PHASE_2: 'true', isTrue: true, type: 'string' }
+  Generating static pages using 19 workers (7/29) 
+  Generating static pages using 19 workers (14/29) 
+  Generating static pages using 19 workers (21/29) 
+TOTAL_BLOG_POSTS: 5
+BLOG_POSTS: [
+  {
+    title: 'Introducing the Token Price Calculator: Deterministic Risk Context for Crypto',
+    slug: 'token-price-calculator-launch'
+  },
+  {
+    title: 'Top 5 Crypto Calculators Every Trader Should Use',
+    slug: '2026-04-16-top-5-calculators'
+  },
+  {
+    title: 'Bitcoin Reserves Are Shrinking – Why Traders Should Watch, Not Panic',
+    slug: '2026-04-16-bitcoin-reserves-analysis'
+  },
+  {
+    title: 'Understanding Our Deterministic Risk Scoring System',
+    slug: '2026-04-16-risk-scoring-explained'
+  },
+  {
+    title: 'Welcome to CalCrypto: Beyond Basic Calculators',
+    slug: '2026-04-16-welcome-to-calcrypto'
+  }
+]
+✓ Generating static pages using 19 workers (29/29) in 942.1ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ƒ /api/contact
+├ ƒ /api/feedback
+├ ƒ /api/subscribe
+├ ○ /blog
+├ ● /blog/[slug]
+│ ├ /blog/2026-04-16-bitcoin-reserves-analysis
+│ ├ /blog/2026-04-16-risk-scoring-explained
+│ ├ /blog/2026-04-16-top-5-calculators
+│ └ /blog/2026-04-16-welcome-to-calcrypto
+├ ƒ /blog/feed.xml
+├ ○ /blog/token-price-calculator-launch
+├ ○ /calculators
+├ ○ /calculators/conversion
+├ ○ /calculators/dca
+├ ○ /calculators/mining
+├ ○ /calculators/portfolio
+├ ○ /calculators/profit-loss
+├ ○ /calculators/staking
+├ ○ /calculators/tax
+├ ○ /calculators/token-price
+├ ○ /contact
+├ ○ /privacy
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+└ ○ /terms
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

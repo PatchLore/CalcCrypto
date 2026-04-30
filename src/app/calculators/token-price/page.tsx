@@ -34,7 +34,8 @@ class Phase2ErrorBoundary extends React.Component<
           </p>
           <button
             onClick={() => window.location.reload()}
-            className="px-4 py-2 bg-primary rounded hover:bg-primary/80 transition-colors"
+            aria-label="Retry loading token price calculator features"
+            className="px-4 py-3 bg-primary rounded hover:bg-primary/80 transition-colors"
           >
             Retry
           </button>
@@ -47,14 +48,6 @@ class Phase2ErrorBoundary extends React.Component<
 }
 
 export default function TokenPriceCalculator() {
-  // Debug log - will show exact value client receives
-  console.log('PHASE_2_FLAG_VALUE:', process.env.NEXT_PUBLIC_PHASE_2);
-  console.log('PHASE_2_ENV_CHECK:', { 
-    NEXT_PUBLIC_PHASE_2: process.env.NEXT_PUBLIC_PHASE_2,
-    isTrue: process.env.NEXT_PUBLIC_PHASE_2 === 'true',
-    type: typeof process.env.NEXT_PUBLIC_PHASE_2
-  });
-  
   // Evaluate flag ONLY client-side at runtime, never at build time
   // This prevents Next.js from baking the flag value into static HTML
   const [phase2Enabled, setPhase2Enabled] = React.useState<boolean | null>(null);
@@ -63,7 +56,11 @@ export default function TokenPriceCalculator() {
     // Strict string comparison - always check for literal 'true' string
     // Vercel uses NEXT_PUBLIC_PHASE_2 (without _ENABLED suffix)
     const enabled = process.env.NEXT_PUBLIC_PHASE_2 === 'true';
-    console.log('PHASE_2_USEFFECT_CHECK:', { enabled, value: process.env.NEXT_PUBLIC_PHASE_2 });
+    
+    if (process.env.NODE_ENV === 'development') {
+      console.log('PHASE_2_FLAG_VALUE:', enabled);
+    }
+    
     setPhase2Enabled(enabled);
   }, []);
 

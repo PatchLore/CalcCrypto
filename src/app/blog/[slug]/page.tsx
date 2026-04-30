@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { getAllPostSlugs, getPostBySlug } from '@/lib/posts';
 import NewsletterSignup from '@/components/NewsletterSignup';
+import { MdxImage } from '@/components/blog/MdxImage';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -99,11 +101,14 @@ export default async function BlogPostPage({ params }: PageProps) {
                 {/* Featured Image */}
                 {post.image && (
                   <div className="w-full h-64 md:h-96 overflow-hidden">
-                     <img
+                     {/* FIX-2A: Replace raw img tag with Next.js Image component */}
+                     <Image
                        src={post.image}
-                       alt={post.title}
-                       className="w-full h-full object-cover rounded-t-lg"
-                       loading="eager"
+                       alt={`Featured image for article: ${post.title}`}
+                       fill
+                       priority
+                       className="object-cover rounded-t-lg"
+                       sizes="(max-width: 768px) 100vw, 1200px"
                      />
                   </div>
                 )}
@@ -122,9 +127,15 @@ export default async function BlogPostPage({ params }: PageProps) {
                   </header>
 
                   <div className="prose prose-invert prose-lg max-w-none prose-headings:text-primary prose-headings:font-bold prose-p:text-secondary prose-p:leading-relaxed prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-hr:border-crypto-border/40 prose-hr:my-8 prose-strong:text-primary prose-code:text-crypto-accent prose-code:bg-crypto-muted/30 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded">
-                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                      {post.content}
-                    </ReactMarkdown>
+                   <ReactMarkdown 
+                     remarkPlugins={[remarkGfm]}
+                     components={{
+                       // @ts-expect-error ReactMarkdown image props differ slightly from Next.js Image props
+                       img: MdxImage
+                     }}
+                   >
+                     {post.content}
+                   </ReactMarkdown>
                   </div>
                 </div>
               </article>

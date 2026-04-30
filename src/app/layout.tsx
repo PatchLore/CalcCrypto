@@ -81,6 +81,24 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased min-h-screen bg-crypto-background text-crypto-foreground flex flex-col`}
       >
+        {/* FIX-2D: Skip navigation link for keyboard accessibility */}
+        <a
+          href="#main-content"
+          className="
+            fixed top-0 left-0 z-[9999]
+            px-4 py-3 text-sm font-semibold
+            bg-white dark:bg-gray-900
+            text-gray-900 dark:text-white
+            border-b-2 border-blue-600
+            shadow-md rounded-br-lg
+            -translate-y-full focus:translate-y-0
+            transition-transform duration-150
+            focus:outline-none focus:ring-2 focus:ring-blue-500
+          "
+        >
+          Skip to main content
+        </a>
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-YK1TEZY3SF"
@@ -97,7 +115,8 @@ export default function RootLayout({
         <GoogleAnalytics />
         {/* Launch Banner - shows at top of all pages */}
         <LaunchBanner />
-        <main className="flex-1">{children}</main>
+        {/* FIX-2D: Main content target for skip link */}
+        <main id="main-content" tabIndex={-1} className="flex-1">{children}</main>
         <footer className="border-t border-crypto-border bg-crypto-background/80 backdrop-blur-sm">
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col gap-4 text-sm text-crypto-muted-foreground">
