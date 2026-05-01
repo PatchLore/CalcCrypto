@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>calccrypto.com — Phase 3 Research Report</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@400;600;700;800&display=swap');
+
+  :root {
+    --bg: #0a0c10;
+    --surface: #111318;
+    --border: #1e2229;
+    --accent: #00e5b0;
+    --accent2: #6c63ff;
+    --warn: #ffb347;
+    --danger: #ff5c6c;
+    --text: #e2e8f0;
+    --muted: #6b7280;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  .report-header {
+    border: 1px solid var(--accent);
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .report-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+  .report-header .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: .75rem;
+    display: block;
+  }
+  .report-header h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: .5rem;
+  }
+  .report-header .subtitle {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+
+  /* EXECUTIVE SUMMARY */
+  .exec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  .exec-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    border-top: 3px solid;
+  }
+  .exec-card:nth-child(1) { border-top-color: var(--accent); }
+  .exec-card:nth-child(2) { border-top-color: var(--accent2); }
+  .exec-card:nth-child(3) { border-top-color: var(--warn); }
+  .exec-card .card-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .6rem;
+  }
+  .exec-card ul {
+    list-style: none;
+    font-size: 13.5px;
+    line-height: 1.8;
+  }
+  .exec-card ul li::before { content: '→ '; color: var(--accent); }
+  .exec-card:nth-child(2) ul li::before { color: var(--accent2); }
+  .exec-card:nth-child(3) ul li::before { color: var(--warn); }
+
+  /* SECTION */
+  .section {
+    margin-bottom: 3.5rem;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: .75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    background: rgba(0,229,176,.07);
+    padding: .3rem .6rem;
+    border: 1px solid rgba(0,229,176,.2);
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  /* TABLES */
+  .table-wrap {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead tr {
+    background: var(--surface);
+    border-bottom: 2px solid var(--accent);
+  }
+  thead th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: .8rem 1rem;
+    text-align: left;
+    white-space: nowrap;
+  }
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background .15s;
+  }
+  tbody tr:hover { background: rgba(255,255,255,.02); }
+  tbody td {
+    padding: .75rem 1rem;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tbody td:first-child {
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  /* BADGES */
+  .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: .2rem .5rem;
+    border-radius: 2px;
+    font-weight: 600;
+    letter-spacing: .5px;
+  }
+  .badge-low { background: rgba(0,229,176,.12); color: var(--accent); }
+  .badge-med { background: rgba(255,179,71,.12); color: var(--warn); }
+  .badge-high { background: rgba(255,92,108,.12); color: var(--danger); }
+  .badge-none { background: rgba(107,114,128,.15); color: var(--muted); }
+  .badge-p1 { background: rgba(0,229,176,.15); color: var(--accent); }
+  .badge-p2 { background: rgba(108,99,255,.15); color: var(--accent2); }
+  .badge-p3 { background: rgba(107,114,128,.15); color: var(--muted); }
+  .badge-yes { background: rgba(0,229,176,.1); color: var(--accent); }
+
+  /* QUADRANT */
+  .quadrant-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .quadrant {
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    background: var(--surface);
+  }
+  .quadrant-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: .75rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .q1 .quadrant-label { color: var(--accent); }
+  .q2 .quadrant-label { color: var(--warn); }
+  .q3 .quadrant-label { color: var(--accent2); }
+  .q4 .quadrant-label { color: var(--muted); }
+  .quadrant ul {
+    list-style: none;
+    font-size: 12.5px;
+    line-height: 1.9;
+  }
+  .quadrant ul li::before { content: '• '; }
+  .q1 ul li::before { color: var(--accent); }
+  .q2 ul li::before { color: var(--warn); }
+  .q3 ul li::before { color: var(--accent2); }
+  .q4 ul li::before { color: var(--muted); }
+
+  /* ROADMAP */
+  .roadmap-phases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .phase {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 1.25rem;
+  }
+  .phase-header {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid;
+  }
+  .phase-a .phase-header { color: var(--accent); border-color: rgba(0,229,176,.2); }
+  .phase-b .phase-header { color: var(--accent2); border-color: rgba(108,99,255,.2); }
+  .phase-c .phase-header { color: var(--warn); border-color: rgba(255,179,71,.2); }
+  .phase h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: .75rem;
+  }
+  .phase ul {
+    list-style: none;
+    font-size: 12.5px;
+    line-height: 1.9;
+    color: var(--text);
+  }
+  .phase ul li { border-bottom: 1px solid var(--border); padding: .25rem 0; }
+  .phase ul li:last-child { border-bottom: none; }
+  .phase ul li span {
+    font-family: var(--mono);
+    font-size: 10px;
+    float: right;
+    color: var(--muted);
+  }
+  .phase .mono-note {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: .75rem;
+    padding-top: .5rem;
+    border-top: 1px dashed var(--border);
+  }
+
+  /* CHECKLIST */
+  .checklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  .checklist-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+  }
+  .checklist-section h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .75rem;
+  }
+  .checklist-section ul {
+    list-style: none;
+    font-size: 12.5px;
+    line-height: 1.9;
+  }
+  .checklist-section ul li::before { content: '✓ '; color: var(--accent); }
+
+  /* KPI GRID */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .kpi {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .kpi-value {
+    font-family: var(--mono);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: block;
+    margin-bottom: .25rem;
+  }
+  .kpi-label {
+    font-size: 11.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* NOTE BOX */
+  .note {
+    border-left: 3px solid var(--accent2);
+    background: rgba(108,99,255,.07);
+    padding: 1rem 1.25rem;
+    font-size: 13px;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+  .note strong { color: var(--accent2); }
+
+  p {
+    margin-bottom: 1rem;
+    color: #cbd5e1;
+    font-size: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .exec-grid, .quadrant-grid, .roadmap-phases, .kpi-grid, .checklist {
+      grid-template-columns: 1fr;
+    }
+    .report-header h1 { font-size: 1.6rem; }
+    body { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <span class="tag">Strategic Research Report · April 2026</span>
+  <h1>calccrypto.com<br>Phase 3 Roadmap</h1>
+  <p class="subtitle">Feature ideation · Monetization strategy · Competitive analysis · Implementation plan</p>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="exec-grid">
+  <div class="exec-card">
+    <div class="card-label">Top 3 Features</div>
+    <ul>
+      <li>Impermanent Loss Calculator</li>
+      <li>Multi-Jurisdiction Tax Estimator</li>
+      <li>Gas & Network Fee Tracker</li>
+    </ul>
+  </div>
+  <div class="exec-card">
+    <div class="card-label">Top 2 Monetization</div>
+    <ul>
+      <li>Exchange / Tax Software Affiliates</li>
+      <li>Crypto-Native Display Ads (Coinzilla)</li>
+    </ul>
+  </div>
+  <div class="exec-card">
+    <div class="card-label">Strategic Direction</div>
+    <ul>
+      <li>Own the "calculator-first" niche</li>
+      <li>Bridge education ↔ action via affiliates</li>
+      <li>Deterministic = safe, globally compliant</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 1: FEATURE TABLE -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2>Feature Ideation — 18 Proposals</h2>
+  </div>
+
+  <div class="note">
+    <strong>Methodology:</strong> Every feature below satisfies all four constraints: no regulatory registration, no wallet connections, no user data storage, no financial advice. Data sources are free-tier public APIs unless noted.
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Feature Name</th>
+          <th>Category</th>
+          <th>Problem Solved</th>
+          <th>Data Source</th>
+          <th>Complexity</th>
+          <th>Risk</th>
+          <th>Global?</th>
+          <th>Monetisation</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Impermanent Loss Calculator</td>
+          <td>Advanced Calc</td>
+          <td>DeFi users underestimate IL risk in LP positions</td>
+          <td>CoinGecko prices (free)</td>
+          <td><span class="badge badge-low">Low · 2d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>DEX affiliate links</td>
+          <td><span class="badge badge-p1">3a</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Multi-Jurisdiction Tax Estimator</td>
+          <td>Tax Education</td>
+          <td>Users unsure of generic CGT obligations in US/UK/EU/AU</td>
+          <td>Static rule tables (no API)</td>
+          <td><span class="badge badge-low">Low · 3d</span></td>
+          <td><span class="badge badge-low">Low</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Koinly/CoinTracker affiliate</td>
+          <td><span class="badge badge-p1">3a</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Gas & Network Fee Tracker</td>
+          <td>Educational</td>
+          <td>Users overpay fees not knowing cheaper L2 options</td>
+          <td>ETH Gas API, DefiLlama</td>
+          <td><span class="badge badge-low">Low · 2d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Display ads (high intent)</td>
+          <td><span class="badge badge-p1">3a</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Stablecoin Comparison Matrix</td>
+          <td>Stablecoin Tools</td>
+          <td>Opacity between USDC, USDT, DAI, FRAX collateral types</td>
+          <td>DefiLlama, issuer sites</td>
+          <td><span class="badge badge-low">Low · 2d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Indirect (SEO traffic)</td>
+          <td><span class="badge badge-p1">3a</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Peg Deviation Tracker</td>
+          <td>Stablecoin Tools</td>
+          <td>Users miss de-peg events; no quick visual alert tool</td>
+          <td>CoinGecko, Chainlink oracles</td>
+          <td><span class="badge badge-med">Med · 4d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Display ads</td>
+          <td><span class="badge badge-p1">3a</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Capital Gains Calculator (Manual)</td>
+          <td>Tax Education</td>
+          <td>Estimate CGT without connecting wallets or uploading data</td>
+          <td>None (manual input)</td>
+          <td><span class="badge badge-low">Low · 2d</span></td>
+          <td><span class="badge badge-low">Low</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Tax software affiliate</td>
+          <td><span class="badge badge-p1">3a</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Staking Reward Comparison</td>
+          <td>Advanced Calc</td>
+          <td>Hard to compare APY across ETH, SOL, ADA, DOT, ATOM</td>
+          <td>StakingRewards.com API</td>
+          <td><span class="badge badge-low">Low · 2d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Exchange/staking affiliates</td>
+          <td><span class="badge badge-p1">3a</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Bridge Cost Estimator</td>
+          <td>Advanced Calc</td>
+          <td>Cross-chain bridge fees are opaque; users overpay</td>
+          <td>Li.Fi API, DefiLlama bridges</td>
+          <td><span class="badge badge-med">Med · 4d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Bridge affiliate links</td>
+          <td><span class="badge badge-p2">3b</span></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Manual Portfolio Tracker</td>
+          <td>Portfolio</td>
+          <td>No-auth alternative to CoinGecko/CMC portfolio features</td>
+          <td>CoinGecko; localStorage</td>
+          <td><span class="badge badge-med">Med · 5d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Exchange affiliates</td>
+          <td><span class="badge badge-p2">3b</span></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Market Cap Dominance Chart</td>
+          <td>Data Viz</td>
+          <td>BTC/ETH dominance context for new investors</td>
+          <td>CoinGecko global API</td>
+          <td><span class="badge badge-low">Low · 1d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Display ads</td>
+          <td><span class="badge badge-p1">3a</span></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Fear & Greed Index Embed</td>
+          <td>Data Viz</td>
+          <td>Sentiment context lacking on most calculator sites</td>
+          <td>Alternative.me API (free)</td>
+          <td><span class="badge badge-low">Low · 0.5d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Indirect (engagement)</td>
+          <td><span class="badge badge-p1">3a</span></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Tax Year Toggle</td>
+          <td>Tax Education</td>
+          <td>Calendar vs fiscal year confusion (UK Apr–Apr, AU Jul–Jul)</td>
+          <td>None (static logic)</td>
+          <td><span class="badge badge-low">Low · 1d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Tax affiliate upsell</td>
+          <td><span class="badge badge-p1">3a</span></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>Crypto Glossary with Search</td>
+          <td>Educational</td>
+          <td>High organic SEO value; beginners need definitions</td>
+          <td>Static content</td>
+          <td><span class="badge badge-low">Low · 3d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Display ads, affiliate CTAs</td>
+          <td><span class="badge badge-p2">3b</span></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>Reserve Transparency Dashboard</td>
+          <td>Stablecoin Tools</td>
+          <td>Users can't easily verify stablecoin reserve health</td>
+          <td>Issuer attestation links + DefiLlama</td>
+          <td><span class="badge badge-med">Med · 4d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Indirect (authority)</td>
+          <td><span class="badge badge-p2">3b</span></td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>Top Gainers / Losers Widget</td>
+          <td>Data Viz</td>
+          <td>Users land on site for context before trading decisions</td>
+          <td>CoinGecko /coins/markets</td>
+          <td><span class="badge badge-low">Low · 1d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Exchange affiliate links</td>
+          <td><span class="badge badge-p1">3a</span></td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>Allocation Pie Chart</td>
+          <td>Portfolio</td>
+          <td>Visual portfolio breakdown without auth or storage</td>
+          <td>CoinGecko + client-side</td>
+          <td><span class="badge badge-low">Low · 1.5d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Display ads</td>
+          <td><span class="badge badge-p2">3b</span></td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>L1 vs L2 Fee Comparison</td>
+          <td>Educational</td>
+          <td>Users don't understand the cost savings from scaling solutions</td>
+          <td>DefiLlama, public RPC data</td>
+          <td><span class="badge badge-med">Med · 3d</span></td>
+          <td><span class="badge badge-none">None</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Display ads, bridge affiliates</td>
+          <td><span class="badge badge-p2">3b</span></td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>Airdrop Eligibility Checker</td>
+          <td>Advanced Calc</td>
+          <td>Users miss airdrops; hard to check eligibility without tools</td>
+          <td>DefiLlama, public on-chain reads</td>
+          <td><span class="badge badge-high">High · 10d</span></td>
+          <td><span class="badge badge-low">Low</span></td>
+          <td><span class="badge badge-yes">Yes</span></td>
+          <td>Exchange affiliates (high intent)</td>
+          <td><span class="badge badge-p3">3c</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 2: MONETIZATION -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2>Monetization Strategies — 10 Methods</h2>
+  </div>
+
+  <div class="note">
+    <strong>Context:</strong> Exchange affiliates like Binance pay up to 50% rev-share on trading fees. Tax software affiliates (Koinly) pay 20–40% on first sale. Crypto ad networks (Coinzilla) deliver €3–€10 CPM for premium publisher placements.
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Method</th>
+          <th>Revenue Potential</th>
+          <th>Monthly Range</th>
+          <th>UX Impact</th>
+          <th>Compliance Effort</th>
+          <th>Impl. Time</th>
+          <th>Risk</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Exchange Affiliates (Binance, Kraken, OKX)</td>
+          <td><span class="badge badge-high">High</span></td>
+          <td>£500–£5,000+</td>
+          <td>None (contextual links)</td>
+          <td>Affiliate disclosure required</td>
+          <td>2–3 days</td>
+          <td><span class="badge badge-low">Low</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Tax Software Affiliates (Koinly, CoinTracker)</td>
+          <td><span class="badge badge-med">Medium</span></td>
+          <td>£200–£1,500</td>
+          <td>Minimal (post-calculator CTAs)</td>
+          <td>Affiliate disclosure, no advice framing</td>
+          <td>1–2 days</td>
+          <td><span class="badge badge-none">None</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Crypto-Native Display Ads (Coinzilla)</td>
+          <td><span class="badge badge-med">Medium</span></td>
+          <td>£100–£800</td>
+          <td>Minimal (non-intrusive CPM banners)</td>
+          <td>Standard publisher T&amp;Cs</td>
+          <td>1 day</td>
+          <td><span class="badge badge-none">None</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Hardware Wallet Affiliates (Ledger 10%, Trezor 15%)</td>
+          <td><span class="badge badge-low">Low-Med</span></td>
+          <td>£50–£400</td>
+          <td>None</td>
+          <td>Affiliate disclosure</td>
+          <td>1 day</td>
+          <td><span class="badge badge-none">None</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>White-Label Calculator Embeds</td>
+          <td><span class="badge badge-med">Medium</span></td>
+          <td>£200–£2,000 (recurring)</td>
+          <td>None (B2B product)</td>
+          <td>Embed licence ToS, disclaimer pass-through</td>
+          <td>2–4 weeks</td>
+          <td><span class="badge badge-low">Low</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>API Access for Developers</td>
+          <td><span class="badge badge-med">Medium</span></td>
+          <td>£100–£1,000</td>
+          <td>None (invisible product)</td>
+          <td>API ToS, rate limit policy</td>
+          <td>1–2 weeks</td>
+          <td><span class="badge badge-low">Low</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Freemium (Pro CSV Exports, Batch Calcs)</td>
+          <td><span class="badge badge-med">Medium</span></td>
+          <td>£100–£600 MRR</td>
+          <td>Minimal (gate only advanced export)</td>
+          <td>No auth needed for one-time Stripe payment</td>
+          <td>3–5 days</td>
+          <td><span class="badge badge-low">Low</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Google AdSense</td>
+          <td><span class="badge badge-low">Low</span></td>
+          <td>£30–£200</td>
+          <td>Moderate (less crypto-targeted)</td>
+          <td>Standard AdSense policies</td>
+          <td>1 day</td>
+          <td><span class="badge badge-none">None</span></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Crypto Donations (BTCPay / tip buttons)</td>
+          <td><span class="badge badge-low">Low</span></td>
+          <td>£10–£100</td>
+          <td>None (opt-in)</td>
+          <td>Self-custody; no money transmitter licence</td>
+          <td>0.5 days</td>
+          <td><span class="badge badge-none">None</span></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Sponsored Educational Articles</td>
+          <td><span class="badge badge-med">Medium</span></td>
+          <td>£200–£1,500 per piece</td>
+          <td>Moderate (must be clearly labelled)</td>
+          <td>FCA/ASA disclosure (UK); "Sponsored" label required</td>
+          <td>Per-deal basis</td>
+          <td><span class="badge badge-low">Low</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2>Competitive Landscape</h2>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Core Features</th>
+          <th>Monetisation</th>
+          <th>Strengths</th>
+          <th>Gaps (Our Opportunity)</th>
+          <th>Our Differentiation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CoinGecko<br><small style="color:var(--muted)">coingecko.com</small></td>
+          <td>Price tracking, portfolio, data API, research reports</td>
+          <td>API subscriptions (23.5% rev), display ads, affiliates (17% rev)</td>
+          <td>Massive brand; 6000+ coins; institutional-grade API</td>
+          <td>No calculator suite; tools are shallow widgets</td>
+          <td>Deep, deterministic calculators with educational scaffolding</td>
+        </tr>
+        <tr>
+          <td>CoinMarketCap<br><small style="color:var(--muted)">coinmarketcap.com</small></td>
+          <td>Price data, CMC Learn, portfolio, exchange rankings</td>
+          <td>Display ads, sponsored listings, CMC Learn affiliates</td>
+          <td>Binance backing; huge SEO footprint; 420M+ users</td>
+          <td>Calculators are basic converters only; no staking/DCA/IL tools</td>
+          <td>Calculator-first UX; niche depth vs breadth</td>
+        </tr>
+        <tr>
+          <td>CryptoCompare<br><small style="color:var(--muted)">cryptocompare.com</small></td>
+          <td>Price data, exchange reviews, portfolio, news</td>
+          <td>B2B data licensing, display ads</td>
+          <td>Developer-friendly API; good historical data</td>
+          <td>Outdated UX; no modern DeFi tools; no tax calculators</td>
+          <td>Modern Next.js stack; mobile-first; DeFi-native tools</td>
+        </tr>
+        <tr>
+          <td>Messari<br><small style="color:var(--muted)">messari.io</small></td>
+          <td>Research reports, on-chain metrics, protocol dashboards</td>
+          <td>Pro subscriptions ($25–$300/mo), enterprise data</td>
+          <td>Institutional quality; deep protocol analysis</td>
+          <td>No retail-friendly calculators; $250+ paywall on key data</td>
+          <td>Free deterministic tools for retail; no paywall friction</td>
+        </tr>
+        <tr>
+          <td>Token Terminal<br><small style="color:var(--muted)">tokenterminal.com</small></td>
+          <td>Protocol revenue metrics, P/S ratios, DeFi analytics</td>
+          <td>Pro subscriptions, API licensing</td>
+          <td>Best protocol fundamentals data; clean design</td>
+          <td>No consumer-facing calculators; overly institutional</td>
+          <td>Consumer-friendly calc layer on top of similar data</td>
+        </tr>
+        <tr>
+          <td>DefiLlama<br><small style="color:var(--muted)">defillama.com</small></td>
+          <td>TVL tracking, yield aggregator, bridges, stablecoins</td>
+          <td>Minimal — largely open-source/non-profit ethos</td>
+          <td>Best-in-class DeFi data; excellent free API</td>
+          <td>No calculators; raw data only; no educational layer</td>
+          <td>Use DefiLlama as data source; add calc + education layer on top</td>
+        </tr>
+        <tr>
+          <td>Koinly<br><small style="color:var(--muted)">koinly.io</small></td>
+          <td>Crypto tax reports, wallet sync, transaction import</td>
+          <td>SaaS subscriptions (£49–£199/yr), affiliates</td>
+          <td>Best-in-class tax product; 300+ exchange integrations</td>
+          <td>No free educational tax calculator; upsells from first click</td>
+          <td>Free education-first tax estimator → affiliate handoff to Koinly</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 4: PRIORITIZATION MATRIX -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2>Prioritization Matrix</h2>
+  </div>
+
+  <div class="quadrant-grid">
+    <div class="quadrant q1">
+      <div class="quadrant-label">🚀 Do First — High Impact / Low Effort</div>
+      <ul>
+        <li>Impermanent Loss Calculator (IL)</li>
+        <li>Capital Gains Calculator (Manual)</li>
+        <li>Gas & Network Fee Tracker</li>
+        <li>Stablecoin Comparison Matrix</li>
+        <li>Peg Deviation Tracker</li>
+        <li>Staking Reward Comparison</li>
+        <li>Market Cap Dominance Chart</li>
+        <li>Fear & Greed Index Embed</li>
+        <li>Top Gainers / Losers Widget</li>
+        <li>Exchange Affiliate Links</li>
+        <li>Coinzilla Display Ads</li>
+        <li>Tax Software Affiliates (Koinly)</li>
+      </ul>
+    </div>
+    <div class="quadrant q2">
+      <div class="quadrant-label">📅 Schedule — High Impact / Higher Effort</div>
+      <ul>
+        <li>Multi-Jurisdiction Tax Estimator</li>
+        <li>Bridge Cost Estimator</li>
+        <li>Manual Portfolio Tracker</li>
+        <li>White-Label Calculator Embeds</li>
+        <li>Developer API Access</li>
+        <li>Reserve Transparency Dashboard</li>
+      </ul>
+    </div>
+    <div class="quadrant q3">
+      <div class="quadrant-label">✅ Low-Hanging — Low Impact / Low Effort</div>
+      <ul>
+        <li>Tax Year Toggle</li>
+        <li>Allocation Pie Chart</li>
+        <li>Crypto Donations Button</li>
+        <li>Google AdSense (fallback)</li>
+        <li>Fear & Greed Embed</li>
+      </ul>
+    </div>
+    <div class="quadrant q4">
+      <div class="quadrant-label">🔮 Future — Lower Impact / High Effort</div>
+      <ul>
+        <li>Airdrop Eligibility Checker</li>
+        <li>Sponsored Educational Articles</li>
+        <li>Freemium Pro Tier</li>
+        <li>Crypto Glossary (SEO long-game)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature / Monetisation</th>
+          <th>Impact (1–10)</th>
+          <th>Effort (1–10)</th>
+          <th>Risk</th>
+          <th>Priority Score</th>
+          <th>Phase</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Impermanent Loss Calculator</td><td>9</td><td>2</td><td><span class="badge badge-none">None</span></td><td><strong>4.5</strong></td><td><span class="badge badge-p1">3a</span></td></tr>
+        <tr><td>Exchange Affiliates</td><td>9</td><td>2</td><td><span class="badge badge-none">None</span></td><td><strong>4.5</strong></td><td><span class="badge badge-p1">3a</span></td></tr>
+        <tr><td>Capital Gains Calc (Manual)</td><td>8</td><td>2</td><td><span class="badge badge-low">Low</span></td><td><strong>4.0</strong></td><td><span class="badge badge-p1">3a</span></td></tr>
+        <tr><td>Gas & Fee Tracker</td><td>8</td><td>2</td><td><span class="badge badge-none">None</span></td><td><strong>4.0</strong></td><td><span class="badge badge-p1">3a</span></td></tr>
+        <tr><td>Coinzilla Display Ads</td><td>7</td><td>1</td><td><span class="badge badge-none">None</span></td><td><strong>7.0</strong></td><td><span class="badge badge-p1">3a</span></td></tr>
+        <tr><td>Tax Software Affiliates</td><td>8</td><td>1</td><td><span class="badge badge-none">None</span></td><td><strong>8.0</strong></td><td><span class="badge badge-p1">3a</span></td></tr>
+        <tr><td>Stablecoin Matrix</td><td>7</td><td>2</td><td><span class="badge badge-none">None</span></td><td><strong>3.5</strong></td><td><span class="badge badge-p1">3a</span></td></tr>
+        <tr><td>Peg Deviation Tracker</td><td>7</td><td>3</td><td><span class="badge badge-none">None</span></td><td><strong>2.3</strong></td><td><span class="badge badge-p1">3a</span></td></tr>
+        <tr><td>Staking Reward Comparison</td><td>7</td><td>2</td><td><span class="badge badge-none">None</span></td><td><strong>3.5</strong></td><td><span class="badge badge-p1">3a</span></td></tr>
+        <tr><td>Multi-Jurisdiction Tax Estimator</td><td>9</td><td>4</td><td><span class="badge badge-low">Low</span></td><td><strong>2.25</strong></td><td><span class="badge badge-p2">3b</span></td></tr>
+        <tr><td>Bridge Cost Estimator</td><td>7</td><td>4</td><td><span class="badge badge-none">None</span></td><td><strong>1.75</strong></td><td><span class="badge badge-p2">3b</span></td></tr>
+        <tr><td>Manual Portfolio Tracker</td><td>7</td><td>5</td><td><span class="badge badge-none">None</span></td><td><strong>1.4</strong></td><td><span class="badge badge-p2">3b</span></td></tr>
+        <tr><td>White-Label Embeds</td><td>8</td><td>7</td><td><span class="badge badge-low">Low</span></td><td><strong>1.14</strong></td><td><span class="badge badge-p3">3c</span></td></tr>
+        <tr><td>Developer API</td><td>7</td><td>6</td><td><span class="badge badge-low">Low</span></td><td><strong>1.17</strong></td><td><span class="badge badge-p3">3c</span></td></tr>
+        <tr><td>Airdrop Eligibility Checker</td><td>6</td><td>9</td><td><span class="badge badge-low">Low</span></td><td><strong>0.67</strong></td><td><span class="badge badge-p3">3c</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 5: ROADMAP -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2>Phase 3 Implementation Roadmap</h2>
+  </div>
+
+  <div class="roadmap-phases">
+    <div class="phase phase-a">
+      <div class="phase-header">Phase 3a · Weeks 1–4</div>
+      <h3>Quick Wins</h3>
+      <ul>
+        <li>Fear & Greed Embed <span>0.5d</span></li>
+        <li>Top Gainers/Losers Widget <span>1d</span></li>
+        <li>Market Cap Chart <span>1d</span></li>
+        <li>Tax Year Toggle <span>1d</span></li>
+        <li>Stablecoin Comparison Matrix <span>2d</span></li>
+        <li>Capital Gains Calc (Manual) <span>2d</span></li>
+        <li>Impermanent Loss Calculator <span>2d</span></li>
+        <li>Staking Reward Comparison <span>2d</span></li>
+        <li>Peg Deviation Tracker <span>4d</span></li>
+        <li>Gas & Fee Tracker <span>2d</span></li>
+      </ul>
+      <div class="mono-note">
+        Monetisation: Coinzilla ads live Day 1 · Exchange + tax affiliates added contextually per calculator · KPI: 10k sessions/mo
+      </div>
+    </div>
+    <div class="phase phase-b">
+      <div class="phase-header">Phase 3b · Weeks 5–8</div>
+      <h3>Strategic Features</h3>
+      <ul>
+        <li>Multi-Jurisdiction Tax Estimator <span>3d</span></li>
+        <li>Bridge Cost Estimator <span>4d</span></li>
+        <li>Manual Portfolio Tracker <span>5d</span></li>
+        <li>Reserve Transparency Dashboard <span>4d</span></li>
+        <li>L1 vs L2 Fee Comparison <span>3d</span></li>
+        <li>Allocation Pie Chart <span>1.5d</span></li>
+      </ul>
+      <div class="mono-note">
+        Monetisation: Hardware wallet affiliates (Ledger/Trezor) · First sponsored article deal · KPI: 25k sessions/mo, £200+/mo rev
+      </div>
+    </div>
+    <div class="phase phase-c">
+      <div class="phase-header">Phase 3c · Weeks 9–12</div>
+      <h3>Advanced & Monetisation</h3>
+      <ul>
+        <li>Crypto Glossary <span>3d</span></li>
+        <li>Airdrop Eligibility Checker <span>10d</span></li>
+        <li>Developer API + Docs <span>1.5w</span></li>
+        <li>White-Label Embed Product <span>2w</span></li>
+        <li>Freemium Pro Export Tier <span>3–5d</span></li>
+      </ul>
+      <div class="mono-note">
+        Monetisation: API pricing page live · First white-label prospect outreach · KPI: 50k sessions/mo, £500+/mo rev
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: COMPLIANCE CHECKLIST -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2>Risk & Compliance Checklist</h2>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-section">
+      <h4>Legal Disclaimers</h4>
+      <ul>
+        <li>All outputs labelled "estimates only, not financial advice"</li>
+        <li>Tax estimator: "Generic rules only — consult a qualified accountant"</li>
+        <li>Stablecoin data: "Data sourced externally; verify with issuer directly"</li>
+        <li>Portfolio tracker: "For informational purposes only"</li>
+      </ul>
+    </div>
+    <div class="checklist-section">
+      <h4>Affiliate Disclosures</h4>
+      <ul>
+        <li>Clear "Sponsored" or "Affiliate" label on all referral links</li>
+        <li>FCA/ASA compliant disclosure for UK audience</li>
+        <li>ASA (US) compliant disclosure for US audience</li>
+        <li>No endorsement language; factual comparison only</li>
+      </ul>
+    </div>
+    <div class="checklist-section">
+      <h4>Data Privacy (GDPR/CCPA)</h4>
+      <ul>
+        <li>No server-side user data storage</li>
+        <li>localStorage use: opt-in notice, clear data button</li>
+        <li>Cookie consent banner for Coinzilla / AdSense</li>
+        <li>Privacy Policy updated to cover analytics + ad cookies</li>
+      </ul>
+    </div>
+    <div class="checklist-section">
+      <h4>ToS & Jurisdictional Notes</h4>
+      <ul>
+        <li>ToS updated to cover new calculator outputs</li>
+        <li>Tax estimator: explicit caveat per jurisdiction shown</li>
+        <li>Note Coinbase affiliate program restrictions for UK users</li>
+        <li>Airdrop checker: no financial outcome guarantees</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: SUCCESS METRICS -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2>Success Metrics</h2>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi">
+      <span class="kpi-value">50k</span>
+      <span class="kpi-label">Monthly sessions target (end of Phase 3c)</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-value">3.5m</span>
+      <span class="kpi-label">Avg. session duration target</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-value">£500+</span>
+      <span class="kpi-label">Monthly revenue target (3c)</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-value">4+</span>
+      <span class="kpi-label">Calc uses per session (engagement)</span>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Metric Category</th>
+          <th>Phase 3a Target</th>
+          <th>Phase 3b Target</th>
+          <th>Phase 3c Target</th>
+          <th>Measurement Tool</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monthly Sessions</td>
+          <td>10,000</td>
+          <td>25,000</td>
+          <td>50,000</td>
+          <td>Plausible / GA4</td>
+        </tr>
+        <tr>
+          <td>Avg. Session Duration</td>
+          <td>2m 30s</td>
+          <td>3m 00s</td>
+          <td>3m 30s</td>
+          <td>Plausible / GA4</td>
+        </tr>
+        <tr>
+          <td>Calculator Uses / Session</td>
+          <td>2.5+</td>
+          <td>3.5+</td>
+          <td>4+</td>
+          <td>Custom events</td>
+        </tr>
+        <tr>
+          <td>Affiliate Link CTR</td>
+          <td>1.5%</td>
+          <td>2.0%</td>
+          <td>2.5%</td>
+          <td>Affiliate dashboards</td>
+        </tr>
+        <tr>
+          <td>Ad Revenue (Coinzilla)</td>
+          <td>£30–80</td>
+          <td>£80–200</td>
+          <td>£200–500</td>
+          <td>Coinzilla dashboard</td>
+        </tr>
+        <tr>
+          <td>Affiliate Revenue</td>
+          <td>£50–200</td>
+          <td>£150–500</td>
+          <td>£300–1,000+</td>
+          <td>Exchange / Koinly dashboards</td>
+        </tr>
+        <tr>
+          <td>Bounce Rate</td>
+          <td>&lt;55%</td>
+          <td>&lt;50%</td>
+          <td>&lt;45%</td>
+          <td>Plausible</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div style="margin-top:3rem; padding: 1.25rem; border: 1px solid var(--border); font-family: var(--mono); font-size: 12px; color: var(--muted); text-align: center;">
+  calccrypto.com Phase 3 Research Report · Compiled April 2026 · For internal planning use only
+</div>
+
+</body>
+</html>

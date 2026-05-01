@@ -7,6 +7,7 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import FeedbackForm from "@/components/FeedbackForm";
 import SupportSection from "@/components/SupportSection";
 import LaunchBanner from "@/components/LaunchBanner";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -78,6 +79,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://api.coingecko.com" />
+        <link rel="preconnect" href="https://api.dexscreener.com" />
+        <link rel="dns-prefetch" href="https://api.coingecko.com" />
+        <link rel="dns-prefetch" href="https://api.dexscreener.com" />
+      </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased min-h-screen bg-crypto-background text-crypto-foreground flex flex-col`}
       >
@@ -98,6 +105,51 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+
+        <JsonLd schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "CrypCal",
+          "alternateName": "CalcCrypto",
+          "url": "https://calccrypto.com",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Free cryptocurrency calculators for trading profit and loss, dollar cost averaging, staking rewards, mining profitability and token price analysis. Educational estimates only, no signup required.",
+          "featureList": [
+            "Profit & Loss Calculator",
+            "DCA Calculator",
+            "Staking Rewards Calculator",
+            "Mining Profitability Calculator",
+            "Crypto Conversion Calculator",
+            "Token Price & Risk Analyser"
+          ],
+          "isAccessibleForFree": true,
+          "inLanguage": "en"
+        }} />
+
+        <JsonLd schema={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "CrypCal",
+          "url": "https://calccrypto.com",
+          "description": "Free cryptocurrency calculator tools. Educational, deterministic, no financial advice.",
+          "foundingDate": "2024",
+          "knowsAbout": [
+            "Cryptocurrency",
+            "Bitcoin",
+            "Ethereum",
+            "DeFi",
+            "Crypto Trading",
+            "Staking",
+            "Mining"
+          ]
+        }} />
 
         {/* Google Analytics */}
         <Script

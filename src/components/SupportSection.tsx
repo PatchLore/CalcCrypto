@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from "react";
+import Image from 'next/image';
 
 const BASE_ENS = "calcrypto.base.eth";
 const BASE_ADDRESS = "0xe3fEa701474D04AC566bfE59C768fa265C313150";
@@ -110,11 +111,15 @@ function SupportSection() {
                 showBaseQr ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
               }`}
             >
-              <img
-                src="/qr/base.png"
-                alt="Support CrypCal via ETH / USDC on Base"
-                className="block h-32 w-32 shrink-0 rounded-md border border-crypto-border bg-white object-contain"
-              />
+              {/* FIX: Replace raw img tag with Next.js Image component */}
+              <div className="relative h-32 w-32 shrink-0">
+                <Image
+                  src="/qr/base.png"
+                  alt="Support CrypCal via ETH / USDC on Base"
+                  fill
+                  className="rounded-md border border-crypto-border bg-white object-contain"
+                />
+              </div>
             </div>
           </div>
 
@@ -149,11 +154,15 @@ function SupportSection() {
                 showSolQr ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
               }`}
             >
-              <img
-                src="/qr/sol.png"
-                alt="Support CrypCal via Solana"
-                className="block h-32 w-32 shrink-0 rounded-md border border-crypto-border bg-white object-contain"
-              />
+              {/* FIX: Replace raw img tag with Next.js Image component */}
+              <div className="relative h-32 w-32 shrink-0">
+                <Image
+                  src="/qr/sol.png"
+                  alt="Support CrypCal via Solana"
+                  fill
+                  className="rounded-md border border-crypto-border bg-white object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
