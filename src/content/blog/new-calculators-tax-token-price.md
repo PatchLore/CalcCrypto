@@ -2,7 +2,7 @@
 title: "Two New Calculators Now Live: Tax Estimator & Token Risk Analyser"
 date: "2026-05-02"
 excerpt: "CrypCal launches a Capital Gains Tax calculator for UK, US, Australia and EU, plus an updated Token Price Analyser with smarter risk scoring for major stablecoins."
-image: "/blog-images/new-calculators-tax-token-price.png"
+image: "/blog-images/Newblogimage.png"
 ---
 
 CrypCal has two new tools live today — a Capital Gains Tax estimator covering UK, US, Australia and EU, and an updated Token Price Analyser with smarter risk scoring. Both are free, require no signup, and store nothing.
