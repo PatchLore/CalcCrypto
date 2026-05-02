@@ -53,7 +53,7 @@ export const CALCULATORS: CalculatorConfig[] = [
     name: 'Tax Calculator',
     description: 'Calculate crypto tax implications',
     category: 'tax',
-    icon: '🧵',
+    icon: '🧾',
     path: '/calculators/tax',
     inputs: ['Buy Price', 'Sell Price', 'Quantity', 'Tax Rate'],
     outputs: ['Taxable Gain', 'Tax Amount', 'Net Profit'],
@@ -142,7 +142,7 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
     name: 'Tax',
     href: '/calculators/tax',
-    icon: '🧵',
+    icon: '🧾',
     description: 'Crypto tax calculator',
     category: 'tools',
   },
@@ -221,7 +221,7 @@ export const APP_CONFIG = {
   description: 'Professional cryptocurrency calculators for traders and investors',
   version: '1.0.0',
   author: 'CrypCal Team',
-  website: 'https://crypcal.com',
+  website: 'https://calccrypto.com',
   supportEmail: 'crypcal@mail.com',
   social: {
     twitter: '@crypcal',

@@ -1,91 +1,139 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
-export default function LaunchBanner() {
-  const [dismissed, setDismissed] = useState(true); // Default to hidden until we check localStorage
-  const [mounted, setMounted] = useState(false);
+interface Announcement {
+  id: string;
+  label: string;
+  text: string;
+  href: string;
+  emoji: string;
+  isNew: boolean;
+}
 
-  // Check feature flag and localStorage on mount (client-side only)
+const ANNOUNCEMENTS: Announcement[] = [
+  {
+    id: 'tax-calculator',
+    label: 'NEW',
+    emoji: '🧾',
+    text: 'Tax Calculator — Estimate CGT for UK, US, AU & EU',
+    href: '/calculators/tax',
+    isNew: true,
+  },
+  {
+    id: 'token-price',
+    label: 'NEW',
+    emoji: '🔍',
+    text: 'Token Price Analyser — Risk scoring for any crypto token',
+    href: '/calculators/token-price',
+    isNew: true,
+  },
+  {
+    id: 'phase2',
+    label: 'UPDATED',
+    emoji: '⚡',
+    text: 'All calculators updated — faster, more accurate, mobile optimised',
+    href: '/calculators',
+    isNew: false,
+  },
+];
+
+const DISMISSED_KEY = 'crypcal-banner-dismissed';
+
+export function LaunchBanner() {
+  const [current, setCurrent] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+
   useEffect(() => {
-    setMounted(true);
-    
-    // Check feature flag
-    const showBanner = process.env.NEXT_PUBLIC_SHOW_LAUNCH_BANNER === 'true';
-    if (!showBanner) {
-      setDismissed(true);
-      return;
-    }
-
-    // Check localStorage for dismissal
-    try {
-      const dismissedValue = localStorage.getItem('calccrypto_banner_dismissed');
-      if (dismissedValue === 'true') {
-        setDismissed(true);
-      } else {
-        setDismissed(false);
-      }
-    } catch (e) {
-      // localStorage not available (SSR or private browsing)
-      setDismissed(false);
+    // Check if user has dismissed the banner
+    const dismissed = localStorage.getItem(DISMISSED_KEY);
+    if (!dismissed) {
+      setVisible(true);
     }
   }, []);
 
+  useEffect(() => {
+    if (!visible) return;
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrent(prev => (prev + 1) % ANNOUNCEMENTS.length);
+        setIsAnimating(false);
+      }, 300);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [visible]);
+
   const handleDismiss = () => {
-    setDismissed(true);
-    try {
-      localStorage.setItem('calccrypto_banner_dismissed', 'true');
-    } catch (e) {
-      // localStorage not available
-    }
+    setVisible(false);
+    localStorage.setItem(DISMISSED_KEY, 'true');
   };
 
-  // Don't render anything until mounted (prevents hydration mismatch)
-  if (!mounted || dismissed) {
-    return null;
-  }
+  if (!visible) return null;
+
+  const announcement = ANNOUNCEMENTS[current];
 
   return (
-    <div 
-      className="animate-fade-in bg-gradient-to-r from-purple-600 to-blue-600 text-white"
+    <div
+      className="w-full bg-gradient-to-r from-blue-600/90 to-purple-600/90 
+                 backdrop-blur-sm border-b border-white/10"
       role="banner"
-      aria-label="Launch announcement"
+      aria-label="Product announcements"
     >
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
-        <div className="flex-1 text-center sm:text-left">
-          <p className="text-sm md:text-base font-medium">
-            <span className="hidden sm:inline">🎉 </span>
-            <strong>New:</strong> Token Price Calculator with Deterministic Risk Assessment is now live.
-            <Link 
-              href="/blog/token-price-calculator-launch"
-              className="ml-2 underline hover:no-underline font-bold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-600 rounded"
-              onClick={() => setDismissed(true)}
-            >
-              See how it works →
-            </Link>
-          </p>
-        </div>
-        <button
-          onClick={handleDismiss}
-          className="flex-shrink-0 p-1 hover:bg-white/20 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-600"
-          aria-label="Dismiss announcement"
+      <div className="container mx-auto px-4 py-2.5 flex items-center 
+                      justify-between gap-4 max-w-7xl">
+        
+        {/* Left spacer for centering */}
+        <div className="w-6 shrink-0 hidden sm:block" />
+
+        {/* Announcement content */}
+        <Link
+          href={announcement.href}
+          className={`flex items-center gap-2 text-white text-sm 
+                     font-medium hover:underline underline-offset-2
+                     transition-opacity duration-300 flex-1 justify-center
+                     text-center
+                     ${isAnimating ? 'opacity-0' : 'opacity-100'}`}
         >
-          <svg 
-            className="w-5 h-5" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-            aria-hidden="true"
+          <span 
+            className={`text-xs font-bold px-1.5 py-0.5 rounded 
+                       ${announcement.isNew 
+                         ? 'bg-yellow-400 text-yellow-900' 
+                         : 'bg-white/20 text-white'}`}
           >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M6 18L18 6M6 6l12 12" 
-            />
-          </svg>
-        </button>
+            {announcement.label}
+          </span>
+          <span aria-hidden="true">{announcement.emoji}</span>
+          <span>{announcement.text}</span>
+          <span aria-hidden="true" className="opacity-70">→</span>
+        </Link>
+
+        {/* Dot indicators + dismiss */}
+        <div className="flex items-center gap-3 shrink-0">
+          <div className="hidden sm:flex items-center gap-1">
+            {ANNOUNCEMENTS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                aria-label={`Go to announcement ${i + 1}`}
+                className={`w-1.5 h-1.5 rounded-full transition-all
+                  ${i === current 
+                    ? 'bg-white w-3' 
+                    : 'bg-white/40 hover:bg-white/60'}`}
+              />
+            ))}
+          </div>
+          <button
+            onClick={handleDismiss}
+            aria-label="Dismiss announcements banner"
+            className="text-white/70 hover:text-white transition-colors 
+                       text-lg leading-none p-1"
+          >
+            ×
+          </button>
+        </div>
       </div>
     </div>
   );
