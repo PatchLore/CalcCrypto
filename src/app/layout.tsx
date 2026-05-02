@@ -8,6 +8,7 @@ import FeedbackForm from "@/components/FeedbackForm";
 import SupportSection from "@/components/SupportSection";
 import { LaunchBanner } from "@/components/LaunchBanner";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { AdsUnit } from "@/components/ui/AdsUnit";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -169,6 +170,7 @@ export default function RootLayout({
         <LaunchBanner />
         {/* FIX-2D: Main content target for skip link */}
         <main id="main-content" tabIndex={-1} className="flex-1">{children}</main>
+        <AdsUnit />
         <footer className="border-t border-crypto-border bg-crypto-background/80 backdrop-blur-sm">
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col gap-4 text-sm text-crypto-muted-foreground">
