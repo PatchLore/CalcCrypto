@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ProfitLossClient } from './ProfitLossClient';
 import { JsonLd } from "@/components/seo/JsonLd";
 import { TrustBadge } from "@/components/ui/TrustBadge";
+import { AFFILIATE_LINKS } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Crypto Profit & Loss Calculator | CalcCrypto',
@@ -202,6 +203,36 @@ export default function ProfitLossCalculator() {
                   </div>
                 </details>
               ))}
+            </div>
+          </section>
+
+          <section>
+            <div className="rounded-xl border border-green-600/30 
+                            bg-green-600/5 p-5 mb-8">
+              <p className="text-sm font-medium text-crypto-foreground 
+                            mb-1">
+                Tracking multiple trades for tax?
+              </p>
+              <p className="text-xs text-crypto-muted-foreground mb-3">
+                Koinly imports your full transaction history and 
+                generates HMRC, IRS and ATO-ready tax reports 
+                automatically.
+              </p>
+              
+              <a
+                href={AFFILIATE_LINKS.koinly}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="inline-flex items-center gap-2 text-sm 
+                           font-medium text-green-500 
+                           hover:text-green-400 transition-colors"
+              >
+                Try Koinly free →
+              </a>
+              <span className="text-xs text-crypto-muted-foreground 
+                               ml-2">
+                (affiliate link)
+              </span>
             </div>
           </section>
 

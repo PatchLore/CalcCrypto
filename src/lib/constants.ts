@@ -230,6 +230,10 @@ export const APP_CONFIG = {
   },
 };
 
+export const AFFILIATE_LINKS = {
+  koinly: 'https://koinly.io/?via=988B61BA&utm_source=affiliate',
+} as const;
+
 /**
  * API endpoints
  */

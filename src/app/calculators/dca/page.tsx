@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { DCAClient } from './DCAClient';
 import { JsonLd } from "@/components/seo/JsonLd";
 import { TrustBadge } from "@/components/ui/TrustBadge";
+import { AFFILIATE_LINKS } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Crypto DCA Calculator — Dollar Cost Averaging | CalcCrypto',
@@ -201,6 +202,36 @@ export default function DCACalculator() {
                   </div>
                 </details>
               ))}
+            </div>
+          </section>
+
+          <section>
+            <div className="rounded-xl border border-green-600/30 
+                            bg-green-600/5 p-5 mb-8">
+              <p className="text-sm font-medium text-crypto-foreground 
+                            mb-1">
+                DCA-ing regularly? Keep your taxes straight.
+              </p>
+              <p className="text-xs text-crypto-muted-foreground mb-3">
+                Koinly automatically tracks your recurring purchases 
+                and calculates your cost basis and gains across 
+                every transaction.
+              </p>
+              
+              <a
+                href={AFFILIATE_LINKS.koinly}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="inline-flex items-center gap-2 text-sm 
+                           font-medium text-green-500 
+                           hover:text-green-400 transition-colors"
+              >
+                Try Koinly free →
+              </a>
+              <span className="text-xs text-crypto-muted-foreground 
+                               ml-2">
+                (affiliate link)
+              </span>
             </div>
           </section>
 

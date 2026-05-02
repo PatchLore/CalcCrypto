@@ -6,6 +6,7 @@ import { Input } from '../../../components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../components/ui/Card';
 import { calculateCGT } from '../../../lib/calcEngine';
 import { formatCurrency, formatPercentage } from '../../../lib/formulas';
+import { AFFILIATE_LINKS } from '../../../lib/constants';
 
 type Jurisdiction = 'UK' | 'US' | 'AU' | 'EU';
 type TaxRate = 'basic' | 'higher';
@@ -289,23 +290,48 @@ export function TaxClient() {
                     </div>
                   </div>
 
-                  <div className="pt-3 border-t border-crypto-border">
-                    <div className="grid grid-cols-2 gap-3 text-sm">
-                      <div>
-                        <div className="text-crypto-muted-foreground">Net Gain After Tax</div>
-                       <div className="font-medium">
-                         {formatJurisdictionCurrency(result.netGain)}
-                       </div>
-                      </div>
-                      <div>
-                        <div className="text-crypto-muted-foreground">Effective Rate</div>
+                   <div className="pt-3 border-t border-crypto-border">
+                     <div className="grid grid-cols-2 gap-3 text-sm">
+                       <div>
+                         <div className="text-crypto-muted-foreground">Net Gain After Tax</div>
                         <div className="font-medium">
-                          {result.effectiveRate.toFixed(1)}%
+                          {formatJurisdictionCurrency(result.netGain)}
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                       </div>
+                       <div>
+                         <div className="text-crypto-muted-foreground">Effective Rate</div>
+                         <div className="font-medium">
+                           {result.effectiveRate.toFixed(1)}%
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+
+                 <div className="pt-4 border-t border-crypto-border">
+                   <p className="text-xs text-crypto-muted-foreground mb-3">
+                     Need official tax reports for HMRC, IRS or ATO? 
+                     Koinly connects your exchanges and generates 
+                     ready-to-file tax documents automatically.
+                   </p>
+                   
+                   <a
+                     href={AFFILIATE_LINKS.koinly}
+                     target="_blank"
+                     rel="noopener noreferrer sponsored"
+                     className="flex items-center justify-center gap-2 
+                                w-full py-2.5 px-4 rounded-lg text-sm 
+                                font-medium bg-green-600 hover:bg-green-700 
+                                text-white transition-colors"
+                   >
+                     Get your full crypto tax report on Koinly →
+                   </a>
+                   <p className="text-xs text-crypto-muted-foreground 
+                                 text-center mt-2">
+                     Affiliate link — we may earn a commission at no 
+                     cost to you
+                   </p>
+                 </div>
 
                 {/* Loss note */}
                 {isLoss && (
