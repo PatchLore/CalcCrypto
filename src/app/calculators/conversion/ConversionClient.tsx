@@ -273,7 +273,7 @@ export function ConversionClient() {
                     <select
                       value={fromKey}
                       onChange={(e) => setFromKey(e.target.value)}
-                      className="w-full h-10 px-3 py-2 border border-crypto-border rounded-md bg-crypto-background text-crypto-foreground focus:outline-none focus:ring-2 focus:ring-crypto-ring"
+                      className="w-full text-base rounded-md border border-crypto-border bg-crypto-background px-3 py-2 text-crypto-foreground [&>option]:bg-white [&>option]:text-gray-900 dark:[&>option]:bg-gray-900 dark:[&>option]:text-gray-100"
                     >
                       <optgroup label="Crypto">
                         {CRYPTOS.map((c) => (
@@ -307,7 +307,7 @@ export function ConversionClient() {
                     <select
                       value={toKey}
                       onChange={(e) => setToKey(e.target.value)}
-                      className="w-full h-10 px-3 py-2 border border-crypto-border rounded-md bg-crypto-background text-crypto-foreground focus:outline-none focus:ring-2 focus:ring-crypto-ring"
+                      className="w-full text-base rounded-md border border-crypto-border bg-crypto-background px-3 py-2 text-crypto-foreground [&>option]:bg-white [&>option]:text-gray-900 dark:[&>option]:bg-gray-900 dark:[&>option]:text-gray-100"
                     >
                       <optgroup label="Crypto">
                         {CRYPTOS.map((c) => (

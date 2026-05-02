@@ -226,3 +226,18 @@ body {
     font-size: 16px !important;
   }
 }
+
+/* ── Select dropdown option visibility fix ─────────────────
+   Prevents invisible text in native select dropdowns across
+   all browsers and both light/dark themes */
+select option {
+  background-color: #ffffff;
+  color: #111827;
+}
+
+@media (prefers-color-scheme: dark) {
+  select option {
+    background-color: #1f2937;
+    color: #f9fafb;
+  }
+}
