@@ -6,7 +6,7 @@ import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import FeedbackForm from "@/components/FeedbackForm";
 import SupportSection from "@/components/SupportSection";
-import LaunchBanner from "@/components/LaunchBanner";
+import { LaunchBanner } from "@/components/LaunchBanner";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 const inter = Inter({
