@@ -47,6 +47,22 @@ export function TaxClient() {
 
   const selectedJurisdiction = JURISDICTIONS.find(j => j.value === jurisdiction);
 
+  const CURRENCY_SYMBOLS: Record<Jurisdiction, string> = {
+    UK: 'GBP',
+    US: 'USD',
+    AU: 'AUD',
+    EU: 'EUR',
+  }
+
+  const formatJurisdictionCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-GB', {
+      style: 'currency',
+      currency: CURRENCY_SYMBOLS[jurisdiction],
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(amount)
+  }
+
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
       <div className="text-center mb-12">
@@ -110,10 +126,11 @@ export function TaxClient() {
                 <button
                   type="button"
                   onClick={() => setTaxRate('basic')}
-                  className={`flex-1 py-2 text-sm font-medium transition-colors
-                    ${taxRate === 'basic' 
-                      ? 'bg-crypto-primary-600 text-white' 
-                      : 'text-crypto-muted-foreground hover:bg-crypto-muted/30'
+                  aria-pressed={taxRate === 'basic'}
+                  className={`flex-1 py-3 text-sm font-medium transition-colors
+                    ${taxRate === 'basic'
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-transparent text-crypto-foreground hover:bg-crypto-muted/30'
                     }`}
                 >
                   Basic Rate
@@ -121,10 +138,11 @@ export function TaxClient() {
                 <button
                   type="button"
                   onClick={() => setTaxRate('higher')}
-                  className={`flex-1 py-2 text-sm font-medium transition-colors
-                    ${taxRate === 'higher' 
-                      ? 'bg-crypto-primary-600 text-white' 
-                      : 'text-crypto-muted-foreground hover:bg-crypto-muted/30'
+                  aria-pressed={taxRate === 'higher'}
+                  className={`flex-1 py-3 text-sm font-medium transition-colors
+                    ${taxRate === 'higher'
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-transparent text-crypto-foreground hover:bg-crypto-muted/30'
                     }`}
                 >
                   Higher Rate
@@ -210,7 +228,7 @@ export function TaxClient() {
                     Estimated Tax Liability
                   </div>
                   <div className="text-3xl font-bold text-crypto-foreground">
-                    {formatCurrency(result.estimatedTax)}
+                    {formatJurisdictionCurrency(result.estimatedTax)}
                   </div>
                   <div className="text-xs text-crypto-muted-foreground mt-2">
                     {result.rules.note}
@@ -225,39 +243,39 @@ export function TaxClient() {
                   <div className="grid grid-cols-2 gap-3 text-sm">
                     <div>
                       <div className="text-crypto-muted-foreground">Cost Basis</div>
-                      <div className="font-medium">
-                        {formatCurrency(result.costBasis)}
-                      </div>
+                       <div className="font-medium">
+                         {formatJurisdictionCurrency(result.costBasis)}
+                       </div>
                     </div>
                     <div>
                       <div className="text-crypto-muted-foreground">Proceeds</div>
-                      <div className="font-medium">
-                        {formatCurrency(result.proceeds)}
-                      </div>
+                       <div className="font-medium">
+                         {formatJurisdictionCurrency(result.proceeds)}
+                       </div>
                     </div>
                     <div>
                       <div className="text-crypto-muted-foreground">Gross Gain/Loss</div>
-                      <div className={`font-medium ${
-                        isGain 
-                          ? 'text-crypto-error-600 dark:text-crypto-error-400'
-                          : 'text-crypto-success-600 dark:text-crypto-success-400'
-                      }`}>
-                        {formatCurrency(result.grossGain)}
-                      </div>
+                       <div className={`font-medium ${
+                         isGain 
+                           ? 'text-crypto-error-600 dark:text-crypto-error-400'
+                           : 'text-crypto-success-600 dark:text-crypto-success-400'
+                       }`}>
+                         {formatJurisdictionCurrency(result.grossGain)}
+                       </div>
                     </div>
                     <div>
                       <div className="text-crypto-muted-foreground">
                         Annual Allowance
                       </div>
-                      <div className="font-medium text-crypto-success-600 dark:text-crypto-success-400">
-                        {formatCurrency(result.allowance)}
-                      </div>
+                       <div className="font-medium text-crypto-success-600 dark:text-crypto-success-400">
+                         {formatJurisdictionCurrency(result.allowance)}
+                       </div>
                     </div>
                     <div>
                       <div className="text-crypto-muted-foreground">Taxable Gain</div>
-                      <div className="font-medium">
-                        {formatCurrency(result.taxableGain)}
-                      </div>
+                       <div className="font-medium">
+                         {formatJurisdictionCurrency(result.taxableGain)}
+                       </div>
                     </div>
                     <div>
                       <div className="text-crypto-muted-foreground">CGT Rate</div>
@@ -269,9 +287,9 @@ export function TaxClient() {
                     <div className="grid grid-cols-2 gap-3 text-sm">
                       <div>
                         <div className="text-crypto-muted-foreground">Net Gain After Tax</div>
-                        <div className="font-medium">
-                          {formatCurrency(result.netGain)}
-                        </div>
+                       <div className="font-medium">
+                         {formatJurisdictionCurrency(result.netGain)}
+                       </div>
                       </div>
                       <div>
                         <div className="text-crypto-muted-foreground">Effective Rate</div>
