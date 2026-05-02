@@ -1,5 +1,24 @@
 import type { RiskContext, TokenSnapshot } from '../types/phase2';
 
+// ── Known major stablecoins & blue-chip tokens ──────────────
+// These tokens have well-understood risk profiles that cannot
+// be accurately assessed from DEX liquidity alone, as most
+// volume occurs on centralised exchanges.
+const KNOWN_LOW_RISK_TOKENS: Record<string, string> = {
+  // Stablecoins
+  '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48': 'USDC',
+  '0xdac17f958d2ee523a2206206994597c13d831ec7': 'USDT',
+  '0x6b175474e89094c44da98b954eedeac495271d0f': 'DAI',
+  '0x4fabb145d64652a948d72533023f6e7a623c7c53': 'BUSD',
+  '0x956f47f50a910163d8bf957cf5846d573e7f87ca': 'FEI',
+  '0x853d955acef822db058eb8505911ed77f175b99e': 'FRAX',
+  // Blue-chip tokens
+  '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2': 'WETH',
+  '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599': 'WBTC',
+  '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984': 'UNI',
+  '0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9': 'AAVE',
+};
+
 type RuleHit = {
   points: number;
   warning: string;
@@ -109,6 +128,22 @@ function buildSummary(riskLevel: RiskContext['riskLevel'], hits: RuleHit[]): str
  * No predictions, no advice, no randomness.
  */
 export function computeRiskContext(snapshot: TokenSnapshot): RiskContext {
+  // Check if this is a known low-risk token
+  const tokenAddress = snapshot.address?.toLowerCase();
+  const knownToken = tokenAddress 
+    ? KNOWN_LOW_RISK_TOKENS[tokenAddress] 
+    : null;
+
+  if (knownToken) {
+    return {
+      score: 5,
+      riskLevel: 'low',
+      warnings: [],
+      summary: `${knownToken} is a well-established token. DEX liquidity metrics are not representative of its full market depth across centralised exchanges. This is context, not advice.`,
+      derived: computeDerived(snapshot),
+    };
+  }
+
   const derived = computeDerived(snapshot);
 
   const hits: RuleHit[] = [

@@ -5,6 +5,7 @@ export type TokenSnapshot = {
   pairAddress: string;
   dexId: string;
   url?: string;
+  address?: string;
 
   baseToken: {
     address: string;
