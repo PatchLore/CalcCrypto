@@ -259,3 +259,85 @@ export function calculatePercentageChange(oldValue, newValue) {
   
   return safeDivide((newNum - oldNum), oldNum) * 100;
 }
+
+/**
+ * Calculate Capital Gains Tax estimate
+ * FIFO method, educational estimate only
+ */
+export function calculateCGT({
+  buyPrice,
+  sellPrice,
+  quantity,
+  jurisdiction,
+  isHigherRateTaxpayer = false
+}) {
+  const buyPriceNum = validateInput(buyPrice, 'Buy Price');
+  const sellPriceNum = validateInput(sellPrice, 'Sell Price');
+  const quantityNum = validateInput(quantity, 'Quantity');
+
+  const costBasis = buyPriceNum * quantityNum;
+  const proceedsNum = sellPriceNum * quantityNum;
+  const grossGain = proceedsNum - costBasis;
+
+  // Annual CGT allowances and rates by jurisdiction
+  const jurisdictionRules = {
+    UK: {
+      allowance: 3000,
+      basicRate: 0.18,
+      higherRate: 0.24,
+      currency: 'GBP',
+      label: 'United Kingdom',
+      taxYear: 'Apr 6 – Apr 5',
+      note: 'UK CGT rates for crypto: 18% basic rate, 24% higher rate (2024/25)'
+    },
+    US: {
+      allowance: 0,
+      basicRate: 0.15,
+      higherRate: 0.20,
+      currency: 'USD',
+      label: 'United States',
+      taxYear: 'Jan 1 – Dec 31',
+      note: 'Long-term CGT rates (held >1 year). Short-term gains taxed as income.'
+    },
+    AU: {
+      allowance: 0,
+      basicRate: 0.235,
+      higherRate: 0.47,
+      currency: 'AUD',
+      label: 'Australia',
+      taxYear: 'Jul 1 – Jun 30',
+      note: 'Australia: 50% CGT discount applies if held >12 months.'
+    },
+    EU: {
+      allowance: 0,
+      basicRate: 0.20,
+      higherRate: 0.20,
+      currency: 'EUR',
+      label: 'European Union',
+      taxYear: 'Jan 1 – Dec 31',
+      note: 'EU rates vary by country. This uses a general 20% estimate.'
+    }
+  };
+
+  const rules = jurisdictionRules[jurisdiction] 
+    || jurisdictionRules['UK'];
+
+  const taxableGain = Math.max(0, grossGain - rules.allowance);
+  const rate = isHigherRateTaxpayer ? rules.higherRate : rules.basicRate;
+  const estimatedTax = taxableGain > 0 ? taxableGain * rate : 0;
+  const netGain = grossGain - estimatedTax;
+  const effectiveRate = safeDivide(estimatedTax, grossGain) * 100;
+
+  return {
+    costBasis,
+    proceeds: proceedsNum,
+    grossGain,
+    allowance: rules.allowance,
+    taxableGain,
+    estimatedTax,
+    netGain,
+    effectiveRate,
+    rate: rate * 100,
+    rules
+  }
+}
