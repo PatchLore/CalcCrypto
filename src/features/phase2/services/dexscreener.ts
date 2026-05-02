@@ -84,6 +84,7 @@ export async function fetchTokenData(tokenAddress: string): Promise<TokenSnapsho
       pairAddress: pair.pairAddress || '',
       dexId: pair.dexId || 'unknown',
       url: pair.url,
+      address: normalizedAddress,
       baseToken: {
         address: pair.baseToken?.address || normalizedAddress,
         symbol: pair.baseToken?.symbol || 'UNKNOWN',
