@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '../../../components/ui/Button';
 import { Input } from '../../../components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../components/ui/Card';
@@ -27,6 +27,7 @@ export function TaxClient() {
   const [error, setError] = useState('');
 
   const handleCalculate = () => {
+    setResult(null);
     setError('');
     try {
       const calc = calculateCGT({
@@ -46,6 +47,11 @@ export function TaxClient() {
   const isLoss = result && result.grossGain < 0;
 
   const selectedJurisdiction = JURISDICTIONS.find(j => j.value === jurisdiction);
+
+  useEffect(() => {
+    setResult(null);
+    setError('');
+  }, [jurisdiction, taxRate]);
 
   const CURRENCY_SYMBOLS: Record<Jurisdiction, string> = {
     UK: 'GBP',
