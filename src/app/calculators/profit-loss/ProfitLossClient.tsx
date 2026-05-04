@@ -240,7 +240,7 @@ export function ProfitLossClient() {
                      {/* Inline Disclaimer */}
                      <div className="mt-4 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md">
                        <p className="text-sm text-amber-700 dark:text-amber-400">
-                         ⚠️ Estimate only — excludes real trading factors like slippage, spreads, and exchange-specific fees
+                       ⚠️ Estimate only, excludes real trading factors like slippage, spreads, and exchange-specific fees
                        </p>
                      </div>
                   </div>

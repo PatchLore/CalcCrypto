@@ -272,7 +272,7 @@ export function MiningClient() {
                      {/* Inline Disclaimer */}
                      <div className="mt-4 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md">
                        <p className="text-sm text-amber-700 dark:text-amber-400">
-                         ⚠️ Estimate only — actual returns vary with network difficulty, fees, and market conditions
+                         ⚠️ Estimate only, actual returns vary with network difficulty, fees, and market conditions
                        </p>
                      </div>
                   </div>

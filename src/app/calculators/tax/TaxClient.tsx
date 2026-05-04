@@ -242,6 +242,13 @@ export function TaxClient() {
                   </div>
                 </div>
 
+                {/* Primary Limitation Disclaimer - Immediately after result */}
+                <div className="mt-3 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md">
+                  <p className="text-sm text-amber-700 dark:text-amber-400 text-center">
+                    ⚠️ Estimated result only, does not include full UK tax rules (e.g. pooling, 30-day matching, or classification differences)
+                  </p>
+                </div>
+
                 {/* Breakdown */}
                 <div className="space-y-3">
                   <h2 className="text-sm font-semibold text-crypto-foreground">
@@ -328,24 +335,18 @@ export function TaxClient() {
                    </a>
                    <p className="text-xs text-crypto-muted-foreground 
                                  text-center mt-2">
-                     Affiliate link — we may earn a commission at no 
+                     Affiliate link, we may earn a commission at no
                      cost to you
                    </p>
                   </div>
 
-                  {/* Inline Disclaimer */}
-                  <div className="mt-4 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md">
-                    <p className="text-sm text-amber-700 dark:text-amber-400">
-                      ⚠️ Estimated result only — does not include full tax rules (e.g. pooling, 30-day matching, or classification differences)
-                    </p>
-                  </div>
 
                  {/* Loss note */}
                 {isLoss && (
                   <div className="text-xs text-crypto-muted-foreground 
                                   bg-crypto-muted/30 rounded-md p-3">
                     📉 A capital loss may be offsettable against other gains 
-                    in the same tax year. Rules vary by jurisdiction — 
+                    in the same tax year. Rules vary by jurisdiction,
                     consult a qualified accountant.
                   </div>
                 )}
@@ -355,7 +356,7 @@ export function TaxClient() {
                   <div className="text-xs text-crypto-muted-foreground 
                                   bg-crypto-success-50 dark:bg-crypto-success-950 
                                   rounded-md p-3">
-                    ✅ Your gain is within the annual CGT allowance — 
+                    ✅ Your gain is within the annual CGT allowance,
                     no tax may be due on this disposal alone.
                   </div>
                 )}
