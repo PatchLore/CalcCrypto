@@ -172,7 +172,7 @@ export function StakingClient() {
                   <div className="space-y-6">
                     {/* Main Result */}
                     <div className="text-center p-6 rounded-lg bg-crypto-success-50 dark:bg-crypto-success-950 border border-crypto-success-200 dark:border-crypto-success-800">
-                      <div className="text-2xl font-bold mb-2">🏦 Total Rewards</div>
+                       <div className="text-2xl font-bold mb-2">🏦 Estimated Total Rewards</div>
                       <div className="text-3xl font-bold text-crypto-success-600 dark:text-crypto-success-400">
                         {formatCurrency(totalRewards)}
                       </div>
@@ -237,12 +237,19 @@ export function StakingClient() {
                       </div>
                     </div>
 
-                    {/* Additional Info */}
-                    <div className="pt-4 border-t border-crypto-border">
-                      <div className="text-xs text-crypto-muted-foreground">
-                        Calculation performed on {result.metadata?.timestamp.toLocaleString()}
-                      </div>
-                    </div>
+                     {/* Additional Info */}
+                     <div className="pt-4 border-t border-crypto-border">
+                       <div className="text-xs text-crypto-muted-foreground">
+                         Calculation performed on {result.metadata?.timestamp.toLocaleString()}
+                       </div>
+                     </div>
+
+                     {/* Inline Disclaimer */}
+                     <div className="mt-4 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md">
+                       <p className="text-sm text-amber-700 dark:text-amber-400">
+                         ⚠️ Estimated rewards — actual returns may vary based on network conditions and validator performance
+                       </p>
+                     </div>
                   </div>
                 ) : (
                   <div className="text-center py-12 text-crypto-muted-foreground">
@@ -277,10 +284,16 @@ export function StakingClient() {
                 </p>
               </div>
             </CardContent>
-          </Card>
-        </div>
-      </div>
-    </div>
+           </Card>
+
+           {/* Global Footer Disclaimer */}
+           <div className="mt-10 p-4 border border-crypto-border rounded-lg 
+                           bg-crypto-muted/20 text-sm text-crypto-muted-foreground text-center">
+             This tool provides estimates only and is not financial or tax advice. For accurate reporting, consult a qualified professional.
+           </div>
+         </div>
+       </div>
+     </div>
   );
 }
 

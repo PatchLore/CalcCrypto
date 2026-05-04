@@ -331,9 +331,16 @@ export function TaxClient() {
                      Affiliate link — we may earn a commission at no 
                      cost to you
                    </p>
-                 </div>
+                  </div>
 
-                {/* Loss note */}
+                  {/* Inline Disclaimer */}
+                  <div className="mt-4 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md">
+                    <p className="text-sm text-amber-700 dark:text-amber-400">
+                      ⚠️ Estimated result only — does not include full tax rules (e.g. pooling, 30-day matching, or classification differences)
+                    </p>
+                  </div>
+
+                 {/* Loss note */}
                 {isLoss && (
                   <div className="text-xs text-crypto-muted-foreground 
                                   bg-crypto-muted/30 rounded-md p-3">
@@ -366,15 +373,10 @@ export function TaxClient() {
         </Card>
       </div>
 
-      {/* Hard disclaimer */}
-      <div className="mt-8 p-4 border border-crypto-border rounded-lg 
-                      bg-crypto-muted/20 text-xs text-crypto-muted-foreground">
-        <strong>Important:</strong> These are generic educational estimates 
-        based on simplified tax rules. They do not constitute tax advice. 
-        Tax rules are complex, change frequently, and depend on your full 
-        financial situation. Always consult a qualified tax professional 
-        before making decisions based on these estimates. Rules differ 
-        significantly between jurisdictions and individual circumstances.
+      {/* Global Footer Disclaimer */}
+      <div className="mt-10 p-4 border border-crypto-border rounded-lg 
+                      bg-crypto-muted/20 text-sm text-crypto-muted-foreground text-center">
+        This tool provides estimates only and is not financial or tax advice. For accurate reporting, consult a qualified professional.
       </div>
     </div>
   );

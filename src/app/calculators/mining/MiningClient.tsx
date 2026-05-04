@@ -195,9 +195,9 @@ export function MiningClient() {
                       }`}>
                         {formatCurrency(monthlyProfit)}
                       </div>
-                      <div className="text-sm text-crypto-muted-foreground mt-2">
-                        Monthly Profit/Loss
-                      </div>
+                       <div className="text-sm text-crypto-muted-foreground mt-2">
+                         Estimated Monthly Profit/Loss
+                       </div>
                     </div>
 
                     {/* Daily Profit */}
@@ -262,12 +262,19 @@ export function MiningClient() {
                       </div>
                     </div>
 
-                    {/* Additional Info */}
-                    <div className="pt-4 border-t border-crypto-border">
-                      <div className="text-xs text-crypto-muted-foreground">
-                        Calculation performed on {result.metadata?.timestamp.toLocaleString()}
-                      </div>
-                    </div>
+                     {/* Additional Info */}
+                     <div className="pt-4 border-t border-crypto-border">
+                       <div className="text-xs text-crypto-muted-foreground">
+                         Calculation performed on {result.metadata?.timestamp.toLocaleString()}
+                       </div>
+                     </div>
+
+                     {/* Inline Disclaimer */}
+                     <div className="mt-4 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md">
+                       <p className="text-sm text-amber-700 dark:text-amber-400">
+                         ⚠️ Estimate only — actual returns vary with network difficulty, fees, and market conditions
+                       </p>
+                     </div>
                   </div>
                 ) : (
                   <div className="text-center py-12 text-crypto-muted-foreground">
@@ -303,10 +310,16 @@ export function MiningClient() {
                 </p>
               </div>
             </CardContent>
-          </Card>
-        </div>
-      </div>
-    </div>
+           </Card>
+
+           {/* Global Footer Disclaimer */}
+           <div className="mt-10 p-4 border border-crypto-border rounded-lg 
+                           bg-crypto-muted/20 text-sm text-crypto-muted-foreground text-center">
+             This tool provides estimates only and is not financial or tax advice. For accurate reporting, consult a qualified professional.
+           </div>
+         </div>
+       </div>
+     </div>
   );
 }
 

@@ -175,9 +175,9 @@ export function ProfitLossClient() {
                         ? 'bg-crypto-error-50 dark:bg-crypto-error-950 border border-crypto-error-200 dark:border-crypto-error-800'
                         : 'bg-crypto-muted border border-crypto-border'
                     }`}>
-                      <div className="text-2xl font-bold mb-2">
-                        {isProfit ? '📈 Profit' : isLoss ? '📉 Loss' : '➖ Break Even'}
-                      </div>
+                       <div className="text-2xl font-bold mb-2">
+                         {isProfit ? '📈 Estimated Profit' : isLoss ? '📉 Estimated Loss' : '➖ Break Even'}
+                       </div>
                       <div className={`text-3xl font-bold ${
                         isProfit
                           ? 'text-crypto-success-600 dark:text-crypto-success-400'
@@ -187,9 +187,9 @@ export function ProfitLossClient() {
                       }`}>
                         {formatCurrency(result.result)}
                       </div>
-                      <div className="text-sm text-crypto-muted-foreground mt-2">
-                        {formatPercentage((result.result / result.breakdown!.principal) * 100)} ROI
-                      </div>
+                       <div className="text-sm text-crypto-muted-foreground mt-2">
+                         {formatPercentage((result.result / result.breakdown!.principal) * 100)} Estimated ROI
+                       </div>
                     </div>
 
                     {/* Breakdown */}
@@ -217,25 +217,32 @@ export function ProfitLossClient() {
                             {formatCurrency(result.breakdown!.fees)}
                           </div>
                         </div>
-                        <div>
-                          <div className="text-crypto-muted-foreground">Net Result</div>
-                          <div className={`font-medium ${
-                            result.result >= 0
-                              ? 'text-crypto-success-600 dark:text-crypto-success-400'
-                              : 'text-crypto-error-600 dark:text-crypto-error-400'
-                          }`}>
-                            {formatCurrency(result.result)}
-                          </div>
-                        </div>
+                         <div>
+                           <div className="text-crypto-muted-foreground">Estimated Net Result</div>
+                           <div className={`font-medium ${
+                             result.result >= 0
+                               ? 'text-crypto-success-600 dark:text-crypto-success-400'
+                               : 'text-crypto-error-600 dark:text-crypto-error-400'
+                           }`}>
+                             {formatCurrency(result.result)}
+                           </div>
+                         </div>
                       </div>
                     </div>
 
-                    {/* Additional Info */}
-                    <div className="pt-4 border-t border-crypto-border">
-                      <div className="text-xs text-crypto-muted-foreground">
-                        Calculation performed on {result.metadata?.timestamp.toLocaleString()}
-                      </div>
-                    </div>
+                     {/* Additional Info */}
+                     <div className="pt-4 border-t border-crypto-border">
+                       <div className="text-xs text-crypto-muted-foreground">
+                         Calculation performed on {result.metadata?.timestamp.toLocaleString()}
+                       </div>
+                     </div>
+
+                     {/* Inline Disclaimer */}
+                     <div className="mt-4 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md">
+                       <p className="text-sm text-amber-700 dark:text-amber-400">
+                         ⚠️ Estimate only — excludes real trading factors like slippage, spreads, and exchange-specific fees
+                       </p>
+                     </div>
                   </div>
                 ) : (
                   <div className="text-center py-12 text-crypto-muted-foreground">
@@ -285,19 +292,25 @@ export function ProfitLossClient() {
             </Suspense>
           )}
           {/* Phase 2 explanation (informational only) */}
-          <section className="mt-8 border-t border-crypto-border pt-6">
-            <h2 className="text-lg font-semibold text-crypto-foreground">What is Risk Context?</h2>
-            <p className="mt-2 text-sm text-crypto-muted-foreground">
-              Risk Context helps explain what the numbers mean using live market data like liquidity, trading volume, and fully diluted value.
-            </p>
-            <p className="mt-2 text-sm text-crypto-muted-foreground">
-              It does not predict prices or tell you what to do.
-              It adds context — clearly and deterministically — so you can interpret results more confidently.
-            </p>
-            <div className="mt-3 text-xs text-crypto-muted-foreground">
-              Context only. Not financial advice.
-            </div>
-          </section>
+           <section className="mt-8 border-t border-crypto-border pt-6">
+             <h2 className="text-lg font-semibold text-crypto-foreground">What is Risk Context?</h2>
+             <p className="mt-2 text-sm text-crypto-muted-foreground">
+               Risk Context helps explain what the numbers mean using live market data like liquidity, trading volume, and fully diluted value.
+             </p>
+             <p className="mt-2 text-sm text-crypto-muted-foreground">
+               It does not predict prices or tell you what to do.
+               It adds context — clearly and deterministically — so you can interpret results more confidently.
+             </p>
+             <div className="mt-3 text-xs text-crypto-muted-foreground">
+               Context only. Not financial advice.
+             </div>
+           </section>
+
+           {/* Global Footer Disclaimer */}
+           <div className="mt-10 p-4 border border-crypto-border rounded-lg 
+                           bg-crypto-muted/20 text-sm text-crypto-muted-foreground text-center">
+             This tool provides estimates only and is not financial or tax advice. For accurate reporting, consult a qualified professional.
+           </div>
         </div>
       </div>
     </div>
