@@ -5,10 +5,10 @@ import { TrustBadge } from '../../../components/ui/TrustBadge';
 
 export const metadata: Metadata = {
   title: 'Crypto Capital Gains Tax Calculator | CrypCal',
-  description: 'Estimate capital gains tax on crypto disposals for UK, US, Australia and EU. Enter buy price, sell price and quantity to see your CGT estimate. Educational tool only — not tax advice.',
+  description: 'Estimate capital gains tax on crypto disposals for UK, US, Australia and EU. Enter buy price, sell price and quantity to see your CGT estimate. Educational tool only, not tax advice.',
   alternates: { canonical: 'https://calccrypto.com/calculators/tax' },
   openGraph: {
-    title: 'Crypto CGT Calculator — CrypCal',
+    title: 'Crypto CGT Calculator, CrypCal',
     description: 'Estimate crypto capital gains tax across UK, US, AU and EU. Free, manual input, no wallet required.',
     url: 'https://calccrypto.com/calculators/tax',
     siteName: 'CrypCal',
@@ -83,7 +83,7 @@ export default function TaxCalculator() {
             "name": "Do I pay tax on crypto gains?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "In most jurisdictions yes. The UK, US, Australia and most EU countries treat cryptocurrency as a capital asset. Disposing of crypto — selling, swapping or spending it — is typically a taxable event subject to capital gains tax."
+              "text": "In most jurisdictions yes. The UK, US, Australia and most EU countries treat cryptocurrency as a capital asset. Disposing of crypto, selling, swapping or spending it, is typically a taxable event subject to capital gains tax."
             }
           },
           {
@@ -136,7 +136,7 @@ export default function TaxCalculator() {
               your gross gain from the difference between sell and buy values, 
               deducts the annual CGT allowance for your jurisdiction, then 
               applies the appropriate tax rate to give an estimated liability. 
-              All logic is deterministic and based on the inputs you provide — 
+              All logic is deterministic and based on the inputs you provide, 
               no data is stored or transmitted.
             </p>
           </section>
@@ -147,12 +147,12 @@ export default function TaxCalculator() {
             </h2>
             <p className="text-crypto-muted-foreground text-sm leading-relaxed">
               Most countries treat cryptocurrency as a capital asset rather 
-              than currency. This means every disposal — selling, swapping 
-              one crypto for another, or spending crypto — is potentially 
+              than currency. This means every disposal, selling, swapping 
+              one crypto for another, or spending crypto, is potentially 
               a taxable event. Your gain is the difference between what you 
               paid (cost basis) and what you received (proceeds). Each 
               jurisdiction has different allowances, rates and reporting 
-              requirements. This tool gives a rough estimate — for accurate 
+              requirements. This tool gives a rough estimate, for accurate 
               reporting always use dedicated tax software or a qualified 
               accountant.
             </p>
@@ -166,7 +166,7 @@ export default function TaxCalculator() {
               {[
                 {
                   q: "Do I pay tax on crypto gains?",
-                  a: "In most jurisdictions yes — selling, swapping or spending crypto is typically a taxable disposal subject to capital gains tax."
+                  a: "In most jurisdictions yes, selling, swapping or spending crypto is typically a taxable disposal subject to capital gains tax."
                 },
                 {
                   q: "How is crypto capital gains tax calculated?",
@@ -182,7 +182,7 @@ export default function TaxCalculator() {
                 },
                 {
                   q: "Is this a real tax calculation?",
-                  a: "No — this is an educational estimate using simplified rules. Always consult a qualified tax professional for your actual liability."
+                  a: "No, this is an educational estimate using simplified rules. Always consult a qualified tax professional for your actual liability."
                 }
               ].map(({ q, a }) => (
                 <details

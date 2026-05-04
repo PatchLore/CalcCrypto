@@ -245,7 +245,7 @@ export function TaxClient() {
                 {/* Primary Limitation Disclaimer - Immediately after result */}
                 <div className="mt-3 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md">
                   <p className="text-sm text-amber-700 dark:text-amber-400 text-center">
-                    ⚠️ Estimated result only, does not include full UK tax rules (e.g. pooling, 30-day matching, or classification differences)
+                    ⚠️ Estimated result only, does not include full UK tax rules (pooling, 30-day matching, classification differences)
                   </p>
                 </div>
 
