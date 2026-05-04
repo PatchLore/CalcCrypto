@@ -81,8 +81,8 @@ export function TaxClient() {
           Estimate capital gains tax on your crypto disposals.
         </p>
         <p className="text-sm text-crypto-muted-foreground mt-2">
-          Educational estimates only · Not tax advice · 
-          Consult a qualified accountant for your situation
+          Educational estimates only, not tax advice, 
+          consult a qualified accountant for your situation
         </p>
       </div>
 
