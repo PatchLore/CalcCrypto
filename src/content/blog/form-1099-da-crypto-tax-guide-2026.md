@@ -2,7 +2,7 @@
 title: "Form 1099-DA Explained: What Crypto Investors Need to Know in 2026"
 date: "2026-05-06"
 excerpt: "The IRS now requires brokers to report your crypto transactions on Form 1099-DA. Here is what it means, who it affects, and how to stay compliant without overpaying tax."
-image: "/blog-images/1099-da-crypto-tax.png"
+image: "/blog-images/1099-da-crypto-tax.jpg"
 ---
 
 Starting with the 2025 tax year, the IRS introduced Form 1099-DA — 
