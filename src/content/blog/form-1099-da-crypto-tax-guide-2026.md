@@ -5,7 +5,7 @@ excerpt: "The IRS now requires brokers to report your crypto transactions on For
 image: "/blog-images/1099-da-crypto-tax.jpg"
 ---
 
-Starting with the 2025 tax year, the IRS introduced Form 1099-DA — 
+Starting with the 2025 tax year, the IRS introduced Form 1099-DA, 
 a new reporting form that requires crypto brokers to report your 
 digital asset transactions directly to the tax authority. If you 
 trade crypto on a centralised exchange, this affects you. Here is 
@@ -14,8 +14,8 @@ what you need to know, in plain English.
 What Is Form 1099-DA?
 
 Form 1099-DA (Digital Asset Proceeds From Broker Transactions) is 
-issued by brokers — including centralised crypto exchanges, digital 
-asset payment processors and hosted wallet providers — for any sales 
+issued by brokers, including centralised crypto exchanges, digital 
+asset payment processors and hosted wallet providers, for any sales 
 or exchanges of digital assets from January 1, 2025 onwards. It is 
 similar to the Form 1099-B that stock brokers have used for years. 
 The goal is to give the IRS a standardised, third-party verified 
@@ -80,7 +80,7 @@ investors most at risk are those who traded on more than one exchange,
 moved assets to self-custody and back, used DeFi protocols, or have 
 a long transaction history spread across multiple wallets.
 
-FIFO, HIFO and LIFO — Why Your Cost Basis Method Matters
+FIFO, HIFO and LIFO, Why Your Cost Basis Method Matters
 
 If you do not tell your broker which lot identification method to use, 
 the IRS defaults to FIFO, which stands for First In, First Out. This 
