@@ -1,10 +1,12 @@
 import { MetadataRoute } from 'next'
+import { getAllPostSlugs } from '@/lib/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://calccrypto.com'
   const lastModified = new Date()
 
-  return [
+  // Static pages
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified,
@@ -54,6 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/calculators/tax`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/blog`,
       lastModified,
       changeFrequency: 'weekly',
@@ -78,4 +86,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
   ]
+
+  // Dynamic blog posts
+  const slugs = getAllPostSlugs()
+  const blogPosts: MetadataRoute.Sitemap = slugs.map((slug) => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastModified,
+    changeFrequency: 'monthly',
+    priority: 0.5,
+  }))
+
+  return [...staticPages, ...blogPosts]
 }

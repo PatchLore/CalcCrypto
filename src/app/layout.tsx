@@ -43,12 +43,15 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://www.calccrypto.com"),
+  metadataBase: new URL("https://calccrypto.com"),
+  alternates: {
+    canonical: "https://calccrypto.com",
+  },
   openGraph: {
     title: "CrypCal | Free crypto calculators • No signup • Privacy-first",
     description:
       "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
-    url: "https://www.calccrypto.com",
+    url: "https://calccrypto.com",
     siteName: "CrypCal",
     locale: "en_US",
     type: "website",

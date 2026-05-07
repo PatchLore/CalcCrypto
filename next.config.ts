@@ -28,6 +28,7 @@ const securityHeaders = [
 ]
 
 const nextConfig: NextConfig = {
+  trailingSlash: false,
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'assets.coingecko.com' },
