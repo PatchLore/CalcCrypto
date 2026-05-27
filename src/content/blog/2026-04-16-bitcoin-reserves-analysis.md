@@ -30,7 +30,7 @@ At **2.683 million BTC**, reserves are near a multi-month low. That's a signific
 **But here's the catch:**  
 A supply squeeze only matters if demand shows up. Right now, spot retail activity is near its weakest point in a year.
 
-> 💡 *For your own analysis: Use our [Profit/Loss Calculator](/profit-loss) to decide how much BTC you'd buy if demand returns – but only after confirming volume picks up.*
+> 💡 *For your own analysis: Use our [Profit/Loss Calculator](/calculators/profit-loss) to decide how much BTC you'd buy if demand returns – but only after confirming volume picks up.*
 
 Retail vs. Institutional – A Divergence
 
@@ -54,11 +54,11 @@ How to Trade This Setup (Using CalCrypto Tools)
 Instead of guessing, you can model both scenarios:
 
 Scenario1 – Supply squeeze ignites a rally
-- Use the [Profit/Loss Calculator](/profit-loss) to set target sells if BTC reaches $90K, $100K, etc.
-- Use the [DCA Calculator](/dca) to plan weekly buys if reserves keep falling.
+- Use the [Profit/Loss Calculator](/calculators/profit-loss) to set target sells if BTC reaches $90K, $100K, etc.
+- Use the [DCA Calculator](/calculators/dca) to plan weekly buys if reserves keep falling.
 
 Scenario2 – Low retail demand delays the breakout
-- Use the [Portfolio Tracker](/portfolio) to review your current BTC exposure.
+- Use the [Portfolio Tracker](/calculators) to review your current BTC exposure.
 - Use our upcoming **Risk Calculator** (Phase 2) to check exchange reserve health across multiple assets.
 
 > 📌 No calculator can predict the future, but running numbers on both sides of the trade helps remove emotion.

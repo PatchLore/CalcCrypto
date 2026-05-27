@@ -41,6 +41,47 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
+  async redirects() {
+    return [
+      // Redirect empty/stale calculator directories to real pages (fix redirect chains)
+      {
+        source: '/calculators/convert',
+        destination: '/calculators/conversion',
+        permanent: true,
+      },
+      {
+        source: '/calculators/convert/:path*',
+        destination: '/calculators/conversion/:path*',
+        permanent: true,
+      },
+      {
+        source: '/calculators/portfolio',
+        destination: '/calculators',
+        permanent: true,
+      },
+      {
+        source: '/calculators/trade',
+        destination: '/calculators',
+        permanent: true,
+      },
+      // Fix broken blog links that lack /calculators/ prefix
+      {
+        source: '/profit-loss',
+        destination: '/calculators/profit-loss',
+        permanent: true,
+      },
+      {
+        source: '/dca',
+        destination: '/calculators/dca',
+        permanent: true,
+      },
+      {
+        source: '/portfolio',
+        destination: '/calculators',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
