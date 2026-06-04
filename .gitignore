@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# internal strategy docs (not for public repo)
+docs/*-High-Priority.md
+docs/AGENT_*.md
