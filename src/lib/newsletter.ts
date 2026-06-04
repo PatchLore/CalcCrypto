@@ -1,64 +1,33 @@
-import fs from 'fs';
-import path from 'path';
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const RESEND_AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID;
 
-export interface NewsletterResult {
-  success: boolean;
-  message: string;
-}
-
-export function validateEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-export function subscribeToNewsletter(email: string): NewsletterResult {
-  // Validate email
-  if (!validateEmail(email)) {
-    return {
-      success: false,
-      message: 'Please enter a valid email address.',
-    };
+export async function subscribeEmail(email: string): Promise<{ success: boolean; message: string }> {
+  if (!RESEND_API_KEY || !RESEND_AUDIENCE_ID) {
+    throw new Error('Missing Resend API Key or Audience ID in environment variables.');
   }
 
   try {
-    const subscribersFile = path.join(process.cwd(), 'src', 'data', 'subscribers.json');
+    const res = await fetch(`https://api.resend.com/audiences/${RESEND_AUDIENCE_ID}/contacts`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    });
 
-    // Create data directory if it doesn't exist
-    const dataDir = path.dirname(subscribersFile);
-    if (!fs.existsSync(dataDir)) {
-      fs.mkdirSync(dataDir, { recursive: true });
+    const data = await res.json();
+
+    if (!res.ok) {
+      if (res.status === 409) {
+        return { success: true, message: 'Already subscribed' };
+      }
+      throw new Error(data.message || 'Failed to subscribe via Resend API');
     }
 
-    // Read existing subscribers or create empty array
-    let subscribers: string[] = [];
-    if (fs.existsSync(subscribersFile)) {
-      const data = fs.readFileSync(subscribersFile, 'utf8');
-      subscribers = JSON.parse(data);
-    }
-
-    // Check for duplicates
-    if (subscribers.includes(email)) {
-      return {
-        success: false,
-        message: 'This email is already subscribed to our newsletter.',
-      };
-    }
-
-    // Add new subscriber
-    subscribers.push(email);
-
-    // Write back to file
-    fs.writeFileSync(subscribersFile, JSON.stringify(subscribers, null, 2));
-
-    return {
-      success: true,
-      message: 'Successfully subscribed to our newsletter!',
-    };
+    return { success: true, message: 'Subscribed successfully' };
   } catch (error) {
     console.error('Newsletter subscription error:', error);
-    return {
-      success: false,
-      message: 'An error occurred. Please try again later.',
-    };
+    throw error;
   }
 }

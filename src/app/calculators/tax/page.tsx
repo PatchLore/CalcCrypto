@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { TaxClient } from './TaxClient';
 import { JsonLd } from '../../../components/seo/JsonLd';
 import { TrustBadge } from '../../../components/ui/TrustBadge';
@@ -221,7 +222,7 @@ export default function TaxCalculator() {
                 { href: '/calculators/mining', label: 'Mining Calculator', desc: 'Mining profitability' },
                 { href: '/calculators/token-price', label: 'Token Analyser', desc: 'Token risk scoring' },
               ].map(({ href, label, desc }) => (
-                <a
+                <Link
                   key={href}
                   href={href}
                   className="block border border-crypto-border rounded-lg p-3 
@@ -233,7 +234,7 @@ export default function TaxCalculator() {
                   <div className="text-xs text-crypto-muted-foreground mt-0.5">
                     {desc}
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </section>
