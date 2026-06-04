@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { StakingClient } from './StakingClient';
 import { JsonLd } from "@/components/seo/JsonLd";
 import { TrustBadge } from "@/components/ui/TrustBadge";
-import { AFFILIATE_LINKS } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Crypto Staking Rewards Calculator — APY Yield & Compound Interest | CalcCrypto',
@@ -241,7 +241,7 @@ export default function StakingCalculator() {
                 { href: '/calculators/token-price', label: 'Token Analyser', desc: 'Token risk scoring' },
                 { href: '/calculators/tax', label: 'Tax Calculator', desc: 'CGT estimation' },
               ].map(({ href, label, desc }) => (
-                <a
+                <Link
                   key={href}
                   href={href}
                   className="block border border-crypto-border rounded-lg p-3 
@@ -253,7 +253,7 @@ export default function StakingCalculator() {
                   <div className="text-xs text-crypto-muted-foreground mt-0.5">
                     {desc}
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </section>

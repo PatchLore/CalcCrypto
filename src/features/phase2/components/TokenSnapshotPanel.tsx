@@ -7,6 +7,7 @@ type TokenSnapshotPanelProps = {
   data: TokenSnapshot | null;
   loading: boolean;
   error: string | null;
+  chainId?: string;
 };
 
 const EMPTY_MESSAGES: Record<string, string> = {
@@ -17,7 +18,7 @@ const EMPTY_MESSAGES: Record<string, string> = {
   bsc: 'Enter a valid BNB Chain address to view token price, liquidity, FDV, and volume data.',
 };
 
-export default function TokenSnapshotPanel({ data, loading, error }: TokenSnapshotPanelProps) {
+export default function TokenSnapshotPanel({ data, loading, error, chainId }: TokenSnapshotPanelProps) {
   const chainName = data?.chainId
     ? SUPPORTED_CHAINS.find(c => c.id === data.chainId)?.name ?? data.chainId
     : null;
@@ -51,7 +52,7 @@ export default function TokenSnapshotPanel({ data, loading, error }: TokenSnapsh
       <div className="rounded-lg border border-crypto-border bg-crypto-background p-4">
         <div className="text-sm font-semibold text-crypto-foreground mb-3">Token Snapshot</div>
         <p className="text-sm text-crypto-muted-foreground">
-          {EMPTY_MESSAGES.ethereum}
+          {EMPTY_MESSAGES[chainId ?? 'ethereum'] ?? EMPTY_MESSAGES.ethereum}
         </p>
       </div>
     );

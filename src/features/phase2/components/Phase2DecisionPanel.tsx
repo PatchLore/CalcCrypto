@@ -175,7 +175,7 @@ export function Phase2DecisionPanel(props: { calculator: 'token-price' }) {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <Suspense fallback={<PanelSkeleton title="Token Snapshot" />}>
-              <LazyTokenSnapshotPanel data={snapshotData} loading={loadingSnapshot} error={error} />
+              <LazyTokenSnapshotPanel data={snapshotData} loading={loadingSnapshot} error={error} chainId={selectedChain} />
             </Suspense>
 
             <Suspense fallback={<PanelSkeleton title="Risk Context" />}>
