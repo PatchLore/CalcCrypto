@@ -11,7 +11,7 @@ import {
   calculateMining,
   calculateStaking,
   calculatePercentageChange
-} from './src/lib/calcEngine.js';
+} from './src/lib/calcEngine';
 
 console.log('==================================================');
 console.log('CALCULATION ENGINE COMPREHENSIVE TEST SUITE');

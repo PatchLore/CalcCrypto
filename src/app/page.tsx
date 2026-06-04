@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { CALCULATORS, APP_CONFIG } from '@/lib/constants';
 import { trackButtonClick, trackNavigation } from '@/lib/analytics';
+import { JsonLd } from '@/components/seo/JsonLd';
 
 export default function Home() {
   const homeCalculators = CALCULATORS.filter((c) =>
@@ -10,6 +11,29 @@ export default function Home() {
   );
 
   return (
+    <>
+      <JsonLd schema={{
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "CrypCal — Crypto Calculator Suite",
+        "applicationCategory": "FinanceApplication",
+        "url": "https://calccrypto.com",
+        "description": "Free cryptocurrency calculators for profit and loss, DCA, staking, mining, tax and token analysis. 100% client-side, no signup required.",
+        "offers": { "@type": "Offer", "price": "0" },
+        "featureList": ["Profit and loss calculator", "DCA calculator", "Staking rewards calculator", "Mining profitability calculator", "CGT tax calculator", "Token price analyser", "Currency converter"]
+      }} />
+      <JsonLd schema={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is CrypCal free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. CrypCal is free to use." } },
+          { "@type": "Question", "name": "Does CrypCal give financial advice?", "acceptedAnswer": { "@type": "Answer", "text": "No. It provides calculations and read-only context only." } },
+          { "@type": "Question", "name": "Do you connect wallets?", "acceptedAnswer": { "@type": "Answer", "text": "No. CrypCal does not connect wallets or perform transactions." } },
+          { "@type": "Question", "name": "Where does the market data come from?", "acceptedAnswer": { "@type": "Answer", "text": "When shown, it comes from public third-party sources (for example, DexScreener) and is read-only." } },
+          { "@type": "Question", "name": "Is my data stored?", "acceptedAnswer": { "@type": "Answer", "text": "CrypCal does not require accounts and does not store your calculator inputs." } },
+          { "@type": "Question", "name": "Who is CrypCal for?", "acceptedAnswer": { "@type": "Answer", "text": "Anyone who wants quick, clear calculations and read-only context—without wallets, accounts, or advice." } }
+        ]
+      }} />
     <div className="min-h-screen flex items-center justify-center p-5 overflow-x-hidden" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
       <div className="max-w-6xl w-full">
         {/* Hero Section with Glassmorphism */}
@@ -271,16 +295,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Footer */}
-        <footer className="mt-16 text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <span className="font-bold text-xl" style={{ color: '#ffffff' }}>CrypCal</span>
-          </div>
-          <p className="text-sm" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
-            © 2025 CrypCal. All rights reserved.
-          </p>
-        </footer>
       </div>
     </div>
+    </>
   );
 }

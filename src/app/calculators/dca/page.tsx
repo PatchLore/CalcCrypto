@@ -5,20 +5,20 @@ import { TrustBadge } from "@/components/ui/TrustBadge";
 import { AFFILIATE_LINKS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Crypto DCA Calculator — Dollar Cost Averaging | CalcCrypto',
-  description: 'Calculate your crypto dollar cost averaging returns. See your average buy price, total invested, current value and profit from any DCA strategy. Free, instant, no signup required.',
+  title: 'Crypto DCA Calculator — Dollar Cost Averaging Returns & Average Buy Price | CalcCrypto',
+  description: 'Calculate your crypto dollar cost averaging returns with our free DCA calculator. See total invested, average buy price, current value, profit and ROI for any monthly investment strategy. Supports Bitcoin, Ethereum and altcoins. Instant, no signup required.',
   alternates: { canonical: 'https://calccrypto.com/calculators/dca' },
   openGraph: {
-    title: 'Crypto DCA Calculator — CalcCrypto',
-    description: 'See exactly what dollar cost averaging into crypto returns over any period. Free educational estimates.',
+    title: 'Crypto DCA Calculator — Dollar Cost Averaging Returns & Average Price',
+    description: 'See exactly what dollar cost averaging into crypto returns over any period with total invested, coins acquired and profit.',
     url: 'https://calccrypto.com/calculators/dca',
     siteName: 'CrypCal',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto DCA Calculator',
-    description: 'Calculate your crypto DCA strategy returns, average cost and profit instantly.',
+    title: 'Crypto DCA Calculator — Dollar Cost Averaging Returns',
+    description: 'Calculate your crypto DCA strategy returns, average cost price and profit instantly. Free, no signup.',
   },
 }
 
@@ -122,6 +122,25 @@ export default function DCACalculator() {
         <TrustBadge />
 
         <div className="mt-10 space-y-8">
+          <section>
+            <h2 className="text-xl font-semibold text-crypto-foreground mb-3">
+              How the DCA Calculator Works
+            </h2>
+            <p className="text-crypto-muted-foreground text-sm leading-relaxed mb-4">
+              <strong>The formula for dollar cost averaging returns is:</strong>
+            </p>
+            <div className="bg-crypto-muted/20 border border-crypto-border rounded-lg p-4 mb-4 font-mono text-sm text-crypto-foreground">
+              Total Invested = Monthly Investment × Number of Months<br />
+              Coins Acquired = (Total Invested − Total Fees) ÷ Average Buy Price<br />
+              Current Value = Coins Acquired × Current Price<br />
+              Profit = Current Value − Total Invested<br />
+              ROI = (Profit ÷ Total Invested) × 100
+            </div>
+            <p className="text-crypto-muted-foreground text-sm leading-relaxed">
+              <strong>Variables:</strong> Monthly Investment is the fixed amount invested each month. Number of Months is the total DCA duration. Average Buy Price is the effective price per coin across all purchases. Current Price is the present market price. Total Fees accounts for trading fees deducted from each purchase.
+            </p>
+          </section>
+
           <section>
             <h2 className="text-xl font-semibold text-crypto-foreground mb-3">
               How this calculator works

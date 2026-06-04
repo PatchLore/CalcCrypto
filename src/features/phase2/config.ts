@@ -1,4 +1,3 @@
-export const FEATURE_FLAGS = {
-  PHASE_2_ENABLED: process.env.NEXT_PUBLIC_PHASE_2 === 'true',
-} as const;
-
+export function isPhase2Enabled(): boolean {
+  return process.env.NEXT_PUBLIC_PHASE_2 === 'true';
+}

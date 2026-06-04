@@ -5,20 +5,20 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { TrustBadge } from "@/components/ui/TrustBadge";
 
 export const metadata: Metadata = {
-  title: 'Token Price & Risk Calculator | CalcCrypto',
-  description: 'Analyse any crypto token with deterministic risk scoring. Get risk assessment based on market cap, volume, liquidity and price data from DexScreener. Free, no wallet required.',
+  title: 'Token Risk Analyser — Price, Liquidity & Risk Score Checker | CalcCrypto',
+  description: 'Analyse any Ethereum token with deterministic risk scoring. Free token risk analyser — paste a contract address to get current price, DEX liquidity, FDV, 24-hour volume and a Low/Medium/High risk context score powered by on-chain data from DexScreener. Educational analysis, not financial advice.',
   alternates: { canonical: 'https://calccrypto.com/calculators/token-price' },
   openGraph: {
-    title: 'Token Price & Risk Analyser — CalcCrypto',
-    description: 'Deterministic risk scoring for any crypto token. Educational analysis, not financial advice.',
+    title: 'Token Risk Analyser — Price, Liquidity & Risk Score Checker',
+    description: 'Deterministic risk scoring for any Ethereum token. Paste a contract address for price, liquidity, FDV and risk context. Free, no wallet required.',
     url: 'https://calccrypto.com/calculators/token-price',
     siteName: 'CrypCal',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Token Price & Risk Calculator',
-    description: 'Risk score any crypto token using market data. Free, deterministic, no advice.',
+    title: 'Token Risk Analyser — Price, Liquidity & Risk Score Checker',
+    description: 'Risk score any crypto token using on-chain data. Free, deterministic, educational analysis only.',
   },
 }
 

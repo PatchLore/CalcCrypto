@@ -5,20 +5,20 @@ import { TrustBadge } from "@/components/ui/TrustBadge";
 import { AFFILIATE_LINKS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Crypto Mining Profitability Calculator | CalcCrypto',
-  description: 'Calculate cryptocurrency mining profitability. Estimate daily, weekly and monthly returns including power costs, pool fees and hardware efficiency. Free, no signup required.',
+  title: 'Crypto Mining Profitability Calculator — Hashrate & Electricity Cost | CalcCrypto',
+  description: 'Calculate cryptocurrency mining profitability with our free mining calculator. Enter hashrate, power consumption in watts, electricity cost per kWh, pool fees and coin price to estimate daily, weekly and monthly profit. Supports Bitcoin ASIC and GPU mining. Free, no signup required.',
   alternates: { canonical: 'https://calccrypto.com/calculators/mining' },
   openGraph: {
-    title: 'Crypto Mining Calculator — CalcCrypto',
-    description: 'Calculate mining profitability, power costs, and potential returns for Bitcoin and other PoW cryptocurrencies. Free educational estimates.',
+    title: 'Crypto Mining Profitability Calculator — Hashrate & Power Cost Estimator',
+    description: 'Estimate mining profitability, power costs, pool fees and ROI for Bitcoin and PoW coins. Free educational calculator.',
     url: 'https://calccrypto.com/calculators/mining',
     siteName: 'CrypCal',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Mining Calculator',
-    description: 'Calculate mining profitability, electricity costs and expected returns instantly.',
+    title: 'Crypto Mining Profitability Calculator — Hashrate & Electricity Cost',
+    description: 'Calculate mining profitability, electricity costs and expected returns instantly. Free, no signup.',
   },
 };
 
@@ -128,6 +128,24 @@ export default function MiningCalculator() {
         <TrustBadge />
 
         <div className="mt-10 space-y-8">
+          <section>
+            <h2 className="text-xl font-semibold text-crypto-foreground mb-3">
+              How the Mining Profitability Calculator Works
+            </h2>
+            <p className="text-crypto-muted-foreground text-sm leading-relaxed mb-4">
+              <strong>The formula for mining profitability is:</strong>
+            </p>
+            <div className="bg-crypto-muted/20 border border-crypto-border rounded-lg p-4 mb-4 font-mono text-sm text-crypto-foreground">
+              Miner Share = (Your Hashrate × 1e12) ÷ (Network Difficulty × 2³² ÷ Block Time)<br />
+              Daily Revenue = Miner Share × (86,400 ÷ Block Time) × Block Reward × Coin Price<br />
+              Daily Electricity Cost = (Power Consumption ÷ 1000) × 24 × Electricity Rate<br />
+              Daily Profit = Daily Revenue − Daily Electricity Cost − Daily Pool Fees
+            </div>
+            <p className="text-crypto-muted-foreground text-sm leading-relaxed">
+              <strong>Variables:</strong> Your Hashrate is your mining hardware speed in TH/s. Network Difficulty adjusts the puzzle difficulty to maintain block time. Block Reward is the number of new coins per block (e.g., 3.125 BTC). Power Consumption is your hardware's wattage. Electricity Rate is your cost per kWh. Pool Fees are a percentage deducted by mining pools.
+            </p>
+          </section>
+
           <section>
             <h2 className="text-xl font-semibold text-crypto-foreground mb-3">
               How this calculator works

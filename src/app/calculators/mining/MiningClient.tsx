@@ -72,7 +72,7 @@ export function MiningClient() {
                 CrypCal
               </div>
             </div>
-            <nav className="hidden md:flex items-center space-x-6">
+            <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">
               <Link href="/" className="text-crypto-foreground hover:text-crypto-primary-600 transition-colors">
                 Home
               </Link>
@@ -178,7 +178,7 @@ export function MiningClient() {
               </CardHeader>
               <CardContent>
                 {result ? (
-                  <div className="space-y-6">
+                  <div role="region" aria-live="polite" aria-label="Mining calculation results" className="space-y-6">
                     {/* Main Result */}
                     <div className={`text-center p-6 rounded-lg ${
                       isProfitable

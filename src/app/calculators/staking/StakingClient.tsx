@@ -63,7 +63,7 @@ export function StakingClient() {
                 CrypCal
               </div>
             </div>
-            <nav className="hidden md:flex items-center space-x-6">
+            <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">
               <Link href="/" className="text-crypto-foreground hover:text-crypto-primary-600 transition-colors">
                 Home
               </Link>
@@ -169,7 +169,7 @@ export function StakingClient() {
               </CardHeader>
               <CardContent>
                 {result ? (
-                  <div className="space-y-6">
+                  <div role="region" aria-live="polite" aria-label="Staking calculation results" className="space-y-6">
                     {/* Main Result */}
                     <div className="text-center p-6 rounded-lg bg-crypto-success-50 dark:bg-crypto-success-950 border border-crypto-success-200 dark:border-crypto-success-800">
                        <div className="text-2xl font-bold mb-2">🏦 Estimated Total Rewards</div>

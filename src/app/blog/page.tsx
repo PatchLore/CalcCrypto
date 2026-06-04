@@ -1,16 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { trackNavigation } from '@/lib/analytics';
 import { getAllPosts } from '@/lib/posts';
+import { logger } from '@/lib/logger';
 
 export default function BlogPage() {
   const blogPosts = getAllPosts();
 
-  // FIX-2A: Removed production console logging
-  if (process.env.NODE_ENV === 'development') {
-    console.log('TOTAL_BLOG_POSTS:', blogPosts.length);
-    console.log('BLOG_POSTS:', blogPosts.map(p => ({ title: p.title, slug: p.slug })));
-  }
+  logger.log('TOTAL_BLOG_POSTS:', blogPosts.length);
+  logger.log('BLOG_POSTS:', blogPosts.map(p => ({ title: p.title, slug: p.slug })));
 
   return (
     <div className="min-h-screen bg-crypto-background">
@@ -24,7 +21,7 @@ export default function BlogPage() {
                 CrypCal
               </div>
             </div>
-            <nav className="hidden md:flex items-center space-x-6">
+            <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">
               <Link
                 href="/"
                 className="text-crypto-foreground hover:text-crypto-primary-600 transition-colors"
@@ -111,38 +108,6 @@ export default function BlogPage() {
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="border-t border-crypto-border bg-crypto-background/80 backdrop-blur-sm mt-auto">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col gap-4 text-sm text-crypto-muted-foreground">
-            <div className="text-xs text-crypto-muted-foreground border-t border-crypto-border pt-4">
-              <p>
-                CalCrypto provides educational calculators only. All outputs are estimates based on public data. 
-                This is not financial, tax, or legal advice. Cryptoassets are volatile and unregulated in many jurisdictions. 
-                Consult a licensed professional before making decisions. We do not store user data or connect to wallets.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-              <div>© 2026 CrypCal. All rights reserved.</div>
-              <div className="flex items-center gap-4">
-                <Link
-                  href="/privacy"
-                  className="hover:text-crypto-foreground transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-                <Link
-                  href="/terms"
-                  className="hover:text-crypto-foreground transition-colors"
-                >
-                  Terms of Service
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

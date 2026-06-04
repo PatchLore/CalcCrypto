@@ -4,20 +4,20 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { TrustBadge } from "@/components/ui/TrustBadge";
 
 export const metadata: Metadata = {
-  title: 'Crypto Currency Converter | CalcCrypto',
-  description: 'Convert between cryptocurrency and fiat currencies. Instant Bitcoin, Ethereum, USD, EUR conversions with live market rates. Free, no signup required.',
+  title: 'Crypto Currency Converter — BTC, ETH to USD, EUR Converter | CalcCrypto',
+  description: 'Convert cryptocurrency to fiat and vice versa with our free currency converter. Supports Bitcoin, Ethereum, Solana and major stablecoins to USD, EUR and more. Instant conversion with live market rates. No signup required.',
   alternates: { canonical: 'https://calccrypto.com/calculators/conversion' },
   openGraph: {
-    title: 'Crypto Currency Converter — CalcCrypto',
-    description: 'Instant cryptocurrency and fiat currency converter. Free educational estimates with transparent exchange rates.',
+    title: 'Crypto Currency Converter — BTC, ETH to USD, EUR Converter',
+    description: 'Instant cryptocurrency and fiat currency converter. Supports BTC, ETH, SOL and stablecoins to USD, EUR and more. Free, no signup.',
     url: 'https://calccrypto.com/calculators/conversion',
     siteName: 'CrypCal',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Currency Converter',
-    description: 'Convert crypto and fiat currencies instantly with live market rates.',
+    title: 'Crypto Currency Converter — BTC, ETH to USD, EUR Converter',
+    description: 'Convert crypto and fiat currencies instantly with live market rates. Free, no signup.',
   },
 };
 

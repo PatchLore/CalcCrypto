@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { calculateProfitLoss, formatCurrency, formatPercentage } from '@/lib/formulas';
 import { trackCalculatorCalculation, trackButtonClick } from '@/lib/analytics';
-import { FEATURE_FLAGS } from '@/features/phase2/config';
+import { isPhase2Enabled } from '@/features/phase2/config';
 import type { ProfitLossInput } from '@/types';
 
 const LazyPhase2DecisionPanel = React.lazy(async () => {
@@ -69,7 +69,7 @@ export function ProfitLossClient() {
                 CrypCal
               </div>
             </div>
-            <nav className="hidden md:flex items-center space-x-6">
+            <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">
               <Link href="/" className="text-secondary hover:text-primary transition-colors">
                 Home
               </Link>
@@ -166,7 +166,7 @@ export function ProfitLossClient() {
               </CardHeader>
               <CardContent>
                 {result ? (
-                  <div className="space-y-6">
+                  <div role="region" aria-live="polite" aria-label="Profit/Loss calculation results" className="space-y-6">
                     {/* Main Result */}
                     <div className={`text-center p-6 rounded-lg ${
                       isProfit
@@ -280,7 +280,7 @@ export function ProfitLossClient() {
           </Card>
 
           {/* Phase 2 (optional, non-blocking) */}
-          {FEATURE_FLAGS.PHASE_2_ENABLED && (
+          {isPhase2Enabled() && (
             <Suspense
               fallback={
                 <div className="mt-8 rounded-xl border border-crypto-border bg-crypto-background/80 p-4 text-sm text-crypto-muted-foreground">

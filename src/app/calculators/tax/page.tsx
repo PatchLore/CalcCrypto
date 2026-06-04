@@ -5,20 +5,20 @@ import { JsonLd } from '../../../components/seo/JsonLd';
 import { TrustBadge } from '../../../components/ui/TrustBadge';
 
 export const metadata: Metadata = {
-  title: 'Crypto Capital Gains Tax Calculator | CrypCal',
-  description: 'Estimate capital gains tax on crypto disposals for UK, US, Australia and EU. Enter buy price, sell price and quantity to see your CGT estimate. Educational tool only, not tax advice.',
+  title: 'Crypto Capital Gains Tax Calculator — UK, US, AU, EU CGT Estimator | CrypCal',
+  description: 'Estimate capital gains tax on cryptocurrency disposals for UK, US, Australia and EU. Free CGT calculator — select your jurisdiction, enter buy price, sell price and quantity to see your estimated tax liability, taxable gain and effective rate. UK: 18%-24%, US: 15%-20%, AU: 23.5%-47%. Educational tool only, not tax advice.',
   alternates: { canonical: 'https://calccrypto.com/calculators/tax' },
   openGraph: {
-    title: 'Crypto CGT Calculator, CrypCal',
-    description: 'Estimate crypto capital gains tax across UK, US, AU and EU. Free, manual input, no wallet required.',
+    title: 'Crypto Capital Gains Tax Calculator — UK, US, AU, EU CGT Estimator',
+    description: 'Estimate crypto CGT across UK, US, AU and EU jurisdictions. Free educational calculator with annual allowances and progressive rates.',
     url: 'https://calccrypto.com/calculators/tax',
     siteName: 'CrypCal',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Capital Gains Tax Calculator',
-    description: 'Estimate CGT on crypto disposals for UK, US, AU and EU. Educational estimates only.',
+    title: 'Crypto Capital Gains Tax Calculator — UK, US, AU, EU CGT Estimator',
+    description: 'Estimate CGT on crypto disposals for UK, US, AU and EU. Free educational estimates, not tax advice.',
   },
 }
 
@@ -105,6 +105,30 @@ export default function TaxCalculator() {
           },
           {
             "@type": "Question",
+            "name": "How is crypto taxed in the UK?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In the UK, cryptocurrency is treated as a capital asset. You pay Capital Gains Tax on disposals above the annual allowance of £3,000 (2024/25). Basic rate taxpayers pay 18% on crypto gains, while higher rate taxpayers pay 24%. The tax year runs from 6 April to 5 April. You must report gains via the HMRC Capital Gains Tax service or Self Assessment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the US capital gains rate on crypto?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In the US, the IRS treats cryptocurrency as property. Short-term gains (held under 1 year) are taxed as ordinary income at your marginal tax rate (10% to 37%). Long-term gains (held over 1 year) are taxed at 0%, 15% or 20% depending on your taxable income bracket. There is no annual CGT allowance in the US. Losses can offset gains, and up to $3,000 of net losses can offset ordinary income annually."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is crypto taxed in Australia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In Australia, the ATO treats cryptocurrency as a capital asset. All crypto disposals are subject to Capital Gains Tax. If you hold crypto for more than 12 months, you qualify for a 50% CGT discount, meaning only half the gain is taxed at your marginal income tax rate. There is no annual CGT allowance in Australia. Crypto held as a personal use asset (for purchases under A$10,000) may be exempt from CGT."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "What happens if I make a crypto loss?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -128,6 +152,24 @@ export default function TaxCalculator() {
         <TrustBadge />
 
         <div className="mt-10 space-y-8">
+          <section>
+            <h2 className="text-xl font-semibold text-crypto-foreground mb-3">
+              How the Crypto Tax Calculator Works
+            </h2>
+            <p className="text-crypto-muted-foreground text-sm leading-relaxed mb-4">
+              <strong>The formula for capital gains tax on crypto is:</strong>
+            </p>
+            <div className="bg-crypto-muted/20 border border-crypto-border rounded-lg p-4 mb-4 font-mono text-sm text-crypto-foreground">
+              Gross Gain = (Sell Price − Buy Price) × Quantity<br />
+              Taxable Gain = Gross Gain − Annual CGT Allowance<br />
+              Estimated Tax = Taxable Gain × Capital Gains Tax Rate<br />
+              Net Gain = Gross Gain − Estimated Tax
+            </div>
+            <p className="text-crypto-muted-foreground text-sm leading-relaxed">
+              <strong>Variables:</strong> Buy Price is the purchase price per coin. Sell Price is the disposal price per coin. Quantity is the number of coins sold. Annual CGT Allowance varies by jurisdiction (UK: £3,000, US/AU/EU: £0). Capital Gains Tax Rate depends on your income tax band and jurisdiction (UK: 18% basic / 24% higher rate, US: 15% / 20%, AU: 23.5% / 47%, EU: 20%).
+            </p>
+          </section>
+
           <section>
             <h2 className="text-xl font-semibold text-crypto-foreground mb-3">
               How this calculator works
@@ -176,6 +218,18 @@ export default function TaxCalculator() {
                 {
                   q: "What is the crypto CGT allowance in the UK?",
                   a: "£3,000 for 2024/25. Gains below this in a tax year are not subject to CGT. Tax year runs 6 April to 5 April."
+                },
+                {
+                  q: "How is crypto taxed in the UK?",
+                  a: "Crypto is treated as a capital asset. You pay CGT on disposals above the £3,000 allowance. Basic rate: 18%. Higher rate: 24%. Report via HMRC Self Assessment."
+                },
+                {
+                  q: "What is the US capital gains rate on crypto?",
+                  a: "Short-term (under 1 year): taxed as ordinary income (10% to 37%). Long-term (over 1 year): 0%, 15% or 20%. No annual allowance. Losses offset gains, up to $3,000 against ordinary income."
+                },
+                {
+                  q: "How is crypto taxed in Australia?",
+                  a: "All disposals subject to CGT. Hold over 12 months for a 50% CGT discount — only half the gain is taxed at your marginal rate. No annual allowance. Personal use under A$10,000 may be exempt."
                 },
                 {
                   q: "What happens if I make a crypto loss?",

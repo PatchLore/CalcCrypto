@@ -2,6 +2,7 @@
 
 import React, { Suspense } from 'react';
 import { Phase2DecisionPanel } from '@/features/phase2/components/Phase2DecisionPanel';
+import { logger } from '@/lib/logger';
 
 // Simple error boundary for Phase 2 components
 class Phase2ErrorBoundary extends React.Component<
@@ -57,9 +58,7 @@ export default function TokenPriceClient() {
     // Vercel uses NEXT_PUBLIC_PHASE_2 (without _ENABLED suffix)
     const enabled = process.env.NEXT_PUBLIC_PHASE_2 === 'true';
     
-    if (process.env.NODE_ENV === 'development') {
-      console.log('PHASE_2_FLAG_VALUE:', enabled);
-    }
+    logger.log('PHASE_2_FLAG_VALUE:', enabled);
     
     setPhase2Enabled(enabled);
   }, []);
@@ -76,7 +75,7 @@ export default function TokenPriceClient() {
                 CrypCal
               </div>
             </div>
-            <nav className="hidden md:flex items-center space-x-6">
+            <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">
               <a
                 href="/"
                 className="text-crypto-foreground hover:text-crypto-primary-600 transition-colors"
@@ -135,30 +134,6 @@ export default function TokenPriceClient() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="border-t border-crypto-border bg-crypto-background/80 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col gap-4 text-sm text-crypto-muted-foreground">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-              <div>© 2025 CrypCal. All rights reserved.</div>
-              <div className="flex items-center gap-4">
-                <a
-                  href="/privacy"
-                  className="hover:text-crypto-foreground transition-colors"
-                >
-                  Privacy Policy
-                </a>
-                <a
-                  href="/terms"
-                  className="hover:text-crypto-foreground transition-colors"
-                >
-                  Terms of Service
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

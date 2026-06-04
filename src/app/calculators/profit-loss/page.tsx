@@ -6,20 +6,20 @@ import { TrustBadge } from "@/components/ui/TrustBadge";
 import { AFFILIATE_LINKS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Crypto Profit & Loss Calculator | CalcCrypto',
-  description: 'Calculate cryptocurrency trade profit and loss instantly. Enter entry price, exit price, quantity and fees to see exact P&L, ROI, break-even price and net returns. Free, no signup required.',
+  title: 'Crypto Profit and Loss Calculator | ROI & Break-Even Price | CalcCrypto',
+  description: 'Calculate crypto trade profit and loss with fees. Free P&L calculator — enter buy price, sell price, quantity and trading fees to see net profit, ROI percentage and break-even price. Supports BTC, ETH and any cryptocurrency. No signup required.',
   alternates: { canonical: 'https://calccrypto.com/calculators/profit-loss' },
   openGraph: {
-    title: 'Crypto Profit & Loss Calculator — CalcCrypto',
-    description: 'Instant crypto trade profit and loss calculation. Free educational estimates, no signup required.',
+    title: 'Crypto Profit and Loss Calculator — ROI & Break-Even Price Calculator',
+    description: 'Instant crypto trade P&L with fee deduction. Free educational estimates for BTC, ETH and altcoin trades.',
     url: 'https://calccrypto.com/calculators/profit-loss',
     siteName: 'CrypCal',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Profit & Loss Calculator',
-    description: 'Calculate crypto trade profit, loss, fees and break-even price instantly.',
+    title: 'Crypto Profit and Loss Calculator — ROI & Break-Even Price',
+    description: 'Calculate crypto trade profit, loss, fees and break-even price instantly. Free, no signup.',
   },
 }
 
@@ -123,6 +123,22 @@ export default function ProfitLossCalculator() {
         <TrustBadge />
 
         <div className="mt-10 space-y-8">
+          <section>
+            <h2 className="text-xl font-semibold text-crypto-foreground mb-3">
+              How the Crypto Profit &amp; Loss Calculator Works
+            </h2>
+            <p className="text-crypto-muted-foreground text-sm leading-relaxed mb-4">
+              <strong>The formula for crypto profit is:</strong>
+            </p>
+            <div className="bg-crypto-muted/20 border border-crypto-border rounded-lg p-4 mb-4 font-mono text-sm text-crypto-foreground">
+              Net P&amp;L = (Sell Price × Quantity) − (Buy Price × Quantity) − Total Fees<br />
+              ROI = (Net P&amp;L ÷ Initial Investment) × 100
+            </div>
+            <p className="text-crypto-muted-foreground text-sm leading-relaxed">
+              <strong>Variables:</strong> Buy Price is the price per coin at purchase. Sell Price is the price per coin at sale. Quantity is the number of coins traded. Total Fees includes both buy-side and sell-side trading fees (buy fee + sell fee). ROI expresses your net return as a percentage of the initial investment.
+            </p>
+          </section>
+
           <section>
             <h2 className="text-xl font-semibold text-crypto-foreground mb-3">
               How this calculator works

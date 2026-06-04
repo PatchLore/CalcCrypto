@@ -5,20 +5,20 @@ import { TrustBadge } from "@/components/ui/TrustBadge";
 import { AFFILIATE_LINKS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Crypto Staking Rewards Calculator | CalcCrypto',
-  description: 'Calculate crypto staking rewards with compound interest. See APY returns, earned interest and total value over time. Free, instant, no signup required.',
+  title: 'Crypto Staking Rewards Calculator — APY Yield & Compound Interest | CalcCrypto',
+  description: 'Calculate crypto staking rewards with compound interest. Free staking calculator — enter your stake amount, APY rate, duration and compounding frequency (daily, weekly, monthly, yearly) to estimate total rewards and final balance. Supports Ethereum, Solana, Cardano and more. Instant, no signup required.',
   alternates: { canonical: 'https://calccrypto.com/calculators/staking' },
   openGraph: {
-    title: 'Crypto Staking Calculator — CalcCrypto',
-    description: 'Calculate staking rewards, compound interest and APY returns for any cryptocurrency. Free educational estimates.',
+    title: 'Crypto Staking Rewards Calculator — APY Yield & Compound Interest Estimator',
+    description: 'Estimate staking rewards with compound interest for any crypto. Daily, weekly, monthly or yearly compounding. Free educational tool.',
     url: 'https://calccrypto.com/calculators/staking',
     siteName: 'CrypCal',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Staking Calculator',
-    description: 'Calculate staking rewards, APY and compound interest instantly.',
+    title: 'Crypto Staking Rewards Calculator — APY Yield Estimator',
+    description: 'Calculate staking rewards, compound interest and APY returns instantly. Free, no signup.',
   },
 };
 
@@ -122,6 +122,24 @@ export default function StakingCalculator() {
         <TrustBadge />
 
         <div className="mt-10 space-y-8">
+          <section>
+            <h2 className="text-xl font-semibold text-crypto-foreground mb-3">
+              How the Staking Rewards Calculator Works
+            </h2>
+            <p className="text-crypto-muted-foreground text-sm leading-relaxed mb-4">
+              <strong>The formula for staking rewards with compound interest is:</strong>
+            </p>
+            <div className="bg-crypto-muted/20 border border-crypto-border rounded-lg p-4 mb-4 font-mono text-sm text-crypto-foreground">
+              Rate Per Period = (APY ÷ 100) ÷ Periods Per Year<br />
+              Total Periods = (Duration in Days ÷ 365) × Periods Per Year<br />
+              Final Amount = Initial Stake × (1 + Rate Per Period)<sup>Total Periods</sup><br />
+              Total Rewards = Final Amount − Initial Stake
+            </div>
+            <p className="text-crypto-muted-foreground text-sm leading-relaxed">
+              <strong>Variables:</strong> Initial Stake is the amount of cryptocurrency staked. APY is the annual percentage yield offered by the protocol. Duration is the staking period in days. Periods Per Year depends on compounding frequency: 365 for daily, 52 for weekly, 12 for monthly, 1 for yearly.
+            </p>
+          </section>
+
           <section>
             <h2 className="text-xl font-semibold text-crypto-foreground mb-3">
               How this calculator works

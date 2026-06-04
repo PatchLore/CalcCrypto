@@ -267,3 +267,24 @@ export const VALIDATION_RULES = {
   minDuration: 1,
   maxDuration: 3650, // 10 years
 };
+
+export const PERCENTAGE_BASE = 100;
+export const VALIDATION_MAX_DEFAULT = 1e15;
+
+export const SECONDS_PER_DAY = 86400;
+export const HOURS_PER_DAY = 24;
+export const DAYS_PER_MONTH = 30;
+export const DAYS_PER_YEAR = 365;
+export const WEEKS_PER_YEAR = 52;
+export const MONTHS_PER_YEAR = 12;
+
+export const WATTS_TO_KILOWATTS = 1000;
+export const HASHRATE_TH_TO_HS = 1e12;
+export const DIFFICULTY_SCALE = 2 ** 32;
+
+export const COMPOUND_PERIODS: Record<string, number> = {
+  daily: DAYS_PER_YEAR,
+  weekly: WEEKS_PER_YEAR,
+  monthly: MONTHS_PER_YEAR,
+  yearly: 1,
+};

@@ -14,7 +14,7 @@ export default function ContactPage() {
                 CrypCal
               </h1>
             </div>
-            <nav className="hidden md:flex items-center space-x-6">
+            <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">
               <Link href="/" className="text-crypto-foreground hover:text-crypto-primary-600 transition-colors">
                 Home
               </Link>

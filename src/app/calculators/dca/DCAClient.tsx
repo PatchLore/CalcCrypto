@@ -68,7 +68,7 @@ export function DCAClient() {
                 CrypCal
               </div>
             </div>
-            <nav className="hidden md:flex items-center space-x-6">
+            <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">
               <Link href="/" className="text-secondary hover:text-primary transition-colors">
                 Home
               </Link>
@@ -174,7 +174,7 @@ export function DCAClient() {
               </CardHeader>
               <CardContent>
                 {result ? (
-                  <div className="space-y-6">
+                  <div role="region" aria-live="polite" aria-label="DCA calculation results" className="space-y-6">
                     {/* Main Result */}
                     <div className={`text-center p-6 rounded-lg ${
                       isProfit
