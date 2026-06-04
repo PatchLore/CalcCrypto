@@ -1,4 +1,5 @@
 export * from './config';
+export * from './chains';
 export * from './types/phase2';
 export * from './services/dexscreener';
 export * from './services/analytics';

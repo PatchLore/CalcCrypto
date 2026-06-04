@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import { CalculatorCTA } from '@/components/ui/CalculatorCTA';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { calculateStaking, formatCurrency, formatPercentage } from '@/lib/formulas';
 import { trackCalculatorCalculation, trackButtonClick } from '@/lib/analytics';
@@ -260,6 +261,15 @@ export function StakingClient() {
               </CardContent>
             </Card>
           </div>
+
+          {result !== null && (
+            <CalculatorCTA
+              headline="Looking for the best yields?"
+              body="Compare live staking APYs across top platforms to maximize your passive income."
+              buttonText="Compare Staking Yields"
+              href="https://www.stakingrewards.com/"
+            />
+          )}
 
           {/* Information Section */}
           <Card className="mt-12">

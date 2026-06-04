@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import { CalculatorCTA } from '@/components/ui/CalculatorCTA';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { calculateDCA, formatCurrency, formatPercentage } from '@/lib/formulas';
 import { trackCalculatorCalculation, trackButtonClick } from '@/lib/analytics';
@@ -283,6 +284,15 @@ export function DCAClient() {
               </CardContent>
             </Card>
           </div>
+
+          {result !== null && (
+            <CalculatorCTA
+              headline="Automate your strategy"
+              body="Set up recurring buys and invest consistently without the stress of timing the market."
+              buttonText="Set Up Auto-Invest"
+              href="https://www.coinbase.com/"
+            />
+          )}
 
           {/* Information Section */}
           <Card className="mt-12">

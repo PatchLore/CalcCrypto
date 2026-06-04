@@ -1,12 +1,12 @@
-import type { TokenSnapshot } from '@/features/phase2/types/phase2';
+import type { Phase2SupportedChain, TokenSnapshot } from '@/features/phase2/types/phase2';
 import { logger } from '@/lib/logger';
 
-export async function fetchTokenData(tokenAddress: string): Promise<TokenSnapshot> {
+export async function fetchTokenData(tokenAddress: string, chainId: Phase2SupportedChain = 'ethereum'): Promise<TokenSnapshot> {
   const normalizedAddress = tokenAddress.trim();
   const encodedAddress = encodeURIComponent(normalizedAddress);
 
   const apiUrl = `https://api.dexscreener.com/latest/dex/tokens/${encodedAddress}`;
-  logger.log('Fetching from:', apiUrl);
+  logger.log('Fetching from:', apiUrl, 'chain:', chainId);
 
   const response = await fetch(apiUrl);
 
@@ -21,14 +21,14 @@ export async function fetchTokenData(tokenAddress: string): Promise<TokenSnapsho
     throw new Error('No trading pairs found for this token address');
   }
 
-  const ethereumPairs = data.pairs.filter((p: any) => p.chainId === 'ethereum');
+  const chainPairs = data.pairs.filter((p: any) => p.chainId === chainId);
 
-  if (ethereumPairs.length === 0) {
-    logger.warn('No Ethereum pairs found for address:', normalizedAddress);
-    throw new Error('No Ethereum mainnet trading pairs found for this token address');
+  if (chainPairs.length === 0) {
+    logger.warn(`No ${chainId} pairs found for address:`, normalizedAddress);
+    throw new Error(`No trading pairs found on ${chainId} for this token address`);
   }
 
-  const pair = ethereumPairs.sort((a: any, b: any) => {
+  const pair = chainPairs.sort((a: any, b: any) => {
     const liqA = a.liquidity?.usd || 0;
     const liqB = b.liquidity?.usd || 0;
     return liqB - liqA;
@@ -47,7 +47,7 @@ export async function fetchTokenData(tokenAddress: string): Promise<TokenSnapsho
   }
 
   const snapshot: TokenSnapshot = {
-    chainId: pair.chainId || 'ethereum',
+    chainId: (pair.chainId || chainId) as Phase2SupportedChain,
     pairAddress: pair.pairAddress || '',
     dexId: pair.dexId || 'unknown',
     url: pair.url,

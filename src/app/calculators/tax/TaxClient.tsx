@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '../../../components/ui/Button';
 import { Input } from '../../../components/ui/Input';
+import { CalculatorCTA } from '../../../components/ui/CalculatorCTA';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../components/ui/Card';
 import { calculateCGT } from '../../../lib/calcEngine';
 import { formatCurrency, formatPercentage } from '../../../lib/formulas';
@@ -315,33 +316,7 @@ export function TaxClient() {
                    </div>
                  </div>
 
-                 <div className="pt-4 border-t border-crypto-border">
-                   <p className="text-xs text-crypto-muted-foreground mb-3">
-                     Need official tax reports for HMRC, IRS or ATO? 
-                     Koinly connects your exchanges and generates 
-                     ready-to-file tax documents automatically.
-                   </p>
-                   
-                   <a
-                     href={AFFILIATE_LINKS.koinly}
-                     target="_blank"
-                     rel="noopener noreferrer sponsored"
-                     className="flex items-center justify-center gap-2 
-                                w-full py-2.5 px-4 rounded-lg text-sm 
-                                font-medium bg-green-600 hover:bg-green-700 
-                                text-white transition-colors"
-                   >
-                     Get your full crypto tax report on Koinly →
-                   </a>
-                   <p className="text-xs text-crypto-muted-foreground 
-                                 text-center mt-2">
-                     Affiliate link, we may earn a commission at no
-                     cost to you
-                   </p>
-                  </div>
-
-
-                 {/* Loss note */}
+                  {/* Loss note */}
                 {isLoss && (
                   <div className="text-xs text-crypto-muted-foreground 
                                   bg-crypto-muted/30 rounded-md p-3">
@@ -373,6 +348,15 @@ export function TaxClient() {
           </CardContent>
         </Card>
       </div>
+
+      {result && result.estimatedTax > 0 && (
+        <CalculatorCTA
+          headline="Dreading crypto tax season?"
+          body="Let Koinly automatically track your wallets and generate compliant tax reports."
+          buttonText="Automate with Koinly"
+          href={AFFILIATE_LINKS.koinly}
+        />
+      )}
 
       {/* Global Footer Disclaimer */}
       <div className="mt-10 p-4 border border-crypto-border rounded-lg 

@@ -1,5 +1,6 @@
 'use client';
 
+import { SUPPORTED_CHAINS } from '@/features/phase2/chains';
 import type { TokenSnapshot } from '@/features/phase2/types/phase2';
 
 type TokenSnapshotPanelProps = {
@@ -8,7 +9,19 @@ type TokenSnapshotPanelProps = {
   error: string | null;
 };
 
+const EMPTY_MESSAGES: Record<string, string> = {
+  ethereum: 'Enter a valid 0x… address above to view token price, liquidity, FDV, and volume data.',
+  solana: 'Enter a valid Solana token address above to view token price, liquidity, FDV, and volume data.',
+  base: 'Enter a valid Base chain address to view token price, liquidity, FDV, and volume data.',
+  arbitrum: 'Enter a valid Arbitrum address to view token price, liquidity, FDV, and volume data.',
+  bsc: 'Enter a valid BNB Chain address to view token price, liquidity, FDV, and volume data.',
+};
+
 export default function TokenSnapshotPanel({ data, loading, error }: TokenSnapshotPanelProps) {
+  const chainName = data?.chainId
+    ? SUPPORTED_CHAINS.find(c => c.id === data.chainId)?.name ?? data.chainId
+    : null;
+
   // Loading state
   if (loading) {
     return (
@@ -38,7 +51,7 @@ export default function TokenSnapshotPanel({ data, loading, error }: TokenSnapsh
       <div className="rounded-lg border border-crypto-border bg-crypto-background p-4">
         <div className="text-sm font-semibold text-crypto-foreground mb-3">Token Snapshot</div>
         <p className="text-sm text-crypto-muted-foreground">
-          Enter a valid 0x... address above to view token price, liquidity, FDV, and volume data.
+          {EMPTY_MESSAGES.ethereum}
         </p>
       </div>
     );
@@ -47,9 +60,19 @@ export default function TokenSnapshotPanel({ data, loading, error }: TokenSnapsh
   // Success state - use TokenSnapshot fields
   return (
     <div className="rounded-lg border border-crypto-border bg-crypto-background p-4">
-      <div className="text-sm font-semibold text-crypto-foreground mb-3">Token Snapshot</div>
+      <div className="flex items-center justify-between mb-3">
+        <div className="text-sm font-semibold text-crypto-foreground">Token Snapshot</div>
+        {chainName && (
+          <span className="text-xs font-medium text-crypto-muted-foreground bg-crypto-muted/20 rounded-md px-2 py-0.5">
+            {chainName}
+          </span>
+        )}
+      </div>
       
       <div className="space-y-3">
+        <div className="text-xs text-crypto-muted-foreground">
+          {data.baseToken.name} ({data.baseToken.symbol})
+        </div>
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div>
             <span className="font-medium text-crypto-foreground">Price:</span>

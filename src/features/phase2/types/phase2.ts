@@ -1,4 +1,4 @@
-export type Phase2SupportedChain = 'ethereum';
+export type Phase2SupportedChain = 'ethereum' | 'solana' | 'base' | 'arbitrum' | 'bsc';
 
 export type TokenSnapshot = {
   chainId: Phase2SupportedChain;

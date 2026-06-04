@@ -1,23 +1,11 @@
 import type { RiskContext, TokenSnapshot } from '../types/phase2';
 
-// ── Known major stablecoins & blue-chip tokens ──────────────
-// These tokens have well-understood risk profiles that cannot
-// be accurately assessed from DEX liquidity alone, as most
-// volume occurs on centralised exchanges.
-const KNOWN_LOW_RISK_TOKENS: Record<string, string> = {
-  // Stablecoins
-  '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48': 'USDC',
-  '0xdac17f958d2ee523a2206206994597c13d831ec7': 'USDT',
-  '0x6b175474e89094c44da98b954eedeac495271d0f': 'DAI',
-  '0x4fabb145d64652a948d72533023f6e7a623c7c53': 'BUSD',
-  '0x956f47f50a910163d8bf957cf5846d573e7f87ca': 'FEI',
-  '0x853d955acef822db058eb8505911ed77f175b99e': 'FRAX',
-  // Blue-chip tokens
-  '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2': 'WETH',
-  '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599': 'WBTC',
-  '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984': 'UNI',
-  '0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9': 'AAVE',
-};
+const STABLECOINS = new Set(['USDC', 'USDT', 'DAI', 'FRAX', 'BUSD', 'USDD', 'TUSD']);
+const BLUECHIPS = new Set(['WETH', 'ETH', 'WBTC', 'BTC', 'SOL', 'BNB', 'ARB']);
+
+const STABLE_PEG_MIN = 0.98;
+const STABLE_PEG_MAX = 1.02;
+const STALE_VOLUME_THRESHOLD = 10;
 
 type RuleHit = {
   points: number;
@@ -50,7 +38,9 @@ function scoreLiquidity(liquidityUsd: number | null): RuleHit[] {
   return [];
 }
 
-function scoreFdvVsLiquidity(liqToFdv: number | null, fdvUsd: number | null): RuleHit[] {
+function scoreFdvVsLiquidity(liqToFdv: number | null, fdvUsd: number | null, skip: boolean): RuleHit[] {
+  if (skip) return [];
+
   if (fdvUsd == null) {
     return [{
       points: 15,
@@ -76,7 +66,9 @@ function scoreFdvVsLiquidity(liqToFdv: number | null, fdvUsd: number | null): Ru
   return [];
 }
 
-function scoreVolumeQuality(volToLiq: number | null, volume24hUsd: number | null): RuleHit[] {
+function scoreVolumeQuality(volToLiq: number | null, volume24hUsd: number | null, skip: boolean): RuleHit[] {
+  if (skip) return [];
+
   if (volume24hUsd == null) {
     return [{
       points: 10,
@@ -102,6 +94,27 @@ function scoreVolumeQuality(volToLiq: number | null, volume24hUsd: number | null
   return [{ points: 10, warning: 'Very high volume relative to liquidity (vol/liq ≥ 1.0).' }];
 }
 
+function scoreStablecoinPegViolation(priceUsd: number | null): RuleHit[] {
+  if (priceUsd == null) {
+    return [{ points: 20, warning: 'Stablecoin price data unavailable (cannot verify peg).' }];
+  }
+  if (priceUsd < STABLE_PEG_MIN) {
+    return [{ points: 40, warning: `Stablecoin price is below expected peg ($${priceUsd.toFixed(4)}). Deviation may indicate de-pegging event.` }];
+  }
+  if (priceUsd > STABLE_PEG_MAX) {
+    return [{ points: 40, warning: `Stablecoin price is above expected peg ($${priceUsd.toFixed(4)}). Deviation may indicate de-pegging event.` }];
+  }
+  return [];
+}
+
+function scoreStalePool(volume24hUsd: number | null): RuleHit[] {
+  if (volume24hUsd == null) return [];
+  if (volume24hUsd < STALE_VOLUME_THRESHOLD) {
+    return [{ points: 5, warning: '⚠️ Very low 24h trading volume. This liquidity pool may be inactive or abandoned.' }];
+  }
+  return [];
+}
+
 function mapRisk(score: number): RiskContext['riskLevel'] {
   if (score >= 55) return 'high';
   if (score >= 25) return 'medium';
@@ -122,35 +135,27 @@ function buildSummary(riskLevel: RiskContext['riskLevel'], hits: RuleHit[]): str
   return 'High risk flags based on liquidity/valuation/volume signals. This is context, not advice.';
 }
 
-/**
- * Deterministic, point-based risk context engine.
- * Same inputs -> same outputs.
- * No predictions, no advice, no randomness.
- */
 export function computeRiskContext(snapshot: TokenSnapshot): RiskContext {
-  // Check if this is a known low-risk token
-  const tokenAddress = snapshot.address?.toLowerCase();
-  const knownToken = tokenAddress 
-    ? KNOWN_LOW_RISK_TOKENS[tokenAddress] 
-    : null;
+  const symbol = snapshot.baseToken?.symbol ?? '';
+  const priceUsd = snapshot.priceUsd;
+  const isStablecoin = STABLECOINS.has(symbol);
+  const isBlueChip = BLUECHIPS.has(symbol);
 
-  if (knownToken) {
-    return {
-      score: 5,
-      riskLevel: 'low',
-      warnings: [],
-      summary: `${knownToken} is a well-established token. DEX liquidity metrics are not representative of its full market depth across centralised exchanges. This is context, not advice.`,
-      derived: computeDerived(snapshot),
-    };
-  }
+  const skipFdvCheck = isStablecoin || isBlueChip;
+  const skipVolumeCheck = isStablecoin;
 
   const derived = computeDerived(snapshot);
 
   const hits: RuleHit[] = [
     ...scoreLiquidity(snapshot.liquidityUsd),
-    ...scoreFdvVsLiquidity(derived.liqToFdv, snapshot.fdvUsd),
-    ...scoreVolumeQuality(derived.volToLiq, snapshot.volume24hUsd),
+    ...scoreStalePool(snapshot.volume24hUsd),
+    ...(isStablecoin ? scoreStablecoinPegViolation(priceUsd) : []),
   ];
+
+  const fdvHits = scoreFdvVsLiquidity(derived.liqToFdv, snapshot.fdvUsd, skipFdvCheck);
+  const volumeHits = scoreVolumeQuality(derived.volToLiq, snapshot.volume24hUsd, skipVolumeCheck);
+
+  hits.push(...fdvHits, ...volumeHits);
 
   const score = hits.reduce((sum, h) => sum + h.points, 0);
   const riskLevel = mapRisk(score);
@@ -163,4 +168,3 @@ export function computeRiskContext(snapshot: TokenSnapshot): RiskContext {
     derived,
   };
 }
-

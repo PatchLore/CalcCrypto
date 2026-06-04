@@ -4,6 +4,7 @@ import React, { Suspense, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import { CalculatorCTA } from '@/components/ui/CalculatorCTA';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { calculateProfitLoss, formatCurrency, formatPercentage } from '@/lib/formulas';
 import { trackCalculatorCalculation, trackButtonClick } from '@/lib/analytics';
@@ -251,8 +252,17 @@ export function ProfitLossClient() {
                   </div>
                 )}
               </CardContent>
-            </Card>
+             </Card>
           </div>
+
+          {result && isProfit && (
+            <CalculatorCTA
+              headline="Taking profits?"
+              body="Make sure you're tracking your whole portfolio in one place to maximize your returns."
+              buttonText="Track Your Portfolio"
+              href="https://www.coingecko.com/en/portfolio"
+            />
+          )}
 
           {/* Information Section */}
           <Card className="mt-12">

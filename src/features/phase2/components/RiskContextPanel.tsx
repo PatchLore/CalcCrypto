@@ -83,7 +83,7 @@ export default function RiskContextPanel({ data, loading, error }: RiskContextPa
         )}
       </div>
 
-      <p className="mt-4 text-xs text-crypto-muted-foreground italic">Context only, not financial advice</p>
+      <p className="mt-4 text-xs text-crypto-muted-foreground italic">Risk assessment is based on a single DEX liquidity pool and deterministic rules. Token may have additional liquidity on other exchanges. Context only, not financial advice.</p>
     </div>
   );
 }
