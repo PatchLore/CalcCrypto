@@ -1,7 +1,29 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getAllPosts } from '@/lib/posts';
 import { logger } from '@/lib/logger';
+
+export const metadata: Metadata = {
+  title: 'Crypto Blog & Insights — Calculator Guides & Market Context | CalcCrypto',
+  description:
+    'Read CalcCrypto\'s educational blog covering crypto calculator tutorials, position sizing guides, DCA strategy explainers, tax insights, and honest white paper reviews. No hype, no price predictions.',
+  alternates: { canonical: 'https://calccrypto.com/blog' },
+  openGraph: {
+    title: 'Crypto Blog & Insights — Educational Content from CalcCrypto',
+    description:
+      'Calculator guides, trading context, and crypto education. No hype, no price predictions.',
+    url: 'https://calccrypto.com/blog',
+    siteName: 'CrypCal',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Crypto Blog & Insights — Educational Content from CalcCrypto',
+    description:
+      'Calculator guides, trading context, and crypto education. No hype, no price predictions.',
+  },
+};
 
 export default function BlogPage() {
   const blogPosts = getAllPosts();
@@ -34,6 +56,12 @@ export default function BlogPage() {
               >
                 Calculators
               </Link>
+              <Link
+                href="/channel"
+                className="text-crypto-foreground hover:text-crypto-primary-600 transition-colors"
+              >
+                YouTube
+              </Link>
             </nav>
           </div>
         </div>
@@ -48,10 +76,10 @@ export default function BlogPage() {
               Blog & Insights
             </h1>
             <p className="text-xl text-crypto-muted-foreground">
-              Crypto insights and tool guides.
+              Crypto insights, calculator guides, and tool tutorials.
             </p>
             <p className="text-sm text-crypto-muted-foreground mt-2">
-              All content is educational and low-liability.
+              All content is educational and low-liability. No price predictions.
             </p>
           </div>
 
@@ -66,7 +94,6 @@ export default function BlogPage() {
                   {/* Featured Image (if available) */}
                   {post.image && (
                     <div className="relative w-full aspect-video overflow-hidden rounded-t-xl">
-                      {/* FIX-2A: Replace raw img tag with Next.js Image component */}
                       <Image
                         src={post.image}
                         alt={`Featured image for article: ${post.title}`}
@@ -94,6 +121,39 @@ export default function BlogPage() {
                 </Link>
               </article>
             ))}
+          </div>
+
+          {/* Related Tools */}
+          <div className="mt-12 rounded-2xl border border-crypto-border bg-crypto-background/40 p-6">
+            <h2 className="text-xl font-semibold text-crypto-foreground mb-4 text-center">
+              Try the calculators behind the blog
+            </h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                href="/calculators/profit-loss"
+                className="px-4 py-2 rounded-lg border border-crypto-border text-sm text-crypto-foreground hover:bg-crypto-muted/30 transition-colors"
+              >
+                Profit & Loss
+              </Link>
+              <Link
+                href="/calculators/position-size"
+                className="px-4 py-2 rounded-lg border border-crypto-border text-sm text-crypto-foreground hover:bg-crypto-muted/30 transition-colors"
+              >
+                Position Size
+              </Link>
+              <Link
+                href="/trade-decision-flow"
+                className="px-4 py-2 rounded-lg border border-crypto-border text-sm text-crypto-foreground hover:bg-crypto-muted/30 transition-colors"
+              >
+                Trade Decision Flow
+              </Link>
+              <Link
+                href="/channel"
+                className="px-4 py-2 rounded-lg border border-crypto-border text-sm text-crypto-foreground hover:bg-crypto-muted/30 transition-colors"
+              >
+                YouTube Channel
+              </Link>
+            </div>
           </div>
 
           {/* Back to Home */}

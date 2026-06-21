@@ -21,12 +21,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CrypCal | Free crypto calculators • No signup • Privacy-first",
+  title: "CrypCal | Free Crypto Calculators & Trade Tools • No Signup",
   description:
-    "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
+    "Free deterministic crypto calculators for profit & loss, position sizing, DCA, staking, mining, liquidity impact, tax estimates, and token risk analysis. Privacy-first, no signup required.",
   keywords: [
+    "crypto calculator",
     "cryptocurrency",
-    "calculator",
     "trading",
     "bitcoin",
     "ethereum",
@@ -34,6 +34,14 @@ export const metadata: Metadata = {
     "loss",
     "DCA",
     "staking",
+    "position size calculator",
+    "crypto slippage calculator",
+    "liquidity impact",
+    "crypto tax calculator",
+    "token risk analyser",
+    "mining profitability",
+    "white paper analysis",
+    "crypto research",
   ],
   authors: [{ name: "CrypCal Team" }],
   creator: "CrypCal",
@@ -124,12 +132,16 @@ export default function RootLayout({
             "price": "0",
             "priceCurrency": "USD"
           },
-          "description": "Free cryptocurrency calculators for trading profit and loss, dollar cost averaging, staking rewards, mining profitability and token price analysis. Educational estimates only, no signup required.",
+          "description": "Free cryptocurrency calculators for trading profit and loss, dollar cost averaging, staking rewards, mining profitability, position sizing, liquidity impact, tax estimates and token price analysis. Educational estimates only, no signup required.",
           "featureList": [
             "Profit & Loss Calculator",
             "DCA Calculator",
             "Staking Rewards Calculator",
             "Mining Profitability Calculator",
+            "Position Size Calculator",
+            "Liquidity Impact Calculator",
+            "Trade Decision Flow",
+            "Crypto Tax Calculator",
             "Crypto Conversion Calculator",
             "Token Price & Risk Analyser"
           ],

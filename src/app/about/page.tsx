@@ -1,6 +1,28 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import SupportSection from '@/components/SupportSection';
+
+export const metadata: Metadata = {
+  title: 'About CrypCal — Free Crypto Calculator Suite | CalcCrypto',
+  description:
+    'CrypCal is a free, privacy-first crypto calculator platform. No accounts, no hype, no financial advice — just deterministic calculations for P&L, DCA, staking, mining, position sizing, liquidity impact, and tax estimates.',
+  alternates: { canonical: 'https://calccrypto.com/about' },
+  openGraph: {
+    title: 'About CrypCal — Privacy-First Crypto Calculator Platform',
+    description:
+      'Transparent, deterministic crypto calculators. No accounts. No wallets. No advice.',
+    url: 'https://calccrypto.com/about',
+    siteName: 'CrypCal',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About CrypCal — Privacy-First Crypto Calculator Platform',
+    description:
+      'Transparent, deterministic crypto calculators. No accounts. No wallets. No advice.',
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -23,6 +45,12 @@ export default function AboutPage() {
               </Link>
               <Link href="/calculators" className="text-secondary hover:text-primary transition-colors">
                 Calculators
+              </Link>
+              <Link href="/blog" className="text-secondary hover:text-primary transition-colors">
+                Blog
+              </Link>
+              <Link href="/channel" className="text-secondary hover:text-primary transition-colors">
+                YouTube
               </Link>
               <Link href="/about" className="text-primary font-medium">
                 About
@@ -64,6 +92,11 @@ export default function AboutPage() {
                 <li>Dollar-cost averaging (DCA)</li>
                 <li>Staking rewards</li>
                 <li>Mining profitability</li>
+                <li>Position sizing with stop-loss risk management</li>
+                <li>Liquidity impact and slippage estimation</li>
+                <li>Trade decision flow combining risk, size, and liquidity</li>
+                <li>Capital gains tax estimates for UK, US, and AU</li>
+                <li>Token price and risk analysis</li>
               </ul>
               <p>
                 Each calculator is designed to be simple, deterministic, and easy to verify. The same inputs will always produce the same outputs.
@@ -166,10 +199,16 @@ export default function AboutPage() {
               Browse calculators
             </Link>
             <Link
-              href="/"
+              href="/calculators/position-size"
+              className="inline-flex items-center justify-center rounded-lg bg-crypto-primary-600 text-white px-5 py-3 hover:bg-crypto-primary-700 transition-colors"
+            >
+              Try Position Size Calculator
+            </Link>
+            <Link
+              href="/channel"
               className="inline-flex items-center justify-center rounded-lg border border-crypto-border px-5 py-3 text-crypto-foreground hover:bg-white/5 transition-colors"
             >
-              Back to home
+              Watch on YouTube
             </Link>
           </div>
 
@@ -185,4 +224,3 @@ export default function AboutPage() {
     </div>
   );
 }
-
