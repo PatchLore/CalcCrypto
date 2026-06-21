@@ -12,6 +12,7 @@ export function CalculatorsClient() {
 
   const categoryLabels = {
     'profit-loss': 'Trading',
+    'position-size': 'Trading',
     'dca': 'Investment',
     'staking': 'Earning',
     'mining': 'Mining',

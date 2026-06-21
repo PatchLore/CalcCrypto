@@ -55,6 +55,20 @@ export interface StakingInput {
   compoundFrequency: 'daily' | 'weekly' | 'monthly' | 'yearly';
 }
 
+export interface PositionSizeInput {
+  accountSize: number;
+  riskPercentage: number;
+  entryPrice: number;
+  stopLossPrice: number;
+}
+
+export interface PositionSizeResult {
+  riskAmount: number;
+  positionSize: number;
+  capitalRequired: number;
+  stopDistancePercent: number;
+}
+
 export interface MiningInput {
   hashrate: number; // TH/s
   powerConsumption: number; // Watts
@@ -132,7 +146,8 @@ export type CalculatorCategory =
   | 'tax'
   | 'portfolio'
   | 'conversion'
-  | 'token-price';
+  | 'token-price'
+  | 'position-size';
 
 export interface CalculatorConfig {
   id: string;

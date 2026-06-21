@@ -5,6 +5,17 @@ import type { CalculatorConfig, NavigationItem } from '@/types';
  */
 export const CALCULATORS: CalculatorConfig[] = [
   {
+    id: 'position-size',
+    name: 'Position Size Calculator',
+    description: 'Calculate trade position size based on risk management',
+    category: 'position-size',
+    icon: '🎯',
+    path: '/calculators/position-size',
+    inputs: ['Account Size', 'Risk %', 'Entry Price', 'Stop Loss'],
+    outputs: ['Risk Amount', 'Position Size', 'Capital Required', 'Stop Distance'],
+    featured: true,
+  },
+  {
     id: 'profit-loss',
     name: 'Profit/Loss Calculator',
     description: 'Calculate your crypto trading profits and losses',
@@ -109,6 +120,13 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     href: '/calculators',
     icon: '🧮',
     description: 'Browse all calculators',
+    category: 'basic',
+  },
+  {
+    name: 'Position Size',
+    href: '/calculators/position-size',
+    icon: '🎯',
+    description: 'Calculate trade position size based on risk',
     category: 'basic',
   },
   {
