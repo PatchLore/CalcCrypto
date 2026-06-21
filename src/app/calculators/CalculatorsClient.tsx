@@ -13,6 +13,7 @@ export function CalculatorsClient() {
   const categoryLabels = {
     'profit-loss': 'Trading',
     'position-size': 'Trading',
+    'liquidity-impact': 'Trading',
     'dca': 'Investment',
     'staking': 'Earning',
     'mining': 'Mining',
@@ -90,6 +91,9 @@ export function CalculatorsClient() {
               </Link>
               <Link href="/blog" className="text-secondary hover:text-primary transition-colors">
                 Blog
+              </Link>
+              <Link href="/channel" className="text-secondary hover:text-primary transition-colors">
+                YouTube
               </Link>
               <Link href="/about" className="text-secondary hover:text-primary transition-colors">
                 About

@@ -39,6 +39,8 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'dd.dexscreener.com' },
       { protocol: 'https', hostname: 'assets.dexscreener.com' },
       { protocol: 'https', hostname: 'raw.githubusercontent.com' },
+      { protocol: 'https', hostname: 'i.ytimg.com' },
+      { protocol: 'https', hostname: 'img.youtube.com' },
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],

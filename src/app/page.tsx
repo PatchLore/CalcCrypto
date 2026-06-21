@@ -112,6 +112,29 @@ export default function Home() {
                   Blog
                 </button>
               </Link>
+              <Link href="/channel">
+                <button 
+                  className="px-10 py-4 font-bold text-lg rounded-xl border-2 hover:-translate-y-1 transition-all duration-300"
+                  style={{ 
+                    background: 'transparent', 
+                    color: '#ffffff',
+                    borderColor: 'rgba(255, 255, 255, 0.5)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'transparent';
+                  }}
+                  onClick={() => {
+                    trackButtonClick('youtube', 'landing-page');
+                    trackNavigation('/channel');
+                  }}
+                  aria-label="Visit our YouTube channel"
+                >
+                  YouTube
+                </button>
+              </Link>
               <Link href="/about">
                 <button 
                   className="px-10 py-4 font-bold text-lg rounded-xl border-2 hover:-translate-y-1 transition-all duration-300"
