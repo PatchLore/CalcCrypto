@@ -10,7 +10,7 @@ import type { Phase2SupportedChain, RiskContext, TokenSnapshot } from '../types/
 const LazyTokenSnapshotPanel = React.lazy(() => import('./TokenSnapshotPanel'));
 const LazyRiskContextPanel = React.lazy(() => import('./RiskContextPanel'));
 
-export function Phase2DecisionPanel(props: { calculator: 'token-price' }) {
+export function Phase2DecisionPanel(props: { calculator: 'token-price' | 'profit-loss' }) {
   const [contractAddress, setContractAddress] = useState<string>('');
   const [selectedChain, setSelectedChain] = useState<Phase2SupportedChain>(DEFAULT_CHAIN_ID);
   const [snapshotData, setSnapshotData] = useState<TokenSnapshot | null>(null);

@@ -1,7 +1,7 @@
 import type { RiskLevel } from '../types/phase2';
 
 type Phase2RiskContextViewedPayload = {
-  calculator: 'token-price';
+  calculator: 'token-price' | 'profit-loss';
   risk_level: RiskLevel;
 };
 

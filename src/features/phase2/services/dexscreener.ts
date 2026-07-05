@@ -6,7 +6,7 @@ export async function fetchTokenData(tokenAddress: string, chainId: Phase2Suppor
   const encodedAddress = encodeURIComponent(normalizedAddress);
 
   const apiUrl = `https://api.dexscreener.com/latest/dex/tokens/${encodedAddress}`;
-  logger.log('Fetching from:', apiUrl, 'chain:', chainId);
+  if (process.env.NODE_ENV === 'development') logger.log('Fetching from:', apiUrl, 'chain:', chainId);
 
   const response = await fetch(apiUrl);
 
@@ -17,14 +17,14 @@ export async function fetchTokenData(tokenAddress: string, chainId: Phase2Suppor
   const data = await response.json();
 
   if (!data.pairs || !Array.isArray(data.pairs) || data.pairs.length === 0) {
-    logger.warn('No pairs found for address:', normalizedAddress);
+    if (process.env.NODE_ENV === 'development') logger.warn('No pairs found for address:', normalizedAddress);
     throw new Error('No trading pairs found for this token address');
   }
 
   const chainPairs = data.pairs.filter((p: any) => p.chainId === chainId);
 
   if (chainPairs.length === 0) {
-    logger.warn(`No ${chainId} pairs found for address:`, normalizedAddress);
+    if (process.env.NODE_ENV === 'development') logger.warn(`No ${chainId} pairs found for address:`, normalizedAddress);
     throw new Error(`No trading pairs found on ${chainId} for this token address`);
   }
 
@@ -39,10 +39,10 @@ export async function fetchTokenData(tokenAddress: string, chainId: Phase2Suppor
   const fdvUsd = pair.fdv ? parseFloat(pair.fdv) : null;
   const volume24hUsd = pair.volume?.h24 ? parseFloat(pair.volume.h24) : null;
 
-  logger.log('Parsed values:', { priceUsd, liquidityUsd, fdvUsd, volume24hUsd });
+  if (process.env.NODE_ENV === 'development') logger.log('Parsed values:', { priceUsd, liquidityUsd, fdvUsd, volume24hUsd });
 
   if (priceUsd === null || isNaN(priceUsd)) {
-    logger.error('Invalid or missing price data');
+    if (process.env.NODE_ENV === 'development') logger.error('Invalid or missing price data');
     throw new Error('Invalid price data received from API');
   }
 

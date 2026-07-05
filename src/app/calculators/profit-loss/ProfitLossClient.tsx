@@ -298,7 +298,7 @@ export function ProfitLossClient() {
                 </div>
               }
             >
-              <LazyPhase2DecisionPanel calculator="token-price" />
+              <LazyPhase2DecisionPanel calculator="profit-loss" />
             </Suspense>
           )}
           {/* Phase 2 explanation (informational only) */}

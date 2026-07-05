@@ -34,22 +34,4 @@ export type RiskContext = {
   };
 };
 
-export type Phase2ErrorCode =
-  | 'INVALID_ADDRESS'
-  | 'UNSUPPORTED_CHAIN'
-  | 'NOT_FOUND'
-  | 'RATE_LIMITED'
-  | 'NETWORK_ERROR'
-  | 'API_ERROR'
-  | 'PARSE_ERROR';
-
-export class Phase2Error extends Error {
-  readonly code: Phase2ErrorCode;
-
-  constructor(code: Phase2ErrorCode, message: string) {
-    super(message);
-    this.code = code;
-    this.name = 'Phase2Error';
-  }
-}
 
