@@ -7,6 +7,7 @@ import remarkGfm from 'remark-gfm';
 import { getAllPostSlugs, getPostBySlug } from '@/lib/posts';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { MdxImage } from '@/components/blog/MdxImage';
+import { JsonLd } from '@/components/seo/JsonLd';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -53,8 +54,24 @@ export default async function BlogPostPage({ params }: PageProps) {
   }
 
   
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Organization",
+      "name": "CrypCal"
+    },
+    "url": `https://calccrypto.com/blog/${post.slug}`,
+    ...(post.image ? { "image": `https://calccrypto.com${post.image}` } : {})
+  };
+
   return (
-    <div className="min-h-screen">
+    <>
+      <JsonLd schema={blogPostingSchema} />
+      <div className="min-h-screen">
       {/* Header */}
       <header className="glass-card mx-4 mt-4">
         <div className="container mx-auto px-4 py-6">
@@ -104,8 +121,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               <article className="glass-card overflow-hidden">
                 {/* Featured Image */}
                 {post.image && (
-                  <div className="w-full h-64 md:h-96 overflow-hidden">
-                     {/* FIX-2A: Replace raw img tag with Next.js Image component */}
+                   <div className="relative w-full h-64 md:h-96 overflow-hidden">
                      <Image
                        src={post.image}
                        alt={`Featured image for article: ${post.title}`}
@@ -155,5 +171,6 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </div>
     </div>
+    </>
   );
 }
