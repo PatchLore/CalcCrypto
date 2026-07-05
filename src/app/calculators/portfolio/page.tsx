@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
+import { JsonLd } from '@/components/seo/JsonLd';
 
 const title = 'Portfolio Tracker | Free Crypto Calculator – CrypCal';
 const description = 'Track and review a crypto portfolio using a simple, read-only interface designed for clarity. Outputs are deterministic based on your inputs.';
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: {
-    canonical: '/calculators/portfolio',
+    canonical: 'https://calccrypto.com/calculators/portfolio',
   },
   openGraph: {
     title,
@@ -23,7 +24,15 @@ export const metadata: Metadata = {
 
 export default function PortfolioTracker() {
   return (
-    <div className="min-h-screen bg-crypto-background">
+    <>
+      <JsonLd schema={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Portfolio Tracker — Coming Soon | CrypCal",
+        "description": "A read-only portfolio tracker for cryptocurrency holdings is under development. Manual entry, localStorage only, no wallet connection.",
+        "url": "https://calccrypto.com/calculators/portfolio"
+      }} />
+      <div className="min-h-screen bg-crypto-background">
       {/* Header */}
       <header className="border-b border-crypto-border bg-crypto-background/80 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-6">
@@ -85,6 +94,7 @@ export default function PortfolioTracker() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

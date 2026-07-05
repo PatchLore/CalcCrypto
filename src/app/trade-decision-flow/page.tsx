@@ -67,6 +67,53 @@ export default function TradeDecisionFlowPage() {
         ]
       }} />
 
+      <JsonLd schema={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the Trade Decision Flow?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is a 4-step guided workflow that combines position sizing, liquidity analysis, slippage estimation, and risk context into a single trade feasibility assessment. Enter your token details, define your position, review liquidity, and get a composite verdict."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is the final trade score calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The final score is a 0-to-100 composite: risk assessment contributes up to 40 points, liquidity analysis up to 40 points, and slippage estimation up to 20 points. Higher scores indicate more favourable trade conditions based on the inputs provided."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does a high or low score mean?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A high score (70+) suggests the trade parameters are aligned with common risk-management guidelines. A moderate score (40-69) indicates one or more areas need attention, such as position size or liquidity. A low score (below 40) flags multiple concerns. These are educational context signals, not buy or sell recommendations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this tool for any cryptocurrency?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, you can use it for any token or coin where you have the current price and 24-hour trading volume. It works best for tokens with publicly available market data. The tool is read-only and does not connect to any exchange or wallet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this financial advice?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The Trade Decision Flow provides educational context based on the numbers you enter. It is not financial advice, does not consider your personal circumstances, and should not be used as the sole basis for any trading decision. Always do your own research."
+            }
+          }
+        ]
+      }} />
+
       <TradeDecisionFlow />
     </>
   )

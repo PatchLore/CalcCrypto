@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getAllPosts } from '@/lib/posts';
 import { logger } from '@/lib/logger';
+import { JsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Crypto Blog & Insights — Calculator Guides & Market Context | CalcCrypto',
@@ -31,8 +32,25 @@ export default function BlogPage() {
   logger.log('TOTAL_BLOG_POSTS:', blogPosts.length);
   logger.log('BLOG_POSTS:', blogPosts.map(p => ({ title: p.title, slug: p.slug })));
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "CrypCal Blog & Insights",
+    "description": "Crypto insights, calculator guides, and tool tutorials from CrypCal.",
+    "url": "https://calccrypto.com/blog",
+    "blogPost": blogPosts.map(post => ({
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "url": `https://calccrypto.com/blog/${post.slug}`,
+      "datePublished": post.date,
+      ...(post.image ? { "image": `https://calccrypto.com${post.image}` } : {})
+    }))
+  };
+
   return (
-    <div className="min-h-screen bg-crypto-background">
+    <>
+      <JsonLd schema={blogSchema} />
+      <div className="min-h-screen bg-crypto-background">
       {/* Header */}
       <header className="border-b border-crypto-border bg-crypto-background/80 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-6">
@@ -169,5 +187,6 @@ export default function BlogPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

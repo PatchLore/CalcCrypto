@@ -179,7 +179,7 @@ export function TradeDecisionFlow() {
             {/* Sticky summary panel */}
             <div className="lg:col-span-1">
               <div className="lg:sticky lg:top-8 space-y-4">
-                <Card>
+                <Card role="region" aria-live="polite" aria-label="Trade decision summary">
                   <CardContent className="p-4 space-y-3">
                     <h3 className="text-sm font-semibold text-crypto-foreground">Current Summary</h3>
 

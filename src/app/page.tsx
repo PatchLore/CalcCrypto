@@ -20,7 +20,7 @@ export default function Home() {
         "url": "https://calccrypto.com",
         "description": "Free cryptocurrency calculators for profit and loss, DCA, staking, mining, tax and token analysis. 100% client-side, no signup required.",
         "offers": { "@type": "Offer", "price": "0" },
-        "featureList": ["Profit and loss calculator", "DCA calculator", "Staking rewards calculator", "Mining profitability calculator", "CGT tax calculator", "Token price analyser", "Currency converter"]
+        "featureList": ["Profit and loss calculator", "DCA calculator", "Staking rewards calculator", "Mining profitability calculator", "CGT tax calculator", "Token price analyser", "Currency converter", "Position size calculator", "Liquidity impact calculator", "Trade decision flow"]
       }} />
       <JsonLd schema={{
         "@context": "https://schema.org",

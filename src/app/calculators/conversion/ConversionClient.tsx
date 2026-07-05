@@ -350,7 +350,7 @@ export function ConversionClient() {
             </Card>
 
             {/* Results */}
-            <Card>
+            <Card role="region" aria-live="polite" aria-label="Conversion results">
               <CardHeader>
                 <CardTitle>Result</CardTitle>
                 <CardDescription>
