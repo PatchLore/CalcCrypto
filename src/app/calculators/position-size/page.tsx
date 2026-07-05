@@ -234,6 +234,7 @@ export default function PositionSizeCalculator() {
             </h2>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {[
+                { href: '/liquidity-impact-calculator', label: 'Liquidity & Impact', desc: 'Slippage & market impact' },
                 { href: '/calculators/profit-loss', label: 'Profit & Loss', desc: 'Trade P&L calculation' },
                 { href: '/calculators/dca', label: 'DCA Calculator', desc: 'Dollar cost averaging' },
                 { href: '/calculators/staking', label: 'Staking Calculator', desc: 'Staking reward projections' },

@@ -69,6 +69,28 @@ export interface PositionSizeResult {
   stopDistancePercent: number;
 }
 
+export interface LiquidityImpactInput {
+  tradeSize: number;
+  volume24h: number;
+  marketCap?: number;
+  multiplier?: number;
+}
+
+export interface LiquidityImpactResult {
+  impactPercent: number;
+  entrySlippage: number;
+  exitSlippage: number;
+  totalRoundTrip: number;
+  liquidityScore: number;
+  liquidityLabel: string;
+  warnings: LiquidityWarning[];
+}
+
+export interface LiquidityWarning {
+  type: 'moderate' | 'high' | 'extreme';
+  message: string;
+}
+
 export interface MiningInput {
   hashrate: number; // TH/s
   powerConsumption: number; // Watts
@@ -147,7 +169,8 @@ export type CalculatorCategory =
   | 'portfolio'
   | 'conversion'
   | 'token-price'
-  | 'position-size';
+  | 'position-size'
+  | 'liquidity-impact';
 
 export interface CalculatorConfig {
   id: string;

@@ -16,6 +16,17 @@ export const CALCULATORS: CalculatorConfig[] = [
     featured: true,
   },
   {
+    id: 'liquidity-impact',
+    name: 'Liquidity & Impact Calculator',
+    description: 'Estimate slippage, market impact, and liquidity risk',
+    category: 'liquidity-impact',
+    icon: '🌊',
+    path: '/liquidity-impact-calculator',
+    inputs: ['Trade Size', '24h Volume', 'Market Cap (optional)', 'Multiplier'],
+    outputs: ['Market Impact %', 'Entry/Exit Slippage', 'Liquidity Score', 'Warnings'],
+    featured: true,
+  },
+  {
     id: 'profit-loss',
     name: 'Profit/Loss Calculator',
     description: 'Calculate your crypto trading profits and losses',
@@ -120,6 +131,13 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     href: '/calculators',
     icon: '🧮',
     description: 'Browse all calculators',
+    category: 'basic',
+  },
+  {
+    name: 'Liquidity & Impact',
+    href: '/liquidity-impact-calculator',
+    icon: '🌊',
+    description: 'Estimate slippage, market impact, and liquidity risk',
     category: 'basic',
   },
   {
