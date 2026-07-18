@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: 'About CrypCal — Free Crypto Calculator Suite | CalcCrypto',
   description:
     'CrypCal is a free, privacy-first crypto calculator platform. No accounts, no hype, no financial advice — just deterministic calculations for P&L, DCA, staking, mining, position sizing, liquidity impact, and tax estimates.',
-  alternates: { canonical: 'https://calccrypto.com/about' },
+  alternates: { canonical: 'https://www.calccrypto.com/about' },
   openGraph: {
     title: 'About CrypCal — Privacy-First Crypto Calculator Platform',
     description:
       'Transparent, deterministic crypto calculators. No accounts. No wallets. No advice.',
-    url: 'https://calccrypto.com/about',
+    url: 'https://www.calccrypto.com/about',
     siteName: 'CrypCal',
     type: 'website',
   },

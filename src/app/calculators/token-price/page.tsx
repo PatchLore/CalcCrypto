@@ -7,11 +7,11 @@ import { TrustBadge } from "@/components/ui/TrustBadge";
 export const metadata: Metadata = {
   title: 'Token Risk Analyser — Price, Liquidity & Risk Score Checker | CalcCrypto',
   description: 'Analyse any Ethereum token with deterministic risk scoring. Free token risk analyser — paste a contract address to get current price, DEX liquidity, FDV, 24-hour volume and a Low/Medium/High risk context score powered by on-chain data from DexScreener. Educational analysis, not financial advice.',
-  alternates: { canonical: 'https://calccrypto.com/calculators/token-price' },
+  alternates: { canonical: 'https://www.calccrypto.com/calculators/token-price' },
   openGraph: {
     title: 'Token Risk Analyser — Price, Liquidity & Risk Score Checker',
     description: 'Deterministic risk scoring for any Ethereum token. Paste a contract address for price, liquidity, FDV and risk context. Free, no wallet required.',
-    url: 'https://calccrypto.com/calculators/token-price',
+    url: 'https://www.calccrypto.com/calculators/token-price',
     siteName: 'CrypCal',
     type: 'website',
   },
@@ -30,7 +30,7 @@ export default function TokenPriceCalculator() {
         "@type": "SoftwareApplication",
         "name": "Token Price & Risk Analyser",
         "applicationCategory": "FinanceApplication",
-        "url": "https://calccrypto.com/calculators/token-price",
+        "url": "https://www.calccrypto.com/calculators/token-price",
         "description": "Analyse any Ethereum token with deterministic risk scoring. Paste a contract address to get price, liquidity, FDV and volume data plus a risk context score.",
         "offers": { "@type": "Offer", "price": "0" },
         "featureList": ["Token price lookup", "Risk context scoring", "Liquidity analysis", "Volume assessment", "Fully diluted valuation check"]

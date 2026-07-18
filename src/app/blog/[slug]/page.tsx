@@ -34,12 +34,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: post.title,
     description: post.excerpt,
     alternates: {
-      canonical: `https://calccrypto.com/blog/${slug}`,
+      canonical: `https://www.calccrypto.com/blog/${slug}`,
     },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://calccrypto.com/blog/${slug}`,
+      url: `https://www.calccrypto.com/blog/${slug}`,
       images: post.image ? [post.image] : [],
     },
   };
@@ -64,8 +64,8 @@ export default async function BlogPostPage({ params }: PageProps) {
       "@type": "Organization",
       "name": "CrypCal"
     },
-    "url": `https://calccrypto.com/blog/${post.slug}`,
-    ...(post.image ? { "image": `https://calccrypto.com${post.image}` } : {})
+    "url": `https://www.calccrypto.com/blog/${post.slug}`,
+    ...(post.image ? { "image": `https://www.calccrypto.com${post.image}` } : {})
   };
 
   return (

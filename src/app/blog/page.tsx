@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   title: 'Crypto Blog & Insights — Calculator Guides & Market Context | CalcCrypto',
   description:
     'Read CalcCrypto\'s educational blog covering crypto calculator tutorials, position sizing guides, DCA strategy explainers, tax insights, and honest white paper reviews. No hype, no price predictions.',
-  alternates: { canonical: 'https://calccrypto.com/blog' },
+  alternates: { canonical: 'https://www.calccrypto.com/blog' },
   openGraph: {
     title: 'Crypto Blog & Insights — Educational Content from CalcCrypto',
     description:
       'Calculator guides, trading context, and crypto education. No hype, no price predictions.',
-    url: 'https://calccrypto.com/blog',
+    url: 'https://www.calccrypto.com/blog',
     siteName: 'CrypCal',
     type: 'website',
   },
@@ -37,13 +37,13 @@ export default function BlogPage() {
     "@type": "Blog",
     "name": "CrypCal Blog & Insights",
     "description": "Crypto insights, calculator guides, and tool tutorials from CrypCal.",
-    "url": "https://calccrypto.com/blog",
+    "url": "https://www.calccrypto.com/blog",
     "blogPost": blogPosts.map(post => ({
       "@type": "BlogPosting",
       "headline": post.title,
-      "url": `https://calccrypto.com/blog/${post.slug}`,
+      "url": `https://www.calccrypto.com/blog/${post.slug}`,
       "datePublished": post.date,
-      ...(post.image ? { "image": `https://calccrypto.com${post.image}` } : {})
+      ...(post.image ? { "image": `https://www.calccrypto.com${post.image}` } : {})
     }))
   };
 

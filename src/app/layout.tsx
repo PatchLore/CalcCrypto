@@ -51,15 +51,15 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://calccrypto.com"),
+  metadataBase: new URL("https://www.calccrypto.com"),
   alternates: {
-    canonical: "https://calccrypto.com",
+    canonical: "https://www.calccrypto.com",
   },
   openGraph: {
     title: "CrypCal | Free crypto calculators • No signup • Privacy-first",
     description:
       "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
-    url: "https://calccrypto.com",
+    url: "https://www.calccrypto.com",
     siteName: "CrypCal",
     locale: "en_US",
     type: "website",
@@ -123,7 +123,7 @@ export default function RootLayout({
           "@type": "WebApplication",
           "name": "CrypCal",
           "alternateName": "CalcCrypto",
-          "url": "https://calccrypto.com",
+          "url": "https://www.calccrypto.com",
           "applicationCategory": "FinanceApplication",
           "operatingSystem": "Web",
           "browserRequirements": "Requires JavaScript",
@@ -153,7 +153,7 @@ export default function RootLayout({
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "CrypCal",
-          "url": "https://calccrypto.com",
+          "url": "https://www.calccrypto.com",
           "description": "Free cryptocurrency calculator tools. Educational, deterministic, no financial advice.",
           "foundingDate": "2024",
           "knowsAbout": [

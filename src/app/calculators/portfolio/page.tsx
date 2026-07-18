@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: {
-    canonical: 'https://calccrypto.com/calculators/portfolio',
+    canonical: 'https://www.calccrypto.com/calculators/portfolio',
   },
   openGraph: {
     title,
@@ -30,7 +30,7 @@ export default function PortfolioTracker() {
         "@type": "WebPage",
         "name": "Portfolio Tracker — Coming Soon | CrypCal",
         "description": "A read-only portfolio tracker for cryptocurrency holdings is under development. Manual entry, localStorage only, no wallet connection.",
-        "url": "https://calccrypto.com/calculators/portfolio"
+        "url": "https://www.calccrypto.com/calculators/portfolio"
       }} />
       <div className="min-h-screen bg-crypto-background">
       {/* Header */}
@@ -97,4 +97,3 @@ export default function PortfolioTracker() {
     </>
   );
 }
-

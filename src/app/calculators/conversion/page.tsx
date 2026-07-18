@@ -7,11 +7,11 @@ import { TrustBadge } from "@/components/ui/TrustBadge";
 export const metadata: Metadata = {
   title: 'Crypto Currency Converter — BTC, ETH to USD, EUR Converter | CalcCrypto',
   description: 'Convert cryptocurrency to fiat and vice versa with our free currency converter. Supports Bitcoin, Ethereum, Solana and major stablecoins to USD, EUR and more. Instant conversion with live market rates. No signup required.',
-  alternates: { canonical: 'https://calccrypto.com/calculators/conversion' },
+  alternates: { canonical: 'https://www.calccrypto.com/calculators/conversion' },
   openGraph: {
     title: 'Crypto Currency Converter — BTC, ETH to USD, EUR Converter',
     description: 'Instant cryptocurrency and fiat currency converter. Supports BTC, ETH, SOL and stablecoins to USD, EUR and more. Free, no signup.',
-    url: 'https://calccrypto.com/calculators/conversion',
+    url: 'https://www.calccrypto.com/calculators/conversion',
     siteName: 'CrypCal',
     type: 'website',
   },
@@ -30,7 +30,7 @@ export default function CurrencyConverter() {
         "@type": "SoftwareApplication",
         "name": "Crypto Currency Converter",
         "applicationCategory": "FinanceApplication",
-        "url": "https://calccrypto.com/calculators/conversion",
+        "url": "https://www.calccrypto.com/calculators/conversion",
         "description": "Convert between cryptocurrencies like Bitcoin and Ethereum and fiat currencies like USD and EUR using live market rates. Free, no signup required.",
         "offers": { "@type": "Offer", "price": "0" },
         "featureList": ["Crypto to fiat conversion", "Fiat to crypto conversion", "Crypto to crypto conversion", "Live market rates"]

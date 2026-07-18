@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { getAllPostSlugs } from '@/lib/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://calccrypto.com'
+  const baseUrl = 'https://www.calccrypto.com'
   const lastModified = new Date()
 
   // Static pages

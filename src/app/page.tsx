@@ -17,7 +17,7 @@ export default function Home() {
         "@type": "SoftwareApplication",
         "name": "CrypCal — Crypto Calculator Suite",
         "applicationCategory": "FinanceApplication",
-        "url": "https://calccrypto.com",
+        "url": "https://www.calccrypto.com",
         "description": "Free cryptocurrency calculators for profit and loss, DCA, staking, mining, tax and token analysis. 100% client-side, no signup required.",
         "offers": { "@type": "Offer", "price": "0" },
         "featureList": ["Profit and loss calculator", "DCA calculator", "Staking rewards calculator", "Mining profitability calculator", "CGT tax calculator", "Token price analyser", "Currency converter", "Position size calculator", "Liquidity impact calculator", "Trade decision flow"]

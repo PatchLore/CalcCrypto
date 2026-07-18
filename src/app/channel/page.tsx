@@ -55,7 +55,7 @@ const channelVideoSchema = {
   "author": {
     "@type": "Organization",
     "name": "CalcCrypto",
-    "url": "https://calccrypto.com"
+    "url": "https://www.calccrypto.com"
   }
 };
 

@@ -7,11 +7,11 @@ import { TrustBadge } from '../../../components/ui/TrustBadge';
 export const metadata: Metadata = {
   title: 'Crypto Capital Gains Tax Calculator — UK, US, AU, EU CGT Estimator | CrypCal',
   description: 'Estimate capital gains tax on cryptocurrency disposals for UK, US, Australia and EU. Free CGT calculator — select your jurisdiction, enter buy price, sell price and quantity to see your estimated tax liability, taxable gain and effective rate. UK: 18%-24%, US: 15%-20%, AU: 23.5%-47%. Educational tool only, not tax advice.',
-  alternates: { canonical: 'https://calccrypto.com/calculators/tax' },
+  alternates: { canonical: 'https://www.calccrypto.com/calculators/tax' },
   openGraph: {
     title: 'Crypto Capital Gains Tax Calculator — UK, US, AU, EU CGT Estimator',
     description: 'Estimate crypto CGT across UK, US, AU and EU jurisdictions. Free educational calculator with annual allowances and progressive rates.',
-    url: 'https://calccrypto.com/calculators/tax',
+    url: 'https://www.calccrypto.com/calculators/tax',
     siteName: 'CrypCal',
     type: 'website',
   },
@@ -30,7 +30,7 @@ export default function TaxCalculator() {
         "@type": "SoftwareApplication",
         "name": "Crypto Capital Gains Tax Calculator",
         "applicationCategory": "FinanceApplication",
-        "url": "https://calccrypto.com/calculators/tax",
+        "url": "https://www.calccrypto.com/calculators/tax",
         "description": "Estimate capital gains tax on cryptocurrency disposals for UK, US, Australia and EU. Educational estimates only, not tax advice.",
         "offers": { "@type": "Offer", "price": "0" },
         "featureList": [

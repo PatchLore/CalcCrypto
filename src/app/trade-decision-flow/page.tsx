@@ -5,11 +5,11 @@ import { JsonLd } from '@/components/seo/JsonLd';
 export const metadata: Metadata = {
   title: 'Trade Decision Flow — Combined Risk & Liquidity Assessment | CalcCrypto',
   description: 'A step-by-step trader workflow combining position sizing, liquidity analysis, and risk context. Evaluate whether a trade is worth taking with our free decision support tool.',
-  alternates: { canonical: 'https://calccrypto.com/trade-decision-flow' },
+  alternates: { canonical: 'https://www.calccrypto.com/trade-decision-flow' },
   openGraph: {
     title: 'Trade Decision Flow — Crypto Trade Evaluation Tool',
     description: 'Step-by-step trade evaluation: position sizing → liquidity check → execution feasibility. Free, no signup.',
-    url: 'https://calccrypto.com/trade-decision-flow',
+    url: 'https://www.calccrypto.com/trade-decision-flow',
     siteName: 'CrypCal',
     type: 'website',
   },
@@ -28,7 +28,7 @@ export default function TradeDecisionFlowPage() {
         "@type": "SoftwareApplication",
         "name": "Trade Decision Flow",
         "applicationCategory": "FinanceApplication",
-        "url": "https://calccrypto.com/trade-decision-flow",
+        "url": "https://www.calccrypto.com/trade-decision-flow",
         "description": "A guided step-by-step tool combining position sizing, liquidity analysis, and risk context to evaluate crypto trades.",
         "offers": { "@type": "Offer", "price": "0" },
         "featureList": ["Position sizing", "Liquidity assessment", "Slippage estimation", "Trade feasibility verdict"]

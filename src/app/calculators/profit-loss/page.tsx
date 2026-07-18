@@ -8,11 +8,11 @@ import { AFFILIATE_LINKS } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Crypto Profit and Loss Calculator | ROI & Break-Even Price | CalcCrypto',
   description: 'Calculate crypto trade profit and loss with fees. Free P&L calculator — enter buy price, sell price, quantity and trading fees to see net profit, ROI percentage and break-even price. Supports BTC, ETH and any cryptocurrency. No signup required.',
-  alternates: { canonical: 'https://calccrypto.com/calculators/profit-loss' },
+  alternates: { canonical: 'https://www.calccrypto.com/calculators/profit-loss' },
   openGraph: {
     title: 'Crypto Profit and Loss Calculator — ROI & Break-Even Price Calculator',
     description: 'Instant crypto trade P&L with fee deduction. Free educational estimates for BTC, ETH and altcoin trades.',
-    url: 'https://calccrypto.com/calculators/profit-loss',
+    url: 'https://www.calccrypto.com/calculators/profit-loss',
     siteName: 'CrypCal',
     type: 'website',
   },
@@ -31,7 +31,7 @@ export default function ProfitLossCalculator() {
         "@type": "SoftwareApplication",
         "name": "Crypto Profit & Loss Calculator",
         "applicationCategory": "FinanceApplication",
-        "url": "https://calccrypto.com/calculators/profit-loss",
+        "url": "https://www.calccrypto.com/calculators/profit-loss",
         "description": "Calculate cryptocurrency trade profit and loss. Enter buy price, sell price, quantity and fees to see exact P&L, ROI and net returns.",
         "offers": { "@type": "Offer", "price": "0" },
         "featureList": ["P&L calculation", "ROI calculation", "Fee calculation", "Break-even price"]

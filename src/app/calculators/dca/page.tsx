@@ -8,11 +8,11 @@ import { AFFILIATE_LINKS } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Crypto DCA Calculator — Dollar Cost Averaging Returns & Average Buy Price | CalcCrypto',
   description: 'Calculate your crypto dollar cost averaging returns with our free DCA calculator. See total invested, average buy price, current value, profit and ROI for any monthly investment strategy. Supports Bitcoin, Ethereum and altcoins. Instant, no signup required.',
-  alternates: { canonical: 'https://calccrypto.com/calculators/dca' },
+  alternates: { canonical: 'https://www.calccrypto.com/calculators/dca' },
   openGraph: {
     title: 'Crypto DCA Calculator — Dollar Cost Averaging Returns & Average Price',
     description: 'See exactly what dollar cost averaging into crypto returns over any period with total invested, coins acquired and profit.',
-    url: 'https://calccrypto.com/calculators/dca',
+    url: 'https://www.calccrypto.com/calculators/dca',
     siteName: 'CrypCal',
     type: 'website',
   },
@@ -31,7 +31,7 @@ export default function DCACalculator() {
         "@type": "SoftwareApplication",
         "name": "Crypto DCA Calculator",
         "applicationCategory": "FinanceApplication",
-        "url": "https://calccrypto.com/calculators/dca",
+        "url": "https://www.calccrypto.com/calculators/dca",
         "description": "Calculate cryptocurrency dollar cost averaging returns. Enter monthly investment amount, duration and price data to see average buy price, total invested and profit.",
         "offers": { "@type": "Offer", "price": "0" },
         "featureList": ["DCA return calculation", "Average buy price", "Total invested", "Current value", "Profit projection"]

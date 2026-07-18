@@ -257,7 +257,7 @@ export const APP_CONFIG = {
   description: 'Professional cryptocurrency calculators for traders and investors',
   version: '1.0.0',
   author: 'CrypCal Team',
-  website: 'https://calccrypto.com',
+  website: 'https://www.calccrypto.com',
   supportEmail: 'crypcal@mail.com',
   social: {
     twitter: '@crypcal',

@@ -7,11 +7,11 @@ import { TrustBadge } from "@/components/ui/TrustBadge";
 export const metadata: Metadata = {
   title: 'Crypto Position Size Calculator — Risk Management & Trade Sizing | CalcCrypto',
   description: 'Calculate the correct position size for any crypto trade based on your account size and risk tolerance. Free position sizing calculator — enter account balance, risk percentage, entry price and stop loss to see exact position size, capital required and maximum loss. No signup required.',
-  alternates: { canonical: 'https://calccrypto.com/calculators/position-size' },
+  alternates: { canonical: 'https://www.calccrypto.com/calculators/position-size' },
   openGraph: {
     title: 'Crypto Position Size Calculator — Risk-Based Trade Sizing Tool',
     description: 'Calculate exactly how much crypto to buy based on your account size and risk per trade. Free, no signup, works for BTC, ETH and altcoins.',
-    url: 'https://calccrypto.com/calculators/position-size',
+    url: 'https://www.calccrypto.com/calculators/position-size',
     siteName: 'CrypCal',
     type: 'website',
   },
@@ -30,7 +30,7 @@ export default function PositionSizeCalculator() {
         "@type": "SoftwareApplication",
         "name": "Crypto Position Size Calculator",
         "applicationCategory": "FinanceApplication",
-        "url": "https://calccrypto.com/calculators/position-size",
+        "url": "https://www.calccrypto.com/calculators/position-size",
         "description": "Calculate cryptocurrency trade position size based on account size, risk percentage, entry price and stop loss. Free educational risk management tool.",
         "offers": { "@type": "Offer", "price": "0" },
         "featureList": ["Position size calculation", "Risk amount calculation", "Capital required", "Stop distance percentage"]

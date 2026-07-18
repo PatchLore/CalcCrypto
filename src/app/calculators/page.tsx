@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: {
-    canonical: 'https://calccrypto.com/calculators',
+    canonical: 'https://www.calccrypto.com/calculators',
   },
   openGraph: {
     title,
@@ -29,7 +29,7 @@ export default function CalculatorsPage() {
         "@type": "SoftwareApplication",
         "name": "CrypCal — Free Crypto Calculator Suite",
         "applicationCategory": "FinanceApplication",
-        "url": "https://calccrypto.com/calculators",
+        "url": "https://www.calccrypto.com/calculators",
         "description": "Free cryptocurrency calculators for staking, DCA, tax, profit and loss, position sizing, mining, currency conversion, token analysis, liquidity impact, and trade decision evaluation. 100% client-side, no signup required.",
         "offers": { "@type": "Offer", "price": "0" },
         "featureList": [
@@ -71,5 +71,4 @@ export default function CalculatorsPage() {
     </>
   );
 }
-
 

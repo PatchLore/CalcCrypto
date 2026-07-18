@@ -7,11 +7,11 @@ import { TrustBadge } from "@/components/ui/TrustBadge";
 export const metadata: Metadata = {
   title: 'Crypto Mining Profitability Calculator — Hashrate & Electricity Cost | CalcCrypto',
   description: 'Calculate cryptocurrency mining profitability with our free mining calculator. Enter hashrate, power consumption in watts, electricity cost per kWh, pool fees and coin price to estimate daily, weekly and monthly profit. Supports Bitcoin ASIC and GPU mining. Free, no signup required.',
-  alternates: { canonical: 'https://calccrypto.com/calculators/mining' },
+  alternates: { canonical: 'https://www.calccrypto.com/calculators/mining' },
   openGraph: {
     title: 'Crypto Mining Profitability Calculator — Hashrate & Power Cost Estimator',
     description: 'Estimate mining profitability, power costs, pool fees and ROI for Bitcoin and PoW coins. Free educational calculator.',
-    url: 'https://calccrypto.com/calculators/mining',
+    url: 'https://www.calccrypto.com/calculators/mining',
     siteName: 'CrypCal',
     type: 'website',
   },
@@ -30,7 +30,7 @@ export default function MiningCalculator() {
         "@type": "SoftwareApplication",
         "name": "Crypto Mining Profitability Calculator",
         "applicationCategory": "FinanceApplication",
-        "url": "https://calccrypto.com/calculators/mining",
+        "url": "https://www.calccrypto.com/calculators/mining",
         "description": "Estimate cryptocurrency mining profitability. Enter hashrate, power consumption, electricity cost, pool fees and coin price to see daily, weekly and monthly returns.",
         "offers": { "@type": "Offer", "price": "0" },
         "featureList": ["Mining profit estimation", "Power cost calculation", "Pool fee impact", "ROI timeline", "Daily/weekly/monthly projections"]
