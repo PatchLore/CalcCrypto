@@ -156,6 +156,15 @@ export default function RootLayout({
           "url": "https://www.calccrypto.com",
           "description": "Free cryptocurrency calculator tools. Educational, deterministic, no financial advice.",
           "foundingDate": "2024",
+          // Entity disambiguation: "calccrypto" is also a long-standing GitHub
+          // username belonging to an unrelated C++ library developer. sameAs
+          // ties this Organization to accounts we control so Google can tell
+          // the two apart. Both URLs verified to resolve; a dead sameAs entry
+          // causes Google to discount the whole array.
+          "sameAs": [
+            "https://www.youtube.com/@CalcCrypto",
+            "https://x.com/stack_drip"
+          ],
           "knowsAbout": [
             "Cryptocurrency",
             "Bitcoin",
