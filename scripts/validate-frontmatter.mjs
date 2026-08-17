@@ -16,6 +16,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { validateBlocks } from './validate-blocks.mjs';
 
 const POSTS_DIR = path.join(process.cwd(), 'src', 'content', 'blog');
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
@@ -177,6 +178,10 @@ function main() {
     validate(file, parsed.data);
   }
 
+  // Component blocks fail soft at render time, so validate them here too.
+  const blocks = validateBlocks();
+  errors.push(...blocks.errors);
+
   if (warnings.length) {
     console.warn(`\n⚠  ${warnings.length} warning(s):`);
     warnings.forEach((w) => console.warn(`   ${w}`));
@@ -189,7 +194,10 @@ function main() {
     process.exit(1);
   }
 
-  console.log(`\n✓ Frontmatter valid across ${files.length} post(s).\n`);
+  console.log(
+    `\n✓ Frontmatter valid across ${files.length} post(s); ` +
+      `${blocks.stats.blocks} component block(s) valid across ${blocks.stats.files} post(s).\n`
+  );
 }
 
 main();

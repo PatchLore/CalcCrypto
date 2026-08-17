@@ -1,143 +1,790 @@
 ---
-title: "Crypto Tax by Country: UK vs US vs Australia vs EU Compared"
+title: "Crypto Tax by Country 2026: UK, US, Australia & Germany"
 date: "2026-08-17"
-excerpt: "How the UK, US, Australia and the EU actually tax crypto gains, income, mining and staking in 2026: rates, allowances, reporting deadlines and the changes already locked in for next year."
+excerpt: "How the UK, US, Australia and Germany tax crypto gains, staking, mining and swaps in 2026, plus the reporting rules and the 2027 changes already locked in."
 image: "/blog-images/1099-da-crypto-tax.jpg"
 category: "Tax"
-tags: ["tax", "uk", "us", "australia", "eu", "comparison"]
+tags: ["tax", "uk", "us", "australia", "germany", "comparison"]
 author: "CalcCrypto Team"
 faq:
-  - question: "How is crypto taxed in the UK compared to the US?"
+  - question: "How is crypto taxed in the UK?"
     answer: >-
-      The UK taxes crypto disposals under Capital Gains Tax at 18% within the
-      basic-rate band and 24% above the higher-rate threshold, with a £3,000
-      annual allowance and no discount for holding longer. The US treats crypto
-      as property: gains on assets held 12 months or less are taxed at ordinary
-      income rates of 10–37%, while gains on assets held more than 12 months are
-      taxed at 0%, 15% or 20% depending on total taxable income.
-  - question: "Does the UK have a holding-period discount for crypto?"
+      HMRC treats crypto under two regimes. Selling, swapping, spending or
+      gifting crypto is a Capital Gains Tax disposal, taxed at 18% within the
+      basic-rate band and 24% above it for 2026/27, after a £3,000 Annual
+      Exempt Amount. Crypto received from mining, staking, airdrops or as
+      payment is Income Tax at your marginal rate instead. The UK gives no
+      discount for holding longer.
+  - question: "How is crypto taxed in the US?"
     answer: >-
-      No. Unlike Australia and Germany, HMRC applies the same Capital Gains Tax
-      rate whether you held the asset for a week or five years. UK timing
-      strategy is therefore about which tax year you realise a gain in, not how
-      long you have held the asset.
-  - question: "What is DAC8?"
-    answer: >-
-      DAC8 is the EU's crypto reporting directive, in force from 1 January 2026.
-      It requires crypto platforms serving EU residents (regardless of where
-      the platform is headquartered) to collect KYC and transaction data and
-      report it to national tax authorities, who then automatically exchange
-      that data with each other. The first reporting year is 2026, with the
-      first cross-border data exchange due by 30 September 2027.
-  - question: "How long must I hold crypto in Australia to get the CGT discount?"
-    answer: >-
-      More than 12 months. Individual Australian tax residents who hold a CGT
-      asset for over 12 months get a 50% CGT discount, meaning only half the
-      gain is added to assessable income. The discount is not available to
-      foreign residents or to crypto held as trading stock, and legislation
-      passed in the May 2026 federal budget replaces it with a cost-base
-      indexation model from 1 July 2027.
+      The IRS treats crypto as property. Gains on assets held 12 months or less
+      are short-term and taxed at ordinary income rates of 10% to 37%. Gains on
+      assets held more than 12 months are long-term and taxed at 0%, 15% or 20%
+      depending on total taxable income. Mining and staking rewards are ordinary
+      income at their value on receipt, and are taxed again as a capital gain or
+      loss when disposed of.
   - question: "Is crypto tax-free in Germany after one year?"
     answer: >-
-      Under §23 EStG, crypto held in a private capacity for more than 12 months
-      is currently exempt from tax on disposal regardless of the size of the
-      gain. Sold within 12 months, the gain is taxed at your personal income
-      rate of 0–45%, though gains under €1,000 a year are exempt via a
-      Freigrenze. As of mid-2026 this exemption is under active political
-      review, with a change possible from the 2027 assessment year.
-  - question: "Are crypto staking and mining rewards taxed twice?"
+      Under current German law, yes. Section 23 EStG treats crypto held in a
+      private capacity as a private disposal, and a sale after more than 12
+      months is exempt regardless of the size of the gain. Sold within 12
+      months, the gain is taxed at your personal income rate of 0% to 45%,
+      with a €1,000 annual Freigrenze. Note that on 6 July 2026 the federal
+      cabinet adopted a 2027 draft budget stating an intention to remove this
+      exemption. That is a proposal, not law.
+  - question: "What is changing in Australian crypto tax in 2027?"
     answer: >-
-      Effectively yes, in all four jurisdictions. Mining rewards, staking
-      rewards and crypto received as payment are taxed as ordinary income at
-      their fair market value on the day you receive them, then taxed again as
-      a capital gain or loss when you eventually dispose of them.
-  - question: "Does crypto have a wash-sale rule in the US?"
+      From 1 July 2027 the 50% CGT discount is replaced by cost-base indexation
+      using CPI, plus a 30% minimum tax rate on real capital gains. This is
+      enacted law, not a proposal: it was announced in the 2026-27 Budget on
+      12 May 2026 and legislated by the Treasury Laws Amendment (Tax Reform
+      No. 1) Act 2026, which received royal assent on 26 June 2026. It applies
+      to CGT assets held at least 12 months, and crypto is not carved out. The
+      existing 50% discount still applies to gains accruing up to 1 July 2027.
+  - question: "Is swapping one cryptocurrency for another taxable?"
     answer: >-
-      Not as of 2026. The wash-sale rule under IRC §1091 applies to stocks and
-      securities but has not been extended to digital assets, so a US holder can
-      sell crypto at a loss and immediately repurchase it. Congress has
-      discussed extending wash-sale treatment to crypto, so this should be
-      treated as current practice rather than a permanent feature of the code.
+      In the UK, US and Australia a crypto-to-crypto swap is a disposal of the
+      asset you give up, and any gain or loss is calculated in your local
+      currency even though no fiat was involved. In Germany a swap is a
+      disposal under Section 23 EStG, so it is taxable within the 12-month
+      window and exempt under current law outside it.
+  - question: "Is staking income taxable?"
+    answer: >-
+      In all four jurisdictions staking rewards are generally taxed as income at
+      their market value when you receive them, and then taxed again as a
+      capital gain or loss when you later dispose of them. Germany applies a
+      separate small allowance of €256 a year to this kind of income.
+  - question: "Does HMRC know about my crypto?"
+    answer: >-
+      Increasingly, yes. The UK's Cryptoasset Reporting Framework regulations
+      came into force on 1 January 2026. UK cryptoasset service providers
+      collect user and transaction data across calendar year 2026, submit their
+      first reports to HMRC between 1 January and 31 May 2027, and international
+      exchange of that data begins in 2027. The UK rules also cover domestic
+      reporting on UK-resident users, not only cross-border cases.
+  - question: "What is CARF?"
+    answer: >-
+      The Cryptoasset Reporting Framework is an OECD standard for the automatic
+      exchange of crypto transaction information between tax authorities. It
+      requires crypto service providers to carry out due diligence on their
+      users and report transaction data annually to their tax authority, which
+      then exchanges it with other participating jurisdictions. The UK is
+      implementing CARF for first international exchanges in 2027.
+  - question: "What is DAC8?"
+    answer: >-
+      DAC8 is Council Directive (EU) 2023/2226, the EU's crypto tax reporting
+      directive. Member states had to transpose it by 31 December 2025 and apply
+      it from 1 January 2026. Crypto-asset service providers serving EU
+      residents report user and transaction data to their national tax
+      authority. The first reporting year is 2026 and the first exchanges
+      between member states are due by 30 September 2027.
+  - question: "What is Form 1099-DA?"
+    answer: >-
+      Form 1099-DA is the US information return brokers use to report digital
+      asset disposals to the IRS and to you. Brokers report gross proceeds for
+      transactions from 1 January 2025 and cost basis for certain transactions
+      from 1 January 2026. Statements for 2025 transactions were due to
+      taxpayers by 17 February 2026, and most of those did not include basis, so
+      you may still need to work out your own cost basis.
+  - question: "Can crypto losses reduce my tax?"
+    answer: >-
+      Generally yes, though the mechanics differ. Capital losses can usually be
+      set against capital gains in the UK, US and Australia, subject to each
+      country's rules on carrying losses forward and, in the US, limits on
+      offsetting against ordinary income. Loss relief in Germany for private
+      disposals is restricted to gains from the same category. Rules on
+      repurchasing the same asset after a loss also differ, so check the
+      detailed sections below.
 ---
 
-Ask "how is crypto taxed?" and the honest answer is: it depends which passport, or which residency, you're filing under. Four investors holding the identical ETH position, sold on the identical day, can owe four completely different bills. This isn't a tax-advice article (talk to an accountant for your specific numbers), but it is a straight, sourced comparison of how the UK, US, Australia and the EU actually treat crypto gains, income, mining and staking right now, in 2026.
+Crypto tax is not one set of rules. It is dozens of national systems that happen to be taxing the same asset, and the difference between them is not marginal. Four investors holding identical ETH, selling on the identical day, can owe four completely different amounts.
 
-One housekeeping note before the numbers: "the EU" isn't a single tax jurisdiction. There are 27 different national systems. This article covers reporting, the one EU-wide layer that *is* uniform, separately from the country-level rates, using Germany as the worked example because it's the most-searched EU jurisdiction and the most distinctive rule set.
+This guide compares how the **UK, US, Australia and Germany** tax crypto in 2026: capital gains, staking, mining, swaps, allowances and the reporting rules that now sit behind all of them. Every figure below is sourced to the relevant tax authority or legislation, and anything not yet in force is labelled as such.
 
-## The short version
+**Last updated: August 2026.**
 
-| | UK | US | Australia | Germany (EU example) |
+```cc-calculator-cta
+{
+  "headline": "Want to estimate your crypto tax first?",
+  "body": "Run your disposals through our free Capital Gains Tax estimator. It covers UK, US, Australian and EU jurisdictions, needs no signup, and stores nothing.",
+  "buttonText": "Open the tax calculator",
+  "href": "/calculators/tax"
+}
+```
+
+## Quick comparison
+
+```cc-country-comparison
+{
+  "countries": [
+    {
+      "country": "United Kingdom",
+      "flag": "🇬🇧",
+      "summary": "Two separate regimes, and no reward for holding longer.",
+      "facts": [
+        { "label": "Capital gains", "value": "18% or 24%", "note": "2026/27, depending on income band" },
+        { "label": "Annual allowance", "value": "£3,000", "note": "Annual Exempt Amount" },
+        { "label": "Holding period", "value": "No discount", "note": "A week or five years, same rate" },
+        { "label": "Staking", "value": "Income Tax on receipt" },
+        { "label": "Mining", "value": "Income Tax on receipt" },
+        { "label": "Reporting", "value": "Self Assessment, 31 January" }
+      ],
+      "changeNote": {
+        "status": "current-law",
+        "text": "CARF reporting regulations in force since 1 January 2026."
+      }
+    },
+    {
+      "country": "United States",
+      "flag": "🇺🇸",
+      "summary": "Property treatment, with a hard 12-month cliff edge.",
+      "facts": [
+        { "label": "Short-term gains", "value": "10% to 37%", "note": "Ordinary income rates, held 12 months or less" },
+        { "label": "Long-term gains", "value": "0%, 15% or 20%", "note": "Held more than 12 months" },
+        { "label": "Allowance", "value": "No flat allowance", "note": "A 0% long-term band exists" },
+        { "label": "Staking", "value": "Ordinary income on receipt" },
+        { "label": "Mining", "value": "Ordinary income on receipt" },
+        { "label": "Reporting", "value": "Form 8949 and Schedule D, 15 April" }
+      ],
+      "changeNote": {
+        "status": "current-law",
+        "text": "Form 1099-DA basis reporting applies to transactions from 1 January 2026."
+      }
+    },
+    {
+      "country": "Australia",
+      "flag": "🇦🇺",
+      "summary": "A holding-period discount with a legislated expiry date.",
+      "facts": [
+        { "label": "Capital gains", "value": "Marginal income rate", "note": "Gain added to assessable income" },
+        { "label": "12-month discount", "value": "50%", "note": "Individual tax residents, current law" },
+        { "label": "Allowance", "value": "No flat allowance" },
+        { "label": "Staking", "value": "Ordinary income on receipt" },
+        { "label": "Mining", "value": "Depends on hobby or business" },
+        { "label": "Reporting", "value": "ATO data-matching with exchanges" }
+      ],
+      "changeNote": {
+        "status": "enacted-future",
+        "text": "From 1 July 2027 the 50% discount is replaced by CPI indexation plus a 30% minimum rate."
+      }
+    },
+    {
+      "country": "Germany",
+      "flag": "🇩🇪",
+      "summary": "The most generous long-term rule of the four, for now.",
+      "facts": [
+        { "label": "Held over 12 months", "value": "Tax free", "note": "Section 23 EStG, private holdings" },
+        { "label": "Held under 12 months", "value": "0% to 45%", "note": "Personal income tax rate" },
+        { "label": "Freigrenze", "value": "€1,000 per year", "note": "Threshold, not an allowance" },
+        { "label": "Staking and mining", "value": "Income on receipt", "note": "Separate €256 annual allowance" },
+        { "label": "Reporting", "value": "Return due 31 July" }
+      ],
+      "changeNote": {
+        "status": "proposed",
+        "text": "A 2027 draft budget states an intention to end the 12-month exemption. Not law."
+      }
+    }
+  ]
+}
+```
+
+```cc-key-takeaway
+{
+  "title": "The short version",
+  "points": [
+    "Holding period is the single biggest lever in the US, Australia and Germany. The UK is the outlier: it gives no discount at all for holding longer, so UK timing strategy is about which tax year you realise a gain in.",
+    "Mining, staking and crypto received as payment are taxed twice everywhere: once as income when received, again as a capital gain or loss when sold. This catches out more people than any other rule.",
+    "Two of the four are changing. Australia's replacement of the 50% CGT discount from 1 July 2027 is enacted law. Germany's proposed removal of its 12-month exemption is a stated government intention with no bill yet.",
+    "The reporting era has arrived. UK CARF and EU DAC8 both applied from 1 January 2026, US Form 1099-DA began with 2025 transactions, and the first international data exchanges land in 2027."
+  ]
+}
+```
+
+## Detailed comparison
+
+| | 🇬🇧 UK | 🇺🇸 US | 🇦🇺 Australia | 🇩🇪 Germany |
 |---|---|---|---|---|
-| How crypto is classified | Property, two regimes (CGT + Income Tax) | Property | CGT asset | Private asset |
-| Tax-free allowance | £3,000/year (CGT) | No flat allowance; 0% bracket exists | No flat allowance | €1,000/year (short-term gains); full exemption after 1 year |
-| Short-term rate | 18% or 24% (CGT, income-band dependent) | 10–37% (ordinary income rates) | Marginal income tax rate (no discount) | Marginal income tax rate (0–45%) |
-| Long-term rate | Same as short-term, no holding-period discount | 0%, 15% or 20% (held >12 months) | 50% discount on the gain if held >12 months | 0%, fully exempt if held >12 months |
-| Mining/staking income | Taxed as income at receipt (0–45%) | Taxed as ordinary income at receipt | Taxed as ordinary income at receipt | Taxed as income at receipt; tax-free up to €256/year |
-| Filing deadline | 31 January (online Self Assessment) | 15 April | Return due per individual lodgment/agent schedule (2025–26 year: 1 July 2025–30 June 2026) | 31 July |
-| Automatic exchange-sharing regime | CARF, from 2026 | Form 1099-DA from brokers, first full season 2026 | ATO data-matching with exchanges | DAC8 (EU-wide), first exchange by 30 Sept 2027 |
+| **Capital gains treatment** | Chargeable disposal under CGT | Property disposal | CGT asset | Private disposal, Section 23 EStG |
+| **Relevant rates** | 18% basic band, 24% above | Short-term 10 to 37%; long-term 0%, 15%, 20% | Marginal income rate | 0% to 45% within 12 months |
+| **Allowance or exemption** | £3,000 Annual Exempt Amount | No flat allowance; 0% long-term band | No flat allowance | €1,000 Freigrenze |
+| **Long-term holding** | No benefit | Long-term rates after 12 months | 50% discount after 12 months (to 1 July 2027) | Exempt after 12 months |
+| **Staking** | Income Tax on receipt | Ordinary income on receipt | Ordinary income on receipt | Income on receipt, €256 allowance |
+| **Mining** | Income Tax; trading rules may apply | Ordinary income; self-employment rules may apply | Hobby or business distinction matters | Income; commercial scale may apply |
+| **Crypto-to-crypto swaps** | Taxable disposal | Taxable disposal | Taxable disposal | Taxable disposal within 12 months |
+| **Reporting** | Self Assessment; CARF from 2026 | Form 1099-DA; Form 8949 | ATO data-matching | DAC8 from 2026 |
 
-Now the detail, because the summary row hides the parts that actually change what you owe.
+Now the detail, because the summary rows hide the parts that actually change what you owe.
 
-## UK: two regimes, one shrinking allowance
+## Crypto tax in the UK
 
-HMRC splits crypto into two separate tax events, and which one applies depends on *how* you got the crypto, not just what you did with it.
+HMRC splits crypto into two separate tax events, and which applies depends on *how* you acquired the crypto, not only what you did with it.
 
-**Capital Gains Tax** applies when you sell, swap, spend or gift crypto. For the 2025/26 tax year, gains are taxed at 18% within the basic-rate band and 24% above the higher-rate threshold. Unlike Germany or Australia, there's no discount for holding longer: a gain is a gain whether you held for a week or five years. The annual tax-free allowance (the Annual Exempt Amount) sits at £3,000, a steep drop from £12,300 just three tax years ago, which means far more casual investors now owe something on even modest profits.
+**Capital Gains Tax** applies when you sell, swap, spend or gift crypto. For 2026/27, gains are taxed at 18% within the basic-rate band and 24% above the higher-rate threshold. The Annual Exempt Amount is £3,000, down from £12,300 three tax years earlier, which is why far more casual investors now owe something on modest profits.
 
-**Income Tax** applies when you're paid in crypto, or when you mine, stake, or receive certain airdrops. That income sits alongside your salary and is taxed at your marginal rate, up to 45%, though it's offset by your standard Personal Allowance.
+The UK gives **no holding-period relief**. A gain is a gain whether you held for a week or five years. That makes UK planning a question of *which tax year* you realise in, not how long you wait.
 
-Two reporting quirks worth knowing: you must report even if your net gain is under the £3,000 allowance, provided your gross disposal proceeds exceed £50,000 for the year. And starting in 2026, UK exchanges have to collect and share customer data with HMRC under CARF, ahead of a full share-out with tax authorities by 2027, so "nobody's tracking it" stopped being true here.
+**Income Tax** applies when you are paid in crypto, or when you mine, stake or receive certain airdrops. That income sits alongside your salary at your marginal rate, up to 45%, offset by your Personal Allowance.
 
-Everything is reported through Self Assessment, due 31 January following the end of the tax year.
+### Reporting
 
-## US: the property model, and the one-year cliff edge
+Everything runs through Self Assessment, due 31 January after the tax year ends. Two traps worth knowing:
 
-The IRS has treated crypto as property since 2014, and 2026 is the first tax season where that classification has real enforcement teeth behind it: brokers are now issuing Form 1099-DA directly to the IRS, giving the agency visibility into crypto trades roughly equivalent to what it already has for stocks.
+- You must report even if your net gain is **under** the £3,000 allowance, where your gross disposal proceeds exceed **£50,000** for the year. That threshold has applied since 6 April 2023 and catches high-volume traders with small net gains.
+- The **Cryptoasset Reporting Framework** regulations came into force on **1 January 2026**. UK providers collect data across calendar 2026 and file their first reports between **1 January and 31 May 2027**, with international exchange beginning in 2027. Importantly, the UK rules also require **domestic** reporting on UK-resident users, so this is not only about offshore accounts.
 
-The split that matters most here is the **12-month holding period**, because it moves your gain into an entirely different rate table:
+```cc-callout
+{
+  "tone": "warning",
+  "title": "UK DeFi tax rules are still evolving",
+  "status": "policy-discussion",
+  "body": [
+    "Under the current framework, moving crypto into a DeFi lending or staking arrangement can itself be a disposal for CGT purposes, even though you still consider yourself the owner. That surprises people who assume nothing is taxable until they cash out.",
+    "HMRC has consulted on treating certain DeFi transactions as 'no gain, no loss', which would remove that outcome. This remains policy discussion and has not been legislated, so the existing treatment continues to apply. Treat it as an area to watch rather than a rule you can rely on."
+  ]
+}
+```
 
-- **Short-term** (held 12 months or less): taxed at your ordinary federal income rate, 10% to 37%. No preferential treatment at all.
-- **Long-term** (held more than 12 months): taxed at 0%, 15% or 20%, depending on total taxable income.
+```cc-calculator-cta
+{
+  "headline": "Estimate your UK capital gains position",
+  "body": "Enter your disposals and see an indicative CGT figure against the £3,000 allowance and the 18% and 24% bands.",
+  "buttonText": "Try the tax calculator",
+  "href": "/calculators/tax"
+}
+```
 
-That's a difference of up to 17 percentage points for doing nothing but waiting out the calendar. It is the single biggest lever a US crypto holder controls.
+## Crypto tax in the US
 
-Mining rewards, staking rewards, and crypto received as payment are all taxed as ordinary income at the fair market value on the day you receive them, then taxed *again* as a capital gain or loss when you eventually dispose of it. That double-taxation structure catches people out constantly, and it's the same structure in the UK, Australia and Germany.
+The IRS has treated crypto as **property** since 2014, and 2026 is the first filing season where that classification has real enforcement behind it.
 
-One structural quirk that won't last forever: crypto currently has **no wash-sale rule**. You can sell at a loss and immediately repurchase the same asset, banking the tax loss with no 30-day waiting period. That restriction applies to stocks under IRC §1091, but not, as of 2026, to crypto. There's ongoing Congressional discussion about extending wash-sale treatment to digital assets, so treat this as current practice rather than a settled, permanent feature of the code.
+The split that matters most is the **12-month holding period**, because it moves your gain into an entirely different rate table:
 
-Filing deadline is 15 April, reported on Form 8949 and Schedule D (Schedule 1 or C for income).
+- **Short-term**, held 12 months or less: taxed at your ordinary federal income rate, 10% to 37%. No preferential treatment.
+- **Long-term**, held more than 12 months: taxed at 0%, 15% or 20%, depending on total taxable income.
 
-## Australia: the discount that's already got an expiry date
+That is a difference of up to 17 percentage points for doing nothing but waiting out the calendar. It is the single biggest lever a US holder controls.
 
-The ATO treats crypto as a CGT asset, not currency, which puts it in the same bucket as shares and investment property. There's no flat tax-free allowance the way the UK has one. Instead, the entire system runs on a **holding-period discount**:
+Mining rewards, staking rewards and crypto received as payment are ordinary income at fair market value on the day of receipt, then taxed **again** as a capital gain or loss on disposal. Filing is on Form 8949 and Schedule D, with Schedule 1 or Schedule C for income, due 15 April.
 
-- Held 12 months or less: the full gain is added to your assessable income and taxed at your marginal rate.
-- Held more than 12 months: you get a **50% CGT discount**, so only half the gain is added to your taxable income. This applies to individual tax residents only, not to foreign residents or to crypto held as trading stock.
+### Form 1099-DA, and what it does not tell you
 
-Worked example: buy 1 ETH for A$4,000, sell 18 months later for A$8,000. Gross gain is A$4,000; with the discount, only A$2,000 is added to assessable income. At a 30% marginal rate, that's the difference between A$1,200 and A$600 in tax, purely for crossing the 12-month line.
+Brokers now report digital asset disposals directly to the IRS:
 
-This is the one piece of the puzzle with a confirmed sunset date. In the May 2026 federal budget, the government legislated replacing the 50% discount with a cost-base indexation model plus a 30% minimum tax on real gains, but not until **1 July 2027**. Gains that accrue before that date are grandfathered under the old 50% rule (crypto is treated as notionally "sold" at that date for calculation purposes, with tax deferred until actual disposal). Anything bought and held into the new regime only has the growth *after* 1 July 2027 taxed under the new rules.
+- **Gross proceeds** are reported for transactions from **1 January 2025**.
+- **Cost basis** is reported for certain transactions from **1 January 2026**.
+- Payee statements for 2025 transactions were due by **17 February 2026**.
 
-Staking rewards and qualifying airdrops are taxed as ordinary income on receipt, same double-taxation pattern as the UK and US. Australia doesn't have a fixed 30-day wash-sale rule in law, but the ATO actively challenges loss-then-immediate-rebuy patterns under general anti-avoidance principles, so it's riskier in practice than the current US position.
+The practical catch: **most 2025 forms carry no basis figure**, so the IRS may see your proceeds without seeing what you paid. You still need your own records to compute gain or loss, and a proceeds-only form can look alarming next to a modest actual gain. The IRS granted good-faith **penalty relief** to brokers for 2025 reporting, which also means early forms may contain errors worth checking.
 
-## EU: no single rate, but one shared reporting net
+### The wash-sale position is more nuanced than usually stated
 
-This is the section to frame carefully, because it's the one place the "compare four columns" format slightly misleads. There is no EU-wide crypto tax rate: each of the 27 member states sets its own capital gains and income tax treatment, and they vary enormously. Portugal and several others still offer meaningfully different treatment for long-held personal crypto than, say, France's flat 30% regime.
+It is commonly said that crypto has no wash-sale rule. That is broadly right but not complete.
 
-What *is* uniform across the bloc is **DAC8**, the EU's crypto reporting directive, in force from 1 January 2026. It mirrors the OECD's global CARF framework: crypto platforms serving EU residents (regardless of where the platform is headquartered) must collect KYC and transaction data and report it to national tax authorities, who then automatically exchange that data with each other. The first reporting year is 2026, with the first cross-border data exchange due by 30 September 2027. Practically, this means the "nobody can see cross-border crypto activity" era is ending EU-wide on the same timeline as the UK's CARF rollout and the US's 1099-DA rollout: three different labels for the same underlying shift toward automatic exchange of information.
+The wash-sale rule under **IRC Section 1091** applies to stock and securities. Most crypto assets sit outside that definition, so selling at a loss and immediately repurchasing has not triggered disallowance. However, **tokenised securities** treated as stock or securities under Section 1091 *do* fall within it, and the Form 1099-DA instructions require disallowed losses on such assets to be reported. Congress has also discussed extending wash-sale treatment to digital assets generally. Treat the current position as live practice rather than a permanent feature of the code.
 
-For the country-level example, **Germany** is worth walking through because its rule is genuinely unusual. Under §23 EStG, crypto held in a private capacity for **more than 12 months is entirely tax-free on disposal**, regardless of the size of the gain. €500 or €500,000, it makes no difference. Sell within 12 months and the gain is taxed at your personal income rate (0–45%), though gains under €1,000 a year are exempt via a *Freigrenze* (once you cross that threshold, the *whole* gain becomes taxable, not just the excess). Staking and mining income is taxed at receipt, with a separate small exemption up to €256/year.
+```cc-calculator-cta
+{
+  "headline": "Model a short-term versus long-term disposal",
+  "body": "Compare what the same gain costs inside and outside the 12-month window before you sell.",
+  "buttonText": "Open the profit and loss calculator",
+  "href": "/calculators/profit-loss"
+}
+```
 
-One caveat rather than a settled rule: as of mid-2026, this one-year exemption is under active political pressure. Germany's finance minister proposed redesigning it into a flat 25%-plus-surcharge withholding tax in spring 2026, and while the current rule remains unchanged for the 2025 filing year, a change from the 2027 assessment year onward is a live possibility.
+## Crypto tax in Australia
 
-Filing deadline for a standard German return is 31 July.
+The ATO treats crypto as a **CGT asset**, not currency, putting it in the same bucket as shares. There is no flat tax-free allowance. The whole system currently runs on a holding-period discount:
 
-## What actually moves the needle
+- Held **12 months or less**: the full gain is added to assessable income and taxed at your marginal rate.
+- Held **more than 12 months**: a **50% CGT discount** applies, so only half the gain is assessed. This is for individual tax residents, and is not available to foreign residents or to crypto held as trading stock.
 
-Pulling the four systems together, three things repeat across every jurisdiction and are worth calling out as the actionable takeaways:
+Staking rewards and qualifying airdrops are ordinary income on receipt. Mining treatment turns on whether you are running a hobby or a business, which changes both the income and deduction position.
 
-1. **Holding period is the single biggest lever in the US, Australia and Germany.** All three reward waiting past 12 months: the US with better rates, Australia with a 50% discount (for now), Germany with full exemption. The UK is the outlier: it doesn't reward holding period at all, so timing strategy there is entirely about which tax year you realise a gain in, not how long you've held.
-2. **Mining, staking and payment income get taxed twice, everywhere.** Once as income when received, again as a capital gain or loss when eventually sold. This trips up more people than any other single rule across all four systems.
-3. **The "nobody's watching" era is over in all four, on almost the same timeline.** UK/CARF, US/1099-DA, Australia/ATO data-matching and EU/DAC8 are all converging around 2026–2027 automatic exchange of exchange-level data with tax authorities. Whatever jurisdiction someone's filing in, under-reporting got materially riskier this year, not less.
+Australia has no fixed statutory wash-sale rule, but the ATO actively challenges sell-then-immediately-rebuy patterns under general anti-avoidance provisions, so it is riskier in practice than the current US position.
 
-*This article is general information, not tax advice: rules shift fast and your specific situation (residency, trading vs investing status, entity structure) changes the answer. Run your own numbers with our [crypto tax calculator](/calculators/tax), and check with a qualified accountant in your jurisdiction before filing.*
+```cc-callout
+{
+  "tone": "law",
+  "title": "Australia is changing its CGT framework from 1 July 2027",
+  "status": "enacted-future",
+  "body": [
+    "This is enacted law with a future effective date, not a proposal. It was announced in the 2026-27 Budget on 12 May 2026 and legislated by the Treasury Laws Amendment (Tax Reform No. 1) Act 2026 (Act No. 49 of 2026), which received royal assent on 26 June 2026, alongside companion rates legislation.",
+    "The reform replaces the 50% CGT discount with cost-base indexation using CPI, plus a 30% minimum tax rate on real capital gains. It applies to CGT assets held at least 12 months by individuals, trusts and partnerships, and crypto is not carved out.",
+    "Because indexation only strips out inflation, an asset that grows substantially faster than CPI can face a higher bill than under the old flat 50% discount. The ATO has confirmed the change does not affect Tax Time 2026."
+  ],
+  "rows": [
+    { "label": "2026 and to 1 July 2027", "text": "The existing 50% CGT discount continues to apply to gains accruing in this period, where the current conditions are met." },
+    { "label": "From 1 July 2027", "text": "Gains accruing from this date use CPI cost-base indexation with a 30% minimum tax rate on the real gain." }
+  ]
+}
+```
+
+```cc-calculator-cta
+{
+  "headline": "Check where you sit before 1 July 2027",
+  "body": "Model your current position under the existing 50% discount while it still applies to accruing gains.",
+  "buttonText": "Estimate your capital gains",
+  "href": "/calculators/tax"
+}
+```
+
+## Crypto tax in Germany
+
+Germany's rule is genuinely unusual, and it is the reason the country is so often described as crypto-friendly.
+
+Under **Section 23 EStG**, crypto held in a private capacity is a *private disposal*. Sell after **more than 12 months** and the gain is **entirely exempt**, regardless of size. Sell within 12 months and the gain is taxed at your personal income rate, 0% to 45%.
+
+Two details people get wrong:
+
+- The **€1,000 annual figure is a *Freigrenze*, not an allowance.** Stay below it and the gain is exempt. Cross it and the **whole** gain becomes taxable, not just the excess. This is a cliff edge, not a deduction.
+- Staking and mining income is taxed on receipt, with a **separate €256 annual allowance** that works the same cliff-edge way.
+
+The standard German return is due 31 July.
+
+```cc-callout
+{
+  "tone": "proposed",
+  "title": "Germany's one-year exemption could end in 2027",
+  "status": "proposed",
+  "body": [
+    "On 6 July 2026 the federal cabinet adopted the draft budget for 2027, which states an intention to reclassify privately held crypto as income from capital assets (Einkünfte aus Kapitalvermögen). That reclassification would remove the 12-month exemption, with an intended start of 1 January 2027.",
+    "This is a stated government intention, not law. The draft budget describes the intent; there is no formulated bill with an explanatory memorandum, the finance ministry was still to produce legal text, and any change must pass consultation and both the Bundestag and the Bundesrat before it takes effect. A Bundestag petition opposing the removal passed its 30,000-signature quorum within days of opening in August 2026.",
+    "Nothing has changed for 2026 disposals. If you are relying on the 12-month rule, the planning question is whether a future change would apply to assets you already hold, which is exactly the detail an actual bill would need to settle."
+  ],
+  "rows": [
+    { "label": "2026: current law", "text": "Section 23 EStG applies. Private holdings sold after more than 12 months remain exempt, with the €1,000 Freigrenze for shorter holds." },
+    { "label": "2027: proposed only", "text": "Government intends to tax privately held crypto as capital income and end the 12-month exemption. No enacted legislation at the time of writing." }
+  ]
+}
+```
+
+## Tax treatment by activity
+
+The headline rate is rarely what catches people out. It is usually the moment a transaction becomes taxable at all.
+
+```cc-tax-activities
+{
+  "activities": [
+    {
+      "activity": "Buying and holding",
+      "icon": "🛒",
+      "question": "Is simply buying crypto taxable?",
+      "jurisdictions": [
+        { "country": "UK", "flag": "🇬🇧", "treatment": "No. Buying with fiat is not a disposal. Keep records: acquisition cost drives the gain later, and pooling rules apply." },
+        { "country": "US", "flag": "🇺🇸", "treatment": "No. Purchase is not a taxable event, but basis and acquisition date determine short versus long term later." },
+        { "country": "AU", "flag": "🇦🇺", "treatment": "No. The 12-month clock for the discount starts at acquisition." },
+        { "country": "DE", "flag": "🇩🇪", "treatment": "No. Acquisition starts the 12-month holding clock under Section 23 EStG." }
+      ]
+    },
+    {
+      "activity": "Selling for fiat",
+      "icon": "💷",
+      "question": "You sell BTC for your home currency.",
+      "jurisdictions": [
+        { "country": "UK", "flag": "🇬🇧", "treatment": "CGT disposal. 18% or 24% on the gain above the £3,000 Annual Exempt Amount." },
+        { "country": "US", "flag": "🇺🇸", "treatment": "Capital gain. Short-term at 10 to 37%, long-term at 0%, 15% or 20% past 12 months." },
+        { "country": "AU", "flag": "🇦🇺", "treatment": "CGT event. Gain added to assessable income, with the 50% discount if held over 12 months." },
+        { "country": "DE", "flag": "🇩🇪", "treatment": "Exempt if held over 12 months. Otherwise taxed at your personal rate, subject to the €1,000 Freigrenze." }
+      ]
+    },
+    {
+      "activity": "Crypto-to-crypto swaps",
+      "icon": "🔄",
+      "question": "You swap BTC for ETH without touching fiat.",
+      "jurisdictions": [
+        { "country": "UK", "flag": "🇬🇧", "treatment": "Disposal of the BTC. Gain computed in sterling using market value at the swap, even though no cash moved." },
+        { "country": "US", "flag": "🇺🇸", "treatment": "Taxable disposal. Like-kind exchange treatment is not available for crypto." },
+        { "country": "AU", "flag": "🇦🇺", "treatment": "CGT event. Value in AUD at the time of the swap, and the new asset starts its own 12-month clock." },
+        { "country": "DE", "flag": "🇩🇪", "treatment": "A disposal under Section 23 EStG. Taxable inside 12 months, exempt outside it under current law." }
+      ]
+    },
+    {
+      "activity": "Staking rewards",
+      "icon": "🔒",
+      "question": "You receive staking rewards from a validator or pool.",
+      "jurisdictions": [
+        { "country": "UK", "flag": "🇬🇧", "treatment": "Income Tax on the sterling value at receipt. That value becomes the base cost for a later CGT disposal." },
+        { "country": "US", "flag": "🇺🇸", "treatment": "Ordinary income at fair market value on receipt, then capital gain or loss on disposal." },
+        { "country": "AU", "flag": "🇦🇺", "treatment": "Ordinary income on receipt at AUD market value, then a separate CGT event on disposal." },
+        { "country": "DE", "flag": "🇩🇪", "treatment": "Income on receipt, with a separate €256 annual allowance that also works as a cliff edge." }
+      ]
+    },
+    {
+      "activity": "Mining",
+      "icon": "⛏️",
+      "question": "Treatment turns on scale and intent, not just the reward.",
+      "jurisdictions": [
+        { "country": "UK", "flag": "🇬🇧", "treatment": "Income on receipt. If activity amounts to a trade, trading rules and different deductions apply." },
+        { "country": "US", "flag": "🇺🇸", "treatment": "Ordinary income at receipt. Mining as a business brings self-employment tax and Schedule C." },
+        { "country": "AU", "flag": "🇦🇺", "treatment": "The hobby versus business distinction is decisive and changes both income and deduction treatment." },
+        { "country": "DE", "flag": "🇩🇪", "treatment": "Income on receipt. Sustained commercial-scale mining can be assessed as business income." }
+      ]
+    },
+    {
+      "activity": "Airdrops",
+      "icon": "🪂",
+      "question": "You receive tokens you did not buy.",
+      "jurisdictions": [
+        { "country": "UK", "flag": "🇬🇧", "treatment": "Depends on whether anything was given in return. Airdrops received for a service are Income Tax; some others are not." },
+        { "country": "US", "flag": "🇺🇸", "treatment": "Generally ordinary income at fair market value once you have dominion and control." },
+        { "country": "AU", "flag": "🇦🇺", "treatment": "Qualifying airdrops are generally ordinary income on receipt, with a later CGT event on disposal." },
+        { "country": "DE", "flag": "🇩🇪", "treatment": "Treatment depends on whether a service was provided in return. Fact-specific." }
+      ]
+    },
+    {
+      "activity": "DeFi lending and liquidity pools",
+      "icon": "🏦",
+      "question": "You deposit into a lending protocol or an AMM pool.",
+      "jurisdictions": [
+        { "country": "UK", "flag": "🇬🇧", "treatment": "May be a CGT disposal on deposit under current rules. A 'no gain, no loss' approach has been consulted on but is not law." },
+        { "country": "US", "flag": "🇺🇸", "treatment": "No comprehensive DeFi-specific guidance. Analysis depends on whether beneficial ownership changes. Fact-specific." },
+        { "country": "AU", "flag": "🇦🇺", "treatment": "ATO guidance indicates a CGT event can arise where beneficial ownership of the deposited asset changes." },
+        { "country": "DE", "flag": "🇩🇪", "treatment": "Fact-specific. Whether a disposal occurs, and its effect on the 12-month clock, depends on the arrangement." }
+      ]
+    },
+    {
+      "activity": "Crypto-backed loans",
+      "icon": "📄",
+      "question": "You borrow against your crypto rather than selling it.",
+      "jurisdictions": [
+        { "country": "UK", "flag": "🇬🇧", "treatment": "Borrowing itself is not usually a disposal, but transferring collateral can be, depending on the arrangement." },
+        { "country": "US", "flag": "🇺🇸", "treatment": "Loan proceeds are generally not income, but liquidation of collateral is a taxable disposal." },
+        { "country": "AU", "flag": "🇦🇺", "treatment": "Generally not a CGT event to borrow, but a forced sale of collateral is." },
+        { "country": "DE", "flag": "🇩🇪", "treatment": "Depends on whether ownership of the collateral passes. Seek local advice before assuming the clock is unaffected." }
+      ]
+    }
+  ]
+}
+```
+
+Treatment for DeFi, liquidity pools and loans is genuinely unsettled in all four countries. Where this guide says "fact-specific", that is not hedging: the outcome really does turn on the mechanics of the individual protocol.
+
+```cc-calculator-cta
+{
+  "headline": "Working out what a disposal actually cost you",
+  "body": "Fees, partial disposals and swap valuations are where most estimates go wrong. Model a disposal before you file.",
+  "buttonText": "Open the calculators",
+  "href": "/calculators"
+}
+```
+
+## The 2026 to 2027 reporting timeline
+
+```cc-timeline
+{
+  "items": [
+    {
+      "date": "1 January 2026",
+      "region": "UK",
+      "status": "current-law",
+      "title": "CARF regulations come into force",
+      "detail": "UK cryptoasset service providers begin collecting user and transaction data, including domestic reporting on UK-resident users."
+    },
+    {
+      "date": "1 January 2026",
+      "region": "EU",
+      "status": "current-law",
+      "title": "DAC8 applies across member states",
+      "detail": "Council Directive (EU) 2023/2226 applies from this date, following a transposition deadline of 31 December 2025. 2026 is the first reporting year."
+    },
+    {
+      "date": "1 January 2026",
+      "region": "US",
+      "status": "current-law",
+      "title": "Form 1099-DA basis reporting begins",
+      "detail": "Brokers report cost basis for certain transactions effected from this date, having reported gross proceeds since 1 January 2025."
+    },
+    {
+      "date": "17 February 2026",
+      "region": "US",
+      "status": "current-law",
+      "title": "1099-DA statements due to taxpayers",
+      "detail": "Deadline for brokers to furnish statements for 2025 transactions. Most did not include cost basis."
+    },
+    {
+      "date": "12 May 2026",
+      "region": "Australia",
+      "status": "enacted-future",
+      "title": "2026-27 Budget announces CGT reform",
+      "detail": "The Budget announces replacing the 50% CGT discount with cost-base indexation and a 30% minimum tax rate."
+    },
+    {
+      "date": "26 June 2026",
+      "region": "Australia",
+      "status": "enacted-future",
+      "title": "CGT reform receives royal assent",
+      "detail": "Treasury Laws Amendment (Tax Reform No. 1) Act 2026 (Act No. 49 of 2026) becomes law, with companion rates legislation."
+    },
+    {
+      "date": "6 July 2026",
+      "region": "Germany",
+      "status": "proposed",
+      "title": "Cabinet adopts 2027 draft budget with crypto tax intent",
+      "detail": "The draft states an intention to reclassify privately held crypto as capital income, ending the 12-month exemption. No bill has been enacted."
+    },
+    {
+      "date": "1 January 2027",
+      "region": "Germany",
+      "status": "proposed",
+      "title": "Intended start date for the German reform",
+      "detail": "This date depends entirely on legislation that does not yet exist. It is not guaranteed to take effect."
+    },
+    {
+      "date": "1 January to 31 May 2027",
+      "region": "UK",
+      "status": "current-law",
+      "title": "First CARF reporting window",
+      "detail": "UK providers submit their first reports to HMRC, covering calendar year 2026."
+    },
+    {
+      "date": "1 July 2027",
+      "region": "Australia",
+      "status": "enacted-future",
+      "title": "CGT reform takes effect",
+      "detail": "Gains accruing from this date use CPI cost-base indexation with a 30% minimum tax rate. Gains accruing before it keep the 50% discount."
+    },
+    {
+      "date": "30 September 2027",
+      "region": "EU",
+      "status": "current-law",
+      "title": "First DAC8 exchanges due",
+      "detail": "Member states exchange 2026 reporting-year data, within nine months of the reporting year ending."
+    }
+  ]
+}
+```
+
+## Worked examples
+
+These are simplified illustrations using round numbers. They ignore fees, other income, allowances already used elsewhere and personal circumstances, all of which change real outcomes.
+
+```cc-example
+{
+  "title": "UK: a straightforward gain",
+  "flag": "🇬🇧",
+  "setup": "You buy 0.5 BTC for £20,000 and sell it 8 months later for £32,000. You are a higher-rate taxpayer and have used no other capital gains this year.",
+  "steps": [
+    { "label": "Proceeds", "value": "£32,000" },
+    { "label": "Cost", "value": "£20,000" },
+    { "label": "Gain", "value": "£12,000" },
+    { "label": "Annual Exempt Amount", "value": "-£3,000" },
+    { "label": "Taxable gain", "value": "£9,000" },
+    { "label": "CGT at 24%", "value": "£2,160" }
+  ],
+  "outcome": "Holding longer would not have reduced this. The UK gives no holding-period discount, so the only timing lever is which tax year the disposal falls into.",
+  "caveat": "Note the separate reporting trigger: gross proceeds above £50,000 in a year require reporting even where the net gain is under the allowance."
+}
+```
+
+```cc-example
+{
+  "title": "US: crossing the 12-month line",
+  "flag": "🇺🇸",
+  "setup": "You buy ETH for $20,000 and it is worth $40,000. Your taxable income places you in the 24% ordinary bracket and the 15% long-term bracket.",
+  "steps": [
+    { "label": "Gain", "value": "$20,000" },
+    { "label": "Sold at 11 months (short-term, 24%)", "value": "$4,800" },
+    { "label": "Sold at 13 months (long-term, 15%)", "value": "$3,000" },
+    { "label": "Difference", "value": "$1,800" }
+  ],
+  "outcome": "Two months of patience changes the bill by $1,800 on identical economics. This is the single biggest lever available to a US holder.",
+  "caveat": "Bracket thresholds and your total taxable income determine which long-term rate applies: 0%, 15% or 20%."
+}
+```
+
+```cc-example
+{
+  "title": "Australia: selling in 2026 under the current rules",
+  "flag": "🇦🇺",
+  "setup": "You buy 1 ETH for A$4,000 and sell 18 months later for A$8,000. Your marginal rate is 30%.",
+  "steps": [
+    { "label": "Gross gain", "value": "A$4,000" },
+    { "label": "50% CGT discount", "value": "-A$2,000" },
+    { "label": "Added to assessable income", "value": "A$2,000" },
+    { "label": "Tax at 30%", "value": "A$600" }
+  ],
+  "outcome": "Without the discount the same disposal would add A$4,000 to assessable income and cost A$1,200. Crossing the 12-month line halves the bill.",
+  "caveat": "The 50% discount applies to gains accruing up to 1 July 2027. It is available to individual tax residents, not foreign residents or crypto held as trading stock."
+}
+```
+
+```cc-example
+{
+  "title": "Australia: why 2027 changes the maths",
+  "flag": "🇦🇺",
+  "setup": "The same A$4,000 nominal gain, but accruing entirely after 1 July 2027, in a period where CPI inflation was modest relative to the asset's growth.",
+  "steps": [
+    { "label": "Old treatment", "value": "50% of the nominal gain assessed" },
+    { "label": "New treatment", "value": "Cost base indexed by CPI" },
+    { "label": "Then", "value": "30% minimum rate on the real gain" }
+  ],
+  "outcome": "Indexation only removes inflation. An asset that grows far faster than CPI keeps most of its gain in the tax net, so a volatile asset like crypto can end up worse off than under a flat 50% discount.",
+  "caveat": "Exact figures depend on CPI over your holding period and on how the pre and post 1 July 2027 split applies to your asset. This is enacted law with a future effective date."
+}
+```
+
+```cc-example
+{
+  "title": "Germany: the one-year rule in 2026",
+  "flag": "🇩🇪",
+  "setup": "You buy BTC for €30,000 and sell for €80,000 after holding it for 14 months in a private capacity.",
+  "steps": [
+    { "label": "Gain", "value": "€50,000" },
+    { "label": "Holding period", "value": "14 months" },
+    { "label": "Tax under Section 23 EStG", "value": "€0" }
+  ],
+  "outcome": "Under current German law the entire gain is exempt because the holding period exceeded 12 months, and the size of the gain does not matter.",
+  "caveat": "Had you sold at 11 months, the full €50,000 would be taxable at your personal rate. The €1,000 Freigrenze is a threshold, so exceeding it makes the whole gain taxable, not just the excess."
+}
+```
+
+```cc-example
+{
+  "title": "Staking rewards: the double-taxation pattern",
+  "flag": "🌍",
+  "setup": "You receive staking rewards worth £2,000 at the time of receipt. You later sell them when they are worth £3,200.",
+  "steps": [
+    { "label": "Income on receipt", "value": "£2,000" },
+    { "label": "Base cost for later disposal", "value": "£2,000" },
+    { "label": "Proceeds on sale", "value": "£3,200" },
+    { "label": "Capital gain", "value": "£1,200" }
+  ],
+  "outcome": "Two separate taxable events on the same tokens: income tax on £2,000 at receipt, then capital gains treatment on the £1,200 of subsequent growth.",
+  "caveat": "This pattern holds in all four jurisdictions. The most common mistake is forgetting that the receipt value becomes your base cost, which leads to paying tax twice on the same £2,000."
+}
+```
+
+## Which country is most tax-friendly?
+
+There is no single answer, and anyone giving you one is skipping the part that matters. A high-income UK trader, a long-term German holder and an Australian selling in 2028 face genuinely different systems.
+
+```cc-pros-cons
+{
+  "entries": [
+    {
+      "country": "United Kingdom",
+      "flag": "🇬🇧",
+      "advantage": "Clear, well-documented rules with an established Annual Exempt Amount and mature HMRC guidance, including detailed manuals for unusual cases.",
+      "disadvantage": "No holding-period relief at all, and an allowance cut from £12,300 to £3,000 in three years. Long-term investors get no structural benefit."
+    },
+    {
+      "country": "United States",
+      "flag": "🇺🇸",
+      "advantage": "The long-term rate structure is genuinely valuable: 0%, 15% or 20% versus up to 37%, and a 0% band exists for lower-income holders.",
+      "disadvantage": "No tax-free allowance for gains, and the most advanced reporting regime of the four now that 1099-DA is live."
+    },
+    {
+      "country": "Australia",
+      "flag": "🇦🇺",
+      "advantage": "The 50% CGT discount is simple and substantial for anyone holding beyond 12 months, and it still applies to gains accruing up to 1 July 2027.",
+      "disadvantage": "That advantage has a legislated end date. From 1 July 2027 indexation plus a 30% minimum rate may leave fast-growing assets worse off."
+    },
+    {
+      "country": "Germany",
+      "flag": "🇩🇪",
+      "advantage": "Full exemption after 12 months, with no cap on the exempt gain. For a long-term holder this is the most generous rule of the four.",
+      "disadvantage": "Short holds are taxed at up to 45%, the €1,000 Freigrenze is a cliff edge rather than an allowance, and the exemption itself is under active political threat."
+    }
+  ]
+}
+```
+
+Your actual outcome depends on **residency**, **total income**, **holding period**, **whether you are an investor or trading**, **the mix of staking, mining and disposals**, **allowances already used**, and **future law changes** in your jurisdiction. Two people in the same country with the same gain routinely pay different amounts.
+
+```cc-calculator-cta
+{
+  "headline": "See what your own numbers look like",
+  "body": "Our Capital Gains Tax estimator covers UK, US, Australian and EU jurisdictions. Free, no signup, and every calculation runs in your browser.",
+  "buttonText": "Calculate your crypto tax",
+  "href": "/calculators/tax"
+}
+```
+
+## Frequently asked questions
+
+```cc-faq
+{
+  "items": [
+    {
+      "question": "How is crypto taxed in the UK?",
+      "answer": "Selling, swapping, spending or gifting crypto is a Capital Gains Tax disposal, taxed at 18% within the basic-rate band and 24% above it for 2026/27, after a £3,000 Annual Exempt Amount. Crypto from mining, staking, airdrops or as payment is Income Tax at your marginal rate instead. There is no discount for holding longer."
+    },
+    {
+      "question": "How is crypto taxed in the US?",
+      "answer": "As property. Gains on assets held 12 months or less are taxed at ordinary income rates of 10% to 37%. Gains on assets held more than 12 months are taxed at 0%, 15% or 20% depending on total taxable income. Mining and staking rewards are ordinary income on receipt and are taxed again as a capital gain or loss on disposal."
+    },
+    {
+      "question": "Is crypto tax-free in Germany after one year?",
+      "answer": "Under current law, yes. Section 23 EStG exempts private holdings sold after more than 12 months, regardless of the size of the gain. Within 12 months the gain is taxed at 0% to 45%, subject to a €1,000 Freigrenze. On 6 July 2026 the federal cabinet adopted a 2027 draft budget stating an intention to remove this exemption, but that is a proposal, not law."
+    },
+    {
+      "question": "What is changing in Australian crypto tax in 2027?",
+      "answer": "From 1 July 2027 the 50% CGT discount is replaced by cost-base indexation using CPI plus a 30% minimum tax rate on real gains. This is enacted law: announced in the 2026-27 Budget on 12 May 2026 and legislated by the Treasury Laws Amendment (Tax Reform No. 1) Act 2026, which received royal assent on 26 June 2026. Crypto is not carved out, and the existing discount still applies to gains accruing up to that date."
+    },
+    {
+      "question": "Is swapping one cryptocurrency for another taxable?",
+      "answer": "In the UK, US and Australia a crypto-to-crypto swap is a disposal of the asset you give up, valued in your local currency even though no fiat moved. In Germany a swap is a disposal under Section 23 EStG, so it is taxable within the 12-month window and exempt outside it under current law."
+    },
+    {
+      "question": "Is staking income taxable?",
+      "answer": "Generally yes in all four jurisdictions. Staking rewards are taxed as income at market value when received, then taxed again as a capital gain or loss when disposed of. Germany applies a separate €256 annual allowance to this kind of income."
+    },
+    {
+      "question": "Does HMRC know about my crypto?",
+      "answer": "Increasingly yes. UK CARF regulations came into force on 1 January 2026. Providers collect data across calendar 2026, file first reports between 1 January and 31 May 2027, and international exchange begins in 2027. The UK rules also cover domestic reporting on UK-resident users, not only offshore accounts."
+    },
+    {
+      "question": "What is CARF?",
+      "answer": "The Cryptoasset Reporting Framework is an OECD standard for automatic exchange of crypto transaction information between tax authorities. Crypto service providers perform due diligence on users and report transaction data to their tax authority, which exchanges it with other participating jurisdictions. The UK is implementing it for first international exchanges in 2027."
+    },
+    {
+      "question": "What is DAC8?",
+      "answer": "DAC8 is Council Directive (EU) 2023/2226, the EU crypto tax reporting directive. Member states transposed it by 31 December 2025 and apply it from 1 January 2026. The first reporting year is 2026 and the first exchanges between member states are due by 30 September 2027."
+    },
+    {
+      "question": "What is Form 1099-DA?",
+      "answer": "The US information return brokers use to report digital asset disposals to the IRS and to you. Gross proceeds are reported for transactions from 1 January 2025 and cost basis for certain transactions from 1 January 2026. Statements for 2025 were due by 17 February 2026 and most did not include basis, so you may still need your own records."
+    },
+    {
+      "question": "Can crypto losses reduce my tax?",
+      "answer": "Generally yes, though the mechanics differ. Capital losses can usually offset capital gains in the UK, US and Australia, subject to rules on carrying losses forward and, in the US, limits on offsetting ordinary income. German loss relief for private disposals is restricted to gains in the same category. Rules on repurchasing after a loss also differ between countries."
+    }
+  ]
+}
+```
+
+## Sources and further reading
+
+```cc-sources
+{
+  "sources": [
+    { "authority": "GOV.UK", "region": "UK", "title": "Capital Gains Tax: rates and allowances", "url": "https://www.gov.uk/capital-gains-tax/rates" },
+    { "authority": "HMRC", "region": "UK", "title": "Cryptoassets Manual", "url": "https://www.gov.uk/hmrc-internal-manuals/cryptoassets-manual" },
+    { "authority": "GOV.UK", "region": "UK", "title": "Implementation of the Cryptoasset Reporting Framework (CARF)", "url": "https://www.gov.uk/government/publications/cryptoasset-reporting-framework/implementation-of-the-cryptoasset-reporting-framework-carf" },
+    { "authority": "GOV.UK", "region": "UK", "title": "Taxation of DeFi involving lending and staking: summary of responses", "url": "https://www.gov.uk/government/consultations/the-taxation-of-decentralised-finance-involving-the-lending-and-staking-of-cryptoassets/outcome/the-taxation-of-decentralised-finance-defi-involving-the-lending-and-staking-of-cryptoassets-summary-of-responses" },
+    { "authority": "IRS", "region": "US", "title": "Digital assets", "url": "https://www.irs.gov/filing/digital-assets" },
+    { "authority": "IRS", "region": "US", "title": "Instructions for Form 1099-DA", "url": "https://www.irs.gov/instructions/i1099da" },
+    { "authority": "IRS", "region": "US", "title": "Final regulations for broker reporting on digital assets", "url": "https://www.irs.gov/newsroom/final-regulations-and-related-irs-guidance-for-reporting-by-brokers-on-sales-and-exchanges-of-digital-assets" },
+    { "authority": "ATO", "region": "Australia", "title": "Crypto asset investments", "url": "https://www.ato.gov.au/individuals-and-families/investments-and-assets/crypto-asset-investments" },
+    { "authority": "ATO", "region": "Australia", "title": "CGT discount", "url": "https://www.ato.gov.au/individuals-and-families/investments-and-assets/capital-gains-tax/cgt-discount" },
+    { "authority": "ATO", "region": "Australia", "title": "Tax reform: reforming negative gearing and capital gains tax", "url": "https://www.ato.gov.au/about-ato/new-legislation/in-detail/individuals/tax-reform-boosting-home-ownership-reforming-negative-gearing-and-capital-gains-tax" },
+    { "authority": "Federal Register of Legislation", "region": "Australia", "title": "Treasury Laws Amendment (Tax Reform No. 1) Act 2026", "url": "https://www.legislation.gov.au/C2026A00049/latest" },
+    { "authority": "Treasury", "region": "Australia", "title": "Budget 2026-27 tax system changes", "url": "https://treasury.gov.au/policy-topics/taxation/budget2026-27" },
+    { "authority": "European Commission", "region": "EU", "title": "DAC8: administrative cooperation in taxation", "url": "https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/directive-administrative-cooperation-dac/dac8_en" },
+    { "authority": "EUR-Lex", "region": "EU", "title": "Council Directive (EU) 2023/2226 (DAC8)", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202302226" },
+    { "authority": "OECD", "region": "International", "title": "Crypto-Asset Reporting Framework", "url": "https://www.oecd.org/tax/exchange-of-tax-information/crypto-asset-reporting-framework-and-amendments-to-the-common-reporting-standard.htm" }
+  ]
+}
+```
+
+```cc-callout
+{
+  "tone": "info",
+  "title": "Disclaimer",
+  "body": [
+    "Tax rules vary by jurisdiction and by individual circumstances, and crypto tax rules are changing quickly in all four countries covered here. This guide is general educational information, not tax, legal or financial advice.",
+    "Figures reflect published guidance and legislation as at August 2026. Always check the current position with your local tax authority, and consult a qualified tax professional in your jurisdiction before filing or making decisions based on tax treatment.",
+    "Worked examples are simplified illustrations. They exclude fees, other income, previously used allowances and personal circumstances, all of which change real outcomes."
+  ]
+}
+```

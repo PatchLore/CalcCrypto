@@ -7,6 +7,8 @@ import remarkGfm from 'remark-gfm';
 import { getAllPostSlugs, getPostBySlug, DEFAULT_AUTHOR } from '@/lib/posts';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { MdxImage } from '@/components/blog/MdxImage';
+import { MarkdownBlock } from '@/components/blog/MarkdownBlock';
+import { MarkdownTable, MarkdownTd, MarkdownTh } from '@/components/blog/MarkdownTable';
 import { JsonLd } from '@/components/seo/JsonLd';
 
 interface PageProps {
@@ -181,7 +183,14 @@ export default async function BlogPostPage({ params }: PageProps) {
                      remarkPlugins={[remarkGfm]}
                      components={{
                        // @ts-expect-error ReactMarkdown image props differ slightly from Next.js Image props
-                       img: MdxImage
+                       img: MdxImage,
+                       // Renders `cc-*` fenced blocks as typed components; all
+                       // other code blocks pass through unchanged.
+                       pre: MarkdownBlock,
+                       // Wide tables must scroll rather than be clipped on mobile.
+                       table: MarkdownTable,
+                       th: MarkdownTh,
+                       td: MarkdownTd
                      }}
                    >
                      {post.content}
