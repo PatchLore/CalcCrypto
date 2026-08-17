@@ -1,9 +1,9 @@
-# CalCrypto — Phase 2 (Decision Context)
+# CalcCrypto — Phase 2 (Decision Context)
 
 ## Internal Summary
 
 ## Purpose
-Phase 2 adds an optional Decision Context layer to CalCrypto that explains what calculator outputs mean using live market structure data — without changing calculator math, giving advice, or introducing regulatory risk.
+Phase 2 adds an optional Decision Context layer to CalcCrypto that explains what calculator outputs mean using live market structure data — without changing calculator math, giving advice, or introducing regulatory risk.
 
 This is a read-only interpretation layer, not a trading tool.
 

@@ -1,21 +1,21 @@
-# CalCrypto Mobile App Strategy
+# CalcCrypto Mobile App Strategy
 *(Android & iOS — Wrapper-First Approach)*
 
 ## 1. Purpose of This Document
-This document defines how CalCrypto will become a mobile app, what approach will be used, and—most importantly—what will **NOT** be built yet.
+This document defines how CalcCrypto will become a mobile app, what approach will be used, and—most importantly—what will **NOT** be built yet.
 
 This is a forward-looking implementation plan, not an immediate build mandate.
 
 It exists to:
-- Keep mobile work aligned with CalCrypto Phase 2
+- Keep mobile work aligned with CalcCrypto Phase 2
 - Prevent premature native rewrites
 - Ensure App Store–safe architecture
 - Allow fast conversion from web → app when ready
 
 ## 2. High-Level Decision (Locked)
-CalCrypto will **NOT** be rewritten as a native app at this stage.
+CalcCrypto will **NOT** be rewritten as a native app at this stage.
 
-CalCrypto **WILL** be converted into a mobile app by **wrapping the existing web app**.
+CalcCrypto **WILL** be converted into a mobile app by **wrapping the existing web app**.
 
 This preserves:
 - One codebase
@@ -54,8 +54,8 @@ Not allowed until:
 - Clear monetisation
 - Strong need for native-only features
 
-## 4. Why This Strategy Fits CalCrypto
-CalCrypto’s architecture is already mobile-safe by design:
+## 4. Why This Strategy Fits CalcCrypto
+CalcCrypto’s architecture is already mobile-safe by design:
 - Read-only data
 - No wallets
 - No auth
@@ -145,7 +145,7 @@ Do NOT begin mobile wrapping if:
 Mobile work starts only after Phase 2 is shipped and demoed.
 
 ## 11. Summary (Lock This In)
-- CalCrypto will become an Android & iOS app
+- CalcCrypto will become an Android & iOS app
 - The app will be a wrapped web app
 - No native rewrite
 - No premature optimisation
@@ -155,7 +155,7 @@ Mobile work starts only after Phase 2 is shipped and demoed.
 ## 12. Cursor Instruction
 If mobile work is started later, use this instruction:
 
-> “Wrap the existing CalCrypto web app for mobile using Capacitor.  
+> “Wrap the existing CalcCrypto web app for mobile using Capacitor.  
 > Do not rewrite logic.  
 > Do not modify calculators or Phase 2 Super Gems.  
 > Treat mobile as a shell only.”

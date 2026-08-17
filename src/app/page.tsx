@@ -15,7 +15,7 @@ export default function Home() {
       <JsonLd schema={{
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "CrypCal — Crypto Calculator Suite",
+        "name": "CalcCrypto — Crypto Calculator Suite",
         "applicationCategory": "FinanceApplication",
         "url": "https://www.calccrypto.com",
         "description": "Free cryptocurrency calculators for profit and loss, DCA, staking, mining, tax and token analysis. 100% client-side, no signup required.",
@@ -26,12 +26,12 @@ export default function Home() {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-          { "@type": "Question", "name": "Is CrypCal free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. CrypCal is free to use." } },
-          { "@type": "Question", "name": "Does CrypCal give financial advice?", "acceptedAnswer": { "@type": "Answer", "text": "No. It provides calculations and read-only context only." } },
-          { "@type": "Question", "name": "Do you connect wallets?", "acceptedAnswer": { "@type": "Answer", "text": "No. CrypCal does not connect wallets or perform transactions." } },
+          { "@type": "Question", "name": "Is CalcCrypto free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. CalcCrypto is free to use." } },
+          { "@type": "Question", "name": "Does CalcCrypto give financial advice?", "acceptedAnswer": { "@type": "Answer", "text": "No. It provides calculations and read-only context only." } },
+          { "@type": "Question", "name": "Do you connect wallets?", "acceptedAnswer": { "@type": "Answer", "text": "No. CalcCrypto does not connect wallets or perform transactions." } },
           { "@type": "Question", "name": "Where does the market data come from?", "acceptedAnswer": { "@type": "Answer", "text": "When shown, it comes from public third-party sources (for example, DexScreener) and is read-only." } },
-          { "@type": "Question", "name": "Is my data stored?", "acceptedAnswer": { "@type": "Answer", "text": "CrypCal does not require accounts and does not store your calculator inputs." } },
-          { "@type": "Question", "name": "Who is CrypCal for?", "acceptedAnswer": { "@type": "Answer", "text": "Anyone who wants quick, clear calculations and read-only context—without wallets, accounts, or advice." } }
+          { "@type": "Question", "name": "Is my data stored?", "acceptedAnswer": { "@type": "Answer", "text": "CalcCrypto does not require accounts and does not store your calculator inputs." } },
+          { "@type": "Question", "name": "Who is CalcCrypto for?", "acceptedAnswer": { "@type": "Answer", "text": "Anyone who wants quick, clear calculations and read-only context—without wallets, accounts, or advice." } }
         ]
       }} />
     <div className="min-h-screen flex items-center justify-center p-5 overflow-x-hidden" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
@@ -260,9 +260,9 @@ export default function Home() {
               className="rounded-2xl border p-5"
               style={{ background: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.2)' }}
             >
-              <div className="font-bold" style={{ color: '#ffffff' }}>Is CrypCal free?</div>
+              <div className="font-bold" style={{ color: '#ffffff' }}>Is CalcCrypto free?</div>
               <div className="mt-1 text-sm" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-                Yes. CrypCal is free to use.
+                Yes. CalcCrypto is free to use.
               </div>
             </div>
 
@@ -270,7 +270,7 @@ export default function Home() {
               className="rounded-2xl border p-5"
               style={{ background: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.2)' }}
             >
-              <div className="font-bold" style={{ color: '#ffffff' }}>Does CrypCal give financial advice?</div>
+              <div className="font-bold" style={{ color: '#ffffff' }}>Does CalcCrypto give financial advice?</div>
               <div className="mt-1 text-sm" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
                 No. It provides calculations and read-only context only.
               </div>
@@ -282,7 +282,7 @@ export default function Home() {
             >
               <div className="font-bold" style={{ color: '#ffffff' }}>Do you connect wallets?</div>
               <div className="mt-1 text-sm" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-                No. CrypCal does not connect wallets or perform transactions.
+                No. CalcCrypto does not connect wallets or perform transactions.
               </div>
             </div>
 
@@ -302,7 +302,7 @@ export default function Home() {
             >
               <div className="font-bold" style={{ color: '#ffffff' }}>Is my data stored?</div>
               <div className="mt-1 text-sm" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-                CrypCal does not require accounts and does not store your calculator inputs.
+                CalcCrypto does not require accounts and does not store your calculator inputs.
               </div>
             </div>
 
@@ -310,7 +310,7 @@ export default function Home() {
               className="rounded-2xl border p-5"
               style={{ background: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.2)' }}
             >
-              <div className="font-bold" style={{ color: '#ffffff' }}>Who is CrypCal for?</div>
+              <div className="font-bold" style={{ color: '#ffffff' }}>Who is CalcCrypto for?</div>
               <div className="mt-1 text-sm" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
                 Anyone who wants quick, clear calculations and read-only context—without wallets, accounts, or advice.
               </div>

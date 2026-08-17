@@ -11,7 +11,7 @@ export default function TermsOfServicePage() {
             <div className="flex items-center space-x-2">
               <div className="text-2xl">₿</div>
               <h1 className="text-2xl font-bold text-crypto-primary-600 dark:text-crypto-primary-400">
-                CrypCal
+                CalcCrypto
               </h1>
             </div>
             <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">
@@ -34,12 +34,12 @@ export default function TermsOfServicePage() {
               <CardTitle>Terms of Service</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-crypto-muted-foreground">
-              <p>By using CalCrypto, you agree to the following terms.</p>
+              <p>By using CalcCrypto, you agree to the following terms.</p>
 
               <div>
                 <div className="font-semibold text-crypto-foreground">Informational Use Only:</div>
                 <p>
-                  CalCrypto is an informational tool designed to provide calculations and contextual insights based on
+                  CalcCrypto is an informational tool designed to provide calculations and contextual insights based on
                   publicly available data. It does not provide financial, investment, tax, or legal advice.
                 </p>
               </div>
@@ -47,20 +47,20 @@ export default function TermsOfServicePage() {
               <div>
                 <div className="font-semibold text-crypto-foreground">No Guarantees:</div>
                 <p>
-                  All data and calculations are provided on a best-effort basis. CalCrypto makes no guarantees regarding
+                  All data and calculations are provided on a best-effort basis. CalcCrypto makes no guarantees regarding
                   accuracy, completeness, or timeliness of information.
                 </p>
               </div>
 
               <div>
                 <div className="font-semibold text-crypto-foreground">No Transactions:</div>
-                <p>CalCrypto does not facilitate transactions, wallet connections, or asset management.</p>
+                <p>CalcCrypto does not facilitate transactions, wallet connections, or asset management.</p>
               </div>
 
               <div>
                 <div className="font-semibold text-crypto-foreground">Limitation of Liability:</div>
                 <p>
-                  Use of CalCrypto is at your own risk. CalCrypto is not responsible for financial losses, decisions, or
+                  Use of CalcCrypto is at your own risk. CalcCrypto is not responsible for financial losses, decisions, or
                   outcomes resulting from use of the app.
                 </p>
               </div>
@@ -68,14 +68,14 @@ export default function TermsOfServicePage() {
               <div>
                 <div className="font-semibold text-crypto-foreground">Third-Party Data:</div>
                 <p>
-                  CalCrypto may display data from third-party sources. CalCrypto is not responsible for the accuracy or
+                  CalcCrypto may display data from third-party sources. CalcCrypto is not responsible for the accuracy or
                   availability of third-party services.
                 </p>
               </div>
 
               <div>
                 <div className="font-semibold text-crypto-foreground">Changes to Service:</div>
-                <p>CalCrypto may update or modify features at any time without notice.</p>
+                <p>CalcCrypto may update or modify features at any time without notice.</p>
               </div>
 
               <div>

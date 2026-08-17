@@ -69,7 +69,7 @@ function FeedbackForm() {
           Have feedback or a calculator idea?
         </h2>
         <p className="text-xs text-crypto-muted-foreground">
-          Help shape future CrypCal features. No signup required.
+          Help shape future CalcCrypto features. No signup required.
         </p>
       </div>
       <form onSubmit={handleSubmit} className="mt-3 space-y-3">
@@ -117,7 +117,7 @@ function FeedbackForm() {
         )}
         {submitted && !error && (
           <p className="text-xs text-crypto-muted-foreground">
-            Thanks — your feedback helps improve CrypCal.
+            Thanks — your feedback helps improve CalcCrypto.
           </p>
         )}
         <div className="flex justify-end">

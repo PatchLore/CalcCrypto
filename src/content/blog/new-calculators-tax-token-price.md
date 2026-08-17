@@ -1,13 +1,16 @@
 ---
 title: "Two New Calculators Now Live: Tax Estimator & Token Risk Analyser"
 date: "2026-05-02"
-excerpt: "CrypCal launches a Capital Gains Tax calculator for UK, US, Australia and EU, plus an updated Token Price Analyser with smarter risk scoring for major stablecoins and blue-chip tokens."
+excerpt: "CalcCrypto launches a Capital Gains Tax calculator for UK, US, Australia and EU, plus an updated Token Price Analyser with smarter risk scoring for major stablecoins and blue-chip tokens."
 image: "/blog-images/Newblogimage.png"
+category: "Product"
+tags: ["announcements", "product", "tax", "token-analysis"]
+author: "CalcCrypto Team"
 ---
 
 Two New Calculators Now Live: Tax Estimator & Token Risk Analyser
 
-CrypCal has two new tools live today — a Capital Gains Tax estimator covering UK, US, Australia and EU jurisdictions, and an updated Token Price Analyser with smarter risk scoring that correctly handles major stablecoins and blue-chip tokens. Both tools are completely free, require no signup, and store no data on our servers.
+CalcCrypto has two new tools live today — a Capital Gains Tax estimator covering UK, US, Australia and EU jurisdictions, and an updated Token Price Analyser with smarter risk scoring that correctly handles major stablecoins and blue-chip tokens. Both tools are completely free, require no signup, and store no data on our servers.
 
 The Tax Calculator: Estimate Your Crypto Capital Gains
 
@@ -63,8 +66,8 @@ We are continuing to expand the calculator suite with several tools in active de
 
 **L1 vs L2 Fee Comparison**: See real-time transaction costs across Ethereum, Arbitrum, Base, Optimism and other major networks. Compare costs before choosing where to transact.
 
-CrypCal Stays Free
+CalcCrypto Stays Free
 
-Every tool on CrypCal is completely free, requires no account, and stores nothing on our servers. Calculator inputs stay in your browser using local state — they disappear when you close the tab. We do not connect to wallets, we do not give financial advice, and we do not track you across the web. Our mission remains simple: give you the maths, clearly, so you can make your own informed decisions.
+Every tool on CalcCrypto is completely free, requires no account, and stores nothing on our servers. Calculator inputs stay in your browser using local state — they disappear when you close the tab. We do not connect to wallets, we do not give financial advice, and we do not track you across the web. Our mission remains simple: give you the maths, clearly, so you can make your own informed decisions.
 
-*CrypCal is a global educational platform. All outputs are estimates based on public data. This is not financial, tax or legal advice. Consult a licensed professional before making decisions.*
+*CalcCrypto is a global educational platform. All outputs are estimates based on public data. This is not financial, tax or legal advice. Consult a licensed professional before making decisions.*

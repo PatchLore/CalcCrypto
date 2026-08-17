@@ -216,7 +216,7 @@ export function ConversionClient() {
             <div className="flex items-center space-x-2">
               <div className="text-2xl">₿</div>
               <div className="text-2xl font-bold text-crypto-primary-600 dark:text-crypto-primary-400">
-                CrypCal
+                CalcCrypto
               </div>
             </div>
             <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">

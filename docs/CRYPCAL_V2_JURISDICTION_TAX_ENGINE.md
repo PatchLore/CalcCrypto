@@ -1,8 +1,8 @@
-# CrypCal v2 — Jurisdiction Tax Engine (Accuracy Expansion)
+# CalcCrypto v2 — Jurisdiction Tax Engine (Accuracy Expansion)
 
 ## 🎯 Goal
 
-Evolve CrypCal from a simplified estimator into a jurisdiction-aware tax calculation system with progressively higher accuracy per country.
+Evolve CalcCrypto from a simplified estimator into a jurisdiction-aware tax calculation system with progressively higher accuracy per country.
 
 ---
 
@@ -88,7 +88,7 @@ Trying to make global + 100% accurate is impossible because:
 
 ## 💡 Strategic Outcome
 
-CrypCal evolves into:
+CalcCrypto evolves into:
 
 > **"Hybrid crypto tax system: estimator globally, compliance-grade per jurisdiction"**
 

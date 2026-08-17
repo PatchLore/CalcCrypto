@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Crypto Profit and Loss Calculator — ROI & Break-Even Price Calculator',
     description: 'Instant crypto trade P&L with fee deduction. Free educational estimates for BTC, ETH and altcoin trades.',
     url: 'https://www.calccrypto.com/calculators/profit-loss',
-    siteName: 'CrypCal',
+    siteName: 'CalcCrypto',
     type: 'website',
   },
   twitter: {

@@ -71,7 +71,7 @@ export function LiquidityImpactCalculator({ initialTradeSize }: Props) {
             <div className="flex items-center space-x-2">
               <div className="text-2xl gold-accent rounded-lg p-2">🌊</div>
               <div className="text-2xl font-bold text-primary">
-                CrypCal
+                CalcCrypto
               </div>
             </div>
             <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">

@@ -1,8 +1,8 @@
-# CalCrypto Phase 2 — Breakdown & Execution Checklist
+# CalcCrypto Phase 2 — Breakdown & Execution Checklist
 *(Super Gems–Driven Upgrade | Final Spec with Refinements)*
 
 ## 1. Purpose of This Document
-This document defines exactly what Phase 2 is, what it is not, and how to execute it cleanly using Cursor — without breaking the existing CalCrypto app.
+This document defines exactly what Phase 2 is, what it is not, and how to execute it cleanly using Cursor — without breaking the existing CalcCrypto app.
 
 This is the single source of truth for Phase 2.  
 If something is not in this document, it is out of scope.
@@ -10,7 +10,7 @@ If something is not in this document, it is out of scope.
 ## 2. Phase 2 Goal (Lock This In)
 
 ### One-sentence goal
-Upgrade CalCrypto from a pure crypto calculator into a **read-only crypto decision assistant**, using **Super Gem–style deterministic logic** layered on top of existing calculators.
+Upgrade CalcCrypto from a pure crypto calculator into a **read-only crypto decision assistant**, using **Super Gem–style deterministic logic** layered on top of existing calculators.
 
 ### What success looks like
 - Existing calculators still work unchanged
@@ -283,7 +283,7 @@ Do NOT add (Phase 3):
   - “Math is truth. Super Gems are interpretation.”
 
 ## 16. Strategic Reminder
-CalCrypto Phase 2 is not a feature upgrade.  
+CalcCrypto Phase 2 is not a feature upgrade.  
 It is public proof of Super Gem–style decision intelligence.
 
 Ship it small.  

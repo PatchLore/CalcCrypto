@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Token Risk Analyser — Price, Liquidity & Risk Score Checker',
     description: 'Deterministic risk scoring for any Ethereum token. Paste a contract address for price, liquidity, FDV and risk context. Free, no wallet required.',
     url: 'https://www.calccrypto.com/calculators/token-price',
-    siteName: 'CrypCal',
+    siteName: 'CalcCrypto',
     type: 'website',
   },
   twitter: {

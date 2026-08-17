@@ -1,11 +1,11 @@
-# Google Analytics Setup Guide for CrypCal
+# Google Analytics Setup Guide for CalcCrypto
 
 ## 🎯 Quick Setup
 
 ### 1. Create Google Analytics Account
 1. Go to [Google Analytics](https://analytics.google.com/)
 2. Click "Start measuring"
-3. Create a new account for CrypCal
+3. Create a new account for CalcCrypto
 4. Set up a new property (website)
 5. Choose "Web" as your platform
 
@@ -119,4 +119,4 @@ The setup automatically tracks:
 - **Page performance** - Load times and user experience
 - **Error rates** - Technical issues and user problems
 
-Your CrypCal analytics are now ready to provide valuable insights into user behavior and calculator usage! 🚀
+Your CalcCrypto analytics are now ready to provide valuable insights into user behavior and calculator usage! 🚀

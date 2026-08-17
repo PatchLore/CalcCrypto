@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Crypto Currency Converter — BTC, ETH to USD, EUR Converter',
     description: 'Instant cryptocurrency and fiat currency converter. Supports BTC, ETH, SOL and stablecoins to USD, EUR and more. Free, no signup.',
     url: 'https://www.calccrypto.com/calculators/conversion',
-    siteName: 'CrypCal',
+    siteName: 'CalcCrypto',
     type: 'website',
   },
   twitter: {
@@ -104,7 +104,7 @@ export default function CurrencyConverter() {
             "name": "Is this a trading platform?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No, this is an educational conversion calculator only. It shows you what your crypto is worth in another currency at current market rates. CrypCal does not facilitate trades, connect to wallets, or execute transactions. Use a licensed exchange or broker to perform actual conversions."
+              "text": "No, this is an educational conversion calculator only. It shows you what your crypto is worth in another currency at current market rates. CalcCrypto does not facilitate trades, connect to wallets, or execute transactions. Use a licensed exchange or broker to perform actual conversions."
             }
           }
         ]
@@ -178,7 +178,7 @@ export default function CurrencyConverter() {
                 },
                 {
                   q: "Is this a trading platform?",
-                  a: "No, this is an educational converter only. CrypCal does not facilitate trades, connect to wallets or execute transactions."
+                  a: "No, this is an educational converter only. CalcCrypto does not facilitate trades, connect to wallets or execute transactions."
                 }
               ].map(({ q, a }) => (
                 <details

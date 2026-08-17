@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Crypto Staking Rewards Calculator — APY Yield & Compound Interest Estimator',
     description: 'Estimate staking rewards with compound interest for any crypto. Daily, weekly, monthly or yearly compounding. Free educational tool.',
     url: 'https://www.calccrypto.com/calculators/staking',
-    siteName: 'CrypCal',
+    siteName: 'CalcCrypto',
     type: 'website',
   },
   twitter: {

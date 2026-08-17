@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Liquidity Impact Calculator | CalcCrypto',
     description: 'Estimate slippage and liquidity risk before entering crypto trades. Free, no signup.',
     url: 'https://www.calccrypto.com/liquidity-impact-calculator',
-    siteName: 'CrypCal',
+    siteName: 'CalcCrypto',
     type: 'website',
   },
   twitter: {

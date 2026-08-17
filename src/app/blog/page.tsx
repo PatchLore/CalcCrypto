@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       'Calculator guides, trading context, and crypto education. No hype, no price predictions.',
     url: 'https://www.calccrypto.com/blog',
-    siteName: 'CrypCal',
+    siteName: 'CalcCrypto',
     type: 'website',
   },
   twitter: {
@@ -35,8 +35,8 @@ export default function BlogPage() {
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "CrypCal Blog & Insights",
-    "description": "Crypto insights, calculator guides, and tool tutorials from CrypCal.",
+    "name": "CalcCrypto Blog & Insights",
+    "description": "Crypto insights, calculator guides, and tool tutorials from CalcCrypto.",
     "url": "https://www.calccrypto.com/blog",
     "blogPost": blogPosts.map(post => ({
       "@type": "BlogPosting",
@@ -58,7 +58,7 @@ export default function BlogPage() {
             <div className="flex items-center space-x-2">
               <div className="text-2xl">₿</div>
               <div className="text-2xl font-bold text-crypto-primary-600 dark:text-crypto-primary-400">
-                CrypCal
+                CalcCrypto
               </div>
             </div>
             <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">

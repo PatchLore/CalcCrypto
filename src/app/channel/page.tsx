@@ -68,11 +68,11 @@ export default function ChannelPage() {
         <header className="glass-card mx-4 mt-4">
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center justify-between gap-4">
-              <Link href="/" className="flex items-center space-x-2" aria-label="CrypCal home">
+              <Link href="/" className="flex items-center space-x-2" aria-label="CalcCrypto home">
                 <div className="text-sm font-bold text-primary rounded-lg px-3 py-2 border border-crypto-border/60 bg-crypto-background/60">
                   CC
                 </div>
-                <div className="text-2xl font-bold text-primary">CrypCal</div>
+                <div className="text-2xl font-bold text-primary">CalcCrypto</div>
               </Link>
               <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">
                 <Link href="/" className="text-secondary hover:text-primary transition-colors">

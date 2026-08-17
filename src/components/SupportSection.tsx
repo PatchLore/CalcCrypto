@@ -41,12 +41,13 @@ function SupportSection() {
             id="support-crypcal-heading"
             className="text-sm font-semibold text-crypto-foreground"
           >
-            Support CrypCal
+            Support CalcCrypto
           </h2>
           <p className="text-xs text-crypto-muted-foreground">
-            CrypCal is built and maintained independently to provide clear,
-            deterministic crypto calculations — without ads, accounts, or
-            hidden incentives.
+            CalcCrypto is built and maintained independently to provide clear,
+            deterministic crypto calculations. There are no accounts and no
+            signup — the site is supported by minimal, clearly-labelled ads and
+            affiliate links, never by selling your data.
           </p>
           <p className="text-xs text-crypto-muted-foreground">
             If you find the platform useful, you can optionally support ongoing
@@ -115,7 +116,7 @@ function SupportSection() {
               <div className="relative h-32 w-32 shrink-0">
                 <Image
                   src="/qr/base.png"
-                  alt="Support CrypCal via ETH / USDC on Base"
+                  alt="Support CalcCrypto via ETH / USDC on Base"
                   fill
                   className="rounded-md border border-crypto-border bg-white object-contain"
                 />
@@ -158,7 +159,7 @@ function SupportSection() {
               <div className="relative h-32 w-32 shrink-0">
                 <Image
                   src="/qr/sol.png"
-                  alt="Support CrypCal via Solana"
+                  alt="Support CalcCrypto via Solana"
                   fill
                   className="rounded-md border border-crypto-border bg-white object-contain"
                 />
@@ -175,7 +176,7 @@ function SupportSection() {
             Contact: crypcal@mail.com
           </p>
           <p className="text-[11px] text-crypto-muted-foreground">
-            CrypCal will remain free, privacy-first, and independent.
+            CalcCrypto will remain free, privacy-first, and independent.
           </p>
         </div>
       </div>

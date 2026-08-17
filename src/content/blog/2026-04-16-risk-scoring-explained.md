@@ -3,17 +3,20 @@ title: "Understanding Our Deterministic Risk Scoring System"
 date: "2026-04-16"
 excerpt: "No black boxes, no AI guesswork — just transparent, deterministic math that you can verify. Learn how our three-signal risk model works and what each score means."
 image: "/blog-images/risk.jpg"
+category: "Product"
+tags: ["risk-scoring", "methodology", "transparency", "token-analysis"]
+author: "CalcCrypto Team"
 ---
 
 How We Detect Crypto Risks — Transparent, Deterministic and Free
 
-As we continue building CalCrypto's Phase 2 risk intelligence features, we want to share detailed insights into how our risk detection system works. This is not about market prediction or trading signals — it is about providing clear, deterministic, and verifiable risk context that any trader can understand and use in their own analysis.
+As we continue building CalcCrypto's Phase 2 risk intelligence features, we want to share detailed insights into how our risk detection system works. This is not about market prediction or trading signals — it is about providing clear, deterministic, and verifiable risk context that any trader can understand and use in their own analysis.
 
 Why Deterministic Risk Scoring Matters
 
 Most risk assessment tools in crypto rely on proprietary algorithms, machine learning models, or subjective analyst opinions. These approaches share a fundamental problem: you cannot independently verify the results. If two different people analyse the same token at the same time, they might get different scores, and neither can explain exactly why.
 
-CalCrypto's approach is fundamentally different. Our risk scoring is fully deterministic — the same contract address always produces the same risk score, every single time. Every factor that contributes to the score is transparent and documented. No AI black boxes, no hidden weighting systems, no guesswork. This allows you to understand exactly why a token received its score and to verify the analysis independently.
+CalcCrypto's approach is fundamentally different. Our risk scoring is fully deterministic — the same contract address always produces the same risk score, every single time. Every factor that contributes to the score is transparent and documented. No AI black boxes, no hidden weighting systems, no guesswork. This allows you to understand exactly why a token received its score and to verify the analysis independently.
 
 Understanding Risk in Crypto
 
@@ -68,7 +71,7 @@ Each score comes with a detailed, plain-English explanation of which signals wer
 
 Integration with Our Calculators
 
-The real power of our risk intelligence comes from its integration with the existing CalCrypto calculator suite. You can analyse a token's risk profile and immediately model different trading scenarios:
+The real power of our risk intelligence comes from its integration with the existing CalcCrypto calculator suite. You can analyse a token's risk profile and immediately model different trading scenarios:
 
 - Use the **Profit & Loss Calculator** to set target entries and exits based on risk context.
 - Use the **DCA Calculator** to plan gradual accumulation strategies that reduce timing risk.

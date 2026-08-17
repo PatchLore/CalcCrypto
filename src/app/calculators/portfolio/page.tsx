@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { JsonLd } from '@/components/seo/JsonLd';
 
-const title = 'Portfolio Tracker | Free Crypto Calculator – CrypCal';
+const title = 'Portfolio Tracker | Free Crypto Calculator – CalcCrypto';
 const description = 'Track and review a crypto portfolio using a simple, read-only interface designed for clarity. Outputs are deterministic based on your inputs.';
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default function PortfolioTracker() {
       <JsonLd schema={{
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "Portfolio Tracker — Coming Soon | CrypCal",
+        "name": "Portfolio Tracker — Coming Soon | CalcCrypto",
         "description": "A read-only portfolio tracker for cryptocurrency holdings is under development. Manual entry, localStorage only, no wallet connection.",
         "url": "https://www.calccrypto.com/calculators/portfolio"
       }} />
@@ -40,7 +40,7 @@ export default function PortfolioTracker() {
             <div className="flex items-center space-x-2">
               <div className="text-2xl">₿</div>
               <div className="text-2xl font-bold text-crypto-primary-600 dark:text-crypto-primary-400">
-                CrypCal
+                CalcCrypto
               </div>
             </div>
             <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">

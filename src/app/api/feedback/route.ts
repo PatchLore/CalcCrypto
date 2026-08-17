@@ -4,7 +4,7 @@ import { Resend } from "resend";
 const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
 const TO_EMAIL = "crypcal@mail.com";
-const FROM_EMAIL = "CrypCal Feedback <no-reply@calccrypto.com>";
+const FROM_EMAIL = "CalcCrypto Feedback <no-reply@calccrypto.com>";
 
 export async function POST(request: NextRequest) {
   try {
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const subject = "CrypCal feedback / calculator idea";
+    const subject = "CalcCrypto feedback / calculator idea";
 
     const bodyLines = [
       trimmedMessage,

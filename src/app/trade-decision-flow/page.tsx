@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Trade Decision Flow — Crypto Trade Evaluation Tool',
     description: 'Step-by-step trade evaluation: position sizing → liquidity check → execution feasibility. Free, no signup.',
     url: 'https://www.calccrypto.com/trade-decision-flow',
-    siteName: 'CrypCal',
+    siteName: 'CalcCrypto',
     type: 'website',
   },
   twitter: {

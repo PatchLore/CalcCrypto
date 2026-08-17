@@ -1,4 +1,4 @@
-## Phase 2 (CalCrypto) — Read-only Decision Context
+## Phase 2 (CalcCrypto) — Read-only Decision Context
 
 Phase 2 adds a deterministic “Super Gem” interpretation layer on top of existing calculators.
 

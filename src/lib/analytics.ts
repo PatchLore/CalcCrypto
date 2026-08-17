@@ -1,4 +1,4 @@
-// Google Analytics 4 setup for CrypCal
+// Google Analytics 4 setup for CalcCrypto
 declare global {
   interface Window {
     gtag: (...args: unknown[]) => void;

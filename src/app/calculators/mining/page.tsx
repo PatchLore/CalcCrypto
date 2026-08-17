@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Crypto Mining Profitability Calculator — Hashrate & Power Cost Estimator',
     description: 'Estimate mining profitability, power costs, pool fees and ROI for Bitcoin and PoW coins. Free educational calculator.',
     url: 'https://www.calccrypto.com/calculators/mining',
-    siteName: 'CrypCal',
+    siteName: 'CalcCrypto',
     type: 'website',
   },
   twitter: {

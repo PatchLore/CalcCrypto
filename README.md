@@ -1,4 +1,4 @@
-# CrypCal - Professional Crypto Calculators
+# CalcCrypto - Professional Crypto Calculators
 
 A modern, professional cryptocurrency calculator web application built with Next.js 14, TypeScript, and Tailwind CSS.
 
@@ -153,4 +153,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**CrypCal** - Professional cryptocurrency calculators for traders and investors.
+**CalcCrypto** - Professional cryptocurrency calculators for traders and investors.

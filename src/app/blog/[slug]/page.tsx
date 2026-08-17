@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { getAllPostSlugs, getPostBySlug } from '@/lib/posts';
+import { getAllPostSlugs, getPostBySlug, DEFAULT_AUTHOR } from '@/lib/posts';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { MdxImage } from '@/components/blog/MdxImage';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -62,15 +62,45 @@ export default async function BlogPostPage({ params }: PageProps) {
     "datePublished": post.date,
     "author": {
       "@type": "Organization",
-      "name": "CrypCal"
+      "name": post.author || DEFAULT_AUTHOR
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcCrypto",
+      "url": "https://www.calccrypto.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.calccrypto.com/blog/${post.slug}`
     },
     "url": `https://www.calccrypto.com/blog/${post.slug}`,
+    ...(post.category ? { "articleSection": post.category } : {}),
+    ...(post.tags?.length ? { "keywords": post.tags.join(', ') } : {}),
     ...(post.image ? { "image": `https://www.calccrypto.com${post.image}` } : {})
   };
+
+  // Emitted only for posts that declare `faq` in frontmatter. Every Q&A pair
+  // must also be answerable from the visible article body — Google requires
+  // the content to be present on the page, not schema-only.
+  const faqSchema = post.faq?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": post.faq.map((item) => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.answer,
+          },
+        })),
+      }
+    : null;
 
   return (
     <>
       <JsonLd schema={blogPostingSchema} />
+      {faqSchema && <JsonLd schema={faqSchema} />}
       <div className="min-h-screen">
       {/* Header */}
       <header className="glass-card mx-4 mt-4">
@@ -81,7 +111,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 CC
               </div>
               <div className="text-2xl font-bold text-primary">
-                CrypCal
+                CalcCrypto
               </div>
             </div>
             <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">

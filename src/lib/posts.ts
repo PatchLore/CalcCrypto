@@ -2,6 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 export interface Post {
   title: string;
   date: string;
@@ -9,7 +14,13 @@ export interface Post {
   slug: string;
   content: string;
   image?: string;
+  category?: string;
+  tags?: string[];
+  author?: string;
+  faq?: FaqItem[];
 }
+
+export const DEFAULT_AUTHOR = 'CalcCrypto Team';
 
 export function getAllPosts(): Post[] {
   const postsDirectory = path.join(process.cwd(), 'src', 'content', 'blog');
@@ -35,6 +46,10 @@ export function getAllPosts(): Post[] {
         date: data.date || new Date().toISOString().split('T')[0],
         excerpt: data.excerpt || '',
         image: data.image,
+        category: data.category,
+        tags: Array.isArray(data.tags) ? data.tags : undefined,
+        author: data.author || DEFAULT_AUTHOR,
+        faq: Array.isArray(data.faq) ? data.faq : undefined,
         slug,
         content,
       } as Post;

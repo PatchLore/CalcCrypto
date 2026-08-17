@@ -1,17 +1,20 @@
 ---
-title: "Welcome to CalCrypto: Beyond Basic Calculators"
+title: "Welcome to CalcCrypto: Beyond Basic Calculators"
 date: "2026-04-16"
 excerpt: "Why we're building risk intelligence for crypto traders — a platform that combines precision calculators with transparent, deterministic risk context."
 image: "/blog-images/crypcallogo.png"
+category: "Product"
+tags: ["announcements", "product", "privacy", "risk-scoring"]
+author: "CalcCrypto Team"
 ---
 
-Welcome to CalCrypto: Beyond Basic Calculators
+Welcome to CalcCrypto: Beyond Basic Calculators
 
-In the rapidly evolving world of cryptocurrency, having accurate calculation tools is just the beginning. At CalCrypto, we are not just building another set of calculators — we are creating a comprehensive platform that combines precise mathematical tools with intelligent risk assessment, all while respecting your privacy and never requiring a signup.
+In the rapidly evolving world of cryptocurrency, having accurate calculation tools is just the beginning. At CalcCrypto, we are not just building another set of calculators — we are creating a comprehensive platform that combines precise mathematical tools with intelligent risk assessment, all while respecting your privacy and never requiring a signup.
 
 The Calculator Foundation
 
-Our core mission started with a simple observation: most crypto calculators online either require you to create an account, track your data for analytics or advertising purposes, or provide unclear results with hidden assumptions. We built CalCrypto to be different from the ground up.
+Our core mission started with a simple observation: most crypto calculators online either require you to create an account, track your data for analytics or advertising purposes, or provide unclear results with hidden assumptions. We built CalcCrypto to be different from the ground up.
 
 **Privacy-first**: All calculations run entirely client-side in your browser. No data leaves your device, no inputs are stored on our servers, and we do not use tracking cookies or analytics scripts that could identify you as an individual.
 
@@ -27,7 +30,7 @@ While our calculators provide the numerical foundation, we have recognised that 
 
 That is why we are developing Phase 2: intelligent risk assessment that integrates seamlessly with our existing calculators. This is not about predicting prices or giving trading advice. Instead, we are building tools that help traders understand the risk landscape around their positions, using the same deterministic, transparent approach that defines all of our calculators.
 
-Our risk intelligence approach is fundamentally different from other platforms. Most risk tools use complex proprietary algorithms or AI models whose decision-making process is opaque. At CalCrypto, every risk score is the result of a transparent, deterministic formula that anyone can verify. The same token address always produces the same risk score, and each score comes with a plain-English explanation of what contributed to it and why.
+Our risk intelligence approach is fundamentally different from other platforms. Most risk tools use complex proprietary algorithms or AI models whose decision-making process is opaque. At CalcCrypto, every risk score is the result of a transparent, deterministic formula that anyone can verify. The same token address always produces the same risk score, and each score comes with a plain-English explanation of what contributed to it and why.
 
 What Risk Intelligence Means
 
@@ -49,7 +52,7 @@ Traditional risk assessment often relies on expensive data feeds or subjective a
 
 The Future Vision
 
-CalCrypto is evolving from a pure calculator application into a read-only crypto decision assistant. Our goal is to provide traders with the tools they need to make informed decisions without compromising their privacy, exposing them to unnecessary risk, or requiring them to trust opaque algorithms.
+CalcCrypto is evolving from a pure calculator application into a read-only crypto decision assistant. Our goal is to provide traders with the tools they need to make informed decisions without compromising their privacy, exposing them to unnecessary risk, or requiring them to trust opaque algorithms.
 
 We are building this platform step by step, with each new feature designed to integrate seamlessly with the existing tools. The tax calculator, token price analyser, and other recent additions are just the beginning. Future updates will bring portfolio tracking, impermanent loss calculations, stablecoin peg monitoring, and layer 1 versus layer 2 fee comparisons.
 

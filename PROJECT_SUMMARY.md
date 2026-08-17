@@ -1,4 +1,4 @@
-# CalCrypto Project Status Summary
+# CalcCrypto Project Status Summary
 
 Last Updated: 16/04/2026
 
@@ -93,4 +93,4 @@ Last Updated: 16/04/2026
 | ⏳ | No major technical debt, codebase clean and extendable |
 | ✅ | All existing functionality remains fully working unchanged |
 
-**Strategic Goal: Transition CalCrypto from pure calculator app → read-only crypto decision assistant → proactive risk intelligence platform
+**Strategic Goal: Transition CalcCrypto from pure calculator app → read-only crypto decision assistant → proactive risk intelligence platform

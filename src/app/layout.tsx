@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CrypCal | Free Crypto Calculators & Trade Tools • No Signup",
+  title: "CalcCrypto | Free Crypto Calculators & Trade Tools • No Signup",
   description:
     "Free deterministic crypto calculators for profit & loss, position sizing, DCA, staking, mining, liquidity impact, tax estimates, and token risk analysis. Privacy-first, no signup required.",
   keywords: [
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     "white paper analysis",
     "crypto research",
   ],
-  authors: [{ name: "CrypCal Team" }],
-  creator: "CrypCal",
-  publisher: "CrypCal",
+  authors: [{ name: "CalcCrypto Team" }],
+  creator: "CalcCrypto",
+  publisher: "CalcCrypto",
   formatDetection: {
     email: false,
     address: false,
@@ -56,20 +56,20 @@ export const metadata: Metadata = {
     canonical: "https://www.calccrypto.com",
   },
   openGraph: {
-    title: "CrypCal | Free crypto calculators • No signup • Privacy-first",
+    title: "CalcCrypto | Free crypto calculators • No signup • Privacy-first",
     description:
       "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
     url: "https://www.calccrypto.com",
-    siteName: "CrypCal",
+    siteName: "CalcCrypto",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CrypCal | Free crypto calculators • No signup • Privacy-first",
+    title: "CalcCrypto | Free crypto calculators • No signup • Privacy-first",
     description:
       "Free crypto calculators with clear, deterministic results. No signup. Privacy-first by default.",
-    creator: "@crypcal",
+    creator: "@stack_drip",
   },
   robots: {
     index: true,
@@ -121,8 +121,8 @@ export default function RootLayout({
         <JsonLd schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "CrypCal",
-          "alternateName": "CalcCrypto",
+          "name": "CalcCrypto",
+          "alternateName": "CrypCal",
           "url": "https://www.calccrypto.com",
           "applicationCategory": "FinanceApplication",
           "operatingSystem": "Web",
@@ -152,7 +152,7 @@ export default function RootLayout({
         <JsonLd schema={{
           "@context": "https://schema.org",
           "@type": "Organization",
-          "name": "CrypCal",
+          "name": "CalcCrypto",
           "url": "https://www.calccrypto.com",
           "description": "Free cryptocurrency calculator tools. Educational, deterministic, no financial advice.",
           "foundingDate": "2024",
@@ -204,14 +204,14 @@ export default function RootLayout({
               {/* Legal Disclaimer - Required on all pages */}
               <div className="text-xs text-crypto-muted-foreground border-t border-crypto-border pt-4">
                 <p>
-                  CalCrypto provides educational calculators only. All outputs are estimates based on public data. 
+                  CalcCrypto provides educational calculators only. All outputs are estimates based on public data. 
                   This is not financial, tax, or legal advice. Cryptoassets are volatile and unregulated in many jurisdictions. 
-                  Consult a licensed professional before making decisions. We do not store user data or connect to wallets.
+                  Consult a licensed professional before making decisions. We do not connect to wallets or require accounts; calculations run in your browser, and we collect only anonymous usage analytics.
                 </p>
               </div>
               
               <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-                <div>© 2026 CrypCal. All rights reserved.</div>
+                <div>© 2026 CalcCrypto. All rights reserved.</div>
                 <div className="flex items-center gap-4">
                   <Link
                     href="/privacy"

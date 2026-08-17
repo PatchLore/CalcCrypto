@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
             <div className="flex items-center space-x-2">
               <div className="text-2xl">₿</div>
               <h1 className="text-2xl font-bold text-crypto-primary-600 dark:text-crypto-primary-400">
-                CrypCal
+                CalcCrypto
               </h1>
             </div>
             <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">
@@ -34,17 +34,17 @@ export default function PrivacyPolicyPage() {
               <CardTitle>Privacy Policy</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-crypto-muted-foreground">
-              <p>CalCrypto respects your privacy.</p>
+              <p>CalcCrypto respects your privacy.</p>
 
               <p>
-                CalCrypto does not require user accounts and does not collect or store personal information such as
+                CalcCrypto does not require user accounts and does not collect or store personal information such as
                 names, email addresses, wallet addresses, or payment details.
               </p>
 
               <div>
                 <div className="font-semibold text-crypto-foreground">Data Collection:</div>
                 <p>
-                  CalCrypto operates as a read-only informational tool. We do not collect personally identifiable
+                  CalcCrypto operates as a read-only informational tool. We do not collect personally identifiable
                   information.
                 </p>
               </div>
@@ -52,7 +52,7 @@ export default function PrivacyPolicyPage() {
               <div>
                 <div className="font-semibold text-crypto-foreground">Third-Party Data:</div>
                 <p>
-                  CalCrypto may fetch public, read-only blockchain market data from third-party services such as
+                  CalcCrypto may fetch public, read-only blockchain market data from third-party services such as
                   DexScreener. This data is used solely to display market context and is not linked to individual
                   users.
                 </p>
@@ -68,13 +68,13 @@ export default function PrivacyPolicyPage() {
 
               <div>
                 <div className="font-semibold text-crypto-foreground">Cookies:</div>
-                <p>CalCrypto does not use cookies for advertising or user profiling.</p>
+                <p>CalcCrypto does not use cookies for advertising or user profiling.</p>
               </div>
 
               <div>
                 <div className="font-semibold text-crypto-foreground">Financial Information Disclaimer:</div>
                 <p>
-                  CalCrypto provides informational context only and does not provide financial, investment, or trading
+                  CalcCrypto provides informational context only and does not provide financial, investment, or trading
                   advice.
                 </p>
               </div>
@@ -83,7 +83,7 @@ export default function PrivacyPolicyPage() {
                 <div className="font-semibold text-crypto-foreground">Changes:</div>
                 <p>
                   This Privacy Policy may be updated occasionally to reflect changes to the app. Continued use of
-                  CalCrypto indicates acceptance of the current policy.
+                  CalcCrypto indicates acceptance of the current policy.
                 </p>
               </div>
 

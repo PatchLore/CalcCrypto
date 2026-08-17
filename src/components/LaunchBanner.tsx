@@ -12,10 +12,20 @@ interface Announcement {
   isNew: boolean;
 }
 
+// `label` is the badge text only — the emoji is rendered separately from
+// `emoji`, so do not repeat it here or it shows twice.
 const ANNOUNCEMENTS: Announcement[] = [
   {
+    id: 'tax-by-country',
+    label: 'NEW',
+    emoji: '🧾',
+    text: 'Crypto Tax by Country — UK, US, Australia & EU compared for 2026',
+    href: '/blog/crypto-tax-by-country-compared',
+    isNew: true,
+  },
+  {
     id: 'youtube',
-    label: 'NEW 🎬',
+    label: 'NEW',
     emoji: '🎬',
     text: 'CalcCrypto on YouTube — White paper reviews backed by real numbers',
     href: '/channel',
@@ -23,7 +33,7 @@ const ANNOUNCEMENTS: Announcement[] = [
   },
   {
     id: 'trade-flow',
-    label: 'NEW ⚖️',
+    label: 'NEW',
     emoji: '⚖️',
     text: 'Trade Decision Flow — Step-by-step position & liquidity risk assessment',
     href: '/trade-decision-flow',
@@ -31,23 +41,26 @@ const ANNOUNCEMENTS: Announcement[] = [
   },
   {
     id: 'position-size',
-    label: 'NEW 📐',
+    label: 'TOOL',
     emoji: '📐',
     text: 'Position Size Calculator — Set stop-losses and size entries by risk level',
     href: '/calculators/position-size',
-    isNew: true,
+    isNew: false,
   },
   {
     id: 'liquidity-impact',
-    label: 'NEW 📊',
+    label: 'TOOL',
     emoji: '📊',
     text: 'Liquidity Impact Calculator — Estimate slippage and execution depth',
     href: '/liquidity-impact-calculator',
-    isNew: true,
+    isNew: false,
   },
 ];
 
-const DISMISSED_KEY = 'crypcal-banner-dismissed';
+// Versioned: bump the suffix whenever ANNOUNCEMENTS gains something users
+// should see again. A past dismissal must never permanently silence future
+// announcements — the unversioned key did exactly that.
+const DISMISSED_KEY = 'calccrypto-banner-dismissed-v2';
 
 export function LaunchBanner() {
   const [current, setCurrent] = useState(0);

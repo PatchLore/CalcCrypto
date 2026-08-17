@@ -79,7 +79,7 @@ export function CalculatorsClient() {
                 CC
               </div>
               <div className="text-2xl font-bold text-primary">
-                CrypCal
+                CalcCrypto
               </div>
             </div>
             <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">

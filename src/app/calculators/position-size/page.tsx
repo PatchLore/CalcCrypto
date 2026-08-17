@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Crypto Position Size Calculator — Risk-Based Trade Sizing Tool',
     description: 'Calculate exactly how much crypto to buy based on your account size and risk per trade. Free, no signup, works for BTC, ETH and altcoins.',
     url: 'https://www.calccrypto.com/calculators/position-size',
-    siteName: 'CrypCal',
+    siteName: 'CalcCrypto',
     type: 'website',
   },
   twitter: {

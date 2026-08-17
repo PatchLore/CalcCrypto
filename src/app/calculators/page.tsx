@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { CalculatorsClient } from './CalculatorsClient';
 import { JsonLd } from '@/components/seo/JsonLd';
 
-const title = 'All Calculators | Free Crypto Calculator – CrypCal';
-const description = 'Browse CrypCal’s free crypto calculators. Each tool is read-only and designed for clear, deterministic results with no signup required.';
+const title = 'All Calculators | Free Crypto Calculator – CalcCrypto';
+const description = 'Browse CalcCrypto’s free crypto calculators. Each tool is read-only and designed for clear, deterministic results with no signup required.';
 
 export const metadata: Metadata = {
   title,
@@ -27,7 +27,7 @@ export default function CalculatorsPage() {
       <JsonLd schema={{
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "CrypCal — Free Crypto Calculator Suite",
+        "name": "CalcCrypto — Free Crypto Calculator Suite",
         "applicationCategory": "FinanceApplication",
         "url": "https://www.calccrypto.com/calculators",
         "description": "Free cryptocurrency calculators for staking, DCA, tax, profit and loss, position sizing, mining, currency conversion, token analysis, liquidity impact, and trade decision evaluation. 100% client-side, no signup required.",
@@ -48,7 +48,7 @@ export default function CalculatorsPage() {
       <JsonLd schema={{
         "@context": "https://schema.org",
         "@type": "HowTo",
-        "name": "How to use CrypCal calculators",
+        "name": "How to use CalcCrypto calculators",
         "description": "Get instant crypto calculations in 3 steps",
         "step": [
           { "@type": "HowToStep", "position": 1, "name": "Browse calculators", "text": "Choose from 10+ free crypto calculators covering staking, DCA, tax, profit and loss, position sizing, mining, conversion, token analysis, liquidity impact, and trade decisions." },
@@ -60,11 +60,11 @@ export default function CalculatorsPage() {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-          { "@type": "Question", "name": "Are CrypCal calculators free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every calculator on CrypCal is completely free to use. No signup, no account, no hidden fees." } },
-          { "@type": "Question", "name": "Do I need to create an account?", "acceptedAnswer": { "@type": "Answer", "text": "No. CrypCal does not require any account or signup. All calculations run client-side in your browser." } },
+          { "@type": "Question", "name": "Are CalcCrypto calculators free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every calculator on CalcCrypto is completely free to use. No signup, no account, no hidden fees." } },
+          { "@type": "Question", "name": "Do I need to create an account?", "acceptedAnswer": { "@type": "Answer", "text": "No. CalcCrypto does not require any account or signup. All calculations run client-side in your browser." } },
           { "@type": "Question", "name": "Are these calculators accurate?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every calculator uses deterministic formulas — the same inputs always produce the same output. Results are based on the numbers you enter and are clearly labelled as educational estimates where applicable." } },
           { "@type": "Question", "name": "Do you store my calculator inputs?", "acceptedAnswer": { "@type": "Answer", "text": "No. Calculator inputs stay in your browser's memory and are never sent to any server. They disappear when you close the tab." } },
-          { "@type": "Question", "name": "Is this financial advice?", "acceptedAnswer": { "@type": "Answer", "text": "No. CrypCal provides calculations and read-only context only. All outputs are clearly labelled as educational or contextual. We do not give financial, tax, or trading advice." } }
+          { "@type": "Question", "name": "Is this financial advice?", "acceptedAnswer": { "@type": "Answer", "text": "No. CalcCrypto provides calculations and read-only context only. All outputs are clearly labelled as educational or contextual. We do not give financial, tax, or trading advice." } }
         ]
       }} />
       <CalculatorsClient />

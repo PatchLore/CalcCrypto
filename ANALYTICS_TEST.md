@@ -87,7 +87,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 
 ## 🚀 Ready for Production
 
-Your CrypCal analytics setup is complete and ready for production deployment! 
+Your CalcCrypto analytics setup is complete and ready for production deployment! 
 
 **Next Steps:**
 1. Get your GA4 Measurement ID from Google Analytics

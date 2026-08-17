@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Crypto DCA Calculator — Dollar Cost Averaging Returns & Average Price',
     description: 'See exactly what dollar cost averaging into crypto returns over any period with total invested, coins acquired and profit.',
     url: 'https://www.calccrypto.com/calculators/dca',
-    siteName: 'CrypCal',
+    siteName: 'CalcCrypto',
     type: 'website',
   },
   twitter: {

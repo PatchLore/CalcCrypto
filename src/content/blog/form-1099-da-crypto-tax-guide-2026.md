@@ -3,6 +3,9 @@ title: "Form 1099-DA Explained: What Crypto Investors Need to Know in 2026"
 date: "2026-05-06"
 excerpt: "The IRS now requires brokers to report your crypto transactions on Form 1099-DA. Here is what it means, who it affects, and how to stay compliant without overpaying tax."
 image: "/blog-images/1099-da-crypto-tax.jpg"
+category: "Tax"
+tags: ["tax", "us", "irs", "compliance", "reporting"]
+author: "CalcCrypto Team"
 ---
 
 Starting with the 2025 tax year, the IRS introduced Form 1099-DA, 
@@ -132,14 +135,14 @@ authorities under information-sharing agreements.
 Estimate Your Position Before You File
 
 If you want a quick sense of your capital gains position before 
-speaking to an accountant, the CrypCal tax calculator covers UK, US, 
+speaking to an accountant, the CalcCrypto tax calculator covers UK, US, 
 Australian and EU rules. It uses manual inputs only with no wallet 
 connection and no data stored, and gives you a rough estimate in 
 under a minute. It is an educational estimate, not tax advice, but 
 it is a useful starting point for understanding what you might owe 
 before you commit to a full tax software subscription.
 
-Try the CrypCal Tax Calculator at calccrypto.com/calculators/tax
+Try the CalcCrypto Tax Calculator at calccrypto.com/calculators/tax
 
 This article is for educational purposes only and is not tax advice. 
 Tax rules are complex and change frequently. Always consult a 

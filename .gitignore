@@ -47,6 +47,7 @@ docs/AGENT_*.md
 # generated PDFs and reports
 *.pdf
 dev-server.log
+build-output.txt
 
 # Playwright
 test-results/
