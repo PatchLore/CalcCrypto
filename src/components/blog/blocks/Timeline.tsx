@@ -13,6 +13,8 @@ const MARKER: Record<RuleStatus, string> = {
   'current-law': 'bg-crypto-success-400 ring-crypto-success-400/25',
   'enacted-future': 'bg-crypto-ethereum-400 ring-crypto-ethereum-400/25',
   proposed: 'bg-crypto-warning-400 ring-crypto-warning-400/25',
+  'rejected-proposal': 'bg-red-400/60 ring-red-400/20',
+  'policy-signal': 'bg-crypto-primary-400 ring-crypto-primary-400/25',
   'policy-discussion': 'bg-white/50 ring-white/15',
 };
 

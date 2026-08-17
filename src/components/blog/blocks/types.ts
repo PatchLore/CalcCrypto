@@ -14,17 +14,27 @@
  * block degrades to an ordinary code block rather than breaking the page.
  */
 
-/** Status of a rule, so law is never visually confused with a proposal. */
+/**
+ * Status of a rule, so law is never visually confused with a proposal.
+ *
+ * The distinctions are deliberately fine-grained: a government revenue
+ * announcement, a live bill, and a bill parliament has already voted down are
+ * three different things, and collapsing them misleads readers about risk.
+ */
 export type RuleStatus =
   | 'current-law'
   | 'enacted-future'
   | 'proposed'
+  | 'rejected-proposal'
+  | 'policy-signal'
   | 'policy-discussion';
 
 export const RULE_STATUS_LABEL: Record<RuleStatus, string> = {
   'current-law': 'Current law',
   'enacted-future': 'Enacted: future effect',
   proposed: 'Proposed, not law',
+  'rejected-proposal': 'Proposal rejected',
+  'policy-signal': 'Policy signal, not law',
   'policy-discussion': 'Policy discussion',
 };
 
@@ -170,8 +180,8 @@ export function optStr(rec: Record<string, unknown>, key: string): string | unde
   return typeof v === 'string' ? v : undefined;
 }
 
+const RULE_STATUSES = Object.keys(RULE_STATUS_LABEL) as RuleStatus[];
+
 export function asRuleStatus(v: unknown): RuleStatus {
-  return v === 'current-law' || v === 'enacted-future' || v === 'proposed' || v === 'policy-discussion'
-    ? v
-    : 'current-law';
+  return typeof v === 'string' && (RULE_STATUSES as string[]).includes(v) ? (v as RuleStatus) : 'current-law';
 }

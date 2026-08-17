@@ -4,6 +4,8 @@ const TONE: Record<RuleStatus, string> = {
   'current-law': 'border-crypto-success-500/40 bg-crypto-success-500/10 text-crypto-success-300',
   'enacted-future': 'border-crypto-ethereum-400/40 bg-crypto-ethereum-500/10 text-crypto-ethereum-200',
   proposed: 'border-crypto-warning-400/50 bg-crypto-warning-500/10 text-crypto-warning-200',
+  'rejected-proposal': 'border-red-400/45 bg-red-500/10 text-red-200 line-through decoration-red-300/50',
+  'policy-signal': 'border-crypto-primary-400/40 bg-crypto-primary-500/10 text-crypto-primary-200',
   'policy-discussion': 'border-white/25 bg-white/5 text-white/70',
 };
 
