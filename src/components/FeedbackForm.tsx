@@ -117,7 +117,7 @@ function FeedbackForm() {
         )}
         {submitted && !error && (
           <p className="text-xs text-crypto-muted-foreground">
-            Thanks — your feedback helps improve CalcCrypto.
+            Thanks! Your feedback helps improve CalcCrypto.
           </p>
         )}
         <div className="flex justify-end">

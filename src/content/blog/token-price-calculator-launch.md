@@ -34,7 +34,7 @@ Paste any Ethereum contract address into the analyser. The tool fetches price, t
 
 Crypto markets move fast. New tokens launch daily, and distinguishing between legitimate projects and potential risks requires significant research. We wanted a tool that shows you the data without telling you what to do. CalcCrypto remains 100 percent educational. We do not store user data, we do not connect wallets, and we do not give financial advice.
 
-The Token Price Calculator is designed for a simple purpose: to give you transparent, deterministic context about a token's market structure so you can make your own informed assessment. It is the same approach we use across all of our calculators — clear maths, no hidden assumptions, no black boxes.
+The Token Price Calculator is designed for a simple purpose: to give you transparent, deterministic context about a token's market structure so you can make your own informed assessment. It is the same approach we use across all of our calculators: clear maths, no hidden assumptions, no black boxes.
 
 ## How to Use It
 
@@ -46,7 +46,7 @@ The tool works best for tokens with on-chain liquidity on Ethereum DEXs. Tokens 
 
 ## What This Means for Traders
 
-Having access to clear, deterministic risk context is essential in a market that operates 24/7 with thousands of tokens across hundreds of exchanges. The Token Price Calculator gives you a data-driven baseline that you can verify independently. Use it as one input in your broader research process — alongside your own analysis of the project team, tokenomics, roadmap, and community.
+Having access to clear, deterministic risk context is essential in a market that operates 24/7 with thousands of tokens across hundreds of exchanges. The Token Price Calculator gives you a data-driven baseline that you can verify independently. Use it as one input in your broader research process, alongside your own analysis of the project team, tokenomics, roadmap, and community.
 
 Remember that on-chain data is just one piece of the puzzle. A token with strong on-chain liquidity may still carry risks related to team credibility, regulatory uncertainty, or market conditions. This tool is designed to inform, not replace, your own due diligence.
 

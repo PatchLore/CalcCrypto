@@ -10,11 +10,11 @@ author: "CalcCrypto Team"
 
 Two New Calculators Now Live: Tax Estimator & Token Risk Analyser
 
-CalcCrypto has two new tools live today — a Capital Gains Tax estimator covering UK, US, Australia and EU jurisdictions, and an updated Token Price Analyser with smarter risk scoring that correctly handles major stablecoins and blue-chip tokens. Both tools are completely free, require no signup, and store no data on our servers.
+CalcCrypto has two new tools live today: a Capital Gains Tax estimator covering UK, US, Australia and EU jurisdictions, and an updated Token Price Analyser with smarter risk scoring that correctly handles major stablecoins and blue-chip tokens. Both tools are completely free, require no signup, and store no data on our servers.
 
 The Tax Calculator: Estimate Your Crypto Capital Gains
 
-The Tax Calculator gives you a deterministic CGT estimate based on the numbers you enter. It is designed to help you quickly understand your potential tax liability before speaking to an accountant or filing your return. The calculation is fully transparent — same inputs always produce the same result.
+The Tax Calculator gives you a deterministic CGT estimate based on the numbers you enter. It is designed to help you quickly understand your potential tax liability before speaking to an accountant or filing your return. The calculation is fully transparent: same inputs always produce the same result.
 
 To use the calculator, select your jurisdiction and tax rate band, then enter your buy price, sell price and quantity. The calculator works out your gross gain, taxable gain after the applicable annual allowance, estimated tax liability, and effective tax rate.
 
@@ -38,17 +38,17 @@ The Token Price Analyser fetches live on-chain data from public APIs and runs a 
 
 What changed in this update
 
-The risk scoring now correctly handles major stablecoins and blue-chip tokens. USDC, USDT, DAI, WETH and WBTC previously scored Medium due to low DEX liquidity relative to their fully diluted valuation. While this is technically correct from an on-chain perspective, it was misleading — the vast majority of trading volume for these tokens occurs on centralised exchanges, not DEXs.
+The risk scoring now correctly handles major stablecoins and blue-chip tokens. USDC, USDT, DAI, WETH and WBTC previously scored Medium due to low DEX liquidity relative to their fully diluted valuation. While this is technically correct from an on-chain perspective, it was misleading: the vast majority of trading volume for these tokens occurs on centralised exchanges, not DEXs.
 
 These tokens now receive a Low risk context score with an explanatory note that clarifies the scoring rationale. This makes the tool far more useful for analysing the tokens that most traders actually encounter.
 
 How the risk score works
 
-The model is fully deterministic — same inputs always produce the same output. It scores three independent signals:
+The model is fully deterministic: same inputs always produce the same output. It scores three independent signals:
 
-1. **Liquidity depth** — the absolute USD value of on-chain liquidity available in DEX pools
-2. **Liquidity vs FDV ratio** — how much on-chain liquidity backs the token's fully diluted valuation
-3. **Volume vs liquidity ratio** — whether trading activity is consistent with normal market behaviour
+1. **Liquidity depth**: the absolute USD value of on-chain liquidity available in DEX pools
+2. **Liquidity vs FDV ratio**: how much on-chain liquidity backs the token's fully diluted valuation
+3. **Volume vs liquidity ratio**: whether trading activity is consistent with normal market behaviour
 
 Each signal is scored against predefined thresholds, and the three scores combine to produce a final context level of Low, Medium or High. Every score includes an explanation of which signals were triggered and why.
 
@@ -68,6 +68,6 @@ We are continuing to expand the calculator suite with several tools in active de
 
 CalcCrypto Stays Free
 
-Every tool on CalcCrypto is completely free, requires no account, and stores nothing on our servers. Calculator inputs stay in your browser using local state — they disappear when you close the tab. We do not connect to wallets, we do not give financial advice, and we do not track you across the web. Our mission remains simple: give you the maths, clearly, so you can make your own informed decisions.
+Every tool on CalcCrypto is completely free, requires no account, and stores nothing on our servers. Calculator inputs stay in your browser using local state; they disappear when you close the tab. We do not connect to wallets, we do not give financial advice, and we do not track you across the web. Our mission remains simple: give you the maths, clearly, so you can make your own informed decisions.
 
 *CalcCrypto is a global educational platform. All outputs are estimates based on public data. This is not financial, tax or legal advice. Consult a licensed professional before making decisions.*

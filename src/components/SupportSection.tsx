@@ -46,7 +46,7 @@ function SupportSection() {
           <p className="text-xs text-crypto-muted-foreground">
             CalcCrypto is built and maintained independently to provide clear,
             deterministic crypto calculations. There are no accounts and no
-            signup — the site is supported by minimal, clearly-labelled ads and
+            signup. The site is supported by minimal, clearly-labelled ads and
             affiliate links, never by selling your data.
           </p>
           <p className="text-xs text-crypto-muted-foreground">
