@@ -16,14 +16,6 @@ interface Announcement {
 // `emoji`, so do not repeat it here or it shows twice.
 const ANNOUNCEMENTS: Announcement[] = [
   {
-    id: 'tax-by-country',
-    label: 'NEW',
-    emoji: '🧾',
-    text: 'Crypto Tax by Country — UK, US, Australia & EU compared for 2026',
-    href: '/blog/crypto-tax-by-country-compared',
-    isNew: true,
-  },
-  {
     id: 'youtube',
     label: 'NEW',
     emoji: '🎬',
