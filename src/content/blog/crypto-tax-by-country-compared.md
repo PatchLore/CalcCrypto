@@ -29,9 +29,11 @@ faq:
       private capacity as a private disposal, and a sale after more than 12
       months is exempt regardless of the size of the gain. Sold within 12
       months, the gain is taxed at your personal income rate of 0% to 45%,
-      with a €1,000 annual Freigrenze. Note that on 6 July 2026 the federal
-      cabinet adopted a 2027 draft budget stating an intention to remove this
-      exemption. That is a proposal, not law.
+      with a €1,000 annual Freigrenze. Note that the government's 2027 budget,
+      approved by cabinet on 6 July 2026, lists taxing cryptocurrencies among
+      its revenue measures without publishing a mechanism, and a separate
+      opposition bill would abolish the holding period. Neither is law, and
+      nothing has changed for 2026 disposals.
   - question: "What is changing in Australian crypto tax in 2027?"
     answer: >-
       From 1 July 2027 the 50% CGT discount is replaced by cost-base indexation
@@ -181,7 +183,7 @@ This guide compares how the **UK, US, Australia and Germany** tax crypto in 2026
       ],
       "changeNote": {
         "status": "proposed",
-        "text": "A 2027 draft budget states an intention to end the 12-month exemption. Not law."
+        "text": "Crypto is named as a revenue measure in the 2027 budget. No mechanism published, no law passed."
       }
     }
   ]
@@ -310,7 +312,7 @@ Australia has no fixed statutory wash-sale rule, but the ATO actively challenges
   "body": [
     "This is enacted law with a future effective date, not a proposal. It was announced in the 2026-27 Budget on 12 May 2026 and legislated by the Treasury Laws Amendment (Tax Reform No. 1) Act 2026 (Act No. 49 of 2026), which received royal assent on 26 June 2026, alongside companion rates legislation.",
     "The reform replaces the 50% CGT discount with cost-base indexation using CPI, plus a 30% minimum tax rate on real capital gains. It applies to CGT assets held at least 12 months by individuals, trusts and partnerships, and crypto is not carved out.",
-    "Because indexation only strips out inflation, an asset that grows substantially faster than CPI can face a higher bill than under the old flat 50% discount. The ATO has confirmed the change does not affect Tax Time 2026."
+    "Because indexation only strips out inflation, an asset that grows substantially faster than CPI can face a higher bill than under the old flat 50% discount. The ATO states the measures are now law and will apply only to gains that accrue after 1 July 2027."
   ],
   "rows": [
     { "label": "2026 and to 1 July 2027", "text": "The existing 50% CGT discount continues to apply to gains accruing in this period, where the current conditions are met." },
@@ -347,13 +349,15 @@ The standard German return is due 31 July.
   "title": "Germany's one-year exemption could end in 2027",
   "status": "proposed",
   "body": [
-    "On 6 July 2026 the federal cabinet adopted the draft budget for 2027, which states an intention to reclassify privately held crypto as income from capital assets (Einkünfte aus Kapitalvermögen). That reclassification would remove the 12-month exemption, with an intended start of 1 January 2027.",
-    "This is a stated government intention, not law. The draft budget describes the intent; there is no formulated bill with an explanatory memorandum, the finance ministry was still to produce legal text, and any change must pass consultation and both the Bundestag and the Bundesrat before it takes effect. A Bundestag petition opposing the removal passed its 30,000-signature quorum within days of opening in August 2026.",
-    "Nothing has changed for 2026 disposals. If you are relying on the 12-month rule, the planning question is whether a future change would apply to assets you already hold, which is exactly the detail an actual bill would need to settle."
+    "The direction of travel is clear, but the mechanism is not settled, and it is worth being precise about what has and has not actually been decided.",
+    "What is confirmed: the Federal Government's 2027 budget, approved by cabinet on 6 July 2026, lists 'taxing cryptocurrencies' among the measures intended to raise revenue. The government's own announcement names crypto as a revenue measure without specifying a mechanism, a rate, a start date, or what happens to assets already held.",
+    "What is proposed but not government policy: a draft bill tabled by the Bündnis 90/Die Grünen parliamentary group in May 2026 (Bundestag Drucksache 21/5752) would abolish the holding period within Section 23 EStG, so gains would be taxed at your personal income tax rate regardless of how long you held. That is an opposition bill, not the government's, and it has not passed.",
+    "Widely reported details that we could not confirm against a primary government source include the claim that crypto would be reclassified as income from capital assets (Einkünfte aus Kapitalvermögen) and that any change would start on 1 January 2027. Treat those as press interpretation of budget documents until a government bill is published.",
+    "Nothing has changed for 2026 disposals. A Bundestag petition to retain the Section 23 holding period opened on 4 August 2026, passed its 30,000-signature quorum within days, and runs until 15 September 2026."
   ],
   "rows": [
     { "label": "2026: current law", "text": "Section 23 EStG applies. Private holdings sold after more than 12 months remain exempt, with the €1,000 Freigrenze for shorter holds." },
-    { "label": "2027: proposed only", "text": "Government intends to tax privately held crypto as capital income and end the 12-month exemption. No enacted legislation at the time of writing." }
+    { "label": "Beyond 2026: unsettled", "text": "Crypto is named as a revenue measure in the 2027 budget, and an opposition bill would end the holding period. No enacted legislation, and no published government mechanism." }
   ]
 }
 ```
@@ -516,18 +520,25 @@ Treatment for DeFi, liquidity pools and loans is genuinely unsettled in all four
       "detail": "Treasury Laws Amendment (Tax Reform No. 1) Act 2026 (Act No. 49 of 2026) becomes law, with companion rates legislation."
     },
     {
+      "date": "5 May 2026",
+      "region": "Germany",
+      "status": "proposed",
+      "title": "Opposition bill would abolish the holding period",
+      "detail": "Bundestag Drucksache 21/5752, tabled by the Greens parliamentary group, would tax crypto gains at the personal income rate regardless of holding period. Not government policy, and not passed."
+    },
+    {
       "date": "6 July 2026",
       "region": "Germany",
       "status": "proposed",
-      "title": "Cabinet adopts 2027 draft budget with crypto tax intent",
-      "detail": "The draft states an intention to reclassify privately held crypto as capital income, ending the 12-month exemption. No bill has been enacted."
+      "title": "Cabinet approves 2027 budget listing crypto taxation",
+      "detail": "The government names taxing cryptocurrencies among its revenue measures. Its own announcement specifies no mechanism, rate or start date."
     },
     {
-      "date": "1 January 2027",
+      "date": "15 September 2026",
       "region": "Germany",
-      "status": "proposed",
-      "title": "Intended start date for the German reform",
-      "detail": "This date depends entirely on legislation that does not yet exist. It is not guaranteed to take effect."
+      "status": "policy-discussion",
+      "title": "Bundestag petition to retain the holding period closes",
+      "detail": "Petition 201716 opened on 4 August 2026 and passed its 30,000-signature quorum within days."
     },
     {
       "date": "1 January to 31 May 2027",
@@ -715,7 +726,7 @@ Your actual outcome depends on **residency**, **total income**, **holding period
     },
     {
       "question": "Is crypto tax-free in Germany after one year?",
-      "answer": "Under current law, yes. Section 23 EStG exempts private holdings sold after more than 12 months, regardless of the size of the gain. Within 12 months the gain is taxed at 0% to 45%, subject to a €1,000 Freigrenze. On 6 July 2026 the federal cabinet adopted a 2027 draft budget stating an intention to remove this exemption, but that is a proposal, not law."
+      "answer": "Under current law, yes. Section 23 EStG exempts private holdings sold after more than 12 months, regardless of the size of the gain. Within 12 months the gain is taxed at 0% to 45%, subject to a €1,000 Freigrenze. The government's 2027 budget, approved by cabinet on 6 July 2026, lists taxing cryptocurrencies among its revenue measures without publishing a mechanism, and a separate opposition bill would abolish the holding period. Neither is law, and nothing has changed for 2026 disposals."
     },
     {
       "question": "What is changing in Australian crypto tax in 2027?",
@@ -770,6 +781,11 @@ Your actual outcome depends on **residency**, **total income**, **holding period
     { "authority": "ATO", "region": "Australia", "title": "Tax reform: reforming negative gearing and capital gains tax", "url": "https://www.ato.gov.au/about-ato/new-legislation/in-detail/individuals/tax-reform-boosting-home-ownership-reforming-negative-gearing-and-capital-gains-tax" },
     { "authority": "Federal Register of Legislation", "region": "Australia", "title": "Treasury Laws Amendment (Tax Reform No. 1) Act 2026", "url": "https://www.legislation.gov.au/C2026A00049/latest" },
     { "authority": "Treasury", "region": "Australia", "title": "Budget 2026-27 tax system changes", "url": "https://treasury.gov.au/policy-topics/taxation/budget2026-27" },
+    { "authority": "Bundesregierung", "region": "Germany", "title": "Cabinet approves 2027 Federal budget", "url": "https://www.bundesregierung.de/breg-en/news/2027-federal-budget-approved-2446070" },
+    { "authority": "Deutscher Bundestag", "region": "Germany", "title": "Gesetzentwurf für höhere Besteuerung von Kryptowerten (Drucksache 21/5752)", "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1174328" },
+    { "authority": "Deutscher Bundestag", "region": "Germany", "title": "Petition 201716: retain the Section 23 EStG holding period", "url": "https://epetitionen.bundestag.de/petitionen/_2026/_05/_30/Petition_201716.nc.html" },
+    { "authority": "BMF", "region": "Germany", "title": "Einzelfragen zur ertragsteuerrechtlichen Behandlung bestimmter Kryptowerte", "url": "https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Steuerarten/Einkommensteuer/2025-03-06-einzelfragen-kryptowerte.html" },
+    { "authority": "Treasury", "region": "Australia", "title": "Second reading speech, Treasury Laws Amendment (Tax Reform No. 1) Bill 2026", "url": "https://ministers.treasury.gov.au/ministers/jim-chalmers-2022/speeches/second-reading-speech-treasury-laws-amendment-tax-reform-no-1" },
     { "authority": "European Commission", "region": "EU", "title": "DAC8: administrative cooperation in taxation", "url": "https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/directive-administrative-cooperation-dac/dac8_en" },
     { "authority": "EUR-Lex", "region": "EU", "title": "Council Directive (EU) 2023/2226 (DAC8)", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202302226" },
     { "authority": "OECD", "region": "International", "title": "Crypto-Asset Reporting Framework", "url": "https://www.oecd.org/tax/exchange-of-tax-information/crypto-asset-reporting-framework-and-amendments-to-the-common-reporting-standard.htm" }
