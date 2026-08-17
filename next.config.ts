@@ -33,14 +33,18 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   images: {
+    // Every host here is a live fetch target for the image optimizer, so this
+    // list is the optimizer's attack surface — keep it to hosts actually
+    // rendered through next/image. Audited: the only remote <Image> in the
+    // codebase is the YouTube thumbnail in components/YouTubeFeed.tsx, whose
+    // URLs come from the Data API on i.ytimg.com. The CoinGecko and DexScreener
+    // entries were confusing the API hosts (api.coingecko.com,
+    // api.dexscreener.com — used for price data, not images) with their image
+    // CDNs, which nothing renders. img.youtube.com appeared only in a JSON-LD
+    // string, which never routes through the optimizer.
+    // Re-add deliberately if Phase 2 starts rendering token logos.
     remotePatterns: [
-      { protocol: 'https', hostname: 'assets.coingecko.com' },
-      { protocol: 'https', hostname: 'coin-images.coingecko.com' },
-      { protocol: 'https', hostname: 'dd.dexscreener.com' },
-      { protocol: 'https', hostname: 'assets.dexscreener.com' },
-      { protocol: 'https', hostname: 'raw.githubusercontent.com' },
       { protocol: 'https', hostname: 'i.ytimg.com' },
-      { protocol: 'https', hostname: 'img.youtube.com' },
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
