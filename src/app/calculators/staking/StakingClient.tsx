@@ -264,6 +264,8 @@ export function StakingClient() {
 
           {result !== null && (
             <CalculatorCTA
+          partner="stakingrewards"
+          affiliate={false}
           source="staking"
               headline="Looking for the best yields?"
               body="Compare live staking APYs across top platforms to maximize your passive income."

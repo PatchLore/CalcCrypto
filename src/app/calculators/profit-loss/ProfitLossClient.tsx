@@ -257,6 +257,8 @@ export function ProfitLossClient() {
 
           {result && isProfit && (
             <CalculatorCTA
+          partner="coingecko"
+          affiliate={false}
           source="profit-loss"
               headline="Taking profits?"
               body="Make sure you're tracking your whole portfolio in one place to maximize your returns."

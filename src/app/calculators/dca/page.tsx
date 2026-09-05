@@ -4,7 +4,7 @@ import { DCAClient } from './DCAClient';
 import { JsonLd } from "@/components/seo/JsonLd";
 import { TrustBadge } from "@/components/ui/TrustBadge";
 import { AFFILIATE_LINKS } from '@/lib/constants';
-import { AffiliateLink } from '@/components/ui/AffiliateLink';
+import { AffiliateLink } from '@/components/ui/OutboundLink';
 
 export const metadata: Metadata = {
   title: 'Crypto DCA Calculator: Average Buy Price | CalcCrypto',
@@ -241,6 +241,7 @@ export default function DCACalculator() {
               
               <AffiliateLink
                 href={AFFILIATE_LINKS.koinly}
+                partner="koinly"
                 source="dca"
                 className="inline-flex items-center gap-2 text-sm 
                            font-medium text-green-500 
