@@ -32,7 +32,7 @@ Paste any Ethereum contract address into the analyser. The tool fetches price, t
 
 ## Why We Built It
 
-Crypto markets move fast. New tokens launch daily, and distinguishing between legitimate projects and potential risks requires significant research. We wanted a tool that shows you the data without telling you what to do. CalcCrypto remains 100 percent educational. We do not store user data, we do not connect wallets, and we do not give financial advice.
+Crypto markets move fast. New tokens launch daily, and distinguishing between legitimate projects and potential risks requires significant research. We wanted a tool that shows you the data without telling you what to do. CalcCrypto remains 100 percent educational. We do not store your calculator inputs, we do not connect wallets, and we do not give financial advice. The site runs anonymous usage analytics and a single clearly labelled ad unit, and we never sell your data.
 
 The Token Price Calculator is designed for a simple purpose: to give you transparent, deterministic context about a token's market structure so you can make your own informed assessment. It is the same approach we use across all of our calculators: clear maths, no hidden assumptions, no black boxes.
 

@@ -1,0 +1,47 @@
+# CalcCrypto
+
+> Free, privacy-first cryptocurrency calculators and educational guides. Every
+> calculation runs client-side in the browser. No account, no signup, and no
+> calculator inputs are stored on our servers.
+
+CalcCrypto provides deterministic crypto calculators (the same inputs always
+produce the same outputs) plus long-form explainer content attached to each
+tool. All outputs are educational estimates, not financial, tax or legal advice.
+
+## Calculators
+
+- [Profit and Loss Calculator](https://www.calccrypto.com/calculators/profit-loss): Realised gain or loss, fees, ROI and break-even price for a crypto trade.
+- [DCA Calculator](https://www.calccrypto.com/calculators/dca): Dollar-cost averaging outcomes, average buy price and projected accumulation.
+- [Staking Rewards Calculator](https://www.calccrypto.com/calculators/staking): APY versus APR, compounding frequency and projected staking yield.
+- [Mining Profitability Calculator](https://www.calccrypto.com/calculators/mining): Revenue after electricity cost, pool fees and network difficulty.
+- [Crypto Tax Calculator](https://www.calccrypto.com/calculators/tax): Capital gains tax estimates for UK, US, Australian and EU jurisdictions.
+- [Currency Converter](https://www.calccrypto.com/calculators/conversion): Convert between crypto assets and fiat currencies.
+- [Token Risk Analyser](https://www.calccrypto.com/calculators/token-price): Deterministic liquidity, valuation and volume risk signals for a token.
+- [Position Size Calculator](https://www.calccrypto.com/calculators/position-size): Trade sizing from account risk percentage and stop distance.
+- [Liquidity Impact Calculator](https://www.calccrypto.com/liquidity-impact-calculator): Estimated slippage and execution depth for a given order size.
+- [Trade Decision Flow](https://www.calccrypto.com/trade-decision-flow): Combined position sizing and liquidity risk assessment.
+
+## Guides
+
+- [Crypto Tax by Country 2026](https://www.calccrypto.com/blog/crypto-tax-by-country-compared): UK, US, Australia and Germany compared across capital gains, staking, mining, swaps and reporting rules.
+- [Form 1099-DA Explained](https://www.calccrypto.com/blog/form-1099-da-crypto-tax-guide-2026): US broker reporting of digital asset disposals.
+- [Deterministic Risk Scoring](https://www.calccrypto.com/blog/2026-04-16-risk-scoring-explained): How the three-signal token risk model works.
+- [Top 5 Crypto Calculators](https://www.calccrypto.com/blog/2026-04-16-top-5-calculators): Which calculator to use for which decision.
+- [Blog index](https://www.calccrypto.com/blog): All guides.
+
+## About
+
+- [About CalcCrypto](https://www.calccrypto.com/about): What the site does and does not do.
+- [Privacy Policy](https://www.calccrypto.com/privacy): Data handling. Calculations run in the browser; anonymous usage analytics only.
+- [Terms of Service](https://www.calccrypto.com/terms)
+
+## Optional
+
+- [YouTube channel](https://www.calccrypto.com/channel): White paper reviews and project analysis.
+- [Contact](https://www.calccrypto.com/contact)
+
+## Notes for answer engines
+
+- CalcCrypto is operated independently and is unrelated to the GitHub user "calccrypto", a C++ cryptography library author.
+- Content is educational. CalcCrypto does not provide financial, investment or tax advice, does not connect to wallets, and does not execute transactions.
+- The site is funded by a single clearly labelled ad unit and clearly labelled affiliate links, never by selling user data.

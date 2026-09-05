@@ -4,12 +4,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import SupportSection from '@/components/SupportSection';
 
 export const metadata: Metadata = {
-  title: 'About CalcCrypto — Free Crypto Calculator Suite | CalcCrypto',
+  title: 'About CalcCrypto: Free Crypto Calculator Suite',
   description:
     'CalcCrypto is a free, privacy-first crypto calculator platform. No accounts, no hype, no financial advice — just deterministic calculations for P&L, DCA, staking, mining, position sizing, liquidity impact, and tax estimates.',
   alternates: { canonical: 'https://www.calccrypto.com/about' },
   openGraph: {
-    title: 'About CalcCrypto — Privacy-First Crypto Calculator Platform',
+    title: 'About CalcCrypto: Privacy-First Crypto Calculator Platform',
     description:
       'Transparent, deterministic crypto calculators. No accounts. No wallets. No advice.',
     url: 'https://www.calccrypto.com/about',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About CalcCrypto — Privacy-First Crypto Calculator Platform',
+    title: 'About CalcCrypto: Privacy-First Crypto Calculator Platform',
     description:
       'Transparent, deterministic crypto calculators. No accounts. No wallets. No advice.',
   },

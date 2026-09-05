@@ -264,6 +264,7 @@ export function StakingClient() {
 
           {result !== null && (
             <CalculatorCTA
+          source="staking"
               headline="Looking for the best yields?"
               body="Compare live staking APYs across top platforms to maximize your passive income."
               buttonText="Compare Staking Yields"

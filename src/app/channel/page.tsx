@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { JsonLd } from '@/components/seo/JsonLd';
 
 const channelUrl = 'https://www.youtube.com/@CalcCrypto';
-const title = 'CalcCrypto YouTube Channel — White Paper Reviews & Crypto Analysis';
+const title = 'CalcCrypto YouTube: White Paper Reviews';
 const description =
   'CalcCrypto reads the white papers so you do not have to: no price predictions, no hype, just honest crypto deep dives, protocol reviews, and project analysis backed by real numbers and free calculator tools.';
 

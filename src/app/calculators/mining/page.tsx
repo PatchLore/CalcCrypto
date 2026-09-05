@@ -5,11 +5,11 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { TrustBadge } from "@/components/ui/TrustBadge";
 
 export const metadata: Metadata = {
-  title: 'Crypto Mining Profitability Calculator — Hashrate & Electricity Cost | CalcCrypto',
+  title: 'Crypto Mining Profitability Calculator | CalcCrypto',
   description: 'Calculate cryptocurrency mining profitability with our free mining calculator. Enter hashrate, power consumption in watts, electricity cost per kWh, pool fees and coin price to estimate daily, weekly and monthly profit. Supports Bitcoin ASIC and GPU mining. Free, no signup required.',
   alternates: { canonical: 'https://www.calccrypto.com/calculators/mining' },
   openGraph: {
-    title: 'Crypto Mining Profitability Calculator — Hashrate & Power Cost Estimator',
+    title: 'Crypto Mining Profitability Calculator: Hashrate & Power Cost Estimator',
     description: 'Estimate mining profitability, power costs, pool fees and ROI for Bitcoin and PoW coins. Free educational calculator.',
     url: 'https://www.calccrypto.com/calculators/mining',
     siteName: 'CalcCrypto',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Mining Profitability Calculator — Hashrate & Electricity Cost',
+    title: 'Crypto Mining Profitability Calculator: Hashrate & Electricity Cost',
     description: 'Calculate mining profitability, electricity costs and expected returns instantly. Free, no signup.',
   },
 };

@@ -6,7 +6,7 @@ import { TrustBadge } from '@/components/ui/TrustBadge';
 
 export const metadata: Metadata = {
   title: 'Liquidity Impact Calculator | CalcCrypto',
-  description: 'Estimate slippage and liquidity risk before entering crypto trades. Free tool — enter trade size and 24h volume to get market impact, entry/exit slippage, and a 0–100 liquidity risk score.',
+  description: 'Estimate slippage and liquidity risk before entering crypto trades. Free tool: enter trade size and 24h volume to get market impact, entry/exit slippage, and a 0–100 liquidity risk score.',
   alternates: { canonical: 'https://www.calccrypto.com/liquidity-impact-calculator' },
   openGraph: {
     title: 'Liquidity Impact Calculator | CalcCrypto',

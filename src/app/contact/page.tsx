@@ -1,6 +1,29 @@
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact CalcCrypto: Feedback & Calculator Requests',
+  description:
+    'Get in touch with CalcCrypto about calculator requests, corrections, bug reports, sponsorship or enterprise use. We reply to every message.',
+  alternates: { canonical: 'https://www.calccrypto.com/contact' },
+  openGraph: {
+    title: 'Contact CalcCrypto: Feedback & Calculator Requests',
+    description:
+      'Get in touch with CalcCrypto about calculator requests, corrections, bug reports, sponsorship or enterprise use. We reply to every message.',
+    url: 'https://www.calccrypto.com/contact',
+    siteName: 'CalcCrypto',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact CalcCrypto: Feedback & Calculator Requests',
+    description:
+      'Get in touch with CalcCrypto about calculator requests, corrections, bug reports, sponsorship or enterprise use. We reply to every message.',
+  },
+};
+
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-crypto-background">

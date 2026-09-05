@@ -68,6 +68,6 @@ We are continuing to expand the calculator suite with several tools in active de
 
 CalcCrypto Stays Free
 
-Every tool on CalcCrypto is completely free, requires no account, and stores nothing on our servers. Calculator inputs stay in your browser using local state; they disappear when you close the tab. We do not connect to wallets, we do not give financial advice, and we do not track you across the web. Our mission remains simple: give you the maths, clearly, so you can make your own informed decisions.
+Every tool on CalcCrypto is completely free and requires no account. Calculator inputs stay in your browser using local state; they disappear when you close the tab and are never sent to our servers. We do not connect to wallets and we do not give financial advice. The site runs anonymous usage analytics and a single clearly labelled ad unit, and we never sell your data. Our mission remains simple: give you the maths, clearly, so you can make your own informed decisions.
 
 *CalcCrypto is a global educational platform. All outputs are estimates based on public data. This is not financial, tax or legal advice. Consult a licensed professional before making decisions.*

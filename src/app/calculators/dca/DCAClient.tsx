@@ -287,6 +287,7 @@ export function DCAClient() {
 
           {result !== null && (
             <CalculatorCTA
+          source="dca"
               headline="Automate your strategy"
               body="Set up recurring buys and invest consistently without the stress of timing the market."
               buttonText="Set Up Auto-Invest"

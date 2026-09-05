@@ -4,13 +4,14 @@ import { DCAClient } from './DCAClient';
 import { JsonLd } from "@/components/seo/JsonLd";
 import { TrustBadge } from "@/components/ui/TrustBadge";
 import { AFFILIATE_LINKS } from '@/lib/constants';
+import { AffiliateLink } from '@/components/ui/AffiliateLink';
 
 export const metadata: Metadata = {
-  title: 'Crypto DCA Calculator — Dollar Cost Averaging Returns & Average Buy Price | CalcCrypto',
+  title: 'Crypto DCA Calculator: Average Buy Price | CalcCrypto',
   description: 'Calculate your crypto dollar cost averaging returns with our free DCA calculator. See total invested, average buy price, current value, profit and ROI for any monthly investment strategy. Supports Bitcoin, Ethereum and altcoins. Instant, no signup required.',
   alternates: { canonical: 'https://www.calccrypto.com/calculators/dca' },
   openGraph: {
-    title: 'Crypto DCA Calculator — Dollar Cost Averaging Returns & Average Price',
+    title: 'Crypto DCA Calculator: Dollar Cost Averaging Returns & Average Price',
     description: 'See exactly what dollar cost averaging into crypto returns over any period with total invested, coins acquired and profit.',
     url: 'https://www.calccrypto.com/calculators/dca',
     siteName: 'CalcCrypto',
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto DCA Calculator — Dollar Cost Averaging Returns',
+    title: 'Crypto DCA Calculator: Dollar Cost Averaging Returns',
     description: 'Calculate your crypto DCA strategy returns, average cost price and profit instantly. Free, no signup.',
   },
 }
@@ -238,16 +239,15 @@ export default function DCACalculator() {
                 every transaction.
               </p>
               
-              <a
+              <AffiliateLink
                 href={AFFILIATE_LINKS.koinly}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
+                source="dca"
                 className="inline-flex items-center gap-2 text-sm 
                            font-medium text-green-500 
                            hover:text-green-400 transition-colors"
               >
                 Try Koinly free →
-              </a>
+              </AffiliateLink>
               <span className="text-xs text-crypto-muted-foreground 
                                ml-2">
                 (affiliate link)

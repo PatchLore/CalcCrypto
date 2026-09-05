@@ -4,13 +4,14 @@ import { ProfitLossClient } from './ProfitLossClient';
 import { JsonLd } from "@/components/seo/JsonLd";
 import { TrustBadge } from "@/components/ui/TrustBadge";
 import { AFFILIATE_LINKS } from '@/lib/constants';
+import { AffiliateLink } from '@/components/ui/AffiliateLink';
 
 export const metadata: Metadata = {
-  title: 'Crypto Profit and Loss Calculator | ROI & Break-Even Price | CalcCrypto',
-  description: 'Calculate crypto trade profit and loss with fees. Free P&L calculator — enter buy price, sell price, quantity and trading fees to see net profit, ROI percentage and break-even price. Supports BTC, ETH and any cryptocurrency. No signup required.',
+  title: 'Crypto Profit and Loss Calculator: ROI | CalcCrypto',
+  description: 'Calculate crypto trade profit and loss with fees. Free P&L calculator: enter buy price, sell price, quantity and trading fees to see net profit, ROI percentage and break-even price. Supports BTC, ETH and any cryptocurrency. No signup required.',
   alternates: { canonical: 'https://www.calccrypto.com/calculators/profit-loss' },
   openGraph: {
-    title: 'Crypto Profit and Loss Calculator — ROI & Break-Even Price Calculator',
+    title: 'Crypto Profit and Loss Calculator: ROI & Break-Even Price Calculator',
     description: 'Instant crypto trade P&L with fee deduction. Free educational estimates for BTC, ETH and altcoin trades.',
     url: 'https://www.calccrypto.com/calculators/profit-loss',
     siteName: 'CalcCrypto',
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Profit and Loss Calculator — ROI & Break-Even Price',
+    title: 'Crypto Profit and Loss Calculator: ROI & Break-Even Price',
     description: 'Calculate crypto trade profit, loss, fees and break-even price instantly. Free, no signup.',
   },
 }
@@ -236,16 +237,15 @@ export default function ProfitLossCalculator() {
                 automatically.
               </p>
               
-              <a
+              <AffiliateLink
                 href={AFFILIATE_LINKS.koinly}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
+                source="profit-loss"
                 className="inline-flex items-center gap-2 text-sm 
                            font-medium text-green-500 
                            hover:text-green-400 transition-colors"
               >
                 Try Koinly free →
-              </a>
+              </AffiliateLink>
               <span className="text-xs text-crypto-muted-foreground 
                                ml-2">
                 (affiliate link)

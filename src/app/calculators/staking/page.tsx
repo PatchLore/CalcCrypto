@@ -5,11 +5,11 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { TrustBadge } from "@/components/ui/TrustBadge";
 
 export const metadata: Metadata = {
-  title: 'Crypto Staking Rewards Calculator — APY Yield & Compound Interest | CalcCrypto',
-  description: 'Calculate crypto staking rewards with compound interest. Free staking calculator — enter your stake amount, APY rate, duration and compounding frequency (daily, weekly, monthly, yearly) to estimate total rewards and final balance. Supports Ethereum, Solana, Cardano and more. Instant, no signup required.',
+  title: 'Crypto Staking Calculator: APY & Compounding | CalcCrypto',
+  description: 'Calculate crypto staking rewards with compound interest. Free staking calculator: enter your stake amount, APY rate, duration and compounding frequency (daily, weekly, monthly, yearly) to estimate total rewards and final balance. Supports Ethereum, Solana, Cardano and more. Instant, no signup required.',
   alternates: { canonical: 'https://www.calccrypto.com/calculators/staking' },
   openGraph: {
-    title: 'Crypto Staking Rewards Calculator — APY Yield & Compound Interest Estimator',
+    title: 'Crypto Staking Rewards Calculator: APY Yield & Compound Interest Estimator',
     description: 'Estimate staking rewards with compound interest for any crypto. Daily, weekly, monthly or yearly compounding. Free educational tool.',
     url: 'https://www.calccrypto.com/calculators/staking',
     siteName: 'CalcCrypto',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Staking Rewards Calculator — APY Yield Estimator',
+    title: 'Crypto Staking Rewards Calculator: APY Yield Estimator',
     description: 'Calculate staking rewards, compound interest and APY returns instantly. Free, no signup.',
   },
 };

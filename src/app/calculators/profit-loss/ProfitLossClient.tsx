@@ -257,6 +257,7 @@ export function ProfitLossClient() {
 
           {result && isProfit && (
             <CalculatorCTA
+          source="profit-loss"
               headline="Taking profits?"
               body="Make sure you're tracking your whole portfolio in one place to maximize your returns."
               buttonText="Track Your Portfolio"

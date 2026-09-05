@@ -3,11 +3,11 @@ import { TradeDecisionFlow } from './TradeDecisionFlow';
 import { JsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Trade Decision Flow — Combined Risk & Liquidity Assessment | CalcCrypto',
+  title: 'Trade Decision Flow: Risk & Liquidity Check | CalcCrypto',
   description: 'A step-by-step trader workflow combining position sizing, liquidity analysis, and risk context. Evaluate whether a trade is worth taking with our free decision support tool.',
   alternates: { canonical: 'https://www.calccrypto.com/trade-decision-flow' },
   openGraph: {
-    title: 'Trade Decision Flow — Crypto Trade Evaluation Tool',
+    title: 'Trade Decision Flow: Crypto Trade Evaluation Tool',
     description: 'Step-by-step trade evaluation: position sizing → liquidity check → execution feasibility. Free, no signup.',
     url: 'https://www.calccrypto.com/trade-decision-flow',
     siteName: 'CalcCrypto',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trade Decision Flow — Crypto Trade Evaluation',
+    title: 'Trade Decision Flow: Crypto Trade Evaluation',
     description: 'Evaluate trades across risk, size, and liquidity in one guided workflow.',
   },
 }

@@ -1,6 +1,29 @@
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service | CalcCrypto',
+  description:
+    'The terms covering use of the free CalcCrypto cryptocurrency calculators. Educational estimates only, not financial, tax or legal advice.',
+  alternates: { canonical: 'https://www.calccrypto.com/terms' },
+  openGraph: {
+    title: 'Terms of Service | CalcCrypto',
+    description:
+      'The terms covering use of the free CalcCrypto cryptocurrency calculators. Educational estimates only, not financial, tax or legal advice.',
+    url: 'https://www.calccrypto.com/terms',
+    siteName: 'CalcCrypto',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Service | CalcCrypto',
+    description:
+      'The terms covering use of the free CalcCrypto cryptocurrency calculators. Educational estimates only, not financial, tax or legal advice.',
+  },
+};
+
 export default function TermsOfServicePage() {
   return (
     <div className="min-h-screen bg-crypto-background">

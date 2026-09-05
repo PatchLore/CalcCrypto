@@ -1,6 +1,29 @@
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | CalcCrypto',
+  description:
+    'How CalcCrypto handles your data. Calculations run in your browser, we do not store calculator inputs, and we collect only anonymous usage analytics.',
+  alternates: { canonical: 'https://www.calccrypto.com/privacy' },
+  openGraph: {
+    title: 'Privacy Policy | CalcCrypto',
+    description:
+      'How CalcCrypto handles your data. Calculations run in your browser, we do not store calculator inputs, and we collect only anonymous usage analytics.',
+    url: 'https://www.calccrypto.com/privacy',
+    siteName: 'CalcCrypto',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy | CalcCrypto',
+    description:
+      'How CalcCrypto handles your data. Calculations run in your browser, we do not store calculator inputs, and we collect only anonymous usage analytics.',
+  },
+};
+
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-crypto-background">

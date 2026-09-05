@@ -6,12 +6,12 @@ import { logger } from '@/lib/logger';
 import { JsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Crypto Blog & Insights — Calculator Guides & Market Context | CalcCrypto',
+  title: 'Crypto Blog & Insights: Calculator Guides | CalcCrypto',
   description:
     'Read CalcCrypto\'s educational blog covering crypto calculator tutorials, position sizing guides, DCA strategy explainers, tax insights, and honest white paper reviews. No hype, no price predictions.',
   alternates: { canonical: 'https://www.calccrypto.com/blog' },
   openGraph: {
-    title: 'Crypto Blog & Insights — Educational Content from CalcCrypto',
+    title: 'Crypto Blog & Insights: Educational Content from CalcCrypto',
     description:
       'Calculator guides, trading context, and crypto education. No hype, no price predictions.',
     url: 'https://www.calccrypto.com/blog',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Blog & Insights — Educational Content from CalcCrypto',
+    title: 'Crypto Blog & Insights: Educational Content from CalcCrypto',
     description:
       'Calculator guides, trading context, and crypto education. No hype, no price predictions.',
   },

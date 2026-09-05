@@ -351,6 +351,7 @@ export function TaxClient() {
 
       {result && result.estimatedTax > 0 && (
         <CalculatorCTA
+          source="tax"
           headline="Dreading crypto tax season?"
           body="Let Koinly automatically track your wallets and generate compliant tax reports."
           buttonText="Automate with Koinly"
