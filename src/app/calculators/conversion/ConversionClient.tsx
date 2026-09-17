@@ -1,10 +1,11 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
+import { ShareResult } from '@/components/ShareResult';
 
 type CurrencyOption =
   | { type: 'fiat'; code: 'USD' | 'EUR' | 'GBP' | 'JPY' | 'AUD' | 'CAD' }
@@ -90,6 +91,7 @@ export function ConversionClient() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<ConversionResult | null>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const parsedAmount = parseFloat(amount);
 
@@ -372,7 +374,7 @@ export function ConversionClient() {
                 )}
 
                 {result && (
-                  <div className="space-y-6">
+                  <div ref={resultRef} className="space-y-6">
                     <div className="rounded-lg border border-crypto-border bg-crypto-background/40 p-5">
                       <div className="text-sm text-crypto-muted-foreground">Converted amount</div>
                       <div className="mt-1 text-3xl font-bold text-crypto-foreground">
@@ -390,6 +392,9 @@ export function ConversionClient() {
                       Rates are read-only and may be delayed.
                     </div>
                   </div>
+                )}
+                {result && (
+                  <ShareResult targetRef={resultRef} pagePath="/calculators/conversion" label="Conversion" />
                 )}
               </CardContent>
             </Card>

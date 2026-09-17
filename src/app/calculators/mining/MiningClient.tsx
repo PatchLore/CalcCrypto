@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
+import { ShareResult } from '@/components/ShareResult';
 import { calculateMining, formatCurrency, formatLargeNumber } from '@/lib/formulas';
 import { trackCalculatorCalculation, trackButtonClick } from '@/lib/analytics';
 import type { MiningInput } from '@/types';
@@ -20,6 +21,7 @@ export function MiningClient() {
   });
 
   const [result, setResult] = useState<ReturnType<typeof calculateMining> | null>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const handleInputChange = (field: keyof MiningInput, value: string) => {
     setInputs(prev => ({ ...prev, [field]: value }));
@@ -178,7 +180,7 @@ export function MiningClient() {
               </CardHeader>
               <CardContent>
                 {result ? (
-                  <div role="region" aria-live="polite" aria-label="Mining calculation results" className="space-y-6">
+                  <div ref={resultRef} role="region" aria-live="polite" aria-label="Mining calculation results" className="space-y-6">
                     {/* Main Result */}
                     <div className={`text-center p-6 rounded-lg ${
                       isProfitable
@@ -281,6 +283,9 @@ export function MiningClient() {
                     <div className="text-4xl mb-4">⛏️</div>
                     <p>Enter your mining parameters and click &quot;Calculate&quot; to see profitability analysis</p>
                   </div>
+                )}
+                {result && (
+                  <ShareResult targetRef={resultRef} pagePath="/calculators/mining" label="Mining" />
                 )}
               </CardContent>
             </Card>

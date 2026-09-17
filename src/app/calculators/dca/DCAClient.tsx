@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
+import { ShareResult } from '@/components/ShareResult';
 import { calculateDCA, formatCurrency, formatPercentage } from '@/lib/formulas';
 import { trackCalculatorCalculation, trackButtonClick } from '@/lib/analytics';
 import type { DCAInput } from '@/types';
@@ -19,6 +20,7 @@ export function DCAClient() {
   });
 
   const [result, setResult] = useState<ReturnType<typeof calculateDCA> | null>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const amount = parseFloat(inputs.amount) || 0;
   const timeframe = parseInt(inputs.timeframe) || 0;
@@ -174,7 +176,7 @@ export function DCAClient() {
               </CardHeader>
               <CardContent>
                 {result ? (
-                  <div role="region" aria-live="polite" aria-label="DCA calculation results" className="space-y-6">
+                  <div ref={resultRef} role="region" aria-live="polite" aria-label="DCA calculation results" className="space-y-6">
                     {/* Main Result */}
                     <div className={`text-center p-6 rounded-lg ${
                       isProfit
@@ -279,6 +281,9 @@ export function DCAClient() {
                     <div className="text-4xl mb-4">💰</div>
                     <p>Enter your DCA strategy details and click &quot;Calculate&quot; to see your results</p>
                   </div>
+                )}
+                {result && (
+                  <ShareResult targetRef={resultRef} pagePath="/calculators/dca" label="DCA" />
                 )}
               </CardContent>
             </Card>

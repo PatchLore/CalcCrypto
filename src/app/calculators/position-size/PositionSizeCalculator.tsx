@@ -1,9 +1,10 @@
 'use client';
 
-import { useMemo, useState, useEffect, useCallback } from 'react';
+import { useMemo, useRef, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
+import { ShareResult } from '@/components/ShareResult';
 import { TooltipIcon } from '@/components/ui/TooltipIcon';
 import { formatCurrency } from '@/lib/formulas';
 import { calculatePositionSize, parsePositionSizeInputs, formatTokenAmount, getAllocationCategory } from '@/lib/positionSize';
@@ -25,6 +26,7 @@ export function PositionSizeCalculator() {
   const parsed = useMemo(() => parsePositionSizeInputs(inputs), [inputs]);
 
   const result = useMemo(() => calculatePositionSize(parsed), [parsed]);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const entryStopError =
     parsed.entryPrice > 0 && parsed.stopLossPrice > 0 && parsed.entryPrice <= parsed.stopLossPrice;
@@ -284,7 +286,7 @@ export function PositionSizeCalculator() {
               </CardHeader>
               <CardContent>
                 {result ? (
-                  <div className="space-y-5 sm:space-y-6" role="region" aria-live="polite" aria-label="Position size calculation results">
+                  <div ref={resultRef} className="space-y-5 sm:space-y-6" role="region" aria-live="polite" aria-label="Position size calculation results">
                     <div className="p-5 sm:p-6 rounded-lg bg-crypto-muted border border-crypto-border">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="text-center">
@@ -442,6 +444,9 @@ export function PositionSizeCalculator() {
                     <div className="text-4xl mb-4">📏</div>
                     <p>Enter your account size, risk %, entry price, and stop loss to calculate position size</p>
                   </div>
+                )}
+                {result && (
+                  <ShareResult targetRef={resultRef} pagePath="/calculators/position-size" label="Position Size" />
                 )}
               </CardContent>
             </Card>

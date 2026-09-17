@@ -1,9 +1,10 @@
 'use client';
 
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
+import { ShareResult } from '@/components/ShareResult';
 import { TooltipIcon } from '@/components/ui/TooltipIcon';
 import { formatCurrency } from '@/lib/formulas';
 import { calculateMarketImpact, calculateSlippage } from '@/lib/liquidityCalculations';
@@ -62,6 +63,7 @@ export function LiquidityImpactCalculator({ initialTradeSize }: Props) {
   }, [marketImpact]);
 
   const hasResult = marketImpact && slippage;
+  const resultRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="min-h-screen">
@@ -161,7 +163,7 @@ export function LiquidityImpactCalculator({ initialTradeSize }: Props) {
               </CardHeader>
               <CardContent>
                 {hasResult ? (
-                  <div className="space-y-5 sm:space-y-6" role="region" aria-live="polite" aria-label="Liquidity impact results">
+                  <div ref={resultRef} className="space-y-5 sm:space-y-6" role="region" aria-live="polite" aria-label="Liquidity impact results">
                     <div className={`p-5 sm:p-6 rounded-lg border ${riskColor.bg} ${riskColor.border}`}>
                       <div className="text-center">
                         <div className="text-sm text-crypto-muted-foreground mb-1">Liquidity Risk Score</div>
@@ -256,6 +258,9 @@ export function LiquidityImpactCalculator({ initialTradeSize }: Props) {
                     <div className="text-4xl mb-4">🌊</div>
                     <p>Enter your trade size and the token&apos;s 24h volume to assess liquidity risk.</p>
                   </div>
+                )}
+                {hasResult && (
+                  <ShareResult targetRef={resultRef} pagePath="/liquidity-impact-calculator" label="Liquidity Impact" />
                 )}
               </CardContent>
             </Card>

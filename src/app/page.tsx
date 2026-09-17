@@ -64,12 +64,12 @@ export default function Home() {
             
             {/* Main Title */}
             <h1 className="text-4xl md:text-6xl font-black mb-10 leading-tight break-words" style={{ color: '#ffffff' }}>
-              Professional Crypto Calculators
+              Crypto calculators that never see your data.
             </h1>
             
             {/* Subtitle */}
             <p className="text-lg mb-10 max-w-3xl mx-auto leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-              Track profits, plan strategies, and calculate rewards.
+              100% client-side. Zero ads, zero tracking, zero wallet connections — your numbers never leave your browser.
             </p>
 
             {/* CTA Buttons */}
@@ -160,6 +160,71 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Trust Strip — directly under the hero CTA, above the calculator cards */}
+          <div className="mb-10 mx-auto w-full" style={{ maxWidth: '1000px' }}>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <div
+                className="rounded-2xl border text-center"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.12)',
+                  borderColor: 'rgba(255, 255, 255, 0.2)',
+                  padding: '20px 12px'
+                }}
+              >
+                <div className="text-3xl mb-2" aria-hidden="true">🛡️</div>
+                <div className="font-bold text-base" style={{ color: '#ffffff' }}>100% Private</div>
+                <div className="text-xs mt-1" style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
+                  No signup, no tracking
+                </div>
+              </div>
+              <div
+                className="rounded-2xl border text-center"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.12)',
+                  borderColor: 'rgba(255, 255, 255, 0.2)',
+                  padding: '20px 12px'
+                }}
+              >
+                <div className="text-3xl mb-2" aria-hidden="true">🚫</div>
+                <div className="font-bold text-base" style={{ color: '#ffffff' }}>Zero Ads</div>
+                <div className="text-xs mt-1" style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
+                  Clean, uninterrupted interface
+                </div>
+              </div>
+              <div
+                className="rounded-2xl border text-center"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.12)',
+                  borderColor: 'rgba(255, 255, 255, 0.2)',
+                  padding: '20px 12px'
+                }}
+              >
+                <div className="text-3xl mb-2" aria-hidden="true">💻</div>
+                <div className="font-bold text-base" style={{ color: '#ffffff' }}>Client-Side</div>
+                <div className="text-xs mt-1" style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
+                  Your data never leaves your device
+                </div>
+              </div>
+              <div
+                className="rounded-2xl border text-center"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.12)',
+                  borderColor: 'rgba(255, 255, 255, 0.2)',
+                  padding: '20px 12px'
+                }}
+              >
+                <div className="text-3xl mb-2" aria-hidden="true">🔌</div>
+                <div className="font-bold text-base" style={{ color: '#ffffff' }}>No Wallet</div>
+                <div className="text-xs mt-1" style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
+                  Read-only, no connection required
+                </div>
+              </div>
+            </div>
+            <p className="text-center text-xs mt-4" style={{ color: 'rgba(255, 255, 255, 0.6)' }}>
+              Educational estimates only · Not financial advice
+            </p>
+          </div>
+
           {/* Calculator Cards Section */}
           <div className="mt-6 mx-auto w-full" style={{ maxWidth: '1200px' }}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
@@ -203,46 +268,6 @@ export default function Home() {
                 </Link>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Additional Features Section */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <div 
-              className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4"
-              style={{ background: 'rgba(255, 255, 255, 0.2)' }}
-            >
-              ⚡
-            </div>
-            <h4 className="font-bold text-xl mb-3" style={{ color: '#ffffff' }}>Fast & Accurate</h4>
-            <p style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-              Real-time calculations with precision down to the smallest decimal places.
-            </p>
-          </div>
-          <div className="text-center">
-            <div 
-              className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4"
-              style={{ background: 'rgba(255, 255, 255, 0.2)' }}
-            >
-              🔒
-            </div>
-            <h4 className="font-bold text-xl mb-3" style={{ color: '#ffffff' }}>Privacy First</h4>
-            <p style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-              All calculations are performed locally. Your data never leaves your device.
-            </p>
-          </div>
-          <div className="text-center">
-            <div 
-              className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4"
-              style={{ background: 'rgba(255, 255, 255, 0.2)' }}
-            >
-              📱
-            </div>
-            <h4 className="font-bold text-xl mb-3" style={{ color: '#ffffff' }}>Mobile Ready</h4>
-            <p style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-              Responsive design that works perfectly on all devices and screen sizes.
-            </p>
           </div>
         </div>
 

@@ -1,11 +1,12 @@
 'use client';
 
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { CalculatorCTA } from '@/components/ui/CalculatorCTA';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
+import { ShareResult } from '@/components/ShareResult';
 import { calculateProfitLoss, formatCurrency, formatPercentage } from '@/lib/formulas';
 import { trackCalculatorCalculation, trackButtonClick } from '@/lib/analytics';
 import { isPhase2Enabled } from '@/features/phase2/config';
@@ -25,6 +26,7 @@ export function ProfitLossClient() {
   });
 
   const [result, setResult] = useState<ReturnType<typeof calculateProfitLoss> | null>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const handleInputChange = (field: keyof ProfitLossInput, value: string) => {
     setInputs(prev => ({ ...prev, [field]: value }));
@@ -167,7 +169,7 @@ export function ProfitLossClient() {
               </CardHeader>
               <CardContent>
                 {result ? (
-                  <div role="region" aria-live="polite" aria-label="Profit/Loss calculation results" className="space-y-6">
+                  <div ref={resultRef} role="region" aria-live="polite" aria-label="Profit/Loss calculation results" className="space-y-6">
                     {/* Main Result */}
                     <div className={`text-center p-6 rounded-lg ${
                       isProfit
@@ -250,6 +252,9 @@ export function ProfitLossClient() {
                     <div className="text-4xl mb-4">🧮</div>
                     <p>Enter your trading details and click &quot;Calculate&quot; to see your results</p>
                   </div>
+                )}
+                {result && (
+                  <ShareResult targetRef={resultRef} pagePath="/calculators/profit-loss" label="Profit/Loss" />
                 )}
               </CardContent>
              </Card>

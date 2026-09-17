@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { CalculatorCTA } from '@/components/ui/CalculatorCTA';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
+import { ShareResult } from '@/components/ShareResult';
 import { calculateStaking, formatCurrency, formatPercentage } from '@/lib/formulas';
 import { trackCalculatorCalculation, trackButtonClick } from '@/lib/analytics';
 import type { StakingInput } from '@/types';
@@ -19,6 +20,7 @@ export function StakingClient() {
   });
 
   const [result, setResult] = useState<ReturnType<typeof calculateStaking> | null>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const handleInputChange = (field: keyof StakingInput, value: string) => {
     setInputs(prev => ({ ...prev, [field]: value }));
@@ -170,7 +172,7 @@ export function StakingClient() {
               </CardHeader>
               <CardContent>
                 {result ? (
-                  <div role="region" aria-live="polite" aria-label="Staking calculation results" className="space-y-6">
+                  <div ref={resultRef} role="region" aria-live="polite" aria-label="Staking calculation results" className="space-y-6">
                     {/* Main Result */}
                     <div className="text-center p-6 rounded-lg bg-crypto-success-50 dark:bg-crypto-success-950 border border-crypto-success-200 dark:border-crypto-success-800">
                        <div className="text-2xl font-bold mb-2">🏦 Estimated Total Rewards</div>
@@ -257,6 +259,9 @@ export function StakingClient() {
                     <div className="text-4xl mb-4">🏦</div>
                     <p>Enter your staking details and click &quot;Calculate&quot; to see your potential rewards</p>
                   </div>
+                )}
+                {result && (
+                  <ShareResult targetRef={resultRef} pagePath="/calculators/staking" label="Staking" />
                 )}
               </CardContent>
             </Card>

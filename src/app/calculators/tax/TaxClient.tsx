@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '../../../components/ui/Button';
 import { Input } from '../../../components/ui/Input';
 import { CalculatorCTA } from '../../../components/ui/CalculatorCTA';
@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../..
 import { calculateCGT } from '../../../lib/calcEngine';
 import { formatCurrency, formatPercentage } from '../../../lib/formulas';
 import { AFFILIATE_LINKS } from '../../../lib/constants';
+import { ShareResult } from '../../../components/ShareResult';
 
 type Jurisdiction = 'UK' | 'US' | 'AU' | 'EU';
 type TaxRate = 'basic' | 'higher';
@@ -26,6 +27,7 @@ export function TaxClient() {
   const [jurisdiction, setJurisdiction] = useState<Jurisdiction>('UK');
   const [taxRate, setTaxRate] = useState<TaxRate>('basic');
   const [result, setResult] = useState<ReturnType<typeof calculateCGT> | null>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
   const [error, setError] = useState('');
 
   const handleCalculate = () => {
@@ -219,6 +221,7 @@ export function TaxClient() {
           <CardContent>
             {result ? (
               <div 
+                ref={resultRef}
                 role="region"
                 aria-live="polite"
                 aria-label="Tax calculation results"
@@ -344,6 +347,9 @@ export function TaxClient() {
                   to see your estimated tax liability
                 </p>
               </div>
+            )}
+            {result && (
+              <ShareResult targetRef={resultRef} pagePath="/calculators/tax" label="Tax" />
             )}
           </CardContent>
         </Card>
