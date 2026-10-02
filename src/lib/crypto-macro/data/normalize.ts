@@ -10,16 +10,31 @@ export function normalizePoints(input: unknown): Point[] {
   });
   return [...new Map(points.map(point => [point.date, point])).values()].sort((a, b) => a.date.localeCompare(b.date));
 }
+const ecbObservationDimensionSchema = z.object({
+  id: z.string(),
+  values: z.array(z.object({ id: z.string() })).optional(),
+});
+const ecbObservationSchema = z.union([z.number(), z.array(z.union([z.number(), z.null()]))]);
 export const ecbResponseSchema = z.object({
-  data: z.object({ dataSets: z.array(z.object({ series: z.record(z.string(), z.object({ observations: z.record(z.string(), z.number()) })) })) }),
-  meta: z.unknown().optional(),
+  dataSets: z
+    .array(z.object({ series: z.record(z.string(), z.object({ observations: z.record(z.string(), ecbObservationSchema) })) }))
+    .min(1),
+  structure: z
+    .object({ dimensions: z.object({ observation: z.array(ecbObservationDimensionSchema).min(1) }) })
+    .optional(),
 });
 export function normalizeEcbJson(input: unknown): Point[] {
   const parsed = ecbResponseSchema.safeParse(input);
   if (!parsed.success) return [];
-  const series = parsed.data.data.dataSets[0]?.series;
+  const series = parsed.data.dataSets[0]?.series;
   if (!series) return [];
+  const periods = parsed.data.structure?.dimensions.observation[0]?.values ?? [];
   const observations = Object.values(series)[0]?.observations ?? {};
-  return Object.entries(observations).map(([date, value]) => ({ date, value })).filter(point => pointSchema.safeParse(point).success);
+  const points = Object.entries(observations).map(([key, value]) => {
+    const raw = Array.isArray(value) ? value[0] : value;
+    const period = periods[Number(key)];
+    return { date: period ? period.id : key, value: typeof raw === 'number' ? raw : Number.NaN };
+  });
+  return normalizePoints(points);
 }
 
