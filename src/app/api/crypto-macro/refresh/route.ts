@@ -1,0 +1,4 @@
+import { NextResponse } from 'next/server';
+import { refreshEnabledSources } from '@/lib/crypto-macro/data/refresh';
+export const runtime = 'nodejs';
+export async function GET(request: Request) { if (!process.env.CRON_SECRET || request.headers.get('authorization') !== `Bearer ${process.env.CRON_SECRET}`) return NextResponse.json({ error: 'Unavailable' }, { status: 503 }); if (!process.env.CRYPTO_MACRO_DATABASE_URL || !process.env.CRYPTO_MACRO_DATABASE_URL_UNPOOLED) return NextResponse.json({ error: 'Unavailable' }, { status: 503 }); try { const result = await refreshEnabledSources(); return NextResponse.json({ ok: true, skipped: result.skipped, refreshed: result.refreshed.map(item => ({ id: item.id, count: item.points.length })), unavailable: result.unavailable }); } catch { return NextResponse.json({ error: 'Unavailable' }, { status: 503 }); } }

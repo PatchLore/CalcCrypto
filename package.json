@@ -8,7 +8,11 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "validate:content": "node scripts/validate-frontmatter.mjs"
+    "validate:content": "node scripts/validate-frontmatter.mjs",
+    "crypto-macro:test": "node --test scripts/crypto-macro/test-runner.cjs",
+    "crypto-macro:migrate": "node scripts/crypto-macro/run.cjs scripts/crypto-macro/migrate.ts",
+    "crypto-macro:refresh": "node scripts/crypto-macro/run.cjs scripts/crypto-macro/refresh-data.ts",
+    "crypto-macro:export-waitlist": "node scripts/crypto-macro/run.cjs scripts/crypto-macro/export-waitlist.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.2.0",
@@ -21,7 +25,8 @@
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
     "resend": "^6.8.0",
-    "tailwind-merge": "^3.3.1"
+    "tailwind-merge": "^3.3.1",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -1,0 +1,9 @@
+import { z } from 'zod';
+import { NextResponse } from 'next/server';
+import { CONSENT, CONSENT_VERSION } from '@/lib/crypto-macro/config';
+import { insertWaitlist, incrementRateLimit } from '@/lib/crypto-macro/db/repository';
+import { tryReadEnv } from '@/lib/crypto-macro/db/env';
+import { createHash } from 'node:crypto';
+const input = z.object({ email: z.string().trim().email().max(254), consent: z.literal(true), source: z.string().trim().max(40).default('dashboard'), website: z.string().max(0).optional().default('') });
+export const runtime = 'nodejs';
+export async function POST(request: Request) { try { const parsed = input.safeParse(await request.json()); if (!parsed.success) return NextResponse.json({ message: 'Please enter an email and tick the consent box.' }, { status: 400 }); if (parsed.data.website) return NextResponse.json({ message: 'Thanks.' }); const env = tryReadEnv(); if (!env.ok) return NextResponse.json({ message: 'Temporarily unavailable. Please try again later.' }, { status: 503 }); const secret = process.env.CRYPTO_MACRO_IP_HASH_SECRET; if (process.env.NODE_ENV === 'production' && !secret) return NextResponse.json({ message: 'Temporarily unavailable. Please try again later.' }, { status: 503 }); const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'; const ipHash = secret ? createHash('sha256').update(`${secret}:${ip}`).digest('hex') : null; if (await incrementRateLimit(`waitlist:${ipHash ?? ip}`) > 10) return NextResponse.json({ message: 'Please try again later.' }, { status: 429 }); const created = await insertWaitlist({ email: parsed.data.email.toLowerCase(), consentVersion: CONSENT_VERSION, consentWording: CONSENT, source: parsed.data.source, ipHash }); return NextResponse.json({ message: created ? 'You’re on the list.' : 'That email is already on the list.' }); } catch { return NextResponse.json({ message: 'Temporarily unavailable. Please try again later.' }, { status: 503 }); } }

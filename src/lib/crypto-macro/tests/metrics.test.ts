@@ -1,0 +1,28 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { align, drawdown, leadLag, pearson, rebase, returns, rolling, volatility } from '../calculations/metrics';
+import { macroAlignment } from '../macro-alignment';
+import { languageAllowed } from '../language-policy';
+import { formatMetric } from '../observations';
+import { fixtureSnapshot } from '../data/fixtures';
+import { fixturesAllowed } from '../config';
+import { assertDevelopmentDatabase, endpointFromUrl } from '../db/production-guard';
+import { ASSETS } from '../assets';
+import { ECB_SERIES } from '../data/providers/ecb';
+import { refreshLeaseActive } from '../db/repository';
+
+const points = (values: number[], start = 0) => values.map((value, index) => ({ date: new Date(Date.UTC(2024, 0, start + index + 1)).toISOString().slice(0, 10), value }));
+test('align uses dates present in every series', () => { const result = align([[{ date: '2024-01-01', value: 1 }, { date: '2024-01-02', value: 2 }], [{ date: '2024-01-02', value: 4 }, { date: '2024-01-03', value: 5 }]]); assert.deepEqual(result.dates, ['2024-01-02']); });
+test('returns skip non-positive and retain gaps', () => { assert.equal(returns(points([1, 2, 0, 4])).length, 1); assert.equal(returns(points([1, 2, 0, 4]), 'yield').length, 3); });
+test('pearson handles known relationship and constant series', () => { assert.equal(pearson([1, 2, 3], [2, 4, 6], 3).value, 1); assert.equal(pearson([1, 1, 1], [2, 3, 4], 3).value, null); });
+test('rolling produces aligned windows', () => { const a = Array.from({ length: 32 }, (_, i) => i + 1); const b = a.map(value => value * 2); const dates = a.map((_, i) => `2024-01-${String(i + 1).padStart(2, '0')}`); assert.equal(rolling(a, b, dates, 30).length, 3); });
+test('rebase and drawdown are deterministic', () => { assert.deepEqual(rebase(points([10, 12, 6])).map(p => p.value), [100,120,60]); assert.equal(drawdown(points([10,12,6])).maximum, -.5); });
+test('volatility requires its full window', () => { assert.equal(volatility(points([1,2,3]), true, 30).value, null); });
+test('unavailable metrics stay unavailable while genuine zero stays zero', () => { assert.equal(formatMetric(null), 'Unavailable'); assert.equal(formatMetric(0), '0.00'); });
+test('lead lag finds a valid best association', () => { const a = Array.from({ length: 40 }, (_, i) => i + 1); const result = leadLag(a, a, 2); assert.ok(result.best); });
+test('language policy avoids substring false positives and rejects advice', () => { assert.equal(languageAllowed('belong along shortly'), true); assert.equal(languageAllowed('you should buy this'), false); assert.equal(languageAllowed('not a trading signal', true), true); });
+test('fixtures are visibly development-only and production isolated', () => { assert.equal(fixtureSnapshot().development, true); assert.equal(fixturesAllowed({ CRYPTO_MACRO_USE_FIXTURES: 'true', NODE_ENV: 'production', VERCEL_ENV: 'production' }), false); assert.equal(fixturesAllowed({ CRYPTO_MACRO_USE_FIXTURES: 'true', NODE_ENV: 'development', VERCEL_ENV: 'development' }), true); });
+test('production endpoint guard recognises pooled and direct URLs', () => { const base = 'ep-divine-heart-b76p08w0'; assert.equal(endpointFromUrl(`postgresql://u:p@${base}-pooler.us-east-1.aws.neon.tech/db`), base); assert.equal(endpointFromUrl(`postgresql://u:p@${base}.us-east-1.aws.neon.tech/db`), base); assert.throws(() => assertDevelopmentDatabase({ CRYPTO_MACRO_DB_ENV: 'development', CRYPTO_MACRO_DATABASE_URL: `postgresql://u:p@${base}-pooler.us-east-1.aws.neon.tech/db`, CRYPTO_MACRO_DATABASE_URL_UNPOOLED: `postgresql://u:p@${base}.us-east-1.aws.neon.tech/db` })); assert.doesNotThrow(() => assertDevelopmentDatabase({ CRYPTO_MACRO_DB_ENV: 'development', CRYPTO_MACRO_DATABASE_URL: 'postgresql://u:p@ep-safe.us-east-1.aws.neon.tech/db', CRYPTO_MACRO_DATABASE_URL_UNPOOLED: 'postgresql://u:p@ep-safe.us-east-1.aws.neon.tech/db' })); });
+test('macro alignment has no eligible relationship for short data', () => { const snapshot = fixtureSnapshot(); const short = snapshot.series.map(s => ({ ...s, points: s.points.slice(0, 10) })); assert.equal(macroAlignment(short).available, 0); });
+test('enabled ECB assets match provider series', () => { const enabled = ASSETS.filter(asset => asset.provider === 'ECB statistics' && asset.enabled).map(asset => asset.id).sort(); assert.deepEqual(enabled, Object.keys(ECB_SERIES).sort()); });
+test('refresh lease rejects active leases and accepts expired or missing leases', () => { const now = new Date('2026-10-02T00:00:00.000Z'); assert.equal(refreshLeaseActive('2026-10-02T00:10:00.000Z', now), true); assert.equal(refreshLeaseActive('2026-10-01T23:59:00.000Z', now), false); assert.equal(refreshLeaseActive(null, now), false); });
